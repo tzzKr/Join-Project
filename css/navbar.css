@@ -60,3 +60,53 @@
     margin-bottom: 25px;
     cursor: pointer;
 }
+
+.headerBottom {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.headerBottom a {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+    color: #D8D8D8;
+    transition: all 100ms ease-in-out;
+}
+
+.headerBottom a:hover {
+    transition: all 100ms ease-in-out;
+    border-left: 8px solid white;
+}
+
+.headerResponsive {
+    display: none;
+}
+
+#activeUser {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#activeUser img {
+    border: 1px solid white;
+    border-radius: 40px;
+    padding: 3px;
+    width: 45px;
+}
+
+#activeUser p {
+    margin: 8px;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 16px;
+}

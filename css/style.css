@@ -1,0 +1,12 @@
+/**                                            general style                                            **/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+    font-family: 'open Sans', sans-serif;
+}

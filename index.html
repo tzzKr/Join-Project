@@ -10,35 +10,12 @@
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="icon" href="img/joinlogo.png">
+    <script src="./javaScript/script.js"></script>
     <title>Join</title>
 </head>
 
-<body>
-    <div class="header" id="header">
-        <div class="headerTop">
-            <a href="index.html">
-                <img src="img/logo.png">
-            </a>
-            <div class="navbar">
-                <div>
-                    <a href="board.html">Board</a>
-                </div>
-                <div>
-                    <a href="backlog.html">Backlog</a>
-                </div>
-                <div>
-                    <a href="addTask.html">Add Task</a>
-                </div>
-                <hr style="width: 70%; margin: 1.5em;">
-                <div>
-                    <a href="imprint.html" target="_blank">About</a>
-                </div>
-                <div>
-                    <a href="privacy.html" target="_blank">Privacy</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<body onload="includeHTML()">
+    <div w3-include-html="header.html"></div>
 
 </body>
 

@@ -9,4 +9,262 @@ body {
     width: 100%;
     height: fit-content;
     font-family: 'open Sans', sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(240, 240, 240);
+}
+
+button {
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.disable {
+    pointer-events: none;
+}
+
+.d-none {
+    display: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(32, 49, 146);
+    border-radius: 10px;
+}
+
+
+/* -----------------------------------startpage---------------------------------------------------- */
+
+.startpage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    margin-top: 10px;
+    width: 60%;
+    text-align: center;
+}
+
+.text p {
+    color: #575757;
+    margin-top: 48px;
+    margin-bottom: 32px;
+    font-weight: bold;
+}
+
+.text span {
+    color: rgb(219, 0, 0);
+}
+
+.startheadline {
+    display: flex;
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: rgb(32, 49, 146);
+}
+
+.startheadline img {
+    object-fit: contain;
+    width: 50px;
+}
+
+.startMainpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50vh;
+    margin-bottom: 64px;
+}
+
+.borderOutline {
+    border-bottom: 1px solid #929292 !important;
+}
+
+.logo {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 2;
+    font-size: 14px !important;
+}
+
+.logo-links {
+    width: 110px;
+    background-color: #203192;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.logo-links img {
+    height: 50px;
+    width: auto;
+}
+
+.logo-links-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 75ms ease-in-out;
+    width: 60px;
+}
+
+.logo-links-right a:hover {
+    padding-left: 5px;
+    border-left: 4px solid white;
+    transition: all 75ms ease-in-out;
+}
+
+.colorSpan {
+    color: #575757 !important;
+    font-size: 16px;
+}
+
+.colorSpan:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: absolute;
+    bottom: 24px;
+}
+
+@media(max-width: 680px) {
+    .text p {
+        margin-top: 32px;
+        margin-bottom: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    .login {
+        width: 70%;
+    }
+}
+
+@media (max-height: 610px) {
+    .startheadline {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+    .login {
+        width: 90%;
+    }
+}
+
+@media(max-width: 480px) {
+    .text {
+        font-size: 13px;
+        width: 90%;
+        margin-top: 10px;
+    }
+    .startMainpage {
+        justify-content: center;
+    }
+    .colorSpan {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 430px) {
+    .startheadline h1 {
+        font-size: 26px;
+    }
+    .text p {
+        font-size: 14px;
+    }
+    .text span {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 370px) {
+    .startheadline {
+        top: 16px;
+    }
+    .startheadline img {
+        display: none;
+    }
+    .startheadline h1 {
+        text-align: center;
+    }
+    .startMainpage {
+        height: 63vh;
+    }
+}
+
+@media(max-width: 315px) {
+    .login {
+        width: 85%;
+    }
+}
+
+
+/* -----------------------------------Page Headline---------------------------------------------------- */
+
+.headline {
+    margin-top: 2%;
+    margin-left: 150px;
+}
+
+.headline h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.headline span {
+    color: #203192;
+}
+
+
+/* -----------------------------------Help---------------------------------------------------- */
+
+.helpMainpage {
+    margin-left: 150px;
+    color: rgb(230, 230, 230);
+}
+
+.helpMainpage div {
+    background-color: rgba(32, 49, 146, 0.7);
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 16px;
+    width: 90%;
 }

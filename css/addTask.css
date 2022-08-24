@@ -1,0 +1,191 @@
+/*                                     AddTask                                        */
+
+.addTaskBg {
+    background-color: #F4F2FB;
+    margin-left: 150px;
+    margin-top: 16px;
+    height: 82.5vh;
+    width: calc(100% - 170px);
+    border-radius: 15px;
+}
+
+.addTask {
+    display: flex;
+    height: 100%;
+}
+
+.addTask h3 {
+    text-transform: uppercase;
+    color: #203192;
+    font-size: 14px;
+}
+
+.addTask input {
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 24px;
+    width: 90%;
+    padding: 5px;
+    color: #575757;
+}
+
+.columnLeft {
+    width: calc(50% - 64px);
+    margin: 4px 32px;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.columnRight {
+    width: calc(50% - 64px);
+    margin: 4px 32px;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    margin-bottom: 12px;
+}
+
+input[type="date" i] {
+    color: #575757;
+    cursor: pointer;
+}
+
+.addTask select {
+    outline: none;
+    border: 1px solid lightgray;
+    width: 93%;
+    height: 36px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #575757;
+    cursor: pointer;
+}
+
+.columnLeft textarea {
+    outline: none;
+    resize: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 90%;
+    height: 100%;
+    padding: 10px 5px;
+    color: #575757;
+}
+
+.editUserBacklog {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    overflow-x: auto;
+    height: 60px;
+}
+
+.assigneToAccount {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.editUserBacklog img {
+    border-radius: 100px;
+    border: 2px solid lightgray;
+}
+
+.assigneToAccount img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+#assignedAccount {
+    display: flex;
+    align-items: center;
+}
+
+#assignedAccount img {
+    border-radius: 100px;
+    margin-left: 8px;
+    border: 3px solid #2e66cf;
+    background-color: #2e66cf;
+}
+
+.container p {
+    color: rgb(204, 0, 0);
+    font-size: 14px;
+}
+
+#addUser {
+    width: 32px;
+    height: 32px;
+}
+
+.user {
+    display: flex;
+    width: 92%;
+    overflow: auto;
+    height: 75px;
+}
+
+.user img {
+    background-color: lightgray;
+    border-radius: 100%;
+    padding: 3px;
+    width: 45px !important;
+    height: 45px !important;
+    box-sizing: border-box;
+    cursor: pointer;
+    animation: scale-in 225ms ease-in-out;
+    transform-origin: 0%;
+}
+
+.user img:hover {
+    background-color: #2e66cf;
+}
+
+.showUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    transition: all 100ms ease-in-out;
+}
+
+.showUser p {
+    color: #575757;
+    margin: unset;
+    font-size: 12px;
+}
+
+.showUser:hover {
+    transform: scale(1.1);
+}
+
+.editUserButton {
+    color: #2e66cf;
+    font-size: 13px !important;
+    width: 70px;
+    cursor: pointer;
+    padding: unset;
+    text-align: left;
+}
+
+.editUserButton:hover {
+    color: #2e66cf;
+    transform: scale(1.1);
+    transition: all 100ms ease-in-out;
+}
+
+.addTask button {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 14px;
+}

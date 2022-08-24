@@ -1,5 +1,16 @@
 /*                                     AddTask                                        */
 
+body {
+    text-decoration:none;
+    box-sizing:border-box;
+    padding:0px;
+    margin:0px;
+    
+}
+textarea {
+    font-family: 'open Sans', sans-serif;
+}
+
 .addTaskBg {
     background-color: #F4F2FB;
     margin-left: 150px;
@@ -10,7 +21,7 @@
 }
 
 .addTask {
-    display: flex;
+    
     height: 100%;
 }
 
@@ -50,6 +61,7 @@
 
 .container {
     margin-bottom: 12px;
+    margin-right: 5%;
 }
 
 input[type="date" i] {
@@ -189,3 +201,49 @@ input[type="date" i] {
     margin-top: 8px;
     font-size: 14px;
 }
+
+.input1 {
+    height: 40px !important; 
+    width: 300px !important;
+    padding: 0 !important;
+}
+
+.descBox {
+    width: 300px;
+    height: 200px;
+    outline: none;
+    resize: none;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+/* Gerhard Css */
+
+
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.addTaskBg {
+    max-height: 1000px;
+    max-width: 1000px;
+    background-color: rgba(28, 1, 166, 0.1);
+    border-radius: 15px;
+   
+
+}
+.addTaskHead {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.ATcontent {
+    margin-left: 50px;
+}
+.AT1 {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+

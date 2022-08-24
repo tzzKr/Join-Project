@@ -22,15 +22,45 @@
         <div class="addTaskBg">
             <form onsubmit="checkValidation()" method="dialog" id="addNewTask" class="addTask">
 
-                <div class="columnLeft">
+                <div class="AT1">
                     <div class="container">
                         <h3>Title</h3>
-                        <input required placeholder="Add Title" id="title">
+                        <input class="input1" required placeholder="Add Title" id="title">
                     </div>
 
                     <div class="container">
+                        <h3>Due Date</h3>
+                        <input class="input1" type="date" required id="date">
+                    </div>
+                </div>
+
+                <div class="AT1">
+                    <div class="container">
+                        <h3>Category</h3>
+                        <select class="input1" required id="category">
+                            <option value="Administration">Administration</option>
+                            <option value="Finances">Finances</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sale">Sale</option>
+                            <option value="IT">IT</option>
+                        </select>
+                    </div>
+
+                    <div class="container">
+                        <h3>Urgency</h3>
+                        <select class="input1" required id="urgency">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="AT1">
+                    <div class="container">
                         <h3>Description</h3>
-                        <textarea required id="description"></textarea>
+                        <textarea class="descBox" required id="description"></textarea>
                     </div>
 
                     <div class="container">
@@ -46,37 +76,23 @@
                 </div>
 
 
-                <div class="columnRight">
-                    <div class="container">
-                        <h3>Due Date</h3>
-                        <input type="date" required id="date">
-                    </div>
 
-                    <div class="container">
-                        <h3>Category</h3>
-                        <select required id="category">
-                                <option value="Administration">Administration</option>
-                                <option value="Finances">Finances</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Sale">Sale</option>
-                                <option value="IT">IT</option>
-                            </select>
-                    </div>
 
-                    <div class="container">
-                        <h3>Urgency</h3>
-                        <select required id="urgency">
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                    </div>
 
-                    <div class="addTaskButtonLine">
-                        <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                        <button type="submit" class="createTaskButton">create Task</button>
-                    </div>
-                </div>
+
+
+
+
+
+
+
+
+
+                <!-- <div class="addTaskButtonLine">
+                    <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
+                    <button type="submit" class="createTaskButton">create Task</button>
+                </div> -->
+
             </form>
         </div>
     </div>

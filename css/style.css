@@ -50,6 +50,9 @@ input {
     background: rgb(32, 49, 146);
     border-radius: 10px;
 }
+.Container {
+    margin-left: 150px;
+}
 
 
 /* -----------------------------------startpage---------------------------------------------------- */
@@ -241,7 +244,7 @@ input {
 
 .headline {
     margin-top: 2%;
-    margin-left: 150px;
+    
 }
 
 .headline h1 {

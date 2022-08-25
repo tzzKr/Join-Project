@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +11,44 @@
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/board.js"></script>
 </head>
+
 <body onload="includeHTML()">
     <div w3-include-html="header.html"></div>
 
-        <div class="Container">
+    <div class="Container">
 
-            <div class="headline">
-                <h1>Board</h1>
-                <span>Create a new Task to save your Ideas for later</span>
+        <div class="headline">
+            <h1>Board</h1>
+            <span>Your overview</span>
+        </div>
+
+        <div class="boardBg">
+
+            <div class="boardLists">
+                
+                <div class="centerLists">
+                     <h3>TO DO</h3> 
+                     <div class="singleBoards"></div>
+                </div>
+                <div class="centerLists"> 
+                    <h3>IN PROGRESS</h3>
+                    <div class="singleBoards"></div>
+                 </div>
+                <div class="centerLists"> 
+                    <h3>TESTING</h3>
+                    <div class="singleBoards"></div>
+                </div>
+                <div class="centerLists"> 
+                    <h3>DONE</h3> 
+                    <div class="singleBoards"></div>
+                </div>
+
             </div>
 
+
         </div>
+
+    </div>
 </body>
+
 </html>

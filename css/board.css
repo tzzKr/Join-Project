@@ -1,0 +1,32 @@
+
+
+
+.boardBg {
+    margin-top: 25px;
+    height: calc(100vh - 134px);
+    min-width: 10px;
+    background-color: rgba(28, 1, 166, 0.1);
+    border-radius: 15px;
+    margin-right: 25px;
+}
+.boardLists {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.singleBoards {
+    width: 300px;
+    min-height: 200px;
+    height: 100%;
+    max-height: 1050px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+.centerLists {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    height: calc(100vh - 134px);
+}
+

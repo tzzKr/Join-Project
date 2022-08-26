@@ -1,0 +1,62 @@
+.logo {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: 14px !important;
+}
+
+.logo-left {
+    width: 90px;
+    background-color: #203192;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.logo-left img {
+    height: 50px;
+    width: auto;
+}
+
+.privacyAndNavbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.privacy {
+    position: absolute;
+    left: 32px;
+    right: 10px;
+    top: 10%;
+}
+
+@media (max-width: 720px) {
+    .privacy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: 50px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 540px) {
+    .privacy {
+        top: 50px;
+    }
+}
+
+@media (max-width: 340px) {
+    h1 {
+        font-size: 25px;
+    }
+}

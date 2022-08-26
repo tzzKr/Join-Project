@@ -21,6 +21,7 @@
     max-height: 1050px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 24px;
+    flex-wrap: wrap;
 }
 .centerLists {
     display: flex;

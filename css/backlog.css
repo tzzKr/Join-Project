@@ -1,0 +1,12 @@
+.parentContainer{
+    margin-right: 25px;
+}
+
+.backlog-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    color: #203192;
+    font-weight: bolder;
+}

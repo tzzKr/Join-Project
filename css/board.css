@@ -11,7 +11,7 @@ h4 {
     margin-top: 25px;
     height: calc(100vh - 134px);
     min-width: 10px;
-    background-color: rgba(28, 1, 166, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.189);
     border-radius: 15px;
     margin-right: 25px;
 }
@@ -33,10 +33,11 @@ h4 {
     width: 300px;
     min-height: 200px;
     height: 100%;
-    max-height: 1050px;
+    background-color: rgba(28, 1, 166, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 24px;
     flex-wrap: wrap;
+    border-radius: 10px;
 }
 .centerLists {
     display: flex;
@@ -50,12 +51,15 @@ h4 {
     height: 100px;
     width: 100%;
     border: 1px solid black;
-    border-left: 0;
+    border-left: 3px solid rgb(0, 0, 0);
     position: relative;
     display: flex;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px;
     padding: 10px 20px 10px 20px;
     box-sizing: border-box;
+}
+.boardTask:hover {
+    background-color: rgba(11, 15, 92, 0.113);
 }
 
 .boardTaskColor {
@@ -74,7 +78,8 @@ h4 {
     background-color: rgb(255, 174, 0);
  }
  .urgencyColor-high {
-    background-color: rgb(242, 17, 17);
+    background-color: rgb(255, 0, 0);
+
  } 
  .urgencyColor-done {
     background-color: rgb(1, 212, 36);

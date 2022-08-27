@@ -52,6 +52,7 @@ input {
 
 .parentContainer {
     margin-left: 150px;
+    position: relative;
 }
 
 

@@ -1,5 +1,11 @@
 
+h4 {
+    
+    margin: 0 0 10px 0;
+}
+ p { margin: 0;}
 
+ 
 
 .boardBg {
     margin-top: 25px;
@@ -12,7 +18,16 @@
 .boardLists {
     display: flex;
     justify-content: space-evenly;
+    overflow: auto;
 }
+.boardLists::-webkit-scrollbar-thumb {
+    border-radius: 100vw;
+}
+.boardLists::-webkit-scrollbar-button {
+    width: 15px;
+    height: 15px;
+  }
+  
 
 .singleBoards {
     width: 300px;
@@ -26,6 +41,7 @@
 .centerLists {
     display: flex;
     flex-direction: column;
+    margin: 0 25px 0 25px;
     
     align-items: center;
     height: calc(100vh - 134px);
@@ -34,8 +50,46 @@
     height: 100px;
     width: 100%;
     border: 1px solid black;
+    border-left: 0;
     position: relative;
+    display: flex;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 20px 10px 20px;
+    box-sizing: border-box;
+}
+
+.boardTaskColor {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 0px;
+    width: 10px;
+    border-radius: 10px;
+    box-shadow: 17px 0px 40px 0px rgba(0, 0, 0, 0.329);
+}
+ .urgencyColor-low {
+    background-color: rgb(246, 255, 0);
+ }
+ .urgencyColor-medium {
+    background-color: rgb(255, 174, 0);
+ }
+ .urgencyColor-high {
+    background-color: rgb(242, 17, 17);
+ } 
+ .urgencyColor-done {
+    background-color: rgb(1, 212, 36);
+ }
+
+ .taskDesc {
+    margin: 0;
+    overflow: hidden;
+ }
+
+ @media (max-width: 1575px) {
     
+.boardLists {
+    justify-content: flex-start;
 }
 
 
+ }

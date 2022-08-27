@@ -10,3 +10,39 @@
     color: #203192;
     font-weight: bolder;
 }
+
+.backlog-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E8E5F6;
+    border-radius: 10px;
+    border-left: 5px solid red;
+    margin-top: 20px;
+    min-height: 100px;
+}
+
+.backlog-assignment {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.backlog-img {
+    border: 1px solid white;
+    border-radius: 40px;
+    padding: 3px;
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.backlog-bio {
+    margin-left: 5px;
+}
+
+.backlog-email{
+    color: blue;
+    
+}

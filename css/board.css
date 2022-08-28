@@ -51,7 +51,6 @@ h4 {
     height: 100px;
     width: 100%;
     border: 1px solid black;
-    border-left: 3px solid rgb(0, 0, 0);
     position: relative;
     display: flex;
     border-radius: 10px;
@@ -62,23 +61,17 @@ h4 {
     background-color: rgba(11, 15, 92, 0.113);
 }
 
-.boardTaskColor {
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    left: 0px;
-    width: 10px;
-    border-radius: 10px;
-    box-shadow: 17px 0px 40px 0px rgba(0, 0, 0, 0.329);
-}
+
+
  .urgencyColor-low {
-    background-color: rgb(246, 255, 0);
+    border-left: 10px solid rgb(246, 255, 0);
  }
  .urgencyColor-medium {
-    background-color: rgb(255, 174, 0);
+    border-left: 10px solid rgb(255, 174, 0);
  }
  .urgencyColor-high {
-    background-color: rgb(255, 0, 0);
+    border-left: 10px solid rgb(255, 0, 0);
+
 
  } 
  .urgencyColor-done {
@@ -87,8 +80,14 @@ h4 {
 
  .taskDesc {
     margin: 0;
-    overflow: hidden;
+    display:inline-block;
+    
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
  }
+
+
 
  @media (max-width: 1575px) {
     

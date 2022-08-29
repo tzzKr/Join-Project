@@ -44,5 +44,35 @@
 
 .backlog-email{
     color: blue;
-    
+}
+
+.backlog-task-editor {
+    background-color: #E8E5F6;
+    border-radius: 15px;
+    margin-top: 35px;
+    min-height: 1000px;
+}
+
+.backlogUserImg {
+    margin-left: 10px;
+    border-radius: 100%;
+}
+
+.BacklogButtonLine {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 36px;
+    margin-right: 36px;
+    bottom: 35px;
+}
+
+.btn {
+    color: #203192;
+}
+
+.callToActionBtn {
+    color: white;
+    background-color: #203192;
+    border-radius: 10px;
+    padding: 10px;
 }

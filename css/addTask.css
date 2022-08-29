@@ -39,24 +39,6 @@ textarea {
     color: #575757;
 }
 
-.columnLeft {
-    width: calc(50% - 64px);
-    margin: 4px 32px;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.columnRight {
-    width: calc(50% - 64px);
-    margin: 4px 32px;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .container {
     margin-bottom: 12px;
     margin-right: 5%;
@@ -76,17 +58,6 @@ input[type="date" i] {
     border-radius: 5px;
     color: #575757;
     cursor: pointer;
-}
-
-.columnLeft textarea {
-    outline: none;
-    resize: none;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    width: 90%;
-    height: 100%;
-    padding: 10px 5px;
-    color: #575757;
 }
 
 .editUserBacklog {
@@ -184,7 +155,6 @@ input[type="date" i] {
     width: 70px;
     cursor: pointer;
     padding: unset;
-    text-align: left;
 }
 
 .editUserButton:hover {
@@ -196,8 +166,20 @@ input[type="date" i] {
 .addTask button {
     text-transform: uppercase;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 20px;
     font-size: 14px;
+}
+
+.cancelTaskButton {
+    color: #203192;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cancelTaskButton:hover {
+    color: #2e46cf;
+    transform: scale(1.1);
+    transition: all 75ms ease-in-out;
 }
 
 .input1 {
@@ -207,12 +189,32 @@ input[type="date" i] {
 }
 
 .descBox {
-    width: 300px;
-    height: 200px;
     outline: none;
     resize: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 300px;
+    height: 200px;
     padding: 10px 5px;
-    box-sizing: border-box;
+    color: #575757;
+}
+
+.createTaskButton {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #203192;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 75ms ease-in-out;
+    margin-left: 8px;
+}
+
+.createTaskButton:hover {
+    background-color: #2e46cf;
+    box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 30%);
+    transform: scale(1.1);
+    transition: all 75ms ease-in-out;
 }
 
 
@@ -236,4 +238,15 @@ h1 {
     display: flex;
     align-items: center;
     margin-left: 50px;
+    flex-wrap: wrap;
+}
+
+
+/**********Responsive Style************/
+
+@media (max-width: 1100px) {
+    .addTaskBg {
+        height: 86.5vh;
+        width: calc(100% - 40px);
+    }
 }

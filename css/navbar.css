@@ -111,3 +111,49 @@
     font-size: 14px;
     margin-bottom: 16px;
 }
+
+
+/***     Responsive     ***/
+
+@media (max-width: 720px) {
+    .headerResponsive {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 20px;
+        right: 1.5%;
+        overflow: hidden;
+        height: 80%;
+        align-items: baseline;
+        z-index: 100;
+    }
+    #responsiveNavButton {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: unset;
+    }
+    .responsiveMenu {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-top: 29px;
+        transition: all 225ms ease-in-out;
+        background-color: #203192;
+        border-radius: 10px;
+    }
+    .responsiveMenu img {
+        width: 24px;
+        height: 24px;
+        padding: 8px;
+        margin: 8px;
+        border-radius: 10px;
+    }
+    .responsiveMenu div {
+        margin: 8px;
+        padding: 8px;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+}

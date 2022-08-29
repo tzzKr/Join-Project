@@ -69,16 +69,24 @@
                         <p id="alertNoUser"></p>
                         <div class="assigneToAccount">
                             <img onclick="openDialogNewUser()" id="addUser" src="./img/icon plus.png">
-                            <div class="user" id="user"></div>
+                            <div class="user" id="user">
+                                <div class="showUser">
+                                    <img id="selectuser0" onclick="selectUser()" src="img/download.ico">
+                                </div>
+                                <div class="showUser">
+                                    <img id="selectuser1" onclick="selectUser()" src="img/download.ico">
+                                </div>
+                            </div>
                         </div>
                         <button type="button" onclick="openDialogEditUser()" class="editUserButton">Edit User</button>
+                        <div class="addTaskButtonLine">
+                            <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
+                            <button type="submit" class="createTaskButton">create Task</button>
+                        </div>
                     </div>
 
                 </div>
-                <div class="addTaskButtonLine">
-                    <button type="reset" onclick="cancelTask()" class="cancelTaskButton">Cancel</button>
-                    <button type="submit" class="createTaskButton">create Task</button>
-                </div>
+
             </form>
         </div>
     </div>

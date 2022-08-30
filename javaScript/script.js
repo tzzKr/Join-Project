@@ -15,3 +15,24 @@ async function includeHTML() {
         }
     }
 }
+
+function openResponsiveNav() {
+    document.getElementById('responsiveMenu').classList.remove('d-none');
+    document.getElementById('responsiveMenu').classList.add('growIn');
+
+    setTimeout(() => {
+        document.getElementById('responsiveMenu').classList.remove('growIn');
+    }, 300);
+
+    document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: closeResponsiveNav()`);
+}
+
+
+function closeResponsiveNav() {
+    document.getElementById('responsiveMenu').classList.add('growOut');
+    setTimeout(() => {
+        document.getElementById('responsiveMenu').classList.add('d-none');
+        document.getElementById('responsiveMenu').classList.remove('growOut');
+    }, 200);
+    document.getElementById('responsiveNavButton').setAttribute('onclick', `javascript: openResponsiveNav()`);
+}

@@ -150,6 +150,9 @@
 
 /***     Responsive     ***/
 
+
+/***     Navbar style     ***/
+
 @media (max-width: 720px) {
     .header {
         display: none;

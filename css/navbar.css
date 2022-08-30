@@ -147,6 +147,11 @@
     }
 }
 
+.headerResponsive {
+    
+    display: none;
+}
+
 
 /***     Responsive     ***/
 
@@ -157,8 +162,16 @@
     .header {
         display: none;
     }
+   
+    #responsiveNavButton {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: unset;
+    }
+
     .headerResponsive {
-        display: flex !important;
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 20px;
@@ -167,13 +180,9 @@
         height: 80%;
         align-items: baseline;
         z-index: 100;
+        
     }
-    #responsiveNavButton {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        padding: unset;
-    }
+
     .responsiveMenu {
         width: 100%;
         display: flex;

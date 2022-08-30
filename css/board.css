@@ -80,7 +80,7 @@ h4 {
 
  .taskDesc {
     margin: 0;
-    display:inline-block;
+    
     
     white-space: nowrap;
     overflow:hidden !important;

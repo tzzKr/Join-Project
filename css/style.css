@@ -126,6 +126,15 @@ input {
     bottom: 24px;
 }
 
+@media (max-width: 720px) {
+    
+    .parentContainer {
+        margin-left: 25px;
+        position: relative;
+    }
+}
+
+
 @media(max-width: 680px) {
     .text p {
         margin-top: 32px;

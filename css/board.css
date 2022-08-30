@@ -56,6 +56,7 @@ h4 {
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
     box-sizing: border-box;
+    
 }
 .boardTask:hover {
     background-color: rgba(11, 15, 92, 0.113);
@@ -64,13 +65,13 @@ h4 {
 
 
  .urgencyColor-low {
-    border-left: 10px solid rgb(246, 255, 0);
+    border-left: 10px solid #008148;
  }
  .urgencyColor-medium {
-    border-left: 10px solid rgb(255, 174, 0);
+    border-left: 10px solid #AF2BBF;
  }
  .urgencyColor-high {
-    border-left: 10px solid rgb(255, 0, 0);
+    border-left: 10px solid #AE1716;
 
 
  } 

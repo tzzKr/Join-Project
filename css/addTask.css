@@ -17,6 +17,8 @@ textarea {
     height: 82.5vh;
     width: calc(100% - 170px);
     border-radius: 15px;
+    position: absolute;
+    margin-bottom: 20px;
 }
 
 .addTask {
@@ -277,3 +279,82 @@ h1 {
     }
 }
 
+@media (max-width: 865px),
+(max-height: 800px) {
+    .addTask button {
+        margin-top: 2px;
+    }
+    .addTaskBg {
+        width: calc(100% - 30px);
+        height: 109vh;
+        margin-bottom: 20px;
+    }
+    .headline {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 475px) {
+    .input1 {
+        width: 280px !important;
+    }
+    .descBox {
+        width: 269px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 450px) {
+    .AT1 {
+        margin-left: 20px;
+    }
+    .parentContainer {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .input1 {
+        width: 260px !important;
+    }
+    .descBox {
+        width: 246px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 360px) {
+    .input1 {
+        width: 240px !important;
+    }
+    .descBox {
+        width: 229px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 330px) {
+    .input1 {
+        width: 230px !important;
+    }
+    .descBox {
+        width: 219px;
+        height: 120px;
+    }
+    .parentContainer {
+        margin-left: 10px !important;
+    }
+    .addTaskBg {
+        width: calc(100% - 10px);
+    }
+}
+
+@media (max-width: 325px) {
+    .input1 {
+        width: 220px !important;
+    }
+    .descBox {
+        width: 209px;
+        height: 100px;
+    }
+}

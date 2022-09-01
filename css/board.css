@@ -1,203 +1,127 @@
+h3 {
 
-h4 {
-    
-    margin: 0 0 10px 0;
+  margin: 0;
+
 }
- p { margin: 0;}
 
- 
+p {
+  margin: 0;
+}
+
+
 
 .boardBg {
-    margin-top: 25px;
-    height: calc(100vh - 134px);
-    min-width: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.189);
-    border-radius: 15px;
-    margin-right: 25px;
+  margin-top: 25px;
+  height: calc(100vh - 134px);
+  min-width: 10px;
+  margin-right: 25px;
 }
+
 .boardLists {
-    display: flex;
-    justify-content: space-evenly;
-    overflow: auto;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: auto;
 }
+
 .boardLists::-webkit-scrollbar-thumb {
-    border-radius: 100vw;
+  border-radius: 100vw;
 }
+
 .boardLists::-webkit-scrollbar-button {
-    width: 15px;
-    height: 15px;
-  }
-  
+  width: 15px;
+  height: 15px;
+}
+
 
 .singleBoards {
-    width: 300px;
-    min-height: 200px;
-    height: 100%;
-    background-color: rgba(28, 1, 166, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    border-radius: 10px;
+  width: 300px;
+  min-height: 200px;
+  height: 100%;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border-radius: 50px;
 }
+
+.singleBoards:hover {
+  background-color: #faf8ff;
+}
+
 .centerLists {
-    display: flex;
-    flex-direction: column;
-    margin: 0 25px 0 25px;
-    
-    align-items: center;
-    height: calc(100vh - 134px);
-}
-.boardTask {
-    height: 100px;
-    width: 100%;
-    border: 1px solid black;
-    position: relative;
-    display: flex;
-    border-radius: 10px;
-    padding: 10px 20px 10px 20px;
-    box-sizing: border-box;
-    
-}
-.boardTask:hover {
-    background-color: rgba(11, 15, 92, 0.113);
-}
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px 0 25px;
 
-
-
- .urgencyColor-low {
-    border-left: 10px solid #008148;
- }
- .urgencyColor-medium {
-    border-left: 10px solid #AF2BBF;
- }
- .urgencyColor-high {
-    border-left: 10px solid #AE1716;
-
-
- } 
- .urgencyColor-done {
-    background-color: rgb(1, 212, 36);
- }
-
- .taskDesc {
-    margin: 0;
-    
-    
-    white-space: nowrap;
-    overflow:hidden !important;
-    text-overflow: ellipsis;
- }
-
- /* __________________________________________ */
-
-
- [data-tooltip] {
-    position: relative;
-    cursor: pointer;
-  }
-  [data-tooltip]:before,
-  [data-tooltip]:after {
-    line-height: 1;
-    font-size: .9em;
-    pointer-events: none;
-    position: absolute;
-    box-sizing: border-box;
-    display: none;
-    opacity: 0;
-  }
-  [data-tooltip]:before {
-    content: "";
-    border: 5px solid transparent;
-    z-index: 100;
-  }
-  [data-tooltip]:after {
-    content: attr(data-tooltip);
-    text-align: center;
-    min-width: 3em;
-    max-width: 21em;
-    
-    padding: 6px 8px;
-    border-radius: 3px;
-    background: #4621FF;
-    color: #FFFFFF;
-    z-index: 99;
-  }
-  [data-tooltip]:hover:before,
-  [data-tooltip]:hover:after {
-    display: block;
-    opacity: 1;
-  }
-  [data-tooltip]:not([data-flow])::before,
-  [data-tooltip][data-flow="top"]::before {
-    bottom: 100%;
-    border-bottom-width: 0;
-    border-top-color: #4621FF;
-  }
-  [data-tooltip]:not([data-flow])::after,
-  [data-tooltip][data-flow="top"]::after {
-    bottom: calc(100% + 5px);
-  }
-  [data-tooltip]:not([data-flow])::before, [tooltip]:not([data-flow])::after,
-  [data-tooltip][data-flow="top"]::before,
-  [data-tooltip][data-flow="top"]::after {
-    left: 50%;
-    -webkit-transform: translate(-50%, -4px);
-            transform: translate(-50%, -4px);
-  }
-  [data-tooltip][data-flow="bottom"]::before {
-    top: 100%;
-    border-top-width: 0;
-    border-bottom-color: #4621FF;
-  }
-  [data-tooltip][data-flow="bottom"]::after {
-    top: calc(100% + 5px);
-  }
-  [data-tooltip][data-flow="bottom"]::before, [data-tooltip][data-flow="bottom"]::after {
-    left: 50%;
-    -webkit-transform: translate(-50%, 8px);
-            transform: translate(-50%, 8px);
-  }
-  [data-tooltip][data-flow="left"]::before {
-    top: 50%;
-    border-right-width: 0;
-    border-left-color: #4621FF;
-    left: calc(0em - 5px);
-    -webkit-transform: translate(-8px, -50%);
-            transform: translate(-8px, -50%);
-  }
-  [data-tooltip][data-flow="left"]::after {
-    top: 50%;
-    right: calc(100% + 5px);
-    -webkit-transform: translate(-8px, -50%);
-            transform: translate(-8px, -50%);
-  }
-  [data-tooltip][data-flow="right"]::before {
-    top: 50%;
-    border-left-width: 0;
-    border-right-color: #4621FF;
-    right: calc(0em - 5px);
-    -webkit-transform: translate(8px, -50%);
-            transform: translate(8px, -50%);
-  }
-  [data-tooltip][data-flow="right"]::after {
-    top: 50%;
-    left: calc(100% + 5px);
-    -webkit-transform: translate(8px, -50%);
-            transform: translate(8px, -50%);
-  }
-  [data-tooltip=""]::after, [data-tooltip=""]::before {
-    display: none !important;
-  }
   
-  /* _____________________________ */
+  height: calc(100vh - 134px);
+}
 
+.boardTask {
 
+  min-height: 150px;
+  width: 100%;
+  /* border: 1px solid black; */
+  position: relative;
+  display: flex;
+  box-shadow: 0px 8px 15px 4px rgba(0, 0, 0, 0.163);
+  border-radius: 30px;
+  padding: 10px 20px 10px 20px;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
 
- @media (max-width: 1575px) {
-    
-.boardLists {
-    justify-content: flex-start;
 }
 
 
- }
+
+
+
+.urgencyColor-low {
+  margin-bottom: 15px;
+  height: 25px;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  background-color:#008148;
+}
+
+.urgencyColor-medium {
+  margin-bottom: 15px;
+  height: 25px;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  background-color: #AF2BBF;
+}
+
+.urgencyColor-high {
+  margin-bottom: 15px;
+  height: 25px;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  background-color: #AE1716;
+
+}
+
+.urgencyColor-done {
+  background-color: rgb(1, 212, 36);
+}
+
+.taskDesc {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+@media (max-width: 1575px) {
+
+  .boardLists {
+    justify-content: flex-start;
+  }
+
+
+}

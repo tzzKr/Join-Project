@@ -1,20 +1,4 @@
-// Backend
 
-setURL('https://gruppe-303.developerakademie.net/Join-Project/smallest_backend_ever');
-
-async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-}
-
-async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-}
-
-function deleteUser(name) {
-    await backend.deleteItem('users');
-  }
 
 //**Include Function */
 

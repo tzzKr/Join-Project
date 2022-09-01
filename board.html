@@ -9,6 +9,7 @@
     <title>board</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/board.js"></script>
 </head>
@@ -27,8 +28,7 @@
 
             <div class="moreTaskInformation"> </div>
 
-            <!-- In div noch eine datei diese zentrieren und absolute ohne BG -->
-
+            
 
             <div class="boardLists">
 
@@ -36,13 +36,13 @@
 
                     <h3>TO DO</h3>
                     <div class="singleBoards">
-                        <div class="boardTask urgencyColor-low">
+                        <div data-tooltip="Farben müssen ferig gestellt werden und in eine funktion gepackt werden" data-flow="bottom" class="boardTask urgencyColor-low">
                             <div class=""></div>
                             <div class="taskDesc">
-                                <p>
-                                <h4>Hallo</h4>
-                                </p>
-                                <p class="taskDesc">Farben müssen ferig gestellt werden und in eine funktion gepackt werden</p>
+                           
+                                <p><h4>Hallo</h4> </p>
+                                <span class="taskDesc">Farben müssen ferig gestellt werden und in eine funktion gepackt werden</span>
+                                
                             </div>
                         </div>
                     </div>

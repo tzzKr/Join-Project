@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join-Summary</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/summary.css">
     <script src="javaScript/script.js"></script>
     <script src="javaScript/summary.js"></script>
@@ -13,62 +14,62 @@
 <body>
     <div class="parentContainer">
 
-        <div class="headline">
+        <div class="summaryHeadline">
             <div class="greeting">Good morning,</div>
             <div class="userName">Vorname Nachname</div>
         </div>
 
         <div class="cardContainer">
-            <div class="cardContainerRowOne">
+            <div class="cardContainerRow">
                 <div class="mainCard">
                     <div class="basicCard">
-                        <div>
-                            <img src="img/Urgent.png">
-                            <div>1</div>
+                        <div class="cardHead">
+                            <img class="cardImg" src="img/Urgent.png">
+                            <div class="cardCounter">1</div>
                         </div>
-                        <div>Tasks Urgent</div>
+                        <div class="cardDescription">Tasks Urgent</div>
                     </div>
-                    <div>
-                        <div>October 16, 2022</div>
-                        <div>Upcoming Deadline</div>
+                    <div class="cardExtension">
+                        <div class="cardDate">October 16, 2022</div>
+                        <div class="cardDescription">Upcoming Deadline</div>
                     </div>
                 </div>
-                <div class="secondaryCard">
-                    <div>
-                        <img src="img/Board.png">
-                        <div>1</div>
+                <div class="basicCard secondaryCard">
+                    <div class="cardHead">
+                        <img class="cardImg" src="img/Board.png">
+                        <div class="cardCounter">1</div>
                     </div>
-                    <div>Tasks To-do</div>
+                    <div class="cardDescription mainColor">Tasks To-do</div>
                 </div>
             </div>
-            <div class="cardContainerRowTwo">
-                <div class="sideCard">
-                    <div>
-                        <img src="img/Board.png">
-                        <div>5</div>
+            <div class="cardContainerRow">
+                <div class="basicCard boxShadow">
+                    <div class="cardHead">
+                        <img class="cardImg" src="img/Board.png">
+                        <div class="cardCounter">5</div>
                     </div>
-                    <div>Task in Board</div>
+                    <div class="cardDescription mainColor">Task in Board</div>
                 </div>
-                <div class="sideCard">
-                    <div>
-                        <img src="img/In Progress.png">
-                        <div>2</div>
+                <div class="basicCard boxShadow">
+                    <div class="cardHead">
+                        <img class="cardImg" src="img/In Progress.png">
+                        <div class="cardCounter">2</div>
                     </div>
-                    <div>Task in Progress</div>
+                    <div class="cardDescription mainColor">Task in Progress</div>
                 </div>
-                <div class="sideCard">
-                    <div>
-                        <img src="img/Awaiting feedback.png">
-                        <div>2</div>
+                <div class="basicCard boxShadow">
+                    <div class="cardHead">
+                        <img class="cardImg" src="img/Awaiting feedback.png">
+                        <div class="cardCounter">2</div>
                     </div>
-                    <div>Awaiting Feedback</div>
+                    <div class="cardDescription mainColor">Awaiting Feedback</div>
                 </div>
-                <div class="sideCard">
-                    <div>
-                        <img src="img/Done.png">
-                        <div>1</div>
+                <div class="basicCard boxShadow">
+                    <div class="cardHead">
+                        <img class="cardImg" src="img/Done.png">
+                        <div class="cardCounter">1</div>
                     </div>
-                    <div>Tasks Done</div>
+                    <div class="cardDescription mainColor">Tasks Done</div>
                 </div>
             </div>
         </div>

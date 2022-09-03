@@ -190,12 +190,15 @@ input {
 /* -----------------------------------Page Headline---------------------------------------------------- */
 
 .headline {
-    margin-top: 30px;
+    
 }
 
 .headline h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 61px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 101px;
+    margin-top: 82px;
 }
 
 .headline span {

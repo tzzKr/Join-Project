@@ -1,3 +1,10 @@
+/* ---------- Headline ---------- */
+.hlSummary {
+    gap: 30px;
+}
+
+/* ---------- Content ----------- */
+
 .content {
     display: flex;
 }
@@ -20,106 +27,54 @@
     gap: 35px;
 }
 
-.mainCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
-
-    width: 682px;
-    height: 191px;
-
-    background: #4589FF;
-    color: #FFFFFF !important;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px;
-}
-
-.mainCard img {
-    border: 2px solid #FFFFFF;
-    border-radius: 100%;
-}
-
-.basicCard {
+.smallCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 9px;
+    padding: 25px 0px;
+    gap: 13px;
 
-    width: 140px;
-    height: 113px;
-}
+    width: 170px;
+    height: 170px;
 
-.cardHead {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
+    background: #FFFFFF;
 
-.cardImg {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 56px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
 }
 
 .cardCounter {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
+    font-weight: 600;
+    font-size: 64px;
 }
 
 .cardDescription {
-    font-family: 'Open Sans';
-    font-style: normal;
     font-weight: 400;
-    font-size: 23px;
+    font-size: 21px;
+    text-align: center;
+    color: #2A3647;
 }
 
-.cardExtension {
+.bigCard {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+}
+
+.middleCard {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 13px;
+    align-items: center;
+    padding: 38px 19px;
+    gap: 18px;
 
-    border-left: 3px solid #FFFFFF;
-    padding-left: 26px;
-    height: 145px;
-}
+    width: 272.5px;
+    height: 150px;
 
-.cardDate {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 33px;
-}
+    background: #FFFFFF;
 
-.secondaryCard {
-    width: 208px;
-    height: 191px;
-
-    background-color: #D2E3FF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-}
-
-.smallCard {
-    width: 204px;
-    height: 219px;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px;
-}
-
-.mainColor {
-    color: #4589FF;
 }
 
 /* ---------- Welcome Message ---------- */

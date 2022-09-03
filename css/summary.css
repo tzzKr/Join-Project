@@ -1,28 +1,5 @@
-/* ---------- Headline ---------- */
-
-.summaryHeadline {
+.content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-    
-    font-family: 'Open Sans';
-    font-style: normal;
-
-    margin-bottom: 78px;
-}
-
-.greeting {
-    color: #2A3647;
-    font-weight: 400;
-    font-size: 48px;
-}
-
-.userName {
-    color: #4589FF;
-    font-weight: 700;
-    font-size: 62px;
 }
 
 /* ---------- Card Container ---------- */
@@ -133,7 +110,7 @@
     border-radius: 30px;
 }
 
-.boxShadow {
+.smallCard {
     width: 204px;
     height: 219px;
 
@@ -143,4 +120,31 @@
 
 .mainColor {
     color: #4589FF;
+}
+
+/* ---------- Welcome Message ---------- */
+
+.welcomeMessage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    
+    font-family: 'Open Sans';
+    font-style: normal;
+
+    margin-bottom: 78px;
+}
+
+.greeting {
+    color: #2A3647;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+.userName {
+    color: #4589FF;
+    font-weight: 700;
+    font-size: 62px;
 }

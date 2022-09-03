@@ -6,3 +6,59 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+.input1 {
+    box-sizing: border-box;
+
+    /* Auto layout / */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 21px;
+    gap: 10px;
+    isolation: isolate;
+
+    width: 422px;
+    height: 51px;
+
+    background: #FFFFFF;
+    /* / Style / */
+
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+
+    /* / Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.input {
+    width: 205px;
+    height: 25px;
+
+    /* Version 2/t6 / */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* / or 25px / */
+
+
+    /* / black / */
+
+    color: #000000;
+
+
+    /* / Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+}

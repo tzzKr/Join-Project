@@ -12,6 +12,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     font-size: 21px;
     position: fixed;
+    z-index: 2;
 }
 
 .headline-img {
@@ -203,10 +204,11 @@
         background: #2A3647;
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
         border-radius: 0px;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         left: 0;
+        z-index: 999;
     }
     .mobile-menu {
         display: flex;

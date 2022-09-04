@@ -86,6 +86,18 @@ h2 {
 }
 
 /* Board content  */
+.categoryTag {
+  margin-bottom: 15px;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  width: fit-content;
+  padding: 0px 25px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
 
 .boardLists {
   display: flex;
@@ -122,18 +134,12 @@ h2 {
   background-color: rgb(255, 255, 255);
 }
 
-.categoryTag {
+.taskDesc {
+  margin: 0;
   margin-bottom: 15px;
-  height: 25px;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
-  width: fit-content;
-  padding: 0px 25px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
 }
+
+
 
 /* board scrollbar */
 
@@ -168,9 +174,4 @@ h2 {
 
 .tagMedia {
   background-color: #FFC701;
-}
-
-.taskDesc {
-  margin: 0;
-  margin-bottom: 15px;
 }

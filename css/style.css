@@ -50,6 +50,7 @@ input {
 .parentContainer {
     margin-left: 150px;
     position: relative;
+    background-color: #F5F5F5;
 }
 
 
@@ -190,7 +191,9 @@ input {
 /* -----------------------------------Page Headline---------------------------------------------------- */
 
 .headline {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .headline h1 {
@@ -199,6 +202,19 @@ input {
     margin: 0;
     margin-bottom: 101px;
     margin-top: 82px;
+}
+
+.hlSeperator {
+    width: 6px;
+    height: 59px;
+    background-color: #29ABE2;
+    border-radius: 3px;
+}
+
+.subheadline {
+    font-weight: 400;
+    font-size: 27px;
+    color: #2A3647;
 }
 
 .headline span {

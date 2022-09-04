@@ -7,6 +7,9 @@
 
 .content {
     display: flex;
+    margin-top: 87px;
+    align-items: center;
+    gap: 67px;
 }
 
 /* ---------- Card Container ---------- */
@@ -17,6 +20,9 @@
     justify-content: center;
     align-items: center;
     gap: 35px;
+
+    width: 580px;
+    height: 540px;
 }
 
 .cardContainerRow {
@@ -25,6 +31,7 @@
     justify-content: center;
     align-items: center;
     gap: 35px;
+    width: 580px;
 }
 
 .smallCard {
@@ -39,9 +46,18 @@
     height: 170px;
 
     background: #FFFFFF;
+    color: #2A3647;
 
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+
+    transition: 250ms;
+}
+
+.smallCard:hover {
+    background-color: #2A3647;
+    color: #FFFFFF;
+    scale: 1.1;
 }
 
 .cardCounter {
@@ -53,11 +69,67 @@
     font-weight: 400;
     font-size: 21px;
     text-align: center;
-    color: #2A3647;
 }
 
 .bigCard {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 48px;
+    gap: 61px;
+
+    background: #FFFFFF;
+    color: #2A3647;
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+
+    transition: 250ms;
+}
+
+.bigCard:hover {
+    background-color: #2A3647;
+    color: #FFFFFF;
+    scale: 1.1;
+}
+
+.bcLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 18px;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.bcSeperator {
+    width: 4px;
+    height: 102px;
+
+    background-color: #D1D1D1;
+    border-radius: 3px;
+}
+
+.bgRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 13px;
+}
+
+.cardDate {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
 }
 
 .middleCard {
@@ -68,20 +140,30 @@
     padding: 38px 19px;
     gap: 18px;
 
-    width: 272.5px;
+    width: 250.5px;
     height: 150px;
 
     background: #FFFFFF;
+    color: #2A3647;
 
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+    transition: 250ms;
+}
+
+.middleCard:hover {
+    scale: 1.1;
+    background-color: #2A3647;
+    color:#FFFFFF
+}
+
+.middleCard:hover img {
+    filter: invert() brightness(2);
 }
 
 /* ---------- Welcome Message ---------- */
 
 .welcomeMessage {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 22px;

@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 36px 20px 348px;
+    padding: 10px 36px 10px 348px;
     gap: 34px;
     height: 60px;
     left: 0;
@@ -11,19 +11,28 @@
     background-color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     font-size: 21px;
+    position: fixed;
 }
 
 .headline-img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     height: 49px;
+}
+
+.headline-img a {
+    margin-top: 5px;
 }
 
 .headline-img img {
     width: 31px;
     height: 31px;
+}
+
+.logo-img {
+    display: none;
 }
 
 .profile-img {
@@ -34,6 +43,7 @@
     border: 3px solid #2A3647;
     border-radius: 100%;
     background: url();
+    cursor: pointer;
 }
 
 .header {
@@ -69,7 +79,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 15px;
-    width: 17rem;
+    width: 232px;
     height: 229px;
     margin-top: 40px;
     box-sizing: border-box;
@@ -86,11 +96,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 80px;
+    padding-left: 60px;
     gap: 20px;
     cursor: pointer;
     transition: all 100ms ease-in-out;
-    width: 12rem;
+    width: 232px;
     height: 46px;
     box-sizing: border-box;
 }
@@ -125,21 +135,22 @@
     align-items: flex-end;
     padding: 0px;
     gap: 15px;
-    width: 17rem;
+    width: 232px;
     height: 100%;
     max-height: 600px;
     margin-bottom: 125px;
+    box-sizing: border-box;
 }
 
 .headerBottom div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 80px;
+    padding-left: 60px;
     gap: 20px;
     cursor: pointer;
     transition: all 100ms ease-in-out;
-    width: 12rem;
+    width: 232px;
     height: 46px;
 }
 
@@ -157,7 +168,26 @@
     transform-origin: 100% 0%
 }
 
-@media (max-width: 600px) {
+@media (max-width: 845px) {
+    .kanban-text {
+        display: none;
+    }
+    .header-line {
+        justify-content: flex-end;
+    }
+    .logo-img img {
+        width: 37px;
+    }
+}
+
+@media (max-width: 760px) {
+    .logo-img {
+        display: flex;
+    }
+    .header-line {
+        justify-content: space-between;
+        padding: 10px 29px 10px 30px;
+    }
     .header {
         display: none;
     }
@@ -177,5 +207,18 @@
         bottom: 0;
         right: 0;
         left: 0;
+    }
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 5px;
+        width: 75px;
+        height: 80px;
+    }
+    .mobile-menu img {
+        width: 30px;
+        height: 30px;
     }
 }

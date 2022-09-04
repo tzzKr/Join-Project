@@ -44,7 +44,8 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(32, 49, 146);
+    background: #2A3647;
+    ;
 }
 
 .parentContainer {

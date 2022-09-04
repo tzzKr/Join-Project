@@ -41,7 +41,6 @@
     flex-direction: column;
     align-items: center;
     padding: 66px 20px;
-    gap: 300px;
     position: fixed;
     width: 232px;
     height: 100%;
@@ -119,10 +118,13 @@
 .headerBottom {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     padding: 0px;
     gap: 15px;
     width: 17rem;
+    height: 100%;
+    max-height: 600px;
+    margin-bottom: 125px;
 }
 
 .headerBottom div {

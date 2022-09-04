@@ -1,18 +1,15 @@
-.header {
+.header-line {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px 36px 20px 348px;
     gap: 34px;
-    height: 89px;
+    height: 60px;
     left: 0;
     right: 0;
     background-color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
     font-size: 21px;
 }
 
@@ -37,4 +34,121 @@
     border: 3px solid #2A3647;
     border-radius: 100%;
     background: url();
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 66px 20px;
+    
+    position: fixed;
+    width: 232px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #2A3647;
+    /* nuevo */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    background-color: #2A3647;
+}
+
+.headerTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 15px;
+    width: 17rem;
+    height: 229px;
+    margin-top: 40px;
+}
+
+.navbar img {
+    width: 22px;
+    height: 22px;
+    top: 1.17px;
+    left: 1px;
+}
+
+.navbar div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 80px;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    width: 12rem;
+    height: 46px;
+}
+
+.navbar div:hover {
+    transition: all 100ms ease-in-out;
+    background-color: #091931;
+}
+
+.navbar a {
+    color: #D8D8D8;
+    text-align: left;
+}
+
+.navbar a:hover {
+    color: white;
+    transition: all 225ms ease-in-out;
+}
+
+.headerTop-img {
+    width: 100.03px;
+    height: 121.97px;
+    object-fit: contain;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.headerBottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 15px;
+    width: 17rem;
+    height: 100%;
+    max-height: 600px;
+    margin-bottom: 125px;
+}
+
+.headerBottom div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 80px;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    width: 12rem;
+    height: 46px;
+}
+
+.headerBottom div:hover {
+    background-color: #091931;
+}
+
+.growIn {
+    animation: grow-in 225ms ease-in-out;
+    transform-origin: 100% 0%
+}
+
+.growOut {
+    animation: grow-out 225ms ease-in-out;
+    transform-origin: 100% 0%
 }

@@ -11,6 +11,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-size: 16px;
+    background-color: #F5F5F5;
 }
 
 a {
@@ -44,11 +45,11 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(32, 49, 146);
+    background: #2A3647;
 }
 
 .parentContainer {
-    margin-left: 150px;
+    margin-left: 123px;
     position: relative;
     background-color: #F5F5F5;
     height: 100vh;

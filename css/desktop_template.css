@@ -51,6 +51,7 @@
     /* nuevo */
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     background-color: #2A3647;
+    box-sizing: border-box;
 }
 
 .headerTop {
@@ -58,6 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .navbar {
@@ -70,6 +72,7 @@
     width: 17rem;
     height: 229px;
     margin-top: 40px;
+    box-sizing: border-box;
 }
 
 .navbar img {
@@ -89,6 +92,7 @@
     transition: all 100ms ease-in-out;
     width: 12rem;
     height: 46px;
+    box-sizing: border-box;
 }
 
 .navbar div:hover {

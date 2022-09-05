@@ -196,6 +196,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 75px;
 }
 
 .headline h1 {

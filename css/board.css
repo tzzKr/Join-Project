@@ -1,9 +1,8 @@
-
 body {
 
   font-family: 'Inter';
-    font-style: normal;
-    font-size: 16px;
+  font-style: normal;
+  font-size: 16px;
 }
 
 p {
@@ -25,16 +24,188 @@ h2 {
   height: calc(100vh - (1389px));
   min-width: 10px;
   margin-right: 25px;
-  
+
+}
+
+/* Board Head  */
+
+.boardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boardHeadRightSide {
+  display: flex;
+  column-gap: 45px;
+}
+
+.BoardAddTaskBtn {
+  height: 51px;
+  width: 137px;
+  background-color: #2A3647;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  transition: 100ms ease-in-out;
+
+}
+
+.BoardAddTaskBtn:hover {
+  background-color: #29ABE2;
+}
+
+.boardSearchParent {
+  background-color: white;
+  width: 251px;
+  display: flex;
+  align-items: center;
+  height: 51px;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.boardSearchBar {
+  width: 200px;
+  height: 35px;
+  border: 0;
+  border-right: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.taskBtnText {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+
+
+/* Board content  */
+.categoryTag {
+  margin-bottom: 15px;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  width: fit-content;
+  padding: 0px 25px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 .boardLists {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 100px;
   overflow: auto;
-  padding-left: 5px;
+  
+  padding: 0 5px 0 5px;
   column-gap: 25px;
 }
+
+.centerLists {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
+}
+
+.singleBoards {
+  width: 250px;
+  min-height: 200px;
+  height: fit-content;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  border-radius: 50px;
+  row-gap: 35px;
+  display: flex;
+}
+
+.boardTask {
+  min-height: 150px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  padding: 18px 20px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+}
+
+.taskDesc {
+  margin: 0;
+  margin-bottom: 15px;
+  color: #A8A8A8;
+}
+
+.progressContainer {
+  margin-top: 23px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.progressBar {
+  height: 8px;
+  width: 138px;
+  background-color: #F4F4F4;
+  border-radius: 30px;
+}
+
+.progressLine {
+  background-color: #29ABE2 !important;
+  z-index: 999;
+  border-radius: 30px;
+  height: 100%;
+  width: 0%;
+
+}
+
+.user_urgency {
+  display: flex;
+  margin-top: 23px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assignedTo {
+  display: flex;
+  margin-left: 6px;
+}
+
+.assignedUser {
+  height: 35px;
+  width: 35px;
+  background: #0190E0;
+  border-radius: 58px;
+  border: solid 2px rgb(255, 255, 255);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px -6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+/* board scrollbar */
 
 .boardLists::-webkit-scrollbar-thumb {
   border-radius: 100vw;
@@ -46,137 +217,25 @@ h2 {
 }
 
 
-.singleBoards {
-  width: 250px;
-  min-height: 200px;
-  height: 100%;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  border-radius: 50px;
+
+/* colors */
+
+.tagDesign {
+  background-color: #FF7A00;
 }
 
-
-
-.centerLists {
-  display: flex;
-  flex-direction: column;  
-  height: calc(100vh - 82px - 101px - 37px - 24px - 20px - 20px);
-  gap: 10px;
+.tagMarketing {
+  background-color: #305EFF;
 }
 
-
-
-.boardTask {
-
-  min-height: 150px;
-  width: 100%;
-  position: relative;
-  display: flex;
-  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.05);
-  border-radius: 30px;
-  padding: 10px 20px 10px 20px;
-  box-sizing: border-box;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
+.tagSales {
+  background-color: #FC71FF;
 }
 
-.boardHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.tagBackoffice {
+  background-color: #1DC8B3;
 }
 
-.boardSearchBar {
-  width: 200px;
-  height: 35px;
-  border: 0;
-  border-right: solid 1px rgba(0, 0, 0, 0.2);
+.tagMedia {
+  background-color: #FFC701;
 }
-.boardSearchParent {
-  background-color: white;
-  width: 251px;
-  display: flex;
-  align-items: center;
-  height: 51px;
-  border-radius: 10px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-}
-
-.boardHeadRightSide {
-  display: flex;
-  column-gap: 45px;
-}
-.BoardAddTaskBtn {
-  height: 51px;
-  width: 137px;
-  background-color: #2A3647;
-  border-radius: 10px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-column-gap: 10px;
-
-}
-.searchBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-}
-
-.taskBtnText {
-font-size: 21px;
-font-weight: 700;
-line-height: 25px;
-letter-spacing: 0em;
-text-align: left;
-}
-
-
-.urgencyColor-low {
-  margin-bottom: 15px;
-  height: 25px;
-  border-radius: 7px;
-  text-align: center;
-  color: white;
-  background-color:#008148;
-}
-
-.urgencyColor-medium {
-  margin-bottom: 15px;
-  height: 25px;
-  border-radius: 7px;
-  text-align: center;
-  color: white;
-  background-color: #AF2BBF;
-}
-
-.urgencyColor-high {
-  margin-bottom: 15px;
-  height: 25px;
-  border-radius: 7px;
-  text-align: center;
-  color: white;
-  background-color: #AE1716;
-
-}
-
-.urgencyColor-done {
-  background-color: rgb(1, 212, 36);
-}
-
-.taskDesc {
-  margin: 0;
-  margin-bottom: 15px;
-}
-
-
-
-
-
-
-
-
-

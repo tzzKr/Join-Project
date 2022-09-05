@@ -49,7 +49,8 @@ input {
 }
 
 .parentContainer {
-    margin-left: 123px;
+    margin-left: calc(123px + 232px);
+    margin-top: 80px;
     position: relative;
     background-color: #F5F5F5;
     height: 100vh;

@@ -50,6 +50,12 @@ h2 {
   justify-content: center;
   align-items: center;
   column-gap: 10px;
+  transition: 100ms ease-in-out;
+
+}
+
+.BoardAddTaskBtn:hover {
+  background-color: #29ABE2;
 }
 
 .boardSearchParent {
@@ -85,6 +91,8 @@ h2 {
   text-align: left;
 }
 
+
+
 /* Board content  */
 .categoryTag {
   margin-bottom: 15px;
@@ -102,7 +110,9 @@ h2 {
 .boardLists {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 100px;
   overflow: auto;
+  
   padding: 0 5px 0 5px;
   column-gap: 25px;
 }
@@ -111,16 +121,18 @@ h2 {
   display: flex;
   flex-direction: column;
   height: fit-content;
-  gap: 10px;
+
 }
 
 .singleBoards {
   width: 250px;
   min-height: 200px;
-  height: 100%;
+  height: fit-content;
   margin-bottom: 24px;
   flex-wrap: wrap;
   border-radius: 50px;
+  row-gap: 35px;
+  display: flex;
 }
 
 .boardTask {
@@ -137,8 +149,60 @@ h2 {
 .taskDesc {
   margin: 0;
   margin-bottom: 15px;
+  color: #A8A8A8;
 }
 
+.progressContainer {
+  margin-top: 23px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.progressBar {
+  height: 8px;
+  width: 138px;
+  background-color: #F4F4F4;
+  border-radius: 30px;
+}
+
+.progressLine {
+  background-color: #29ABE2 !important;
+  z-index: 999;
+  border-radius: 30px;
+  height: 100%;
+  width: 0%;
+
+}
+
+.user_urgency {
+  display: flex;
+  margin-top: 23px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assignedTo {
+  display: flex;
+  margin-left: 6px;
+}
+
+.assignedUser {
+  height: 35px;
+  width: 35px;
+  background: #0190E0;
+  border-radius: 58px;
+  border: solid 2px rgb(255, 255, 255);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px -6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
 
 /* board scrollbar */
@@ -154,7 +218,7 @@ h2 {
 
 
 
-/* Tag colors */
+/* colors */
 
 .tagDesign {
   background-color: #FF7A00;

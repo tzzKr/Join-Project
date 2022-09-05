@@ -1,0 +1,101 @@
+.parentContainer {
+    display: flex;
+    margin-left: 232px !important;
+    margin-top: 0 !important;
+} 
+
+.contactBook {
+    width: 453px;
+    height: 90vh;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+}
+
+.contactList {
+    justify-content: center;
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-top: 10px;
+    width: 357px;
+    /* height: 1072px; */
+    background: #FFFFFF;
+}
+
+.listLetter {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    width: 357px;
+    height: 60px;
+
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.listSeperator {
+    width: 323px;
+    height: 1px;
+    background-color: #D1D1D1;
+    border-radius: 3px;
+}
+
+.listContact {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 35px;
+
+    width: 357px;
+    height: 79px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.listContactInitials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 42px;
+    height: 42px;
+    color: #FFFFFF;
+    border-radius: 100%;
+}
+
+.listContactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    max-width: 180px;
+}
+
+/* Color Example */
+.bgOr {
+    background-color: #FF7A00;
+}
+.bgLp {
+    background-color: #9327FF;
+}
+.bgLb {
+    background-color: #29ABE2;
+}
+.bgRo {
+    background-color: #FC71FF;
+}
+.bgLg{
+    background-color: #02CF2F;
+}
+.bgDr {
+    background-color: #AF1616;
+}
+.bgDp {
+    background-color: #462F8A;
+}

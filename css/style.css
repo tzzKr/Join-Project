@@ -199,6 +199,7 @@ input {
     flex-direction: row;
     align-items: center;
     margin-left: 75px;
+    gap: 30px;
 }
 
 .headline h1 {

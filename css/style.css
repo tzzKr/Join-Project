@@ -53,6 +53,7 @@ input {
     position: relative;
     background-color: #F5F5F5;
     height: 100vh;
+    margin-left: 272px;
 }
 
 
@@ -196,6 +197,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 75px;
 }
 
 .headline h1 {

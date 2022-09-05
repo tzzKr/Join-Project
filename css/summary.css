@@ -10,6 +10,7 @@
     margin-top: 87px;
     align-items: center;
     gap: 67px;
+    margin-left: 75px;
 }
 
 /* ---------- Card Container ---------- */
@@ -21,7 +22,7 @@
     align-items: center;
     gap: 35px;
 
-    width: 580px;
+    /* width: 580px; */
     height: 540px;
 }
 
@@ -43,7 +44,7 @@
     gap: 13px;
 
     width: 170px;
-    height: 170px;
+    height: 150px;
 
     background: #FFFFFF;
     color: #2A3647;

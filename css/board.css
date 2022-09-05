@@ -11,11 +11,11 @@ p {
 
 h2 {
   margin: 0;
-  margin-bottom: 37px;
 }
 
 .parentContainer {
   margin-right: 123px;
+  height: calc(100vh - 80px);
 }
 
 
@@ -112,9 +112,26 @@ h2 {
   justify-content: space-between;
   margin-bottom: 100px;
   overflow: auto;
-  
-  padding: 0 5px 0 5px;
+  height: calc(100vh - 260px - 80px - 80px);
+  padding: 5px 5px 0 5px;
   column-gap: 25px;
+}
+
+.boardTitels {
+  display: flex;
+  justify-content: space-between;
+  overflow: auto;
+  column-gap: 25px;
+  padding: 0px 5px;
+  padding-right: 10px;
+}
+
+.titelStyle {
+  width: 250px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+
 }
 
 .centerLists {
@@ -128,7 +145,7 @@ h2 {
   width: 250px;
   min-height: 200px;
   height: fit-content;
-  margin-bottom: 24px;
+
   flex-wrap: wrap;
   border-radius: 50px;
   row-gap: 35px;
@@ -239,3 +256,80 @@ h2 {
 .tagMedia {
   background-color: #FFC701;
 }
+
+/* Task Information popup  */
+
+.moreBoardInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  width: 623px;
+  height: 80vh;
+  z-index: 9999;
+  border-radius: 30px;
+  overflow-x: auto;
+  row-gap: 25px;
+  display: flex;
+}
+ .moreTaskInfo {
+  padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+ }
+ .infoHeadline {
+  font-size: 35px;
+  margin: -50px 0;
+ }
+
+ .infoDecription {
+  font-size: 21px;
+ }
+ .infoDueDate {
+  display: flex;
+align-items: center;
+column-gap: 25px;
+font-size: 21px;
+ }
+ .infoDueDate h2 {
+font-size: 21px;
+ }
+ .infoPriority {
+  display: flex;
+  column-gap: 25px;
+  align-items: center;
+
+ }
+ .infoPriority h2 {
+  font-size: 21px;
+ }
+
+ .infoAssignedTo h2 {
+  font-size: 21px;
+
+ }
+
+
+
+ /* Priority tags */
+
+ .infoPrioHigh {
+  height: 33px;
+  width: fit-content;
+  padding: 4px 18px;
+  background-color: #FF3D00;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 21px;
+  color: white;
+  column-gap: 10px;
+ }
+ .infoPrioHigh img {
+  filter: brightness(200);
+ }

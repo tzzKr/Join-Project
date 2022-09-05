@@ -16,7 +16,7 @@ body {
 
 a {
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter';
     color: rgb(240, 240, 240);
 }
 
@@ -24,11 +24,11 @@ button {
     background-color: unset;
     border: unset;
     cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter';
 }
 
 input {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter';
 }
 
 .d-none {
@@ -50,11 +50,9 @@ input {
 
 .parentContainer {
     margin-left: calc(123px + 232px);
-    margin-top: 80px;
     position: relative;
     background-color: #F5F5F5;
-    height: 100vh;
-    margin-left: 272px;
+    height: 100%;
 }
 
 
@@ -206,8 +204,8 @@ input {
     font-size: 61px;
     font-weight: 700;
     margin: 0;
-    margin-bottom: 101px;
-    margin-top: 82px;
+    margin-bottom: 60px;
+    margin-top: 40px;
 }
 
 .hlSeperator {

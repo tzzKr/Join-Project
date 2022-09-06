@@ -15,7 +15,7 @@
 </head>
 
 <body onload="includeHTML()">
-    <div w3-include-html="templates/desktop_template.html"></div>
+    <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
     <div class="parentContainer">
         <div class="headline h1AddTask">
             <h1>Add Task</h1>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="container">
                         <h3>Description</h3>
-                        <textarea placeholder="Enter a description" id="description" method="dialog"></textarea>
+                        <textarea required placeholder="Enter a description" id="description" method="dialog"></textarea>
                     </div>
                     <div class="container">
                         <h3>Category</h3>

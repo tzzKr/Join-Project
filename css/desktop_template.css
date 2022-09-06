@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .header-line {
     display: flex;
     flex-direction: row;

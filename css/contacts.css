@@ -49,6 +49,7 @@
     align-items: flex-start;
     padding: 15px 25px;
     gap: 35px;
+    box-sizing: border-box;
 
     width: 357px;
     height: 79px;

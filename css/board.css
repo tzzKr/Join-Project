@@ -279,6 +279,7 @@ h2 {
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+  position: relative;
  }
  .infoHeadline {
   font-size: 35px;
@@ -311,7 +312,42 @@ font-size: 21px;
   font-size: 21px;
 
  }
+ .infoAssignedUser {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+ }
 
+ .infoUser_name {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+  font-size: 21px;
+ }
+
+ .infoClose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 42px;
+  margin-right: 42px;
+ }
+
+ .infoAssignedUserPic {
+  height: 45px;
+  width: 45px;
+  background: #0190E0;
+  border-radius: 58px;
+  border: solid 2px rgb(255, 255, 255);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px -6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
 
  /* Priority tags */

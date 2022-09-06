@@ -9,15 +9,25 @@
     <link rel="stylesheet" href="./css/board.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/desktop_template.css">
+    <link rel="stylesheet" href="./css/contacts.css">
+    <link rel="stylesheet" href="./css/summary.css">
     <script src="javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
-    <script src="./javaScript/templates.js"></script>
     <title>Join</title>
 </head>
 
 <body onload="includeHTML()">
-    <div w3-include-html="templates/desktop_template.html"></div>
-    <div w3-include-html="addTask.html"></div>
+    
+    <header w3-include-html="templates/desktop_template.html"></header>
+    
+    
+    <div style="display: none;" w3-include-html="summary.html"></div>
+    <div  w3-include-html="addTask.html"></div>
+    <div style="display: none;" w3-include-html="board.html"></div>
+    <div style="display: none;" w3-include-html="contacts.html"></div>
+    
+
+
 
 
 </body>

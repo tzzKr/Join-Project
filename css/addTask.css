@@ -204,6 +204,10 @@ select {
     color: #29ABE2;
 }
 
+.clear-btn:hover img {
+    filter: invert(65%) sepia(21%) saturate(6259%) hue-rotate(164deg) brightness(97%) contrast(82%);
+}
+
 .create-task-btn:hover {
     transition: all 100ms ease-in-out;
     transform: scale(1.05);

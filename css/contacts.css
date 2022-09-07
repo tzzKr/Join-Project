@@ -18,10 +18,7 @@
     justify-content: center;
     margin-left: 48px;
     margin-right: 48px;
-    margin-top: 10px;
-    /* width: fit-content; */
     width: 350px;
-    /* height: 1072px; */
     background: #FFFFFF;
 }
 
@@ -43,6 +40,7 @@
     height: 1px;
     background-color: #D1D1D1;
     border-radius: 3px;
+    margin-bottom: 10px;
 }
 
 .listContact {
@@ -58,6 +56,16 @@
 
     background: #FFFFFF;
     border-radius: 10px;
+    transition: 225ms;
+}
+
+.listContact:hover {
+    cursor: pointer;
+    background: #f1f1f1;
+}
+
+.listContact:hover .listContactInitials {
+    scale: 0.9;
 }
 
 .listContactInitials {
@@ -69,6 +77,7 @@
     height: 42px;
     color: #FFFFFF;
     border-radius: 100%;
+    transition: 225ms;
 }
 
 .listContactInfo {
@@ -104,7 +113,6 @@
 }
 
 /* Scrollbar */
-
 .contactBook::-webkit-scrollbar-thumb {
     border-radius: 7px;
     background: #A8A8A8;
@@ -135,4 +143,111 @@
     width: 25px;
     background-position: center 2px;
     background-image: url("../img/arrowDown.svg");
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+    margin-left: 80px;
+}
+
+.contactHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    height: 120px;
+    margin-left: 40px;
+}
+
+.contactScale {
+    scale: 3;
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contactName {
+    font-weight: 500;
+    font-size: 47px;
+}
+
+.contactAddTaskBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 18px;
+}
+
+.addTaskBtnText {
+    font-weight: 400;
+    font-size: 16px;
+    color:#29ABE2;
+}
+
+.addTaskBtnImg {
+    filter: invert(73%) sepia(45%) saturate(5168%) hue-rotate(165deg) brightness(94%) contrast(88%);
+}
+
+.contactInformationHead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 59px;
+    height: 74px;
+}
+
+.contactInformationTitle {
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.editContactBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.editContactBtn span {
+    font-weight: 400;
+    font-size: 16px;
+    color: #2A3647;
+}
+
+.contactAdressInformations {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+
+    width: 140px;
+    height: 128px;
+}
+
+.contactAdressSegment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    
+    width: 140px;
+    height: 53px;
+}
+
+.contactAdressTitle {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.contactAdressLink {
+    font-weight: 400;
+    font-size: 16px;
+    color: #007CEE;
 }

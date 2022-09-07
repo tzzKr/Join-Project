@@ -206,6 +206,7 @@ select {
 
 .clear-btn:hover img {
     filter: invert(65%) sepia(21%) saturate(6259%) hue-rotate(164deg) brightness(97%) contrast(82%);
+    transition: all 100ms ease-in-out;
 }
 
 .create-task-btn:hover {

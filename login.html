@@ -14,26 +14,37 @@
 
 <body>
     <div class="main-container-login">
-        <div class="sign-up-container">
-            <span></span>
-            <button></button>
+        <div class="log-in-headline">
+            <div class="sign-up-container">
+                <span>Not a Join user?</span>
+                <button>Sign up</button>
+            </div>
         </div>
+
         <div class="logo-container">
             <img src="img/logo-black.svg">
         </div>
-        <div class="login-container">
-            <div class="login-header">
-                <h1>Log in</h1>
-                <div class="horizonal-line"></div>
-            </div>
-            <div>
-                <form action="">
-                    <input type="email">
-                    <input type="password">
-                    <input type="checkbox">
+        <div class="login-content">
+            <div class="login-container">
+                <div class="login-header">
+                    <span>Log in</span>
+                    <div class="horizonal-line"></div>
+                </div>
+                <form action="" class="form-container">
+                    <div class="input-img">
+                        <input class="input-login" required placeholder="Email" type="email"><img src="img/Email.svg">
+                    </div>
+                    <div class="input-img">
+                        <input class="input-login" required placeholder="Password" type="password"><img src="img/password.svg">
+                    </div>
+                    <div class="checkbox-container">
+                        <input id="rememberMe" class="checkbox-login" type="checkbox">
+                        <p>Remember me</p>
+                        <p class="blue" onclick="forgotPassword()">Forgot my password</p>
+                    </div>
                     <div class="login-btn">
-                        <button>Log in</button>
-                        <button>Guest Log in</button>
+                        <button class="login-button">Log in</button>
+                        <button class="guest-button">Guest Log in</button>
                     </div>
                 </form>
             </div>

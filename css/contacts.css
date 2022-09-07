@@ -6,11 +6,12 @@
 
 .contactBook {
     width: 453px;
-    height: 90vh;
+    height: calc(100vh - 80px);
     left: 0;
     top: 0;
     background: #FFFFFF;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+    overflow-y: scroll;
 }
 
 .contactList {
@@ -18,7 +19,8 @@
     margin-left: 48px;
     margin-right: 48px;
     margin-top: 10px;
-    width: 357px;
+    /* width: fit-content; */
+    width: 350px;
     /* height: 1072px; */
     background: #FFFFFF;
 }
@@ -99,4 +101,38 @@
 }
 .bgDp {
     background-color: #462F8A;
+}
+
+/* Scrollbar */
+
+.contactBook::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background: #A8A8A8;
+}
+
+.contactBook::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Buttons */
+::-webkit-scrollbar-button:single-button {
+    background-color: #FFFFFF;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    height: 15px;
+    width: 25px;
+    background-position: center 4px;
+    background-image: url("../img/arrwoUp.svg");
+}
+
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    height: 15px;
+    width: 25px;
+    background-position: center 2px;
+    background-image: url("../img/arrowDown.svg");
 }

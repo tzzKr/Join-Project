@@ -10,18 +10,21 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/addTask.css">
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/board.js"></script>
 </head>
 
-<body>
+<body onload="includeHTML()">
+    <header w3-include-html="templates/desktop_template.html"></header>
+
 
     <div class="parentContainer">
 
-        <div class="moreBoardInfo">
+        <div  id="boardTaskInfo" class="moreBoardInfo d-none">
             <div class="moreTaskInfo">
-                <div class="infoClose"> <img src="img/closeCross.svg" alt=""></div>
+                <div onclick="closeBoardTaskInfo()" class="infoClose"> <img src="img/closeCross.svg" alt=""></div>
                 <div class="categoryTag tagMedia"> Media</div>
                 <div class="infoHeadline"> <h1>Call potencial clients</h1></div>
                 <div class="infoDecription">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit praesentium sint.</div>
@@ -49,6 +52,81 @@
             </div>
         </div>
 
+        <div  id="boardAddTask" class="moreBoardInfo d-none" style="width: fit-content;">
+            <div class="moreTaskInfo">
+                <div onclick="closeBoardTaskInfo()" class="infoClose"> <img src="img/closeCross.svg" alt=""></div>
+                <div class="headline h1AddTask">
+                    <h1>Add Task</h1>
+                </div>
+                <div class="main-container-addTask">
+                    <form action="" class="addTask" id="add-new-task" method="dialog" style="column-gap: 140px;">
+                        <div class="columnLeft">
+                            <div class="container">
+                                <h3>Title</h3>
+                                <input required placeholder="Add Title" id="title">
+                            </div>
+                            <div class="container">
+                                <h3>Description</h3>
+                                <textarea required placeholder="Enter a description" id="description" method="dialog"></textarea>
+                            </div>
+                            <div class="container">
+                                <h3>Category</h3>
+                                <select placeholder="Selcet task category" name="select" id="category">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="container">
+                                <h3>Assigned to</h3>
+                                <select name="" id="assigned-to">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="middleLine" style="left:465px !important"></div>
+        
+                        <div class="columnRight">
+                            <div class="container">
+                                <h3>Due date</h3>
+                                <input type="datetime-local" required id="date">
+                            </div>
+                            <div class="prio">
+                                <h3>Prio</h3>
+                                <div class="prio-buttons">
+                                    <button onclick="" id="buttonColor">Urgent <img src="img/Prio-urgent.svg"></button>
+                                    <button onclick="" id="buttonColor">Medium <img src="img/prio_medium.svg"></button>
+                                    <button onclick="" id="buttonColor">Low <img src="img/prio_low.svg"></button>
+                                </div>
+                            </div>
+                            <div class="container">
+        
+                                <h3>Subtasks</h3>
+                                <div class="subtasks">
+                                    <input placeholder="Add new subtask" type=""><img onclick="" src="img/plus.svg">
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <input class="" type="checkbox">
+                                <span>Subtask 1</span>
+                            </div>
+                            <div class="create-task-buttons">
+                                <button onclick="clear()" class="clear-btn">Clear <img src="img/clear.svg"></button>
+                                <button onclick="createTask()" class="create-task-btn">Create Task <img src="img/addTask-right.svg"></button>
+                            </div>
+                        </div>
+        
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="boardBg">
 
 
@@ -62,7 +140,7 @@
                         <button class="searchBtn"><img src="img/search.svg" alt=""></button>
                     </div>
 
-                    <button class="BoardAddTaskBtn">
+                    <button onclick="showBoardAddTask()" class="BoardAddTaskBtn">
                         <p class="taskBtnText">Add task </p>
                         <img src="img/AddSymbol.svg" alt="">
                     </button>

@@ -163,6 +163,7 @@ body {
 .blue {
     color: #29ABE2;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .login-btn {

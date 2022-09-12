@@ -36,14 +36,13 @@
     /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    font-size: 16px;
 }
 
 textarea {
     box-sizing: border-box;
     /* Auto layout */
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     padding: 18px 21px;
     gap: 10px;
     isolation: isolate;
@@ -53,6 +52,8 @@ textarea {
     /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    font-size: 16px;
+    resize: none;
 }
 
 select {

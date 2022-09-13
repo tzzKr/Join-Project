@@ -126,6 +126,30 @@ input {
     bottom: 24px;
 }
 
+@media (max-width: 1395px) {
+    .parentContainer {
+        margin-left: calc(123px + 190px);
+    }
+}
+
+@media (max-width: 1300px) {
+    .parentContainer {
+        margin-left: calc(123px + 180px);
+    }
+}
+
+@media (max-width: 1270px) {
+    .parentContainer {
+        margin-left: calc(123px + 160px);
+    }
+}
+
+@media (max-width: 1220px) {
+    .parentContainer {
+        margin-left: calc(232px + 20px);
+    }
+}
+
 @media (max-width: 720px) {
     .parentContainer {
         margin-left: 25px;
@@ -196,7 +220,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 75px;
+    /* margin-left: 75px; */
     gap: 30px;
 }
 

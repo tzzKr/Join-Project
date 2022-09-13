@@ -217,3 +217,55 @@ select {
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
+@media(max-width: 1670px) {
+    .middleLine {
+        left: 44%;
+    }
+}
+
+@media(max-width: 1670px) {
+    .middleLine {
+        left: 45%;
+    }
+}
+
+@media(max-width: 1500px) {
+    .middleLine {
+        display: none !important;
+    }
+}
+
+@media(max-width: 1395px) {
+    .main-container-addTask {
+        width: calc(100% - 0px);
+    }
+}
+
+@media(max-width: 1300px) {
+    .create-task-buttons {
+        margin-left: 0%;
+        top: 90%;
+    }
+}
+
+@media(max-width: 1220px) {
+    .main-container-addTask {
+        width: calc(100% - 10px);
+    }
+}
+
+@media(max-width: 1180px) {
+    .prio-buttons button {
+        width: 127px;
+    }
+    .container input {
+        width: 400px;
+    }
+    select {
+        width: 400px;
+    }
+    textarea {
+        width: 400px;
+    }
+}

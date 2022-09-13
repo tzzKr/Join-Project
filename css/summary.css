@@ -5,7 +5,6 @@
     margin-top: 87px;
     align-items: center;
     gap: 67px;
-    margin-left: 75px;
 }
 
 /* ---------- Card Container ---------- */
@@ -163,10 +162,7 @@
     justify-content: center;
     align-items: center;
     gap: 22px;
-    
-    font-family: 'Open Sans';
     font-style: normal;
-
     margin-bottom: 78px;
 }
 

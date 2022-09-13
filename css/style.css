@@ -220,11 +220,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-<<<<<<< HEAD
     /* margin-left: 75px; */
-=======
-
->>>>>>> 31cc62bb98a0cb71783d750da6ef05a824dc25c8
     gap: 30px;
 }
 

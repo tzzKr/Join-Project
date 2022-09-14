@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/contacts.css">
     <script src="javaScript/script.js"></script>
+    <script src="javaScript/contacts.js"></script>
 </head>
 
 <body onload="includeHTML()">
@@ -174,7 +175,7 @@
                 </div>
             </div>
 
-            <button class="newContactBtn">
+            <button onclick="openOverlay()" class="newContactBtn">
                 <span>New contact</span>
                 <img src="img/newContact.svg">
             </button>
@@ -183,7 +184,7 @@
 
     </div>
 
-    <div class="contactOverlay">
+    <div id="contact-overlay" class="contactOverlay d-none">
         <div class="overlayLeft">
             <img src="img/logo-white.svg">
             <span class="overlayHealine">Add contact</span>
@@ -191,7 +192,7 @@
             <div class="overlaySperator"></div>
         </div>
         <div class="overlayRight">
-            <img onclick="" class="overlayClose" src="img/closeCross.svg">
+            <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
             <div class="overlayUserImg">
                 <img class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
@@ -201,7 +202,7 @@
                 <input class="overlayInput">
             </div>
             <div class="overlayBtnSection">
-                <button class="overlayCancelBtn">
+                <button onclick="closeOverlay()" class="overlayCancelBtn">
                     <span>Cancel</span>
                     <img src="img/closeCross.svg">
                 </button>

@@ -281,3 +281,60 @@
     background-color: #29ABE2;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
+/* Contact Overlay */
+.contactOverlay {
+    display: flex;
+    width: 1212px;
+    height: 594px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    z-index: 10;
+
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+.overlayLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 66px 46px;
+    gap: 12px;
+    border-top-left-radius:  30px;
+    border-bottom-left-radius: 30px;
+
+    width: 463px;    
+    background: #2A3647;
+    color: #FFFFFF;
+}
+
+.overlayHealine {
+    font-weight: 700;
+    font-size: 61px;
+}
+
+.overlaySubheadline {
+    font-weight: 400;
+    font-size: 27px;
+}
+
+.overlaySperator {
+    height: 3px;
+    width: 90px;
+    background-color: #29ABE2;
+}
+
+.overlayClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.overlayClose:hover {
+    cursor: pointer;
+}

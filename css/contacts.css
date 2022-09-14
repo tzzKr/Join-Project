@@ -4,6 +4,7 @@
     margin-top: 0 !important;
 } 
 
+/* Contact Book */
 .contactBook {
     width: 453px;
     height: calc(100vh - 80px);
@@ -122,14 +123,14 @@
     background: #f1f1f1;
 }
 
-/* Buttons */
+/* Scrollbar Buttons */
 ::-webkit-scrollbar-button:single-button {
     background-color: #FFFFFF;
     display: block;
     background-repeat: no-repeat;
 }
 
-/* Up */
+/* Scrollbar Up */
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
     height: 15px;
     width: 25px;
@@ -137,7 +138,7 @@
     background-image: url("../img/arrwoUp.svg");
 }
 
-/* Down */
+/* Scrollbar Down */
 ::-webkit-scrollbar-button:single-button:vertical:increment {
     height: 15px;
     width: 25px;
@@ -145,6 +146,7 @@
     background-image: url("../img/arrowDown.svg");
 }
 
+/* Contact Infos */
 .content {
     display: flex;
     flex-direction: column;
@@ -250,4 +252,32 @@
     font-weight: 400;
     font-size: 16px;
     color: #007CEE;
+}
+
+.newContactBtn {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 18px 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 193px;
+    height: 53px;
+    right: 80px;
+    bottom: 60px;
+
+    background: #2A3647;
+    border-radius: 10px;
+}
+
+.newContactBtn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }

@@ -338,3 +338,110 @@
 .overlayClose:hover {
     cursor: pointer;
 }
+
+.overlayUserImg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 583px;
+    top: 204px;
+
+    background-color: white;
+    border-radius: 100%;
+}
+
+.overlayInputSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 29px;
+    position: absolute;
+    width: 422px;
+    height: 271px;
+    left: 737px;
+    top: 129px;
+}
+
+.overlayInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.overlayBtnSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    position: absolute;
+    width: 369px;
+    height: 61px;
+    left: 737px;
+    top: 435px;
+}
+
+.overlayCancelBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 136px;
+    height: 61px;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+    color: #2A3647;
+}
+
+.overlayCancelBtn:hover {
+    color: #29ABE2;
+    border-color: #29ABE2;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.overlayCancelBtn img {
+    width: 24px;
+    height: 24px;
+}
+
+.overlayCancelBtn:hover img {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(69%) saturate(3444%) hue-rotate(166deg) brightness(90%) contrast(97%);
+}
+
+.overlayCreateBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    width: 208px;
+    height: 61px;
+    background: #2A3647;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 21px;
+    color: #FFFFFF;
+}
+
+.overlayCreateBtn:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}

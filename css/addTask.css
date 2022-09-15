@@ -56,18 +56,119 @@ textarea {
     resize: none;
 }
 
-select {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
+
+/******* Selection Style ********/
+
+.selector {
+    width: 400px;
+}
+
+#selectField {
     width: 422px;
     height: 51px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    background: #FFFFFF;
     border-radius: 10px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+#select-field img {
+    width: 12px;
+}
+
+.listContactInitials {
+    width: 20px;
+    height: 20px;
+    left: 140px;
+    color: #FFFFFF;
+    border-radius: 100%;
+    transition: 225ms;
+    position: absolute;
+    top: 26px;
+}
+
+.bgLg {
+    background-color: #02CF2F;
+}
+
+.bgRo {
+    background-color: #FC71FF;
+}
+
+.left {
+    left: 90px;
+}
+
+#list {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-inline-start: 0;
+    margin-block-start: 4px;
+    margin-block-end: 0;
+    transition: all 200ms ease-in-out;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.options {
+    width: 100%;
+    padding: 1px 0 4px 0;
+    padding-left: 20px;
+    list-style: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.options:hover {
+    background: lightgrey;
+    transition: all 100ms ease-in-out;
+}
+
+.d-none {
+    display: none;
+}
+
+.growIn {
+    animation: grow-in 225ms ease-in-out;
+    transform-origin: 0px;
+}
+
+.growOut {
+    animation: grow-out 225ms ease-in-out;
+    transform-origin: bottom;
+}
+
+@keyframes grow-in {
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@keyframes grow-out {
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+    100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
 }
 
 .middleLine {
@@ -153,7 +254,7 @@ select {
     padding: 0px;
     gap: 25px;
     position: absolute;
-    top: 100%;
+    top: 90%;
     margin-left: 10%;
 }
 

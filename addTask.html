@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
+    <script src="./javaScript/addTask.js"></script>
     <title>Join-AddTask</title>
 
 </head>
@@ -33,21 +34,45 @@
                     </div>
                     <div class="container">
                         <h3>Category</h3>
-                        <select placeholder="Selcet task category" name="select" id="category">
-                            <option disabled selected value="">Select task category</option>
-                            <option value="">New category</option>
-                            <option value="">Sales</option>
-                            <option value="">Backoffice</option>
-                        </select>
+                        <div onclick="openSelection()" id="selectField">
+                            <p>Select task category</p>
+                            <img src="img/arrow.png">
+                        </div>
+
+                        <ul id="list" class="d-none">
+                            <li class="options">
+                                <p id="selectText">New category</p>
+                            </li>
+                            <li onclick="selectOptions()" class="options">
+                                <div class="listContactInitials contactScale bgRo left"></div>
+                                <p>Sales</p>
+                            </li>
+                            <li class="options">
+                                <div class="listContactInitials contactScale bgLg"></div>
+                                <p>backoffice</p>
+                            </li>
+                        </ul>
                     </div>
                     <div class="container">
                         <h3>Assigned to</h3>
-                        <select name="" id="assigned-to">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                        <div onclick="openSelection()" id="selectField">
+                            <p>Select task category</p>
+                            <img src="img/arrow.png">
+                        </div>
+
+                        <ul id="list" class="d-none">
+                            <li class="options">
+                                <p id="selectText">New category</p>
+                            </li>
+                            <li onclick="selectOptions()" class="options">
+                                <div class="listContactInitials contactScale bgLp left"></div>
+                                <p>Sales</p>
+                            </li>
+                            <li class="options">
+                                <div class="listContactInitials contactScale bgLp"></div>
+                                <p>backoffice</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 

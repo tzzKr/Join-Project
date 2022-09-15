@@ -22,7 +22,7 @@
     width: calc(50% - 64px);
 }
 
-.container input {
+.input-addTask {
     box-sizing: border-box;
     /* Auto layout */
     display: flex;
@@ -63,7 +63,7 @@ textarea {
     width: 400px;
 }
 
-#selectField {
+.select-field {
     width: 422px;
     height: 51px;
     padding: 15px 20px;
@@ -77,10 +77,7 @@ textarea {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-}
-
-#select-field img {
-    width: 12px;
+    border: 1px solid #D1D1D1;
 }
 
 .listContactInitials {
@@ -106,7 +103,18 @@ textarea {
     left: 90px;
 }
 
-#list {
+.p-absolute {
+    display: flex;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+}
+
+li img {
+    width: 30px;
+}
+
+.list {
     width: 100%;
     background: #FFFFFF;
     border-radius: 10px;
@@ -141,12 +149,12 @@ textarea {
 
 .growIn {
     animation: grow-in 225ms ease-in-out;
-    transform-origin: 0px;
+    transform-origin: top;
 }
 
 .growOut {
     animation: grow-out 225ms ease-in-out;
-    transform-origin: bottom;
+    transform-origin: top;
 }
 
 @keyframes grow-in {

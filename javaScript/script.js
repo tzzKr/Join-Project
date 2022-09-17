@@ -1,4 +1,4 @@
-setURL('http://gruppe-303.developerakademie.net/smallest_backend_ever')
+setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever')
 
 
 //**Include Function */

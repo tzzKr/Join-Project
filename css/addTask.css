@@ -80,6 +80,10 @@ textarea {
     border: 1px solid #D1D1D1;
 }
 
+.select-field img {
+    width: 18px;
+}
+
 .listContactInitials {
     width: 20px;
     height: 20px;
@@ -89,6 +93,7 @@ textarea {
     transition: 225ms;
     position: absolute;
     top: 26px;
+    border: 2px solid #FFFFFF;
 }
 
 .bgLg {

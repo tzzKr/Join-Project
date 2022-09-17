@@ -8,3 +8,4 @@ function showBoardAddTask () {
     let boardAddTask = document.getElementById('boardAddTask');
 boardAddTask.classList.remove('d-none')
 }
+

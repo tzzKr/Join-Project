@@ -4,10 +4,11 @@ let tasks = [];
 let todos = [];
 let assignedUser = [];
 let subtasks = [];
+let contacts = [];
 
 
 let users = [
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123' },
+    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', },
     { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456' },
     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789' }
 ];
@@ -71,6 +72,7 @@ async function loadData() {
     tasks = await JSON.parse(backend.getItem('tasks')) || [];
     todos = await JSON.parse(backend.getItem('todos')) || [];
     users = await JSON.parse(backend.getItem('users')) || [];
+
 }
 
 

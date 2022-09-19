@@ -2,9 +2,11 @@
     display: flex;
     margin-left: 232px !important;
     margin-top: 0 !important;
-} 
+}
+
 
 /* Contact Book */
+
 .contactBook {
     width: 453px;
     height: calc(100vh - 80px);
@@ -86,30 +88,40 @@
     max-width: 180px;
 }
 
+
 /* Color Example */
+
 .bgOr {
     background-color: #FF7A00;
 }
+
 .bgLp {
     background-color: #9327FF;
 }
+
 .bgLb {
     background-color: #29ABE2;
 }
+
 .bgRo {
     background-color: #FC71FF;
 }
-.bgLg{
+
+.bgLg {
     background-color: #02CF2F;
 }
+
 .bgDr {
     background-color: #AF1616;
 }
+
 .bgDp {
     background-color: #462F8A;
 }
 
+
 /* Scrollbar */
+
 .contactBook::-webkit-scrollbar-thumb {
     border-radius: 7px;
     background: #A8A8A8;
@@ -119,14 +131,18 @@
     background: #f1f1f1;
 }
 
+
 /* Scrollbar Buttons */
+
 ::-webkit-scrollbar-button:single-button {
     background-color: #FFFFFF;
     display: block;
     background-repeat: no-repeat;
 }
 
+
 /* Scrollbar Up */
+
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
     height: 15px;
     width: 25px;
@@ -134,7 +150,9 @@
     background-image: url("../img/arrwoUp.svg");
 }
 
+
 /* Scrollbar Down */
+
 ::-webkit-scrollbar-button:single-button:vertical:increment {
     height: 15px;
     width: 25px;
@@ -142,7 +160,9 @@
     background-image: url("../img/arrowDown.svg");
 }
 
+
 /* Contact Infos */
+
 .content {
     display: flex;
     flex-direction: column;
@@ -164,7 +184,7 @@
     scale: 3;
 }
 
-.contactInfo{
+.contactInfo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -186,7 +206,7 @@
 .addTaskBtnText {
     font-weight: 400;
     font-size: 16px;
-    color:#29ABE2;
+    color: #29ABE2;
 }
 
 .addTaskBtnImg {
@@ -273,6 +293,7 @@
     background-color: #29ABE2;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
 
 /* Contact Overlay */
 .pageMask {

@@ -9,7 +9,7 @@ function openSelection() {
         document.getElementById('list').classList.remove('growIn');
     }, 200);
 
-    document.getElementById('selectField').setAttribute('onclick', `javascript: closeSelection()`);
+    document.getElementById('selectField').setAttribute('onclick', `closeSelection()`);
 }
 
 function closeSelection() {
@@ -18,7 +18,7 @@ function closeSelection() {
         document.getElementById('list').classList.add('d-none');
         document.getElementById('list').classList.remove('growOut');
     }, 200);
-    document.getElementById('selectField').setAttribute('onclick', `javascript: openSelection()`);
+    document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
 }
 
 ///**      ContactSelection Functions       **///
@@ -31,7 +31,7 @@ function openContactSelection() {
         document.getElementById('listContact').classList.remove('growIn');
     }, 200);
 
-    document.getElementById('selectioContactField').setAttribute('onclick', `javascript: closeContactSelection()`);
+    document.getElementById('selectioContactField').setAttribute('onclick', `closeContactSelection()`);
 }
 
 
@@ -41,7 +41,7 @@ function closeContactSelection() {
         document.getElementById('listContact').classList.add('d-none');
         document.getElementById('listContact').classList.remove('growOut');
     }, 200);
-    document.getElementById('selectioContactField').setAttribute('onclick', `javascript: openContactSelection()`);
+    document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
 
 ///**      Select Option Functions       **///

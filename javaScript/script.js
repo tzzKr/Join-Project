@@ -13,6 +13,23 @@ let users = [
     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789' }
 ];
 
+//**GoTo Functions **//
+
+function goToSummary() {
+    window.location.href = 'summary.html';
+}
+
+function goToBoard() {
+    window.location.href = 'board.html';
+}
+
+function goToAddTask() {
+    window.location.href = 'addTask.html';
+}
+
+function goToContacts() {
+    window.location.href = 'contacts.html';
+}
 
 
 

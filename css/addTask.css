@@ -92,7 +92,7 @@ textarea {
     border-radius: 100%;
     transition: 225ms;
     position: absolute;
-    top: 26px;
+    top: 14px;
     border: 2px solid #FFFFFF;
 }
 
@@ -111,7 +111,7 @@ textarea {
 .p-absolute {
     display: flex;
     position: absolute;
-    top: 22px;
+    top: 13px;
     right: 22px;
 }
 
@@ -135,12 +135,17 @@ li img {
 
 .options {
     width: 100%;
-    padding: 1px 0 4px 0;
+    padding: 1px 0 1px 0;
     padding-left: 20px;
     list-style: none;
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
+}
+
+.options p {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
 }
 
 .options:hover {
@@ -364,7 +369,6 @@ li img {
 @media(max-width: 1300px) {
     .create-task-buttons {
         margin-left: 0%;
-        top: 90%;
     }
 }
 

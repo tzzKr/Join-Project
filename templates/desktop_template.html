@@ -14,7 +14,7 @@
 <body>
 
     <div class="header-line">
-        <div class="logo-img">
+        <div class="logo-img" onclick="goToAddTask()">
             <a href="#"><img src="img/logo-black.svg"></a>
         </div>
         <span class="kanban-text">Kanban Project Managment Tool</span>
@@ -28,23 +28,23 @@
 
         <div class="headerTop">
 
-            <a href="index.html"><img class="headerTop-img" src="img/Capa 1.svg"></a>
+            <a href="#" onclick="goToAddTask()"><img class="headerTop-img" src="img/Capa 1.svg"></a>
 
             <div class="navbar">
 
-                <div>
+                <div onclick="goToSummary()">
                     <a href="summary.html"><img src="img/summary.svg"></a>
                     <a href="summary.html">Summary</a>
                 </div>
-                <div>
+                <div onclick="goToBoard()">
                     <a href="board.html"><img src="img/board.svg"></a>
                     <a href="board.html">Board</a>
                 </div>
-                <div>
+                <div onclick="goToAddTask()">
                     <a href="addTask.html"><img src="img/addTask.svg"></a>
                     <a href="addTask.html">Add Task</a>
                 </div>
-                <div>
+                <div onclick="goToContacts()">
                     <a href="contacts.html"><img src="img/contacts.svg"></a>
                     <a href="contacts.html">Contacts</a>
                 </div>

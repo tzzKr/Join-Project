@@ -183,37 +183,39 @@
         </div>
 
     </div>
-
-    <div id="contact-overlay" class="contactOverlay d-none">
-        <div class="overlayLeft">
-            <img src="img/logo-white.svg">
-            <span class="overlayHealine">Add contact</span>
-            <span class="overlaySubheadline">Tasks are better with a team!</span>
-            <div class="overlaySperator"></div>
+    
+    <div id="page-mask" class="pageMask d-none" onclick="closeOverlay()">
+        <div id="contact-overlay" class="contactOverlay">
+            <div class="overlayLeft">
+                <img src="img/logo-white.svg">
+                <span class="overlayHealine">Add contact</span>
+                <span class="overlaySubheadline">Tasks are better with a team!</span>
+                <div class="overlaySperator"></div>
+            </div>
+            <div class="overlayRight">
+                <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
+                <div class="overlayUserImg">
+                    <img class="overlayDefaultUserImg" src="img/defaultUser.svg">
+                </div>
+                <form class="overlayInputSection">
+                    <input placeholder="Name" typ="text" class="overlayInput" required>
+                    <input placeholder="Email" typ="email" class="overlayInput" required>
+                    <input placeholder="Phone" typ="tel" class="overlayInput" required>
+                    <div class="overlayBtnSection">
+                        <button onclick="closeOverlay()" class="overlayCancelBtn">
+                            <span>Cancel</span>
+                            <img src="img/closeCross.svg">
+                        </button>
+                        <button typ="submit" class="overlayCreateBtn">
+                            <span>Create contact</span>
+                            <img src="img/simpleCheck.svg">
+                        </button>
+                    </div>
+                </form>
+            </div>      
         </div>
-        <div class="overlayRight">
-            <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div class="overlayUserImg">
-                <img class="overlayDefaultUserImg" src="img/defaultUser.svg">
-            </div>
-            <div class="overlayInputSection">
-                <input class="overlayInput">
-                <input class="overlayInput">
-                <input class="overlayInput">
-            </div>
-            <div class="overlayBtnSection">
-                <button onclick="closeOverlay()" class="overlayCancelBtn">
-                    <span>Cancel</span>
-                    <img src="img/closeCross.svg">
-                </button>
-                <button class="overlayCreateBtn">
-                    <span>Create contact</span>
-                    <img src="img/simpleCheck.svg">
-                </button>
-            </div>
-        </div>      
     </div>
-
+    
 </body>
 
 </html>

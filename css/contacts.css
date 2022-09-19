@@ -28,10 +28,8 @@
     align-items: center;
     padding: 10px;
     gap: 10px;
-
     width: 357px;
     height: 60px;
-
     font-weight: 400;
     font-size: 21px;
 }
@@ -51,10 +49,8 @@
     padding: 15px 25px;
     gap: 35px;
     box-sizing: border-box;
-
     width: 357px;
     height: 79px;
-
     background: #FFFFFF;
     border-radius: 10px;
     transition: 225ms;
@@ -228,7 +224,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 22px;
-
     width: 140px;
     height: 128px;
 }
@@ -238,7 +233,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    
     width: 140px;
     height: 53px;
 }
@@ -265,13 +259,11 @@
     font-size: 18px;
     padding: 18px 10px;
     gap: 10px;
-
     position: absolute;
     width: 193px;
     height: 53px;
     right: 80px;
     bottom: 60px;
-
     background: #2A3647;
     border-radius: 10px;
 }
@@ -283,17 +275,24 @@
 }
 
 /* Contact Overlay */
+.pageMask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .contactOverlay {
     display: flex;
     width: 1212px;
     height: 594px;
-
-    position: absolute;
-    top: 25%;
-    left: 25%;
-
-    z-index: 10;
-
+    z-index: 11;
     background: #FFFFFF;
     border-radius: 30px;
 }
@@ -305,9 +304,8 @@
     align-items: flex-start;
     padding: 66px 46px;
     gap: 12px;
-    border-top-left-radius:  30px;
-    border-bottom-left-radius: 30px;
-
+    border-top-left-radius:  27px;
+    border-bottom-left-radius: 27px;
     width: 463px;    
     background: #2A3647;
     color: #FFFFFF;
@@ -330,9 +328,9 @@
 }
 
 .overlayClose {
-    position: absolute;
+    position: relative;
     top: 20px;
-    right: 20px;
+    left: 610px;
 }
 
 .overlayClose:hover {
@@ -346,13 +344,11 @@
     align-items: center;
     padding: 0px;
     gap: 10px;
-
-    position: absolute;
+    position: relative;
     width: 120px;
     height: 120px;
-    left: 583px;
-    top: 204px;
-
+    top: 160px;
+    left: 20px;
     background-color: white;
     border-radius: 100%;
 }
@@ -362,11 +358,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 29px;
-    position: absolute;
+    position: relative;
     width: 422px;
     height: 271px;
-    left: 737px;
-    top: 129px;
+    left: 170px;
 }
 
 .overlayInput {
@@ -388,12 +383,8 @@
     justify-content: center;
     align-items: center;
     gap: 25px;
-
-    position: absolute;
     width: 369px;
     height: 61px;
-    left: 737px;
-    top: 435px;
 }
 
 .overlayCancelBtn {

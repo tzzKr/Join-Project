@@ -159,6 +159,10 @@ body {
     height: 46px;
 }
 
+.bgColor {
+    background-color: #091931;
+}
+
 .headerBottom div:hover {
     background-color: #091931;
 }

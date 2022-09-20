@@ -313,6 +313,9 @@
     display: flex;
     width: 1212px;
     height: 594px;
+    position: fixed;
+    top: calc((100% - 594px) / 2);
+    left: calc((100% - 1212px) / 2);
     z-index: 11;
     background: #FFFFFF;
     border-radius: 30px;

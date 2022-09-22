@@ -2,9 +2,11 @@
     display: flex;
     margin-left: 232px !important;
     margin-top: 0 !important;
-} 
+}
+
 
 /* Contact Book */
+
 .contactBook {
     width: 453px;
     height: calc(100vh - 80px);
@@ -28,10 +30,8 @@
     align-items: center;
     padding: 10px;
     gap: 10px;
-
     width: 357px;
     height: 60px;
-
     font-weight: 400;
     font-size: 21px;
 }
@@ -51,10 +51,8 @@
     padding: 15px 25px;
     gap: 35px;
     box-sizing: border-box;
-
     width: 357px;
     height: 79px;
-
     background: #FFFFFF;
     border-radius: 10px;
     transition: 225ms;
@@ -90,30 +88,40 @@
     max-width: 180px;
 }
 
+
 /* Color Example */
+
 .bgOr {
     background-color: #FF7A00;
 }
+
 .bgLp {
     background-color: #9327FF;
 }
+
 .bgLb {
     background-color: #29ABE2;
 }
+
 .bgRo {
     background-color: #FC71FF;
 }
-.bgLg{
+
+.bgLg {
     background-color: #02CF2F;
 }
+
 .bgDr {
     background-color: #AF1616;
 }
+
 .bgDp {
     background-color: #462F8A;
 }
 
+
 /* Scrollbar */
+
 .contactBook::-webkit-scrollbar-thumb {
     border-radius: 7px;
     background: #A8A8A8;
@@ -123,14 +131,18 @@
     background: #f1f1f1;
 }
 
+
 /* Scrollbar Buttons */
+
 ::-webkit-scrollbar-button:single-button {
     background-color: #FFFFFF;
     display: block;
     background-repeat: no-repeat;
 }
 
+
 /* Scrollbar Up */
+
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
     height: 15px;
     width: 25px;
@@ -138,7 +150,9 @@
     background-image: url("../img/arrwoUp.svg");
 }
 
+
 /* Scrollbar Down */
+
 ::-webkit-scrollbar-button:single-button:vertical:increment {
     height: 15px;
     width: 25px;
@@ -146,7 +160,9 @@
     background-image: url("../img/arrowDown.svg");
 }
 
+
 /* Contact Infos */
+
 .content {
     display: flex;
     flex-direction: column;
@@ -168,7 +184,7 @@
     scale: 3;
 }
 
-.contactInfo{
+.contactInfo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -190,7 +206,7 @@
 .addTaskBtnText {
     font-weight: 400;
     font-size: 16px;
-    color:#29ABE2;
+    color: #29ABE2;
 }
 
 .addTaskBtnImg {
@@ -228,7 +244,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 22px;
-
     width: 140px;
     height: 128px;
 }
@@ -238,7 +253,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    
     width: 140px;
     height: 53px;
 }
@@ -265,13 +279,11 @@
     font-size: 18px;
     padding: 18px 10px;
     gap: 10px;
-
     position: absolute;
     width: 193px;
     height: 53px;
     right: 80px;
     bottom: 60px;
-
     background: #2A3647;
     border-radius: 10px;
 }
@@ -282,18 +294,29 @@
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
+
 /* Contact Overlay */
+.pageMask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .contactOverlay {
     display: flex;
     width: 1212px;
     height: 594px;
-
-    position: absolute;
-    top: 25%;
-    left: 25%;
-
-    z-index: 10;
-
+    position: fixed;
+    top: calc((100% - 594px) / 2);
+    left: calc((100% - 1212px) / 2);
+    z-index: 11;
     background: #FFFFFF;
     border-radius: 30px;
 }
@@ -305,9 +328,8 @@
     align-items: flex-start;
     padding: 66px 46px;
     gap: 12px;
-    border-top-left-radius:  30px;
-    border-bottom-left-radius: 30px;
-
+    border-top-left-radius:  27px;
+    border-bottom-left-radius: 27px;
     width: 463px;    
     background: #2A3647;
     color: #FFFFFF;
@@ -330,13 +352,24 @@
 }
 
 .overlayClose {
-    position: absolute;
+    position: relative;
     top: 20px;
-    right: 20px;
+    left: 610px;
 }
 
 .overlayClose:hover {
     cursor: pointer;
+}
+
+.overlayDefaultUserImg {
+    gap: 10px;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    top: 180px;
+    left: 40px;
+    background-color: white;
+    border-radius: 100%;
 }
 
 .overlayUserImg {
@@ -344,42 +377,57 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px;
-    gap: 10px;
-
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    left: 583px;
-    top: 204px;
-
-    background-color: white;
+    position: relative;
+    width: 115px;
+    height: 115px;
+    top: 180px;
+    left: 40px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 47px;
     border-radius: 100%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-.overlayInputSection {
+.overlayInputForm {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 29px;
-    position: absolute;
-    width: 422px;
+    position: relative;
+    width: 396px;
     height: 271px;
-    left: 737px;
-    top: 129px;
+    left: 200px;
+}
+
+.overlayInputSection {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
 }
 
 .overlayInput {
+    box-sizing: border-box;
+    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 13px 21px;
     gap: 10px;
-    width: 422px;
+    width: 369px;
     height: 51px;
     background: #FFFFFF;
+    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    font-size: 16px;
+}
+
+.overlayInputSection img {
+    position: absolute;
+    right: 3%;
 }
 
 .overlayBtnSection {
@@ -388,12 +436,8 @@
     justify-content: center;
     align-items: center;
     gap: 25px;
-
-    position: absolute;
     width: 369px;
     height: 61px;
-    left: 737px;
-    top: 435px;
 }
 
 .overlayCancelBtn {
@@ -426,7 +470,7 @@
     filter: brightness(0) saturate(100%) invert(73%) sepia(69%) saturate(3444%) hue-rotate(166deg) brightness(90%) contrast(97%);
 }
 
-.overlayCreateBtn {
+.overlayActionBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -441,7 +485,7 @@
     color: #FFFFFF;
 }
 
-.overlayCreateBtn:hover {
+.overlayActionBtn:hover {
     background-color: #29ABE2;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }

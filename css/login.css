@@ -169,8 +169,8 @@ body {
 .login-btn {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     padding: 0px;
     gap: 35px;
     width: 341px;
@@ -206,6 +206,14 @@ body {
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
+.guest-container {
+    left: 54%;
+    top: 75%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
 .guest-button {
     box-sizing: border-box;
     /* Auto layout */
@@ -236,4 +244,25 @@ body {
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     border: 1px solid #29ABE2;
     color: #29ABE2;
+}
+
+#msgBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    /* Version 2/ main color */
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    /* identical to box height, or 28px */
+    color: #FFFFFF;
+    position: absolute;
+    top: 90%;
 }

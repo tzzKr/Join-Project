@@ -1,4 +1,64 @@
-setURL('http://gruppe-303.developerakademie.net/smallest_backend_ever')
+setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
+
+let guest = [];
+let tasks = [];
+let assignedUser = [];
+let subtasks = [];
+let contacts = [];
+
+
+let users = [
+    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
+    { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
+    { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
+];
+
+//**signUp Functions **//
+async function addUser() {
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    users.push({ name: name.value, email: email.value, password: password.value });
+    await backend.setItem('users', JSON.stringify(users));
+    // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
+    // window.location.href = 'login.html';
+}
+
+//**GoTo Functions **//
+
+function goToSummary() {
+    window.location.href = 'summary.html';
+}
+
+function goToBoard() {
+    window.location.href = 'board.html';
+
+}
+
+function goToAddTask() {
+
+    window.location.href = 'addTask.html';
+}
+
+function goToContacts() {
+    window.location.href = 'contacts.html';
+}
+
+
+
+
+
+async function init() {
+    await downloadFromServer();
+    // users = JSON.parse(backend.getItem('users')) || [];
+    await backend.setItem('users', JSON.stringify(users));
+}
+
+// async function signUp() {
+//     users.push('');
+//     await backend.setItem('users', JSON.stringify(users));
+// }
+
 
 
 //**Include Function */

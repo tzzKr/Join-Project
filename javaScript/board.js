@@ -3,10 +3,10 @@
 let boardTasks = [{
     'id': 0,
     'category': 'todo',
-    'categoryTag': 'Designs',
+    'categoryTag': 'Design',
     'title': 'Hallo',
     'taskDesc': 'test',
-    'progress': 0,
+    'progress': '0%',
     'user' : 0,
     'urgency' : 'high',
 }];
@@ -26,41 +26,40 @@ function renderTodos(){
     document.getElementById('done').innerHTML = '';
     
     for (let i = 0; i < todo.length; i++) {
-        const taskTD = todo[i];
-        document.getElementById('todo').innerHTML += generateTaskHTML(i);
+        const element = todo[i];
+        document.getElementById('todo').innerHTML += generateTaskHTML(element);
         
     }
     for (let i = 0; i < progress.length; i++) {
-        const taskPGS = progress[i];
-        document.getElementById('inProgress').innerHTML += generateTaskHTML(i);
+        const element = progress[i];
+        document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
         
     }
     for (let i = 0; i < testing.length; i++) {
-        const taskTST = testing[i];
-        document.getElementById('testing').innerHTML += generateTaskHTML(i);
+        const element = testing[i];
+        document.getElementById('testing').innerHTML += generateTaskHTML(element);
         
     }
     for (let i = 0; i < done.length; i++) {
-        const taskDNE = done[i];
-        document.getElementById('done').innerHTML += generateTaskHTML(i);
+        const element = done[i];
+        document.getElementById('done').innerHTML += generateTaskHTML(element);
         
     }
 
 }
 
 
-function generateTaskHTML() {
+function generateTaskHTML(element) {
 
     return `<div class="boardTask">
-    <div class="categoryTag tagDesign"> Designs </div>
+    <div class="categoryTag tag${element['categoryTag']}"> ${element['categoryTag']} </div>
     <div>
-        <h3>Hallo</h3>
-        <span class="taskDesc">Farben müssen ferig gestellt werden und in eine funktion gepackt
-            werden</span>
+        <h3>${element['title']}</h3>
+        <span class="taskDesc">${element['taskDesc']}</span>
     </div>
     <div class="progressContainer">
         <div class="progressBar">
-            <div class="progressLine">
+            <div class="progressLine" style="width: ${element['progress']}">
 
             </div>
         </div>
@@ -79,7 +78,7 @@ function generateTaskHTML() {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_high.svg" alt="">
+            <img src="img/prio_${element['urgency']}.svg" alt="">
         </div>
     </div>
 </div>`

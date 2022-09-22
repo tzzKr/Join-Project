@@ -199,10 +199,16 @@
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
                 <span id="overlay-user-img" class="overlayUserImg bgLp d-none">VM</span>
             </div>
-            <form class="overlayInputSection">
-                <input placeholder="Name" typ="text" class="overlayInput" required>
-                <input placeholder="Email" typ="email" class="overlayInput" required>
-                <input placeholder="Phone" typ="tel" class="overlayInput" required>
+            <form class="overlayInputForm">
+                <div class="overlayInputSection">
+                    <input placeholder="Name" typ="text" class="overlayInput" required><img src="img/user.svg">
+                </div>
+                <div class="overlayInputSection">
+                    <input placeholder="Email" typ="email" class="overlayInput" required><img src="img/Email.svg">
+                </div>
+                <div class="overlayInputSection">
+                    <input placeholder="Phone" typ="tel" class="overlayInput" required><img src="img/phone.svg">
+                </div>
                 <div class="overlayBtnSection">
                     <button onclick="closeOverlay()" id="overlay-cancel-btn" class="overlayCancelBtn d-none">
                         <span>Cancel</span>

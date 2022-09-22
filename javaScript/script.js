@@ -1,6 +1,7 @@
+setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
+
 let guest = [];
 let tasks = [];
-let todos = [];
 let assignedUser = [];
 let subtasks = [];
 let contacts = [];
@@ -12,11 +13,13 @@ let users = [
     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
 ];
 
-function addUser() {
+//**signUp Functions **//
+async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     users.push({ name: name.value, email: email.value, password: password.value });
+    await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
     // window.location.href = 'login.html';
 }
@@ -46,10 +49,16 @@ function goToContacts() {
 
 
 async function init() {
-    setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('users'));
+    // users = JSON.parse(backend.getItem('users')) || [];
+    await backend.setItem('users', JSON.stringify(users));
 }
+
+// async function signUp() {
+//     users.push('');
+//     await backend.setItem('users', JSON.stringify(users));
+// }
+
 
 
 //**Include Function */

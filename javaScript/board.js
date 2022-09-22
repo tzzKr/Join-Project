@@ -12,12 +12,14 @@ let tasks = [{
 }]
 
 function renderTodos(){
+    let todo = tasks.filter(t => t['category'] == 'todo');
 
+    document.getElementById('').innerHTML = '';
     
 }
 
 
-function generateToDoHTML() {
+function generateTaskHTML() {
 
     return `<div class="boardTask">
     <div class="categoryTag tagDesign"> Designs </div>

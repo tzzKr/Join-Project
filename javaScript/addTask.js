@@ -43,3 +43,9 @@ function closeContactSelection() {
     }, 200);
     document.getElementById('selectioContactField').setAttribute('onclick', `javascript: openContactSelection()`);
 }
+
+///**      Select Option Functions       **///
+
+function selectOptions(anything) {
+    document.querySelector('textBox').value = anything;
+}

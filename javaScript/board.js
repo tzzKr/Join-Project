@@ -1,6 +1,6 @@
 
 
-let tasks = [{
+let boardTasks = [{
     'id': 0,
     'category': 'todo',
     'categoryTag': 'Designs',
@@ -9,13 +9,43 @@ let tasks = [{
     'progress': 0,
     'user' : 0,
     'urgency' : 'high',
-}]
+}];
+
+
 
 function renderTodos(){
-    let todo = tasks.filter(t => t['category'] == 'todo');
+    let todo = boardTasks.filter(t => t['category'] == 'todo');
+    let progress = boardTasks.filter(t => t['category'] == 'progress');
+    let testing = boardTasks.filter(t => t['category'] == 'testing');
+    let done = boardTasks.filter(t => t['category'] == 'done');
 
-    document.getElementById('').innerHTML = '';
+
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('inProgress').innerHTML = '';
+    document.getElementById('testing').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
     
+    for (let i = 0; i < todo.length; i++) {
+        const taskTD = todo[i];
+        document.getElementById('todo').innerHTML += generateTaskHTML(i);
+        
+    }
+    for (let i = 0; i < progress.length; i++) {
+        const taskPGS = progress[i];
+        document.getElementById('inProgress').innerHTML += generateTaskHTML(i);
+        
+    }
+    for (let i = 0; i < testing.length; i++) {
+        const taskTST = testing[i];
+        document.getElementById('testing').innerHTML += generateTaskHTML(i);
+        
+    }
+    for (let i = 0; i < done.length; i++) {
+        const taskDNE = done[i];
+        document.getElementById('done').innerHTML += generateTaskHTML(i);
+        
+    }
+
 }
 
 

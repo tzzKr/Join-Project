@@ -2,14 +2,45 @@
 
 let boardTasks = [{
     'id': 0,
-    'category': 'todo',
+    'category': 'done',
     'categoryTag': 'Design',
     'title': 'Hallo',
     'taskDesc': 'test',
     'progress': '0%',
     'user' : 0,
     'urgency' : 'high',
-}];
+},
+{
+    'id': 1,
+    'category': 'progress',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+{
+    'id': 3,
+    'category': 'done',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+{
+    'id': 4,
+    'category': 'progress',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+}
+];
 
 
 
@@ -78,10 +109,9 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_${element['urgency']}.svg" alt="">
+            <img src="img/prio_${element['urgency']}.svg" alt=""> 
         </div>
-    </div>
-</div>`
+    </div>`
 }
 
 

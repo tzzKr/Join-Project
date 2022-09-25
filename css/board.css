@@ -115,7 +115,7 @@ h2 {
   margin-bottom: 100px;
   overflow: auto;
   height: calc(100vh - 260px - 80px - 80px);
-  padding: 5px 5px 0 5px;
+  padding: 0px 5px 0 5px;
   column-gap: 25px;
 }
 
@@ -129,11 +129,21 @@ h2 {
 }
 
 .titelStyle {
-  width: 250px;
+  width: 265px;
   display: flex;
   justify-content: flex-start;
   margin-bottom: 24px;
-
+  margin-left: -10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #F5F5F5;
+  
 }
 
 .centerLists {

@@ -34,6 +34,19 @@
                     </div>
                     <div class="container">
                         <h3>Category</h3>
+                        <div id="newCategory" class="new-category d-none">
+                            <input class="input-addTask" placeholder="New category name" type=""><img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
+                            <div class="line"></div>
+                            <img class="right-img" onclick="select()" src="img/addTask-right.svg">
+                        </div>
+                        <div id="selectCorlor" class="select-color d-none">
+                            <div onclick="selectColor()" class="listContactInitial bgVi"></div>
+                            <div onclick="selectColor()" class="listContactInitial bgRd"></div>
+                            <div onclick="selectColor()" class="listContactInitial bgLg"></div>
+                            <div onclick="selectColor()" class="listContactInitial bgOg"></div>
+                            <div onclick="selectColor()" class="listContactInitial bgRo"></div>
+                            <div onclick="selectColor()" class="listContactInitial bgBu"></div>
+                        </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
                             <img src="img/arrow.png">
@@ -61,9 +74,6 @@
                         </div>
 
                         <ul id="listContact" class="list d-none">
-                            <li class="options">
-                                <p id="selectContactText">New category</p>
-                            </li>
                             <li onclick="selectOptions()" class="options">
                                 <input class="p-absolute" type="checkbox">
                                 <p>You</p>
@@ -74,7 +84,7 @@
                             </li>
                             <li class="options">
                                 <img class="p-absolute" src="img/add-user.png">
-                                <p>Invite new conact</p>
+                                <p>Invite new contact</p>
                             </li>
                         </ul>
                     </div>

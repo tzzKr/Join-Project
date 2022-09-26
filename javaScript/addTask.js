@@ -46,6 +46,16 @@ function closeContactSelection() {
 
 ///**      Select Option Functions       **///
 
-function selectOptions(anything) {
-    document.querySelector('textBox').value = anything;
+function newCategory() {
+    document.getElementById('newCategory').classList.remove('d-none');
+    document.getElementById('selectCorlor').classList.remove('d-none');
+    document.getElementById('selectField').classList.add('d-none');
+    document.getElementById('list').classList.add('d-none');
+}
+
+function clearNewCategory() {
+    document.getElementById('selectField').classList.remove('d-none');
+    // document.getElementById('list').classList.remove('d-none');
+    document.getElementById('newCategory').classList.add('d-none');
+    document.getElementById('selectCorlor').classList.add('d-none');
 }

@@ -36,7 +36,7 @@
     /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 21px;
 }
 
 textarea {
@@ -80,8 +80,44 @@ textarea {
     border: 1px solid #D1D1D1;
 }
 
+.new-category {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
 .select-field img {
     width: 18px;
+}
+
+.clear-img {
+    position: absolute;
+    right: 14%;
+    cursor: pointer;
+}
+
+.line {
+    position: absolute;
+    width: 0px;
+    height: 30px;
+    border: 1px solid #D1D1D1;
+    right: 11.3%;
+}
+
+.right-img {
+    position: absolute;
+    right: 3%;
+    cursor: pointer;
+    filter: invert(0%) sepia(98%) saturate(8%) hue-rotate(205deg) brightness(0%) contrast(104%);
+}
+
+.select-color {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+    margin-top: 8px;
+    margin-left: 18px;
 }
 
 .listContactInitials {
@@ -96,12 +132,38 @@ textarea {
     border: 2px solid #FFFFFF;
 }
 
+.listContactInitial {
+    width: 20px;
+    height: 20px;
+    color: #FFFFFF;
+    border-radius: 100%;
+    transition: 225ms;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.bgVi {
+    background-color: #8AA4FF;
+}
+
+.bgRd {
+    background-color: #FF0000;
+}
+
 .bgLg {
-    background-color: #02CF2F;
+    background-color: #2AD300;
+}
+
+.bgOg {
+    background-color: #FF8A00;
 }
 
 .bgRo {
-    background-color: #FC71FF;
+    background-color: #E200BE;
+}
+
+.bgBu {
+    background-color: #0038FF;
 }
 
 .left {

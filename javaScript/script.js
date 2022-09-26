@@ -88,3 +88,47 @@ async function init() {
 async function headerInclude () {
 
 }
+
+// Board arrays
+
+let boardTasks = [{
+    'id': 0,
+    'category': 'done',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+{
+    'id': 1,
+    'category': 'progress',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+{
+    'id': 3,
+    'category': 'done',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+{
+    'id': 4,
+    'category': 'progress',
+    'categoryTag': 'Design',
+    'title': 'Hallo',
+    'taskDesc': 'test',
+    'progress': '0%',
+    'user' : 0,
+    'urgency' : 'high',
+},
+];

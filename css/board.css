@@ -18,7 +18,6 @@ h2 {
   height: calc(100vh - 80px);
 }
 
-
 .boardBg {
 
   height: calc(100vh - (1389px));
@@ -143,7 +142,7 @@ h2 {
   right: 0;
   z-index: 999;
   background-color: #F5F5F5;
-  
+
 }
 
 .centerLists {
@@ -201,7 +200,7 @@ h2 {
   z-index: 999;
   border-radius: 30px;
   height: 100%;
-  
+
 
 }
 
@@ -284,70 +283,77 @@ h2 {
   overflow-x: auto;
   row-gap: 25px;
   display: flex;
-  box-shadow: 0px 0px 75px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 75px -10px rgba(0, 0, 0, 0.75);
 }
- .moreTaskInfo {
+
+.moreTaskInfo {
   padding: 50px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   row-gap: 25px;
   position: relative;
- }
- .infoHeadline {
+}
+
+.infoHeadline {
   font-size: 35px;
   margin: -50px 0;
- }
+}
 
- .infoDecription {
+.infoDecription {
   font-size: 21px;
- }
- .infoDueDate {
+}
+
+.infoDueDate {
   display: flex;
-align-items: center;
-column-gap: 25px;
-font-size: 21px;
- }
- .infoDueDate h2 {
-font-size: 21px;
- }
- .infoPriority {
+  align-items: center;
+  column-gap: 25px;
+  font-size: 21px;
+}
+
+.infoDueDate h2 {
+  font-size: 21px;
+}
+
+.infoPriority {
   display: flex;
   column-gap: 25px;
   align-items: center;
 
- }
- .infoPriority h2 {
-  font-size: 21px;
- }
+}
 
- .infoAssignedTo h2 {
+.infoPriority h2 {
+  font-size: 21px;
+}
+
+.infoAssignedTo h2 {
   font-size: 21px;
 
- }
- .infoAssignedUser {
+}
+
+.infoAssignedUser {
   display: flex;
   flex-direction: column;
   row-gap: 25px;
- }
+}
 
- .infoUser_name {
+.infoUser_name {
   display: flex;
   align-items: center;
   column-gap: 25px;
   font-size: 21px;
- }
+}
 
- .infoClose {
+.infoClose {
   position: absolute;
   right: 0;
   top: 0;
   margin-top: 42px;
   margin-right: 42px;
   cursor: pointer;
- }
+}
 
- .infoAssignedUserPic {
+.infoAssignedUserPic {
   height: 45px;
   width: 45px;
   background: #0190E0;
@@ -363,10 +369,9 @@ font-size: 21px;
   color: white;
 }
 
+/* Priority tags */
 
- /* Priority tags */
-
- .infoPrioHigh {
+.infoPrioHigh {
   height: 33px;
   width: fit-content;
   padding: 4px 18px;
@@ -379,7 +384,8 @@ font-size: 21px;
   font-size: 21px;
   color: white;
   column-gap: 10px;
- }
- .infoPrioHigh img {
+}
+
+.infoPrioHigh img {
   filter: brightness(200);
- }
+}

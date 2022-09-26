@@ -18,10 +18,10 @@ async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value });
     await backend.setItem('users', JSON.stringify(users));
+    users.push({ name: name.value, email: email.value, password: password.value });
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
-    // window.location.href = 'login.html';
+    window.location.href = 'login.html';
 }
 
 //**GoTo Functions **//
@@ -85,6 +85,6 @@ async function init() {
     users = JSON.parse(backend.getItem('users')) || [];
 }
 
-async function headerInclude () {
+async function headerInclude() {
 
 }

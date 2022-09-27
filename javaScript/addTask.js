@@ -55,7 +55,7 @@ function newCategory() {
 
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
-    // document.getElementById('list').classList.remove('d-none');
     document.getElementById('newCategory').classList.add('d-none');
     document.getElementById('selectCorlor').classList.add('d-none');
+    document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
 }

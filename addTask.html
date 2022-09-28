@@ -68,6 +68,16 @@
                     </div>
                     <div class="container">
                         <h3>Assigned to</h3>
+                        <div id="inviteNewContact" class="new-contact d-none">
+                            <input class="input-addTask" placeholder="Contact email" type="email"><img class="clear-img" onclick="clearInviteNewContact()" src="img/clear.svg">
+                            <div class="line"></div>
+                            <img class="right-img" onclick="addNewContact()" src="img/addTask-right.svg">
+                        </div>
+                        <div id="selectContact" class="select-color d-none">
+                            <div id="contactCircle" class=" bgVi"></div>
+                            <div id="contactCircle" class="listContact bgRd"></div>
+                            <div id="contactCircle" class="listContact bgLg"></div>
+                        </div>
                         <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
                             <p>Select contacts to assign</p>
                             <img src="img/arrow.png">
@@ -82,9 +92,9 @@
                                 <input class="p-absolute" type="checkbox">
                                 <p id="addedUser">Hosny</p>
                             </li>
-                            <li class="options">
+                            <li class="options" onclick="inputNewContact()">
                                 <img class="p-absolute" src="img/add-user.png">
-                                <p>Invite new contact</p>
+                                <p id="newContact">Invite new contact</p>
                             </li>
                         </ul>
                     </div>

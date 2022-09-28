@@ -170,6 +170,13 @@ textarea {
     left: 90px;
 }
 
+.new-contact {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
 .p-absolute {
     display: flex;
     position: absolute;

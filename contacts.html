@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/contacts.css">
+    <script src="javaScript/mini_backend.js"></script>
     <script src="javaScript/script.js"></script>
     <script src="javaScript/contacts.js"></script>
 </head>
@@ -218,11 +219,13 @@
                         <span>Create contact</span>
                         <img src="img/simpleCheck.svg">
                     </button>
-                    <button id="overlay-save-btn" typ="submit" class="overlayActionBtn">Save</button>
+                    <button id="overlay-save-btn" typ="submit" class="overlayActionBtn" onclick="openMsgBox()">Save</button>
                 </div>
             </form>
         </div>      
     </div>
+
+    <div id="msgBox" class="">Contact succesfully created</div>
     
 </body>
 

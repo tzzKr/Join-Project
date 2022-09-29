@@ -46,8 +46,15 @@ function goToContacts() {
 }
 
 
+// Message Box
+function openMsgBox() {
+    document.getElementById('msgBox').classList.add('msgBox-in-out');
+    document.getElementById('msgBox').classList.remove('d-none');
+}
 
+function closeMsgBox() {
 
+}
 
 async function init() {
     await downloadFromServer();
@@ -89,3 +96,4 @@ async function init() {
 async function headerInclude() {
 
 }
+

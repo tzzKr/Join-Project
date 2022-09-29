@@ -31,3 +31,9 @@ function changeOverlayToNewContact () {
 
     openOverlay();
 }
+
+// let contact = [
+//     { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'phone': '01234567989' },
+//     { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'phone': '0123456789' },
+//     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'phone': '0123456789' }
+// ];

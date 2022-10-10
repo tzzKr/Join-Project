@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/desktop_template.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <script src="./javaScript/script.js"></script>
     <title>header</title>
 </head>
 
@@ -21,14 +22,15 @@
 
         <div class="headline-img">
             <a href="help.html"><img src="img/quetionmark.svg"></a>
-            <div class="profile-img"></div>
+            <div onclick="openLogOutContainer()" class="profile-img" id="openLogOutContainer"></div>
+            <div onclick="goToLogIn()" class="logOut-container d-none" id="logOutContainer">Log out</div>
         </div>
     </div>
     <div id="header" class="header">
 
         <div class="headerTop">
 
-            <a href="#" onclick="goToAddTask()"><img class="headerTop-img" src="img/Capa 1.svg"></a>
+            <a href="#"><img class="headerTop-img" src="img/Capa 1.svg"></a>
 
             <div class="navbar">
 

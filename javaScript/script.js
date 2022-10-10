@@ -22,7 +22,7 @@ async function addUser() {
     await backend.setItem('users', JSON.stringify(users));
 
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 //**GoTo Functions **//
@@ -44,6 +44,39 @@ function goToAddTask() {
 function goToContacts() {
     window.location.href = 'contacts.html';
 }
+
+function goToSignUp() {
+    window.location.href = 'signUp.html';
+}
+
+function goToLogIn() {
+    window.location.href = 'index.html';
+}
+
+//** OpenlogOutContainer **//
+
+function openLogOutContainer() {
+    document.getElementById('logOutContainer').classList.remove('d-none');
+    document.getElementById('logOutContainer').classList.add('growIn');
+
+    setTimeout(() => {
+        document.getElementById('logOutContainer').classList.remove('growIn');
+    }, 200);
+
+    document.getElementById('openLogOutContainer').setAttribute('onclick', `closeLogOutContainer()`);
+}
+
+function closeLogOutContainer() {
+    document.getElementById('logOutContainer').classList.add('d-none');
+    document.getElementById('logOutContainer').classList.add('growOut');
+
+    setTimeout(() => {
+        document.getElementById('logOutContainer').classList.add('d-none');
+        document.getElementById('logOutContainer').classList.remove('growOut');
+    }, 200);
+    document.getElementById('openLogOutContainer').setAttribute('onclick', `openLogOutContainer()`);
+}
+
 
 
 // Message Box
@@ -96,4 +129,3 @@ async function init() {
 async function headerInclude() {
 
 }
-

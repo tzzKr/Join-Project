@@ -7,52 +7,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo-black.svg">
     <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
-    <script src="./javaScript/register.js"></script>
     <script>
         setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever')
     </script>
-    <title>Join-SignUp</title>
+    <title>Join-Login</title>
 </head>
 
 <body onload="init()">
-
     <div class="main-container-login">
+        <div class="log-in-headline">
+            <div class="sign-up-container">
+                <span>Not a Join user?</span>
+                <button onclick="signUp()">Sign up</button>
+            </div>
+        </div>
+
         <div class="logo-container">
             <img src="img/logo-black.svg">
         </div>
         <div class="login-content">
             <div class="login-container">
                 <div class="login-header">
-                    <div class="back-img-container">
-                        <a href="login.html">
-                            <img src="img/back.svg">
-                        </a>
-                    </div>
-                    <span>Sign Up</span>
+                    <span>Log in</span>
                     <div class="horizonal-line"></div>
                 </div>
-                <form onsubmit="addUser(); return false;" class="form-container">
+                <form action="" class="form-container">
                     <div class="input-img">
-                        <input class="input-login" required placeholder="Name" type="name" id="name"><img src="img/user.svg">
+                        <input class="input-login" required placeholder="Email" type="email"><img src="img/Email.svg">
                     </div>
                     <div class="input-img">
-                        <input class="input-login" required placeholder="Email" type="email" id="email"><img src="img/Email.svg">
+                        <input class="input-login" required placeholder="Password" type="password"><img src="img/password.svg">
                     </div>
-                    <div class="input-img">
-                        <input class="input-login" required placeholder="Password" type="password" id="password"><img src="img/password.svg">
+                    <div class="checkbox-container">
+                        <input id="rememberMe" class="checkbox-login" type="checkbox">
+                        <p>Remember me</p>
+                        <a class="blue" href="forgotMyPassword.html">
+                          Forgot my password
+                        </a>
                     </div>
                     <div class="login-btn">
-                        <button class="login-button">Sign Up</button>
+                        <button class="login-button">Log in</button>
                     </div>
                 </form>
+                <div class="guest-container">
+                    <button class="guest-button">Guest Log in</button>
+                </div>
+                <div id="msgBox">Successful registration</div>
             </div>
+
         </div>
 
-    </div>
 
+    </div>
 
 </body>
 

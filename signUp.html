@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo-black.svg">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <script src="./javaScript/mini_backend.js"></script>
+    <script src="./javaScript/script.js"></script>
+    <script src="./javaScript/register.js"></script>
+    <script>
+        setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever')
+    </script>
+    <title>Join-SignUp</title>
+</head>
+
+<body onload="init()">
+
+    <div class="main-container-login">
+        <div class="logo-container">
+            <img src="img/logo-black.svg">
+        </div>
+        <div class="login-content">
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="back-img-container">
+                        <a href="login.html">
+                            <img src="img/back.svg">
+                        </a>
+                    </div>
+                    <span>Sign Up</span>
+                    <div class="horizonal-line"></div>
+                </div>
+                <form onsubmit="addUser(); return false;" class="form-container">
+                    <div class="input-img">
+                        <input class="input-login" required placeholder="Name" type="name" id="name"><img src="img/user.svg">
+                    </div>
+                    <div class="input-img">
+                        <input class="input-login" required placeholder="Email" type="email" id="email"><img src="img/Email.svg">
+                    </div>
+                    <div class="input-img">
+                        <input class="input-login" required placeholder="Password" type="password" id="password"><img src="img/password.svg">
+                    </div>
+                    <div class="login-btn">
+                        <button class="login-button">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -16,7 +16,7 @@
     <script src="./javaScript/board.js"></script>
 </head>
 
-<body onload="includeHTML()">
+    <body onload="includeHTML(), renderTodos()">
     <header w3-include-html="templates/desktop_template.html"></header>
 
 
@@ -136,7 +136,7 @@
 
                 <div class="boardHeadRightSide">
                     <div class="boardSearchParent">
-                        <input class="boardSearchBar" type="text">
+                        <input id="boardInput" class="boardSearchBar" type="text" onkeydown="filterTasks()">
                         <button class="searchBtn"><img src="img/search.svg" alt=""></button>
                     </div>
 

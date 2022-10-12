@@ -46,6 +46,30 @@ function closeContactSelection() {
 
 ///**      Select Option Functions       **///
 
-function selectOptions(anything) {
-    document.querySelector('textBox').value = anything;
+function newCategory() {
+    document.getElementById('newCategory').classList.remove('d-none');
+    document.getElementById('selectCorlor').classList.remove('d-none');
+    document.getElementById('selectField').classList.add('d-none');
+    document.getElementById('list').classList.add('d-none');
+}
+
+function clearNewCategory() {
+    document.getElementById('selectField').classList.remove('d-none');
+    document.getElementById('newCategory').classList.add('d-none');
+    document.getElementById('selectCorlor').classList.add('d-none');
+    document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
+}
+
+function inputNewContact() {
+    document.getElementById('inviteNewContact').classList.remove('d-none');
+    document.getElementById('selectioContactField').classList.add('d-none');
+    document.getElementById('listContact').classList.add('d-none');
+}
+
+
+function clearInviteNewContact() {
+    document.getElementById('selectioContactField').classList.remove('d-none');
+    document.getElementById('inviteNewContact').classList.add('d-none');
+    document.getElementById('listContact').classList.add('d-none');
+    document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }

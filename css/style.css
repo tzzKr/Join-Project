@@ -264,3 +264,42 @@ input {
     margin-top: 16px;
     width: 90%;
 }
+
+
+/* ----------------------------------------Message Box---------------------------------------- */
+
+#msgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 23px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 90%;
+    left: calc((100% - 326px) / 2);
+    margin-bottom: -100px;
+}
+
+.msgBoxInOut {
+    animation: msgBox-in-out 225ms ease-in-out;
+    transform-origin: bottom;
+}
+
+@keyframes msgBox-in-out {
+    0% {
+        transform: translateY(100px);
+    }
+    50% {
+        transform: translateY(0);
+        animation-delay: 2s;
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}

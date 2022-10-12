@@ -5,32 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/addTask.css">
-    <link rel="stylesheet" href="./css/board.css">
+    <link rel="icon" href="img/logo-black.svg">
     <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/desktop_template.css">
-    <link rel="stylesheet" href="./css/contacts.css">
-    <link rel="stylesheet" href="./css/summary.css">
-    <script src="javaScript/mini_backend.js"></script>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
-    <script src="./javaScript/addTask.js"></script>
-    <title>Join</title>
+    <script src="./javaScript/login.js"></script>
+    <script>
+        setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever')
+    </script>
+    <title>Join-Login</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="init()">
+    <div class="main-container-login">
+        <div class="log-in-headline">
+            <div class="sign-up-container">
+                <span>Not a Join user?</span>
+                <button onclick="goToSignUp()">Sign up</button>
+            </div>
+        </div>
 
-    <header w3-include-html="templates/desktop_template.html"></header>
+        <div class="logo-container">
+            <img src="img/logo-black.svg">
+        </div>
+        <div class="login-content">
+            <div class="login-container">
+                <div class="login-header">
+                    <span>Log in</span>
+                    <div class="horizonal-line"></div>
+                </div>
+                <form onsubmit="login(); return false;" class="form-container">
+                    <div class="input-img">
+                        <input id="email" class="input-login" required placeholder="Email" type="email"><img src="img/Email.svg">
+                    </div>
+                    <div class="input-img">
+                        <input id="password" class="input-login" required placeholder="Password" type="password"><img src="img/password.svg">
+                    </div>
+                    <div class="checkbox-container">
+                        <input id="rememberMe" class="checkbox-login" type="checkbox">
+                        <p>Remember me</p>
+                        <a class="blue" href="forgotMyPassword.html">
+                          Forgot my password
+                        </a>
+                    </div>
+                    <div class="login-btn">
+                        <button class="login-button">Log in</button>
+                    </div>
+                </form>
+                <div class="guest-container">
+                    <button onclick="goToSummary()" class="guest-button">Guest Log in</button>
+                </div>
+                <div class="msg-box display-none" id="messageBox">Successful registration</div>
+            </div>
+
+        </div>
 
 
-    <div style="display: none;" w3-include-html="summary.html"></div>
-    <div w3-include-html="addTask.html"></div>
-    <div style="display: none;" w3-include-html="board.html"></div>
-    <div style="display: none;" w3-include-html="contacts.html"></div>
-
-
-
-
+    </div>
 
 </body>
 

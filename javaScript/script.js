@@ -4,27 +4,46 @@ let guest = [];
 let tasks = [];
 let assignedUser = [];
 let subtasks = [];
-let contacts = [];
 
 
-let users = [
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
-    { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
-    { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
-];
+// let users = [
+//     { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
+//     { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
+//     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
+// ];
 
 //**signUp Functions **//
-async function addUser() {
+ /* A function that is used to include the header.html file into the index.html file. */
+ async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     users.push({ name: name.value, email: email.value, password: password.value });
     await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
-    // window.location.href = 'login.html';
+    window.location.href = 'index.html?msg=Successful registration';
+    showSuccessfulMsg();
 }
 
-//**GoTo Functions **//
+function showSuccessfulMsg() {
+    document.getElementById('messageBox').classList.remove('display-none');
+    document.getElementById('messageBox').classList.add('growIn');
+    setTimeout(() => {
+        document.getElementById('messageBox').classList.remove('growIn');
+    }, 200);
+}
+
+/* A comment. */
+/* A variable that is used to store the element with the id "msgBox" in it. */
+
+// const urlParams = new URLSearchParams(window.location.search);
+// const msg = urlParams.get('msg');
+// if(msg) {
+//    messageBox.innerHTML = msg
+// }
+
+/**
+ * /* A function that is used to include the header.html file into the index.html file. */
 
 function goToSummary() {
     window.location.href = 'summary.html';
@@ -36,7 +55,6 @@ function goToBoard() {
 }
 
 function goToAddTask() {
-
     window.location.href = 'addTask.html';
 }
 
@@ -44,9 +62,54 @@ function goToContacts() {
     window.location.href = 'contacts.html';
 }
 
+function goToSignUp() {
+    window.location.href = 'signUp.html';
+}
+
+function goToLogIn() {
+    window.location.href = 'index.html';
+}
+
+/**
+/* A function that is used to open the logout container. */
+
+
+function openLogOutContainer() {
+    document.getElementById('logOutContainer').classList.remove('d-none');
+    document.getElementById('logOutContainer').classList.add('growIn');
+
+    setTimeout(() => {
+        document.getElementById('logOutContainer').classList.remove('growIn');
+    }, 200);
+
+    document.getElementById('openLogOutContainer').setAttribute('onclick', `closeLogOutContainer()`);
+}
+/* A function that is used to close the logout container. */
+/**
+ * 
+ */
+function closeLogOutContainer() {
+    document.getElementById('logOutContainer').classList.add('d-none');
+    document.getElementById('logOutContainer').classList.add('growOut');
+
+    setTimeout(() => {
+        document.getElementById('logOutContainer').classList.add('d-none');
+        document.getElementById('logOutContainer').classList.remove('growOut');
+    }, 200);
+    document.getElementById('openLogOutContainer').setAttribute('onclick', `openLogOutContainer()`);
+}
 
 
 
+// Message Box
+function openMsgBox() {
+    document.getElementById('msgBox').classList.add('msgBox-in-out');
+    document.getElementById('msgBox').classList.remove('d-none');
+}
+
+function closeMsgBox() {
+
+}
 
 async function init() {
     await downloadFromServer();
@@ -77,7 +140,7 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    renderTodos()
+    // renderTodos()
 }
 
 async function init() {
@@ -85,7 +148,7 @@ async function init() {
     users = JSON.parse(backend.getItem('users')) || [];
 }
 
-async function headerInclude () {
+async function headerInclude() {
 
 }
 

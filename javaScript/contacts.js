@@ -12,6 +12,7 @@ let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],
 
 function orderContacts() {
     for(let i = 0; i < contacts.length; i++) {
+        contacts[i].id = `${i}`;
         let letter = contacts[i].name.toLowerCase().toString();
         letter = letter.replace(/\u00e4/g, "ae").replace(/\u00fc/g, "ue").replace(/\u00f6/g, "oe");
         letter = letter.slice(0,1);
@@ -38,15 +39,14 @@ function renderContactbook() {
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
                                 <span class="listContactEmail">${orderedContacts[i][j].email}</span>
                             </div>
-                        </div>`
+                        </div>`;
             }
-            document.getElementById('contact-book').innerHTML += /*html*/ `
-                </div>    `
+            document.getElementById('contact-book').innerHTML += /*html*/ `</div>`
         }
     }
 }
 
-function renderContactDetails(firstIndex,secondIndex) {
+function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
     document.getElementById('contact-details').innerHTML += /*html*/ `
         <div class="contactHeader">
@@ -75,8 +75,7 @@ function renderContactDetails(firstIndex,secondIndex) {
                 <span class="contactAdressTitle">Phone</span>
                 <a href="tel: 0123456789" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
             </div>
-        </div>
-    `;
+        </div>`;
 }
 
 function openOverlay() {
@@ -89,7 +88,7 @@ function closeOverlay() {
     document.getElementById('contact-overlay').classList.add('d-none');
 }
 
-function changeOverlayToEditContact(firstIndex,secondIndex) {
+function changeOverlayToEditContact(firstIndex, secondIndex) {
     document.getElementById('contact-overlay').innerHTML = '';
     document.getElementById('contact-overlay').innerHTML += /*html*/ `
         <div class="overlayLeft">
@@ -104,25 +103,34 @@ function changeOverlayToEditContact(firstIndex,secondIndex) {
             </div>
             <form class="overlayInputForm" onsubmit="saveContact()">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" typ="text" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-email" placeholder="Email" typ="email" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
+                    <input id="input-email" placeholder="Email" type="email" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-phone" placeholder="Phone" typ="tel" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
+                    <input id="input-phone" placeholder="Phone" type="tel" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
                 </div>
                 <div class="overlayBtnSection">
-                    <button onclick="" id="overlay-cancel-btn" class="overlayCancelBtn">
-                        <span>Delete</span>
-                        <img src="img/closeCross.svg">
-                    </button>
-                    <button id="overlay-save-btn" typ="submit" class="overlayActionBtn" onsubmit="">Save</button>
+                    <button id="overlay-save-btn" type="submit" class="overlayActionBtn">Save</button>
                 </div>
             </form>
-        </div>      
-    `
+            <button onclick="deleteContact(${firstIndex},${secondIndex})" id="overlay-cancel-btn" class="overlayCancelBtn">
+                    <span>Delete</span>
+                    <img src="img/closeCross.svg">
+            </button>
+        </div>`;
     openOverlay();
+}
+
+function deleteContact(firstIndex, secondIndex) {
+    let id = orderedContacts[firstIndex][secondIndex].id;
+    contacts.splice(id,id);
+    orderContacts();
+}
+
+function saveContact() {
+    console.log("Yes")
 }
 
 function changeOverlayToNewContact () {
@@ -139,32 +147,27 @@ function changeOverlayToNewContact () {
             <div>
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
-            <form class="overlayInputForm" onsubmit="createContact()">
+            <form class="overlayInputForm">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" typ="text" class="overlayInput" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" class="overlayInput" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-email" placeholder="Email" typ="email" class="overlayInput" required><img src="img/Email.svg">
+                    <input id="input-email" placeholder="Email" type="email" class="overlayInput" required><img src="img/Email.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-phone" placeholder="Phone" typ="tel" class="overlayInput" required><img src="img/phone.svg">
+                    <input id="input-phone" placeholder="Phone" type="tel" class="overlayInput" required><img src="img/phone.svg">
                 </div>
                 <div class="overlayBtnSection">
                     <button onclick="closeOverlay()" id="overlay-cancel-btn" class="overlayCancelBtn">
                         <span>Cancel</span>
                         <img src="img/closeCross.svg">
                     </button>
-                    <button id="overlay-create-btn" typ="submit" class="overlayActionBtn" onsubmit="createContact()">
+                    <button id="overlay-create-btn" typ="submit" class="overlayActionBtn" onsubmit="">
                         <span>Create contact</span>
                         <img src="img/simpleCheck.svg">
                     </button>
                 </div>
             </form>
-        </div>  
-    `
+        </div>`;
     openOverlay();
 }
-
-function createContact() {
-    console.log('Yes');
-}    

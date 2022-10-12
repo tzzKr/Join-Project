@@ -1,6 +1,5 @@
-
-
-let boardTasks = [{
+let boardTasks = [
+    {
     'id': 0,
     'category': 'done',
     'categoryTag': 'Design',
@@ -9,12 +8,12 @@ let boardTasks = [{
     'progress': '0%',
     'user' : 0,
     'urgency' : 'high',
-},
+    },
 {
     'id': 1,
     'category': 'progress',
     'categoryTag': 'Design',
-    'title': 'Hallo',
+    'title': 'hallo',
     'taskDesc': 'test',
     'progress': '0%',
     'user' : 0,
@@ -24,7 +23,7 @@ let boardTasks = [{
     'id': 3,
     'category': 'done',
     'categoryTag': 'Design',
-    'title': 'Hallo',
+    'title': 'Bye',
     'taskDesc': 'test',
     'progress': '0%',
     'user' : 0,
@@ -34,7 +33,7 @@ let boardTasks = [{
     'id': 4,
     'category': 'progress',
     'categoryTag': 'Design',
-    'title': 'Hallo',
+    'title': 'Haus',
     'taskDesc': 'test',
     'progress': '0%',
     'user' : 0,
@@ -42,13 +41,27 @@ let boardTasks = [{
 }
 ];
 
+let searchTasks = [];
 
+function searchTitle() {
+    searchTasks = new Array;
+    let search = document.getElementById('board-input').value;
+    search = search.toLowerCase();
 
-function renderTodos(){
-    let todo = boardTasks.filter(t => t['category'] == 'todo');
-    let progress = boardTasks.filter(t => t['category'] == 'progress');
-    let testing = boardTasks.filter(t => t['category'] == 'testing');
-    let done = boardTasks.filter(t => t['category'] == 'done');
+    for (let i = 0; i < boardTasks.length; i++) {
+        if (boardTasks[i]['title'].toLowerCase().includes(search)) {
+            searchTasks.push(boardTasks[i]);
+        }
+    }
+    console.log(`OnKeyDown: ${searchTasks}`)
+    renderTodos(searchTasks);
+}
+
+function renderTodos(tasks){
+    let todo = tasks.filter(t => t['category'] == 'todo');
+    let progress = tasks.filter(t => t['category'] == 'progress');
+    let testing = tasks.filter(t => t['category'] == 'testing');
+    let done = tasks.filter(t => t['category'] == 'done');
 
 
     document.getElementById('todo').innerHTML = '';

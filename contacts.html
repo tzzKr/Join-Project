@@ -14,218 +14,32 @@
     <script src="javaScript/contacts.js"></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), orderContacts()">
 
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
     <div class="parentContainer">
 
-        <div class="contactBook">
-
-            <!-- Styling Example -->
-            <div class="contactList">
-                <div class="listLetter">A</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgLp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-                <div class="listContact">
-                    <div class="listContactInitials bgOr">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">B</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgLb">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">D</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgRo">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">E</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgLg">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDr">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">M</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">O</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">P</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">Y</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="contactList">
-                <div class="listLetter">Z</div>
-                <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgDp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <div id="contact-book" class="contactBook"></div>
 
         <div class="content">
-
             <div class="headline">
                 <h1>Contacts</h1>
                 <div class="hlSeperator"></div>
                 <span class="subheadline">Better with a team</span>
             </div>
-
-            <div class="contactHeader">
-                <span class="listContactInitials contactScale bgLp">VM</span>
-                <div class="contactInfo">
-                    <span class="contactName">Vorname Nachname</span>
-                    <a href="addTask.html" class="contactAddTaskBtn">
-                        <img class="addTaskBtnImg" src="img/plus.svg">
-                        <span class="addTaskBtnText">Add Task</span>
-                    </a>
-                </div>
-            </div>
-            <div class="contactInformationHead">
-                <span class="contactInformationTitle">Contact Information</span>
-                <button class="editContactBtn" onclick="changeOverlayToEditContact()">
-                    <img src="img/pencil_wo_bg.svg">
-                    <span>Edit Contact</span>
-                </button>
-            </div>
-            <div class="contactAdressInformations">
-                <div class="contactAdressSegment">
-                    <span class="contactAdressTitle">Email</span>
-                    <a href="mailto: abc@example.com" class="contactAdressLink">abc@example.com</a>
-                </div>
-                <div class="contactAdressSegment">
-                    <span class="contactAdressTitle">Phone</span>
-                    <a href="tel: 0123456789" class="contactAdressLink">0123 456789</a>
-                </div>
-            </div>
-
+            <div id="contact-details"></div>
             <button onclick="changeOverlayToNewContact()" class="newContactBtn">
                 <span>New contact</span>
                 <img src="img/newContact.svg">
             </button>
-
         </div>
-
     </div>
     
     <div id="page-mask" class="pageMask d-none" onclick="closeOverlay()"></div>
+    <div id="contact-overlay" class="contactOverlay d-none"></div>
 
-    <div id="contact-overlay" class="contactOverlay d-none">
-        <div class="overlayLeft">
-            <img src="img/logo-white.svg">
-            <span id="overlay-headline" class="overlayHealine">Add contact</span>
-            <span id="overlay-subheadline" class="overlaySubheadline">Tasks are better with a team!</span>
-            <div class="overlaySperator"></div>
-        </div>
-        <div class="overlayRight">
-            <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
-                <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
-                <span id="overlay-user-img" class="overlayUserImg bgLp d-none">VM</span>
-            </div>
-            <form class="overlayInputForm">
-                <div class="overlayInputSection">
-                    <input placeholder="Name" typ="text" class="overlayInput" required><img src="img/user.svg">
-                </div>
-                <div class="overlayInputSection">
-                    <input placeholder="Email" typ="email" class="overlayInput" required><img src="img/Email.svg">
-                </div>
-                <div class="overlayInputSection">
-                    <input placeholder="Phone" typ="tel" class="overlayInput" required><img src="img/phone.svg">
-                </div>
-                <div class="overlayBtnSection">
-                    <button onclick="closeOverlay()" id="overlay-cancel-btn" class="overlayCancelBtn d-none">
-                        <span>Cancel</span>
-                        <img src="img/closeCross.svg">
-                    </button>
-                    <button id="overlay-create-btn" typ="submit" class="overlayActionBtn d-none">
-                        <span>Create contact</span>
-                        <img src="img/simpleCheck.svg">
-                    </button>
-                    <button id="overlay-save-btn" typ="submit" class="overlayActionBtn" onclick="openMsgBox()">Save</button>
-                </div>
-            </form>
-        </div>      
-    </div>
-
-    <div id="msgBox" class="">Contact succesfully created</div>
+    <div id="msgBox" class="d-none">Contact succesfully created</div>
     
 </body>
 

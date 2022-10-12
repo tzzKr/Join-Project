@@ -79,17 +79,17 @@ function renderContactDetails(firstIndex,secondIndex) {
     `;
 }
 
-function openOverlay () {
+function openOverlay() {
     document.getElementById('page-mask').classList.remove('d-none');
     document.getElementById('contact-overlay').classList.remove('d-none');
 }
 
-function closeOverlay () {
+function closeOverlay() {
     document.getElementById('page-mask').classList.add('d-none');
     document.getElementById('contact-overlay').classList.add('d-none');
 }
 
-function changeOverlayToEditContact () {
+function changeOverlayToEditContact(firstIndex,secondIndex) {
     document.getElementById('contact-overlay').innerHTML = '';
     document.getElementById('contact-overlay').innerHTML += /*html*/ `
         <div class="overlayLeft">
@@ -104,16 +104,16 @@ function changeOverlayToEditContact () {
             </div>
             <form class="overlayInputForm" onsubmit="saveContact()">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" typ="text" class="overlayInput" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" typ="text" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-email" placeholder="Email" typ="email" class="overlayInput" required><img src="img/Email.svg">
+                    <input id="input-email" placeholder="Email" typ="email" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-phone" placeholder="Phone" typ="tel" class="overlayInput" required><img src="img/phone.svg">
+                    <input id="input-phone" placeholder="Phone" typ="tel" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
                 </div>
                 <div class="overlayBtnSection">
-                    <button onclick="deleteContact()" id="overlay-cancel-btn" class="overlayCancelBtn">
+                    <button onclick="" id="overlay-cancel-btn" class="overlayCancelBtn">
                         <span>Delete</span>
                         <img src="img/closeCross.svg">
                     </button>

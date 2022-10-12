@@ -40,7 +40,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 4px 16px;
     gap: 10px;
     width: 90px;
     height: 50px;
@@ -266,4 +265,170 @@ body {
 
 .display-none {
     display: none;
+}
+/** MediaQuery Responsive **/
+
+@media (max-width: 1600px) {
+    .login-content {
+        left: 28%;
+    }
+}
+
+@media (max-width: 1330px) {
+    .login-content {
+        left: 26%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .login-content {
+        left: 23%;
+    }
+    .logo-container img {
+        width: 70px;
+        height: 90px;
+    }
+}
+@media (max-width: 1120px) {
+    .login-content {
+        left: 21%;
+    }
+}
+@media (max-width: 1050px) {
+    .login-content {
+        left: 10%;
+        right: 10%;
+    }
+}
+@media (max-width: 900px) {
+    .login-content {
+        left: 4%;
+        right: 4%;
+    }
+}
+@media (max-width: 700px) {
+    .log-in-headline {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 20%;
+        top: auto;
+        bottom: 10%;
+        left: 20%;
+        z-index: 999;
+        height: 60px;
+    }
+    .logo-container {
+        left: 26px;
+        top: 52px;
+    }
+}
+
+@media (max-width: 470px) {
+    .login-button {
+        width: 165px;
+    }
+    .form-container {
+        align-items: center;
+    }
+    .checkbox-container {
+        margin-left: 0;
+    }
+    .guest-container {
+        left: 31%;
+        top: 87%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+    }
+    .login-btn {
+        margin-left: 0;
+        width: auto;
+    }
+    .sign-up-container {
+        gap: 16px;
+    }
+    .input-login {
+        width: 407px;
+    }
+    .logo-container {
+        left: 26px;
+        top: 52px;
+    }
+
+}
+@media (max-width: 460px) {
+    .input-login {
+        width: 370px;
+    }
+    .sign-up-container {
+        font-size: 19px;
+    }
+}
+@media (max-width: 450px) {
+    .login-container {
+        width: 400px;
+    }
+    .form-container {
+        width: 400px;
+    }
+
+}
+@media (max-width: 437px) {
+    .guest-container {
+        left: 29%;
+    }
+}
+@media (max-width: 420px) {
+    .sign-up-container {
+        gap: 16px;
+        font-size: 16px;
+    }
+    .login-header {
+        font-size: 50px;
+    }
+}
+@media (max-width: 414px) {
+    .login-container {
+        width: 380px;
+    }
+    .form-container {
+        width: 380px;
+    }
+    .input-login {
+        width: 340px;
+    }
+}
+@media (max-width: 400px) {
+    .guest-container {
+        left: 27%;
+    }
+}
+@media (max-width: 384px) {
+    .login-container {
+        width: 350px;
+    }
+    .form-container {
+        width: 350px;
+    }
+    .input-login {
+        width: 310px;
+    }
+    .checkbox-container {
+        gap: 14px;
+    }
+}
+@media (max-width: 360px) {
+    .guest-container{
+        left: 26%;
+    }
+    .login-container {
+        width: 320px;
+    }
+    .form-container {
+        width: 320px;
+    }
+    .input-login {
+        width: 280px;
+    }
 }

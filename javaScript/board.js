@@ -1,97 +1,91 @@
-let boardTasks = [
-    {
-    'id': 0,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'Hallo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-    },
-{
-    'id': 1,
-    'category': 'progress',
-    'categoryTag': 'Design',
-    'title': 'hallo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 3,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'Bye',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 4,
-    'category': 'progress',
-    'categoryTag': 'Design',
-    'title': 'Haus',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-}
-];
 
-let searchTasks = [];
-
-function searchTitle() {
-    searchTasks = new Array;
-    let search = document.getElementById('board-input').value;
+function filterTasks() {
+    let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
 
-    for (let i = 0; i < boardTasks.length; i++) {
-        if (boardTasks[i]['title'].toLowerCase().includes(search)) {
-            searchTasks.push(boardTasks[i]);
+    let todo = boardTasks.filter(t => t['category'] == 'todo');
+    let progress = boardTasks.filter(t => t['category'] == 'progress');
+    let testing = boardTasks.filter(t => t['category'] == 'testing');
+    let done = boardTasks.filter(t => t['category'] == 'done');
+
+    resetBoard();
+
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
+        if (element.toLowerCase().includes(search)) {
+            document.getElementById('todo').innerHTML += generateTaskHTML(element);
+
         }
+
     }
-    console.log(`OnKeyDown: ${searchTasks}`)
-    renderTodos(searchTasks);
+    for (let i = 0; i < progress.length; i++) {
+        const element = progress[i];
+        if (element.toLowerCase().includes(search)) {
+            document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
+
+        }
+
+    }
+    for (let i = 0; i < testing.length; i++) {
+        const element = testing[i];
+        if (element.toLowerCase().includes(search)) {
+            document.getElementById('testing').innerHTML += generateTaskHTML(element);
+
+        }
+
+    }
+    for (let i = 0; i < done.length; i++) {
+        const element = done[i];
+        if (element.toLowerCase().includes(search)) {
+            document.getElementById('done').innerHTML += generateTaskHTML(element);
+
+        }
+
+    }
 }
 
-function renderTodos(tasks){
-    let todo = tasks.filter(t => t['category'] == 'todo');
-    let progress = tasks.filter(t => t['category'] == 'progress');
-    let testing = tasks.filter(t => t['category'] == 'testing');
-    let done = tasks.filter(t => t['category'] == 'done');
+function renderTodos() {
+    let todo = boardTasks.filter(t => t['category'] == 'todo');
+    let progress = boardTasks.filter(t => t['category'] == 'progress');
+    let testing = boardTasks.filter(t => t['category'] == 'testing');
+    let done = boardTasks.filter(t => t['category'] == 'done');
 
 
+    resetBoard();
+    renderBoard(todo, progress, testing, done)
+
+
+}
+
+function resetBoard() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-    
+}
+
+function renderBoard(todo, progress, testing, done) {
     for (let i = 0; i < todo.length; i++) {
         const element = todo[i];
         document.getElementById('todo').innerHTML += generateTaskHTML(element);
-        
+
     }
     for (let i = 0; i < progress.length; i++) {
         const element = progress[i];
         document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
-        
+
     }
     for (let i = 0; i < testing.length; i++) {
         const element = testing[i];
         document.getElementById('testing').innerHTML += generateTaskHTML(element);
-        
+
     }
     for (let i = 0; i < done.length; i++) {
         const element = done[i];
         document.getElementById('done').innerHTML += generateTaskHTML(element);
-        
+
     }
-
 }
-
 
 function generateTaskHTML(element) {
 
@@ -136,7 +130,7 @@ function closeBoardTaskInfo() {
     closeTaskInfo.classList.add('d-none');
     boardAddTask.classList.add('d-none');
 }
-function showBoardAddTask () {
+function showBoardAddTask() {
     let boardAddTask = document.getElementById('boardAddTask');
-boardAddTask.classList.remove('d-none')
+    boardAddTask.classList.remove('d-none')
 }

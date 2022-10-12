@@ -36,7 +36,7 @@
                     <span>Log in</span>
                     <div class="horizonal-line"></div>
                 </div>
-                <form onsubmit="login()" class="form-container">
+                <form onsubmit="login(); return false;" class="form-container">
                     <div class="input-img">
                         <input id="email" class="input-login" required placeholder="Email" type="email"><img src="img/Email.svg">
                     </div>
@@ -57,7 +57,7 @@
                 <div class="guest-container">
                     <button onclick="goToSummary()" class="guest-button">Guest Log in</button>
                 </div>
-                <div id="msgBox">Successful registration</div>
+                <div class="msg-box display-none" id="messageBox">Successful registration</div>
             </div>
 
         </div>

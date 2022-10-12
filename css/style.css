@@ -303,7 +303,3 @@ input {
         transform: translateY(100px);
     }
 }
-
-.d-none {
-    display: none;
-}

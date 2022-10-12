@@ -14,18 +14,37 @@ let users = [
 ];
 
 //**signUp Functions **//
-async function addUser() {
+ /* A function that is used to include the header.html file into the index.html file. */
+ async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     users.push({ name: name.value, email: email.value, password: password.value });
     await backend.setItem('users', JSON.stringify(users));
-
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
-    window.location.href = 'index.html';
+    window.location.href = 'index.html?msg=Successful registration';
+    showSuccessfulMsg();
 }
 
-//**GoTo Functions **//
+function showSuccessfulMsg() {
+    document.getElementById('messageBox').classList.remove('display-none');
+    document.getElementById('messageBox').classList.add('growIn');
+    setTimeout(() => {
+        document.getElementById('messageBox').classList.remove('growIn');
+    }, 200);
+}
+
+/* A comment. */
+/* A variable that is used to store the element with the id "msgBox" in it. */
+
+// const urlParams = new URLSearchParams(window.location.search);
+// const msg = urlParams.get('msg');
+// if(msg) {
+//    messageBox.innerHTML = msg
+// }
+
+/**
+ * /* A function that is used to include the header.html file into the index.html file. */
 
 function goToSummary() {
     window.location.href = 'summary.html';
@@ -37,7 +56,6 @@ function goToBoard() {
 }
 
 function goToAddTask() {
-
     window.location.href = 'addTask.html';
 }
 
@@ -53,7 +71,9 @@ function goToLogIn() {
     window.location.href = 'index.html';
 }
 
-//** OpenlogOutContainer **//
+/**
+/* A function that is used to open the logout container. */
+
 
 function openLogOutContainer() {
     document.getElementById('logOutContainer').classList.remove('d-none');
@@ -65,7 +85,10 @@ function openLogOutContainer() {
 
     document.getElementById('openLogOutContainer').setAttribute('onclick', `closeLogOutContainer()`);
 }
-
+/* A function that is used to close the logout container. */
+/**
+ * 
+ */
 function closeLogOutContainer() {
     document.getElementById('logOutContainer').classList.add('d-none');
     document.getElementById('logOutContainer').classList.add('growOut');

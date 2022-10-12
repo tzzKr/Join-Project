@@ -113,7 +113,7 @@ function closeMsgBox() {
 
 async function init() {
     await downloadFromServer();
-    // users = JSON.parse(backend.getItem('users')) || [];
+    users = JSON.parse(backend.getItem('users')) || [];
     await backend.setItem('users', JSON.stringify(users));
 }
 
@@ -143,10 +143,10 @@ async function includeHTML() {
     // renderTodos()
 }
 
-async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-}
+// async function init() {
+//     await downloadFromServer();
+//     users = JSON.parse(backend.getItem('users')) || [];
+// }
 
 async function headerInclude() {
 

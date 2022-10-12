@@ -4,14 +4,13 @@ let guest = [];
 let tasks = [];
 let assignedUser = [];
 let subtasks = [];
-let contacts = [];
 
 
-let users = [
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
-    { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
-    { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
-];
+// let users = [
+//     { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
+//     { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
+//     { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
+// ];
 
 //**signUp Functions **//
 async function addUser() {
@@ -118,7 +117,7 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    renderTodos()
+    // renderTodos()
 }
 
 async function init() {

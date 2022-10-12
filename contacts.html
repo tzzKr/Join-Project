@@ -14,25 +14,18 @@
     <script src="javaScript/contacts.js"></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), orderContacts()">
 
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
     <div class="parentContainer">
 
-        <div class="contactBook">
+        <div id="contact-book" class="contactBook">
 
             <!-- Styling Example -->
             <div class="contactList">
                 <div class="listLetter">A</div>
                 <div class="listSeperator"></div>
-                <div class="listContact">
-                    <div class="listContactInitials bgLp">VM</div>
-                    <div class="listContactInfo">
-                        <span class="listContactName">Vorname Nachname</span>
-                        <span class="listContactEmail">name@email.com</span>
-                    </div>
-                </div>
                 <div class="listContact">
                     <div class="listContactInitials bgOr">VM</div>
                     <div class="listContactInfo">
@@ -225,7 +218,7 @@
         </div>      
     </div>
 
-    <div id="msgBox" class="">Contact succesfully created</div>
+    <div id="msgBox" class="d-none">Contact succesfully created</div>
     
 </body>
 

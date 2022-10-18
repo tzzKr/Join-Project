@@ -117,10 +117,19 @@ async function init() {
     await backend.setItem('users', JSON.stringify(users));
 }
 
+/**
+ * Get you the data of the actual session user from the sessionStorage in parsed form.
+ * 
+ * @returns session user object
+ */
 function getSessionUser() {
     let user = sessionStorage.getItem('sessionUser');
     user = JSON.parse(user);
     return user; 
+}
+
+function deleteSessionUser() {
+    sessionStorage.removeItem('sessionUser');
 }
 
 // async function signUp() {

@@ -18,7 +18,7 @@ let subtasks = [];
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value });
+    users.push({ name: name.value, email: email.value, password: password.value, contacts: [] });
     await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
     window.location.href = 'index.html?msg=Successful registration';

@@ -117,6 +117,12 @@ async function init() {
     await backend.setItem('users', JSON.stringify(users));
 }
 
+function getSessionUser() {
+    let user = sessionStorage.getItem('sessionUser');
+    user = JSON.parse(user);
+    return user; 
+}
+
 // async function signUp() {
 //     users.push('');
 //     await backend.setItem('users', JSON.stringify(users));

@@ -12,6 +12,8 @@ async function login() {
     actualUser.name = user.name;
     actualUser.email = user.email;
     actualUser.contacts = user.contacts;
+    actualUser = JSON.stringify(actualUser);
+    sessionStorage.setItem('sessionUser', actualUser);
     console.log(actualUser)
     if (user) {
         window.location.href = 'summary.html';

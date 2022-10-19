@@ -10,10 +10,10 @@ function filterTasks() {
     else
         filterdTasks = boardTasks.filter( t => t.title.toLowerCase().startsWith(search) );
 
-    renderTodos();   
+        renderFilteredTodos();   
 }
 
-function renderTodos() {
+function renderFilteredTodos() {
     let todo = filterdTasks.filter(t => t['category'] == 'todo');
     let progress = filterdTasks.filter(t => t['category'] == 'progress');
     let testing = filterdTasks.filter(t => t['category'] == 'testing');

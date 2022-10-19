@@ -1,48 +1,32 @@
 
+let filterdTasks = [];
+
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
 
-    let todo = boardTasks.filter(t => t['category'] == 'todo');
-    let progress = boardTasks.filter(t => t['category'] == 'progress');
-    let testing = boardTasks.filter(t => t['category'] == 'testing');
-    let done = boardTasks.filter(t => t['category'] == 'done');
+    if(search.length == 0)
+        filterdTasks = boardTasks;
+    else
+        filterdTasks = boardTasks.filter( t => t.title.toLowerCase().startsWith(search) );
+
+    renderTodos();   
+}
+
+function renderTodos() {
+    let todo = filterdTasks.filter(t => t['category'] == 'todo');
+    let progress = filterdTasks.filter(t => t['category'] == 'progress');
+    let testing = filterdTasks.filter(t => t['category'] == 'testing');
+    let done = filterdTasks.filter(t => t['category'] == 'done');
+
 
     resetBoard();
+    renderBoard(todo, progress, testing, done);
 
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        if (element.toLowerCase().includes(search)) {
-            document.getElementById('todo').innerHTML += generateTaskHTML(element);
 
-        }
-
-    }
-    for (let i = 0; i < progress.length; i++) {
-        const element = progress[i];
-        if (element.toLowerCase().includes(search)) {
-            document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
-
-        }
-
-    }
-    for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
-        if (element.toLowerCase().includes(search)) {
-            document.getElementById('testing').innerHTML += generateTaskHTML(element);
-
-        }
-
-    }
-    for (let i = 0; i < done.length; i++) {
-        const element = done[i];
-        if (element.toLowerCase().includes(search)) {
-            document.getElementById('done').innerHTML += generateTaskHTML(element);
-
-        }
-
-    }
 }
+
+
 
 function renderTodos() {
     let todo = boardTasks.filter(t => t['category'] == 'todo');
@@ -52,7 +36,7 @@ function renderTodos() {
 
 
     resetBoard();
-    renderBoard(todo, progress, testing, done)
+    renderBoard(todo, progress, testing, done);
 
 
 }

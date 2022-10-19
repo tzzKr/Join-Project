@@ -1,15 +1,22 @@
-let contacts = [
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'phone': '01234567989' },
-    { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'phone': '0123456789' },
-    { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'phone': '0123456789' },
-    { 'name': 'Ännik Morjan', 'email': 'ännik@test.com', 'phone': '0123456789' },
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'phone': '01234567989' },
-    { 'name': 'Önnik Morjan', 'email': 'önik@test.com', 'phone': '0123456789' },
-    { 'name': 'Ünnik Morjan', 'email': 'ünnik@test.com', 'phone': '0123456789' }
-];
+let user = getSessionUser();
+let contacts = user.contacts;
 
 let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
 
+/**
+ * Check if contacts is defined, if so continue with orderContacts()
+ * 
+ */
+function checkContacts() {
+    if(contacts){
+        orderContacts();
+    }
+}
+
+/**
+ * Sorts contacts by alphabetical order into orderedContacts and then executes renderCpntacts()
+ * 
+ */
 function orderContacts() {
     for(let i = 0; i < contacts.length; i++) {
         contacts[i].id = `${i}`;
@@ -19,10 +26,13 @@ function orderContacts() {
         letter = letter.charCodeAt(0) - 97;
         orderedContacts[letter].push(contacts[i]);
     }
-    console.log(orderedContacts);
     renderContactbook();
 }
 
+/**
+ * Using orderedContacts, contact elements are rendered on the HTML Page
+ * 
+ */
 function renderContactbook() {
     document.getElementById('contact-book').innerHTML = '';
     for(let i = 0; i < orderedContacts.length; i++) {
@@ -46,6 +56,12 @@ function renderContactbook() {
     }
 }
 
+/**
+ * Using orderedContacts, detailed contact elements are rendered on the HTML Page
+ * 
+ * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
+ * @param {number} secondIndex - position inside the upper letter array
+ */
 function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
     document.getElementById('contact-details').innerHTML += /*html*/ `
@@ -78,16 +94,30 @@ function renderContactDetails(firstIndex, secondIndex) {
         </div>`;
 }
 
+/**
+ * Opens the Edit/Create Overlay
+ * 
+ */
 function openOverlay() {
     document.getElementById('page-mask').classList.remove('d-none');
     document.getElementById('contact-overlay').classList.remove('d-none');
 }
 
+/**
+ * Close the Edit/Create Overlay
+ * 
+ */
 function closeOverlay() {
     document.getElementById('page-mask').classList.add('d-none');
     document.getElementById('contact-overlay').classList.add('d-none');
 }
 
+/**
+ * Change the overlay content for editing a contact
+ * 
+ * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
+ * @param {number} secondIndex - position inside the upper letter array
+ */
 function changeOverlayToEditContact(firstIndex, secondIndex) {
     document.getElementById('contact-overlay').innerHTML = '';
     document.getElementById('contact-overlay').innerHTML += /*html*/ `
@@ -123,17 +153,31 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
     openOverlay();
 }
 
+/**
+ * Delete a Contact from the Array
+ * 
+ * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
+ * @param {number} secondIndex - position inside the upper letter array
+ */
 function deleteContact(firstIndex, secondIndex) {
     let id = orderedContacts[firstIndex][secondIndex].id;
     contacts.splice(id,id);
     orderContacts();
 }
 
+/**
+ * Save a Contact
+ * 
+ */
 function saveContact() {
     console.log("Yes")
 }
 
-function changeOverlayToNewContact () {
+/**
+ * Change the overlay content for creating a new contact
+ * 
+ */
+function changeOverlayToNewContact() {
     document.getElementById('contact-overlay').innerHTML = '';
     document.getElementById('contact-overlay').innerHTML += /*html*/ `
         <div class="overlayLeft">

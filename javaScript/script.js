@@ -128,6 +128,10 @@ function getSessionUser() {
     return user; 
 }
 
+/**
+ * Deletes the actual session user from the sessionStorage
+ * 
+ */
 function deleteSessionUser() {
     sessionStorage.removeItem('sessionUser');
 }

@@ -15,8 +15,6 @@ function orderContacts() {
         letter = letter.charCodeAt(0) - 97;
         orderedContacts[letter].push(contacts[i]);
     }
-    console.log('Contacts = ',contacts)
-    console.log('Ordered contacts = ' ,orderedContacts)
     renderContactbook();
 }
 
@@ -161,6 +159,8 @@ async function deleteContact() {
 /**
  * Save a Contact
  * 
+ * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
+ * @param {number} secondIndex - position inside the upper letter array
  */
 async function saveContact(firstIndex, secondIndex) {
     let id = orderedContacts[firstIndex][secondIndex].id;
@@ -182,12 +182,11 @@ async function createContact() {
     let inputPhone = document.getElementById('input-phone').value;
     let existingContact = contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone);
     if(existingContact) {
-        alert('Contact already existing!')
+        alert('Contact already exists!')
     } else {
         await downloadFromServer();
         let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
         serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
-        console.log(serverContacts);
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
     }

@@ -15,8 +15,8 @@ function orderContacts() {
         letter = letter.charCodeAt(0) - 97;
         orderedContacts[letter].push(contacts[i]);
     }
-    // console.log('Contacts = ',contacts)
-    // console.log('Ordered contacts = ' ,orderedContacts)
+    console.log('Contacts = ',contacts)
+    console.log('Ordered contacts = ' ,orderedContacts)
     renderContactbook();
 }
 
@@ -169,19 +169,17 @@ async function saveContact() {
  * 
  */
 async function createContact() {
-    // await downloadFromServer();
     let inputName = document.getElementById('input-name').value;
     let inputEmail = document.getElementById('input-email').value;
     let inputPhone = document.getElementById('input-phone').value;
-    contacts.push({name: inputName, email: inputEmail, phone: inputPhone});
-    console.log(contacts.length)
-    // let users = JSON.parse(backend.getItem('users')) || [];
-    // let index = users.indexOf(users.find( u => u.email == sessionUser.email && u.name == sessionUser.name));
-    // users[index].contacts = contacts;
-    // console.log(users)
-    // await backend.deleteItem('users');
-    // await backend.setItem('users', JSON.stringify(users));
-    // loadContactsFromServer();
+    await downloadFromServer();
+    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+    serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
+    console.log(serverContacts);
+    await backend.setItem('contacts', JSON.stringify(serverContacts));
+    orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
+    loadContactsFromServer();
+    closeOverlay();
 }
 
 /**
@@ -190,8 +188,8 @@ async function createContact() {
  */
 async function loadContactsFromServer() {
     await downloadFromServer();
-    let users = JSON.parse(backend.getItem('users')) || [];
-    contacts = users.find( u => u.email == sessionUser.email && u.name == sessionUser.name).contacts;
+    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+    contacts = serverContacts;
     if(contacts.length > 0) {
         orderContacts();
     }
@@ -215,7 +213,7 @@ function changeOverlayToNewContact() {
             <div>
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
-            <form class="overlayInputForm" onsubmit="createContact()">
+            <form class="overlayInputForm" onsubmit="createContact(); return false;">
                 <div class="overlayInputSection">
                     <input id="input-name" placeholder="Name" type="text" class="overlayInput" required><img src="img/user.svg">
                 </div>

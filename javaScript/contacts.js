@@ -150,10 +150,16 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
  * @param {number} secondIndex - position inside the upper letter array
  */
 async function deleteContact(firstIndex, secondIndex) {
-    // let id = orderedContacts[firstIndex][secondIndex].id;
-    // contacts.splice(id,id);
-    // orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
-    // closeOverlay();  
+    let inputName = document.getElementById('input-name').value;
+    let inputEmail = document.getElementById('input-email').value;
+    let inputPhone = document.getElementById('input-phone').value;
+    let index = contacts.indexOf(contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone));
+    console.log(index)
+    contacts.splice(index,1);
+    console.log(contacts)
+    await backend.setItem('contacts', JSON.stringify(contacts));
+    loadContactsFromServer();
+    closeOverlay();  
 }
 
 /**
@@ -172,13 +178,17 @@ async function createContact() {
     let inputName = document.getElementById('input-name').value;
     let inputEmail = document.getElementById('input-email').value;
     let inputPhone = document.getElementById('input-phone').value;
-    await downloadFromServer();
-    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
-    serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
-    console.log(serverContacts);
-    await backend.setItem('contacts', JSON.stringify(serverContacts));
-    orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
-    loadContactsFromServer();
+    let existingContact = contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone);
+    if(existingContact) {
+        alert('Contact already existing!')
+    } else {
+        await downloadFromServer();
+        let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
+        console.log(serverContacts);
+        await backend.setItem('contacts', JSON.stringify(serverContacts));
+        loadContactsFromServer();
+    }
     closeOverlay();
 }
 
@@ -191,6 +201,7 @@ async function loadContactsFromServer() {
     let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
     contacts = serverContacts;
     if(contacts.length > 0) {
+        orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
         orderContacts();
     }
 }

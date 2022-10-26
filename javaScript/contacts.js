@@ -122,7 +122,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
             <div>
                 <span id="overlay-user-img" class="overlayUserImg bgLp">VM</span>
             </div>
-            <form class="overlayInputForm" onsubmit="saveContact()">
+            <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
                 <div class="overlayInputSection">
                     <input id="input-name" placeholder="Name" type="text" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
                 </div>
@@ -134,7 +134,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
                 </div>
                 <button id="overlay-save-btn" type="submit" class="overlayActionBtn">Save</button>
                 </form>
-                <button onclick="deleteContact(${firstIndex},${secondIndex})" id="overlay-cancel-btn" class="overlayCancelBtn">
+                <button onclick="deleteContact()" id="overlay-cancel-btn" class="overlayCancelBtn">
                     <span>Delete</span>
                     <img src="img/trash.png">
                 </button>
@@ -146,17 +146,13 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
 /**
  * Delete a Contact from the Array
  * 
- * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
- * @param {number} secondIndex - position inside the upper letter array
  */
-async function deleteContact(firstIndex, secondIndex) {
+async function deleteContact() {
     let inputName = document.getElementById('input-name').value;
     let inputEmail = document.getElementById('input-email').value;
     let inputPhone = document.getElementById('input-phone').value;
     let index = contacts.indexOf(contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone));
-    console.log(index)
     contacts.splice(index,1);
-    console.log(contacts)
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
     closeOverlay();  
@@ -166,8 +162,14 @@ async function deleteContact(firstIndex, secondIndex) {
  * Save a Contact
  * 
  */
-async function saveContact() {
-    console.log("Yes")
+async function saveContact(firstIndex, secondIndex) {
+    let id = orderedContacts[firstIndex][secondIndex].id;
+    contacts[id].name = document.getElementById('input-name').value;
+    contacts[id].email = document.getElementById('input-email').value;
+    contacts[id].phone = document.getElementById('input-phone').value;
+    await backend.setItem('contacts', JSON.stringify(contacts));
+    loadContactsFromServer();
+    closeOverlay();
 }
 
 /**

@@ -417,6 +417,9 @@ body {
     .checkbox-container {
         gap: 14px;
     }
+    .sign-up-container {
+        font-size: 14px;
+    }
 }
 @media (max-width: 360px) {
     .guest-container{
@@ -430,5 +433,52 @@ body {
     }
     .input-login {
         width: 280px;
+    }
+}
+
+@media (max-width: 350px) {
+    .guest-container {
+        left: 24.5%;
+    }
+    .checkbox-container {
+        font-size: 14px;
+    }
+}
+@media (max-width: 340px) {
+    .guest-container {
+        left: 23.5%;
+    }
+    .login-container {
+        width: 300px;
+    }
+    .form-container {
+        width: 300px;
+    }
+    .input-login {
+        width: 260px;
+    }
+}
+@media (max-width: 330px) {
+    .guest-container {
+        left: 22.5%;
+    }
+    .login-header {
+        width: auto;
+    }
+}
+@media (max-width: 320px) {
+    .guest-container {
+        left: 21.5%;
+    }
+}
+@media (max-width: 300px) {
+    .login-container {
+        width: 280px;
+    }
+    .form-container {
+        width: 280px;
+    }
+    .input-login {
+        width: 240px;
     }
 }

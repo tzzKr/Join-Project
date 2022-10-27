@@ -17,7 +17,7 @@ let users = [
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value });
+    users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
     await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
     window.location.href = 'index.html?msg=Successful registration';
@@ -114,6 +114,25 @@ async function init() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     await backend.setItem('users', JSON.stringify(users));
+}
+
+/**
+ * Get you the data of the actual session user from the sessionStorage in parsed form.
+ * 
+ * @returns session user object
+ */
+function getSessionUser() {
+    let user = sessionStorage.getItem('sessionUser');
+    user = JSON.parse(user);
+    return user; 
+}
+
+/**
+ * Deletes the actual session user from the sessionStorage
+ * 
+ */
+function deleteSessionUser() {
+    sessionStorage.removeItem('sessionUser');
 }
 
 // async function signUp() {

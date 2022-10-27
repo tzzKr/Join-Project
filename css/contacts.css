@@ -428,20 +428,13 @@
     right: 3%;
 }
 
-.overlayBtnSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 369px;
-    height: 61px;
-}
-
 .overlayCancelBtn {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: 432px;
+    bottom: 32px;
     padding: 18px 10px;
     gap: 10px;
     width: 136px;

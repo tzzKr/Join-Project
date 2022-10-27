@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/summary.css">
+    <script src="javaScript/mini_backend.js"></script>
     <script src="javaScript/script.js"></script>
+    <script src="javaScript/login.js"></script>
     <script src="javaScript/summary.js"></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), renderGreetingMessage()">
     
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
@@ -89,8 +91,8 @@
             </div>
 
             <div class="welcomeMessage">
-                <div class="greeting">Good morning,</div><br>
-                <div class="userName">Vorname Nachname</div>
+                <div id="greeting-message" class="greeting">Hello</div><br>
+                <div id="greeting-user" class="userName">Vorname Nachname</div>
             </div>
 
         </div>

@@ -22,13 +22,14 @@ function renderGreetingMessage() {
 function getGreeting() {
     let time = new Date();
     time = time.getHours();
+    console.log(time)
     if(time >= 5 && time < 12) {
         return 'Good morning';
     }
     if(time >= 12 && time < 18) {
         return 'Good afternoon';
     }
-    if(time >= 18 && time < 5) {
+    if((time >= 18 && time < 24) || (time >= 0 && time < 5)) {
         return 'Good evening';
     }
 }

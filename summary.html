@@ -15,7 +15,7 @@
     <script src="javaScript/summary.js"></script>
 </head>
 
-<body onload="includeHTML(), renderGreetingMessage()">
+<body onload="checkLoginStatus(), includeHTML(), renderGreetingMessage()">
     
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
@@ -34,17 +34,17 @@
                 <div class="cardContainerRow">
 
                     <a href="board.html" class="smallCard">
-                        <span class="cardCounter">5</span>
+                        <span class="cardCounter">X</span>
                         <span class="cardDescription">Tasks in Board</span>
                     </a>
 
                     <a href="board.html" class="smallCard">
-                        <span class="cardCounter">2</span>
+                        <span class="cardCounter">X</span>
                         <span class="cardDescription">Tasks in Progress</span>
                     </a>
 
                     <a href="board.html" class="smallCard">
-                        <span class="cardCounter">2</span>
+                        <span class="cardCounter">X</span>
                         <span class="cardDescription">Awaiting feedback</span>
                     </a>
 
@@ -56,7 +56,7 @@
                         <div class="bcLeft">
                             <img class="bcImg" src="img/urgent.svg">
                             <div class="cardInfo">
-                                <span class="cardCounter">5</span>
+                                <span class="cardCounter">X</span>
                                 <span class="cardDescription">Urgent</span>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                     <a href="board.html" class="middleCard">
                         <img class="mcImg" src="img/pencil.svg">
                         <div class="cardInfo">
-                            <span class="cardCounter">1</span>
+                            <span class="cardCounter">X</span>
                             <span class="cardDescription">To-do</span>
                         </div>
                     </a>
@@ -81,7 +81,7 @@
                     <a href="board.html" class="middleCard">
                         <img class="mcImg" src="img/check.svg">
                         <div class="cardInfo">
-                            <span class="cardCounter">1</span>
+                            <span class="cardCounter">X</span>
                             <span class="cardDescription">Done</span>
                         </div>
                     </a>
@@ -92,7 +92,7 @@
 
             <div class="welcomeMessage">
                 <div id="greeting-message" class="greeting">Hello</div><br>
-                <div id="greeting-user" class="userName">Vorname Nachname</div>
+                <div id="greeting-user" class="userName">Max Mustermann</div>
             </div>
 
         </div>

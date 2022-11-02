@@ -71,6 +71,16 @@ function goToLogIn() {
 }
 
 /**
+ * Checks from the sessionStorage if the user is logged in. If not redirect to index.html
+ * 
+ */
+function checkLoginStatus() {
+    if (sessionStorage.getItem('sessionUser') == null){
+        window.location.href = 'index.html';
+    }
+}
+
+/**
 /* A function that is used to open the logout container. */
 
 

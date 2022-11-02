@@ -2,12 +2,6 @@
 
 let boardTasks;
 let filterdTasks = [];
-<<<<<<< HEAD
-// let boardTasks = [];
-/**
- * filters the tasks by search 
- */
-=======
 
 async function loadTasks() {
     await downloadFromServer();
@@ -15,7 +9,6 @@ async function loadTasks() {
     renderTodos(boardTasks);
 }
 
->>>>>>> 2244581b0fec3c553d369f822b7cc9c0f41e578e
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();

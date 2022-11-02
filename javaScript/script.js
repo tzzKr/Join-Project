@@ -167,9 +167,7 @@ async function includeHTML() {
 
 async function headerInclude() {
 
-}
-
-// Board arrays
+}// Board arrays
 
 let boardTasks = [{
     'id': 0,
@@ -183,7 +181,7 @@ let boardTasks = [{
 },
 {
     'id': 1,
-    'category': 'progress',
+    'category': 'inProgress',
     'categoryTag': 'Design',
     'title': 'tschüss',
     'taskDesc': 'test',
@@ -203,7 +201,7 @@ let boardTasks = [{
 },
 {
     'id': 4,
-    'category': 'progress',
+    'category': 'inProgress',
     'categoryTag': 'Design',
     'title': 'Hallo',
     'taskDesc': 'test',

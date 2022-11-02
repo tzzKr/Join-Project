@@ -1,5 +1,6 @@
 
 let filterdTasks = [];
+// let boardTasks = [];
 
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
@@ -14,62 +15,15 @@ function filterTasks() {
 }
 
 function renderTodos(tasks) {
-    let todo = tasks.filter(t => t['category'] == 'todo');
-    let progress = tasks.filter(t => t['category'] == 'progress');
-    let testing = tasks.filter(t => t['category'] == 'testing');
-    let done = tasks.filter(t => t['category'] == 'done');
-
-
-    resetBoard();
-    renderBoard(todo, progress, testing, done);
-
-
-}
-
-
-
-// function renderTodos() {
-//     let todo = boardTasks.filter(t => t['category'] == 'todo');
-//     let progress = boardTasks.filter(t => t['category'] == 'progress');
-//     let testing = boardTasks.filter(t => t['category'] == 'testing');
-//     let done = boardTasks.filter(t => t['category'] == 'done');
-
-
-//     resetBoard();
-//     renderBoard(todo, progress, testing, done);
-
-
-// }
-
-function resetBoard() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-}
-
-function renderBoard(todo, progress, testing, done) {
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('todo').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < progress.length; i++) {
-        const element = progress[i];
-        document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
-        document.getElementById('testing').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < done.length; i++) {
-        const element = done[i];
-        document.getElementById('done').innerHTML += generateTaskHTML(element);
-
+    for (let i = 0; i < tasks.length; i++) {
+        document.getElementById(tasks[i]['category']).innerHTML += generateTaskHTML(tasks[i]);
     }
 }
+
 
 function generateTaskHTML(element) {
 
@@ -118,3 +72,4 @@ function showBoardAddTask() {
     let boardAddTask = document.getElementById('boardAddTask');
     boardAddTask.classList.remove('d-none')
 }
+

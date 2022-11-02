@@ -1,6 +1,13 @@
+// Board arrays
 
+let boardTasks;
 let filterdTasks = [];
-// let boardTasks = [];
+
+async function loadTasks() {
+    await downloadFromServer();
+    boardTasks = JSON.parse(backend.getItem('tasks')) || [];
+    renderTodos(boardTasks);
+}
 
 function filterTasks() {
     let search = document.getElementById('boardInput').value;

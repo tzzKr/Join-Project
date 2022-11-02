@@ -167,46 +167,4 @@ async function includeHTML() {
 
 async function headerInclude() {
 
-}// Board arrays
-
-let boardTasks = [{
-    'id': 0,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'Bye',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 1,
-    'category': 'inProgress',
-    'categoryTag': 'Design',
-    'title': 'tschüss',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 3,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'HALLo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 4,
-    'category': 'inProgress',
-    'categoryTag': 'Design',
-    'title': 'Hallo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-];
+}

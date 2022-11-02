@@ -2,12 +2,6 @@
 
 let boardTasks;
 let filterdTasks = [];
-<<<<<<< HEAD
-// let boardTasks = [];
-/**
- * filters the tasks by search 
- */
-=======
 
 async function loadTasks() {
     await downloadFromServer();
@@ -15,7 +9,6 @@ async function loadTasks() {
     renderTodos(boardTasks);
 }
 
->>>>>>> 2244581b0fec3c553d369f822b7cc9c0f41e578e
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
@@ -29,6 +22,7 @@ function filterTasks() {
 }
 /**
  * Renders every task on board page
+ * 
  * @param {Array} tasks all task informations
  */
 function renderTodos(tasks) {
@@ -43,12 +37,12 @@ function renderTodos(tasks) {
 
 /**
  * Generates HTML script
- * @param {string} element tasks array on index
- * @returns to render function
+ * @param {object} element all task informations
+ * @returns board task HTML elements
  */
 function generateTaskHTML(element) {
 
-    return `<div class="boardTask">
+    return `<div draggable="true" ondragstart="" class="boardTask">
     <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
@@ -81,10 +75,5 @@ function generateTaskHTML(element) {
 }
 
 
-/**
- *   directs you to addtask.html
- */
-function goToAddTask() {
-    window.location.href="addTask.html";
-}
+
 

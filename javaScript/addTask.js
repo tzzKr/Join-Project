@@ -1,3 +1,29 @@
+let allTasks = [];
+let allCategories = [];
+let assignedUser = [];
+let subtasks = [];
+let priority = [
+    {
+        "level": "urgent",
+        "img-normal": "img/add_task/arrow_urgent.svg",
+        "img-choosed": "img/add_task/arrow_urgent_white.svg",
+    },
+    {
+        "level": "medium",
+        "img-normal": "img/add_task/medium.svg",
+        "img-choosed": "img/add_task/medium_white.svg",
+    },
+    {
+        "level": "low",
+        "img-normal": "img/add_task/arrow_low.svg",
+        "img-choosed": "img/add_task/arrow_low_white.svg",
+    }
+];
+
+
+
+
+
 ///**      Selection Functions       **///
 
 

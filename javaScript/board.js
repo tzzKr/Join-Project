@@ -1,9 +1,21 @@
+// Board arrays
 
+let boardTasks;
 let filterdTasks = [];
+<<<<<<< HEAD
 // let boardTasks = [];
 /**
  * filters the tasks by search 
  */
+=======
+
+async function loadTasks() {
+    await downloadFromServer();
+    boardTasks = JSON.parse(backend.getItem('tasks')) || [];
+    renderTodos(boardTasks);
+}
+
+>>>>>>> 2244581b0fec3c553d369f822b7cc9c0f41e578e
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
@@ -25,7 +37,7 @@ function renderTodos(tasks) {
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
-        document.getElementById(tasks[i]['category']).innerHTML += generateTaskHTML(tasks[i]);
+        document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(tasks[i]);
     }
 }
 
@@ -37,10 +49,10 @@ function renderTodos(tasks) {
 function generateTaskHTML(element) {
 
     return `<div class="boardTask">
-    <div class="categoryTag tag${element['categoryTag']}"> ${element['categoryTag']} </div>
+    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
-        <span class="taskDesc">${element['taskDesc']}</span>
+        <span class="taskDesc">${element['description']}</span>
     </div>
     <div class="progressContainer">
         <div class="progressBar">
@@ -63,7 +75,7 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_${element['urgency']}.svg" alt=""> 
+            <img src="img/Prio-${element['prio']}.svg" alt="${element['prio']}"> 
         </div>
     </div>`
 }

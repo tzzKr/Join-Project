@@ -10,14 +10,14 @@ function filterTasks() {
     else
         filterdTasks = boardTasks.filter( t => t.title.toLowerCase().startsWith(search) );
 
-        renderFilteredTodos();   
+        renderTodos(filterdTasks);   
 }
 
-function renderFilteredTodos() {
-    let todo = filterdTasks.filter(t => t['category'] == 'todo');
-    let progress = filterdTasks.filter(t => t['category'] == 'progress');
-    let testing = filterdTasks.filter(t => t['category'] == 'testing');
-    let done = filterdTasks.filter(t => t['category'] == 'done');
+function renderTodos(tasks) {
+    let todo = tasks.filter(t => t['category'] == 'todo');
+    let progress = tasks.filter(t => t['category'] == 'progress');
+    let testing = tasks.filter(t => t['category'] == 'testing');
+    let done = tasks.filter(t => t['category'] == 'done');
 
 
     resetBoard();
@@ -28,18 +28,18 @@ function renderFilteredTodos() {
 
 
 
-function renderTodos() {
-    let todo = boardTasks.filter(t => t['category'] == 'todo');
-    let progress = boardTasks.filter(t => t['category'] == 'progress');
-    let testing = boardTasks.filter(t => t['category'] == 'testing');
-    let done = boardTasks.filter(t => t['category'] == 'done');
+// function renderTodos() {
+//     let todo = boardTasks.filter(t => t['category'] == 'todo');
+//     let progress = boardTasks.filter(t => t['category'] == 'progress');
+//     let testing = boardTasks.filter(t => t['category'] == 'testing');
+//     let done = boardTasks.filter(t => t['category'] == 'done');
 
 
-    resetBoard();
-    renderBoard(todo, progress, testing, done);
+//     resetBoard();
+//     renderBoard(todo, progress, testing, done);
 
 
-}
+// }
 
 function resetBoard() {
     document.getElementById('todo').innerHTML = '';

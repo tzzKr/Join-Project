@@ -27,7 +27,7 @@ function renderTodos(tasks) {
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
-        document.getElementById(tasks[i]['category']).innerHTML += generateTaskHTML(tasks[i]);
+        document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(tasks[i]);
     }
 }
 
@@ -35,10 +35,10 @@ function renderTodos(tasks) {
 function generateTaskHTML(element) {
 
     return `<div class="boardTask">
-    <div class="categoryTag tag${element['categoryTag']}"> ${element['categoryTag']} </div>
+    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
-        <span class="taskDesc">${element['taskDesc']}</span>
+        <span class="taskDesc">${element['description']}</span>
     </div>
     <div class="progressContainer">
         <div class="progressBar">
@@ -61,7 +61,7 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_${element['urgency']}.svg" alt=""> 
+            <img src="img/Prio-${element['prio']}.svg" alt="${element['prio']}"> 
         </div>
     </div>`
 }

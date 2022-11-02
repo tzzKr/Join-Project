@@ -1,7 +1,9 @@
 
 let filterdTasks = [];
 // let boardTasks = [];
-
+/**
+ * filters the tasks by search 
+ */
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
@@ -13,7 +15,10 @@ function filterTasks() {
 
         renderTodos(filterdTasks);   
 }
-
+/**
+ * Renders every task on board page
+ * @param {Array} tasks all task informations
+ */
 function renderTodos(tasks) {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
@@ -24,7 +29,11 @@ function renderTodos(tasks) {
     }
 }
 
-
+/**
+ * Generates HTML script
+ * @param {string} element tasks array on index
+ * @returns to render function
+ */
 function generateTaskHTML(element) {
 
     return `<div class="boardTask">
@@ -60,16 +69,10 @@ function generateTaskHTML(element) {
 }
 
 
-// Close popups
-
-function closeBoardTaskInfo() {
-    let closeTaskInfo = document.getElementById('boardTaskInfo');
-    let boardAddTask = document.getElementById('boardAddTask');
-    closeTaskInfo.classList.add('d-none');
-    boardAddTask.classList.add('d-none');
-}
-function showBoardAddTask() {
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.classList.remove('d-none')
+/**
+ *   directs you to addtask.html
+ */
+function goToAddTask() {
+    window.location.href="addTask.html";
 }
 

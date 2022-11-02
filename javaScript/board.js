@@ -2,6 +2,7 @@
 
 let boardTasks;
 let filterdTasks = [];
+let currentDraggedElement;
 
 async function loadTasks() {
     await downloadFromServer();
@@ -42,7 +43,7 @@ function renderTodos(tasks) {
  */
 function generateTaskHTML(element) {
 
-    return `<div draggable="true" ondragstart="" class="boardTask">
+    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="boardTask">
     <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
@@ -74,6 +75,15 @@ function generateTaskHTML(element) {
     </div>`
 }
 
+function startDragging(id) {
+    currentDraggedElement = id;
+}
 
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
 
-
+  function moveTo(category) {
+    boardTasks[currentDraggedElement]['category'] = category;
+    renderTodos();
+  }

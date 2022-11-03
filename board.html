@@ -52,80 +52,7 @@
             </div>
         </div>
 
-        <div  id="boardAddTask" class="moreBoardInfo d-none" style="width: fit-content;">
-            <div class="moreTaskInfo">
-                <div onclick="closeBoardTaskInfo()" class="infoClose"> <img src="img/closeCross.svg" alt=""></div>
-                <div class="headline h1AddTask">
-                    <h1>Add Task</h1>
-                </div>
-                <div class="main-container-addTask">
-                    <form action="" class="addTask" id="add-new-task" method="dialog" style="column-gap: 140px;">
-                        <div class="columnLeft">
-                            <div class="container">
-                                <h3>Title</h3>
-                                <input required placeholder="Add Title" id="title">
-                            </div>
-                            <div class="container">
-                                <h3>Description</h3>
-                                <textarea required placeholder="Enter a description" id="description" method="dialog"></textarea>
-                            </div>
-                            <div class="container">
-                                <h3>Category</h3>
-                                <select placeholder="Selcet task category" name="select" id="category">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="container">
-                                <h3>Assigned to</h3>
-                                <select name="" id="assigned-to">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                        </div>
-        
-                        <div class="middleLine" style="left:465px !important"></div>
-        
-                        <div class="columnRight">
-                            <div class="container">
-                                <h3>Due date</h3>
-                                <input type="datetime-local" required id="date">
-                            </div>
-                            <div class="prio">
-                                <h3>Prio</h3>
-                                <div class="prio-buttons">
-                                    <button onclick="" id="buttonColor">Urgent <img src="img/Prio-urgent.svg"></button>
-                                    <button onclick="" id="buttonColor">Medium <img src="img/prio_medium.svg"></button>
-                                    <button onclick="" id="buttonColor">Low <img src="img/prio_low.svg"></button>
-                                </div>
-                            </div>
-                            <div class="container">
-        
-                                <h3>Subtasks</h3>
-                                <div class="subtasks">
-                                    <input placeholder="Add new subtask" type=""><img onclick="" src="img/plus.svg">
-                                </div>
-                            </div>
-                            <div class="checkbox">
-                                <input class="" type="checkbox">
-                                <span>Subtask 1</span>
-                            </div>
-                            <div class="create-task-buttons">
-                                <button onclick="clear()" class="clear-btn">Clear <img src="img/clear.svg"></button>
-                                <button onclick="createTask()" class="create-task-btn">Create Task <img src="img/addTask-right.svg"></button>
-                            </div>
-                        </div>
-        
-        
-                    </form>
-                </div>
-            </div>
-        </div>
+       
 
         <div class="boardBg">
 
@@ -159,7 +86,7 @@
                     <div class="titelStyle">
                         <h2>To do</h2>
                     </div>
-                    <div class="singleBoards" id="todo">
+                    <div class="singleBoards" ondrop="moveTo('todo')" ondragover="allowDrop(event)" id="todo">
 
 
                     </div>
@@ -168,7 +95,7 @@
                     <div class="titelStyle">
                         <h2>In Progress</h2>
                     </div>
-                    <div class="singleBoards" id="inProgress">
+                    <div class="singleBoards" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)" id="inProgress">
                         
                     
                     </div>
@@ -177,7 +104,7 @@
                     <div class="titelStyle">
                         <h2>Testing</h2>
                     </div>
-                    <div class="singleBoards" id="testing">
+                    <div class="singleBoards" ondrop="moveTo('testing')" ondragover="allowDrop(event)" id="testing">
                        
                     </div>
                 </div>
@@ -185,7 +112,7 @@
                     <div class="titelStyle">
                         <h2>Done</h2>
                     </div>
-                    <div class="singleBoards" id="done">
+                    <div class="singleBoards" ondrop="moveTo('done')" ondragover="allowDrop(event)" id="done">
                        
                     </div>
                 </div>

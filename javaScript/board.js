@@ -83,7 +83,12 @@ function allowDrop(ev) {
     ev.preventDefault();
   }
 
-  function moveTo(category) {
-    boardTasks[currentDraggedElement]['category'] = category;
-    renderTodos();
+  function moveTo(boardCategory) {
+    boardTasks[currentDraggedElement]['board'] = boardCategory;
+    saveTasks();
+  }
+
+  async function saveTasks() {
+    await backend.setItem('tasks', JSON.stringify(boardTasks));
+    loadTasks();
   }

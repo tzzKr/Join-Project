@@ -155,13 +155,17 @@ h2 {
 
 .singleBoards {
   width: 250px;
-  min-height: 670px;
+  min-height: 55vh;
   height: fit-content;
 
   flex-direction: column;
   border-radius: 50px;
   row-gap: 35px;
   display: flex;
+}
+.dragBackground {
+  background: #e7e7e7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)  ; 
 }
 
 .boardTask {

@@ -6,7 +6,7 @@ let currentDraggedElement;
 
 async function loadTasks() {
     await downloadFromServer();
-    boardTasks = JSON.parse(backend.getItem('tasks')) || [];
+    boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
     renderTodos(boardTasks);
 }
 

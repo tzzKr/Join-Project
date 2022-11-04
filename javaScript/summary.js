@@ -44,7 +44,7 @@ function getGreeting() {
  */
 async function loadTasksFromServer() {
     await downloadFromServer();
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    tasks = JSON.parse(await backend.getItem('tasks')) || [];
     renderSummaryInformations();
 }
 

@@ -185,7 +185,7 @@ async function createContact() {
         alert('Contact already exists!')
     } else {
         await downloadFromServer();
-        let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+        let serverContacts = JSON.parse(await backend.getItem('contacts')) || [];
         serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
@@ -199,7 +199,7 @@ async function createContact() {
  */
 async function loadContactsFromServer() {
     await downloadFromServer();
-    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+    let serverContacts = JSON.parse(await backend.getItem('contacts')) || [];
     contacts = serverContacts;
     if(contacts.length > 0) {
         orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);

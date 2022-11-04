@@ -111,8 +111,7 @@ function closeMsgBox() {
 
 async function init() {
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    await backend.setItem('users', JSON.stringify(users));
+    users = JSON.parse(await backend.getItem('users')) || [];
 }
 
 /**
@@ -142,9 +141,6 @@ function deleteSessionUser() {
 
 
 //**Include Function */
-
-
-
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -157,13 +153,7 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    // renderTodos()
 }
-
-// async function init() {
-//     await downloadFromServer();
-//     users = JSON.parse(backend.getItem('users')) || [];
-// }
 
 async function headerInclude() {
 

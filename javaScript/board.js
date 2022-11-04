@@ -75,12 +75,15 @@ function generateTaskHTML(element) {
     </div>`
 }
 
+
 function startDragging(id) {
     currentDraggedElement = id;
+
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
+    
   }
 
   function moveTo(boardCategory) {

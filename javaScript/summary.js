@@ -58,7 +58,7 @@ function renderSummaryInformations() {
     document.getElementById('tasksInProgress').innerHTML = getOccurrence('board', 'inProgress');
     document.getElementById('awaitingFeedback').innerHTML = getOccurrence('boad', 'testing');
     document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'urgent');
-    //document.getElementById('upcomingDate').innerHTML =
+    document.getElementById('upcomingDate').innerHTML = getNextUrgentDueDate();
     document.getElementById('tasksInToDo').innerHTML = getOccurrence('board', 'todo');
     document.getElementById('tasksInDone').innerHTML = getOccurrence('board', 'done');
 }
@@ -74,4 +74,23 @@ function getOccurrence(subelement, value) {
     let count = 0;
     tasks.forEach((v) => (v[subelement] === value && count++));
     return count;
+}
+
+/**
+ * After filtering the tasks that are not done yet thru the priority urgent, 
+ * it comperse the due dates and return the upcoming date 
+ * 
+ * @returns The next due date a task has thats in the board and not done yet
+ */
+function getNextUrgentDueDate() {
+    let dates = [];
+    tasks.forEach((v) => (v['prio'] === 'urgent' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
+    dates.sort((date1, date2) => date1 - date2);
+    console.log(dates)
+    let upcomingDate = new Date(dates[0]);
+    let month = ["January", "February", "March", "April", "May", "June",
+                 "July", "August", "September", "October", "November", "December"]
+                [upcomingDate.getMonth()];
+    upcomingDate = `${month} ${upcomingDate.getDate()}, ${upcomingDate.getFullYear()}`;
+    return upcomingDate; 
 }

@@ -14,12 +14,12 @@ function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
 
-    if(search.length == 0)
+    if (search.length == 0)
         filterdTasks = boardTasks;
     else
-        filterdTasks = boardTasks.filter( t => t.title.toLowerCase().startsWith(search) );
+        filterdTasks = boardTasks.filter(t => t.title.toLowerCase().startsWith(search));
 
-        renderTodos(filterdTasks);   
+    renderTodos(filterdTasks);
 }
 /**
  * Renders every task on board page
@@ -75,20 +75,37 @@ function generateTaskHTML(element) {
     </div>`
 }
 
+
 function startDragging(id) {
     currentDraggedElement = id;
+    
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
 
-  function moveTo(boardCategory) {
+}
+
+function moveTo(boardCategory) {
     boardTasks[currentDraggedElement]['board'] = boardCategory;
     saveTasks();
-  }
+}
 
-  async function saveTasks() {
+async function saveTasks() {
     await backend.setItem('tasks', JSON.stringify(boardTasks));
     loadTasks();
-  }
+}
+
+function showDragAreas() {
+    document.getElementById('todo').classList.add('dragBackground');
+    document.getElementById('inProgress').classList.add('dragBackground');
+    document.getElementById('testing').classList.add('dragBackground');
+    document.getElementById('done').classList.add('dragBackground');
+    
+}
+function removeDragAreas() {
+    document.getElementById('todo').classList.remove('dragBackground');
+    document.getElementById('inProgress').classList.remove('dragBackground');
+    document.getElementById('testing').classList.remove('dragBackground');
+    document.getElementById('done').classList.remove('dragBackground');
+}

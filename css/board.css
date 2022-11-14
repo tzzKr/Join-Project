@@ -155,17 +155,22 @@ h2 {
 
 .singleBoards {
   width: 250px;
-  min-height: 200px;
+  min-height: 55vh;
   height: fit-content;
 
-  flex-wrap: wrap;
+  flex-direction: column;
   border-radius: 50px;
   row-gap: 35px;
   display: flex;
 }
+.dragBackground {
+  background: #e7e7e7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)  ; 
+}
 
 .boardTask {
   min-height: 150px;
+  height: fit-content;
   width: 100%;
   position: relative;
   box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.05);
@@ -231,6 +236,14 @@ h2 {
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.previewDraggedTask {
+  height: 250px;
+  width: 100%;
+  border: dashed 5px black;
+  border-radius: 30px;
+
 }
 
 

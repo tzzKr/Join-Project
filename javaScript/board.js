@@ -1,16 +1,6 @@
-/**
-    * @description      : 
-    * @author           : hosny
-    * @group            : 
-    * @created          : 14/11/2022 - 19:56:34
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 14/11/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
+// Board arrays
 
+let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
 
@@ -27,12 +17,12 @@ function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase();
 
-    if(search.length == 0)
+    if (search.length == 0)
         filterdTasks = boardTasks;
     else
-        filterdTasks = boardTasks.filter( t => t.title.toLowerCase().startsWith(search) );
+        filterdTasks = boardTasks.filter(t => t.title.toLowerCase().startsWith(search));
 
-        renderFilteredTodos();   
+    renderTodos(filterdTasks);
 }
 /**
  * Renders every task on board page"!
@@ -44,38 +34,23 @@ function renderTodos(tasks) {
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
-}
-
-function renderBoard(todo, progress, testing, done) {
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('todo').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < progress.length; i++) {
-        const element = progress[i];
-        document.getElementById('inProgress').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
-        document.getElementById('testing').innerHTML += generateTaskHTML(element);
-
-    }
-    for (let i = 0; i < done.length; i++) {
-        const element = done[i];
-        document.getElementById('done').innerHTML += generateTaskHTML(element);
-
+    for (let i = 0; i < tasks.length; i++) {
+        document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(tasks[i]);
     }
 }
 
+/**
+ * Generates HTML script
+ * @param {object} element all task informations
+ * @returns board task HTML elements
+ */
 function generateTaskHTML(element) {
 
-    return `<div class="boardTask">
-    <div class="categoryTag tag${element['categoryTag']}"> ${element['categoryTag']} </div>
+    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="boardTask">
+    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
-        <span class="taskDesc">${element['taskDesc']}</span>
+        <span class="taskDesc">${element['description']}</span>
     </div>
     <div class="progressContainer">
         <div class="progressBar">
@@ -98,21 +73,42 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_${element['urgency']}.svg" alt=""> 
+            <img src="img/Prio-${element['prio']}.svg" alt="${element['prio']}"> 
         </div>
     </div>`
 }
 
 
-// Close popups
-
-function closeBoardTaskInfo() {
-    let closeTaskInfo = document.getElementById('boardTaskInfo');
-    let boardAddTask = document.getElementById('boardAddTask');
-    closeTaskInfo.classList.add('d-none');
-    boardAddTask.classList.add('d-none');
+function startDragging(id) {
+    currentDraggedElement = id;
+    
 }
-function showBoardAddTask() {
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.classList.remove('d-none')
+
+function allowDrop(ev) {
+    ev.preventDefault();
+
+}
+
+function moveTo(boardCategory) {
+    boardTasks[currentDraggedElement]['board'] = boardCategory;
+    saveTasks();
+}
+
+async function saveTasks() {
+    await backend.setItem('tasks', JSON.stringify(boardTasks));
+    loadTasks();
+}
+
+function showDragAreas() {
+    document.getElementById('todo').classList.add('dragBackground');
+    document.getElementById('inProgress').classList.add('dragBackground');
+    document.getElementById('testing').classList.add('dragBackground');
+    document.getElementById('done').classList.add('dragBackground');
+    
+}
+function removeDragAreas() {
+    document.getElementById('todo').classList.remove('dragBackground');
+    document.getElementById('inProgress').classList.remove('dragBackground');
+    document.getElementById('testing').classList.remove('dragBackground');
+    document.getElementById('done').classList.remove('dragBackground');
 }

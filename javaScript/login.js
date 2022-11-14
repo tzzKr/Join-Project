@@ -11,12 +11,13 @@
     * - Author          : hosny
     * - Modification    : 
 **/
-/**
- * Checks if the submited values are in the database. If thats the case saves the user information
- * in the sessionStorage. Else gets an alert massege that the user ist not found. 
- * 
- */
 
+
+/**
+ * It takes the email and password from the login form, checks if the user exists in the users array,
+ * if it does, it saves the user's name and email in the sessionStorage and redirects to the summary
+ * page.
+ */
 async function login() {
     let actualUser;
     let email = document.getElementById('email');

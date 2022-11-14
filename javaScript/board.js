@@ -21,7 +21,7 @@ async function loadTasks() {
 
 }
 
-// HALLO
+
 
 function filterTasks() {
     let search = document.getElementById('boardInput').value;

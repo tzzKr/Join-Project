@@ -17,11 +17,7 @@ let guest = [];
 
 
 
-let users = [
-    { 'name': 'Hosny Fahim', 'email': 'hosny@test.com', 'password': 'test123', 'userImg': "" },
-    { 'name': 'Gerhard Baliet', 'email': 'gerhard@test.com', 'password': 'test456', 'userImg': "" },
-    { 'name': 'Yannik Morjan', 'email': 'yannik@test.com', 'password': 'test789', 'userImg': "" }
-];
+
 
 //**signUp Functions **//
  /* A function that is used to include the header.html file into the index.html file. */
@@ -71,7 +67,9 @@ function goToBoard() {
     document.getElementById('hover-active1').classList.add('navbar-active');
 
 }
-
+/**
+ * 
+ */
 function goToAddTask() {
     window.location.href = 'addTask.html';
 }
@@ -86,6 +84,16 @@ function goToSignUp() {
 
 function goToLogIn() {
     window.location.href = 'index.html';
+}
+
+/**
+ * Checks from the sessionStorage if the user is logged in. If not redirect to index.html
+ * 
+ */
+function checkLoginStatus() {
+    if (sessionStorage.getItem('sessionUser') == null){
+        window.location.href = 'index.html';
+    }
 }
 
 /**
@@ -137,8 +145,7 @@ function closeMsgBox() {
  */
 async function init() {
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    await backend.setItem('users', JSON.stringify(users));
+    users = JSON.parse(await backend.getItem('users')) || [];
 }
 
 /**
@@ -168,9 +175,6 @@ function deleteSessionUser() {
 
 
 //**Include Function */
-
-
-
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -183,58 +187,8 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    // renderTodos()
 }
-
-// async function init() {
-//     await downloadFromServer();
-//     users = JSON.parse(backend.getItem('users')) || [];
-// }
 
 async function headerInclude() {
 
 }
-
-// Board arrays
-
-let boardTasks = [{
-    'id': 0,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'Bye',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 1,
-    'category': 'progress',
-    'categoryTag': 'Design',
-    'title': 'tschüss',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 3,
-    'category': 'done',
-    'categoryTag': 'Design',
-    'title': 'HALLo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-{
-    'id': 4,
-    'category': 'progress',
-    'categoryTag': 'Design',
-    'title': 'Hallo',
-    'taskDesc': 'test',
-    'progress': '0%',
-    'user' : 0,
-    'urgency' : 'high',
-},
-];

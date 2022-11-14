@@ -1,3 +1,4 @@
+
 /**
     * @description      : 
     * @author           : hosny
@@ -11,7 +12,8 @@
     * - Modification    : 
 **/
 /**
- * 
+ * Checks if the submited values are in the database. If thats the case saves the user information
+ * in the sessionStorage. Else gets an alert massege that the user ist not found. 
  * 
  */
 

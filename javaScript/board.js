@@ -12,6 +12,16 @@
 **/
 
 let filterdTasks = [];
+let currentDraggedElement;
+
+async function loadTasks() {
+    await downloadFromServer();
+    boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
+    renderTodos(boardTasks);
+
+}
+
+// HALLO
 
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
@@ -24,36 +34,12 @@ function filterTasks() {
 
         renderFilteredTodos();   
 }
-
-function renderFilteredTodos() {
-    let todo = filterdTasks.filter(t => t['category'] == 'todo');
-    let progress = filterdTasks.filter(t => t['category'] == 'progress');
-    let testing = filterdTasks.filter(t => t['category'] == 'testing');
-    let done = filterdTasks.filter(t => t['category'] == 'done');
-
-
-    resetBoard();
-    renderBoard(todo, progress, testing, done);
-
-
-}
-
-
-
-function renderTodos() {
-    let todo = boardTasks.filter(t => t['category'] == 'todo');
-    let progress = boardTasks.filter(t => t['category'] == 'progress');
-    let testing = boardTasks.filter(t => t['category'] == 'testing');
-    let done = boardTasks.filter(t => t['category'] == 'done');
-
-
-    resetBoard();
-    renderBoard(todo, progress, testing, done);
-
-
-}
-
-function resetBoard() {
+/**
+ * Renders every task on board page"!
+ * 
+ * @param {Array} tasks all task informations
+ */
+function renderTodos(tasks) {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';

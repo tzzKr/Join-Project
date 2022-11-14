@@ -190,9 +190,11 @@ li img {
 
 .list {
     width: 100%;
+    height: 56%;
+    overflow: auto;
+    white-space: nowrap;
     background: #FFFFFF;
     border-radius: 10px;
-    overflow: hidden;
     padding-inline-start: 0;
     margin-block-start: 4px;
     margin-block-end: 0;

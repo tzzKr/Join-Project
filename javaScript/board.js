@@ -8,7 +8,6 @@ async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
     renderTodos(boardTasks);
-
 }
 
 // HALLO
@@ -35,8 +34,12 @@ function renderTodos(tasks) {
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
+        checkProgress(tasks[i]);
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(tasks[i]);
+    
+
     }
+    
 }
 
 /**
@@ -54,11 +57,11 @@ function generateTaskHTML(element) {
     </div>
     <div class="progressContainer">
         <div class="progressBar">
-            <div class="progressLine" style="width: ${element['progress']}">
+            <div class="progressLine" style="width: ${element['progress']}%">
 
             </div>
         </div>
-        <p>1/3 Done</p>
+        <p>${element['progressNumber']}/3 Done</p>
     </div>
     <div class="user_urgency">
         <div class="assignedTo">
@@ -111,4 +114,29 @@ function removeDragAreas() {
     document.getElementById('inProgress').classList.remove('dragBackground');
     document.getElementById('testing').classList.remove('dragBackground');
     document.getElementById('done').classList.remove('dragBackground');
+}
+
+function checkProgress(element) {
+    
+    console.log(element['board'])
+    if (element['board'] == 'todo') {
+        element['progress'] = 0;
+        element['progressNumber'] = 0;
+    }
+    if (element['board'] == 'inProgress') {
+        element['progress'] = 33;
+        element['progressNumber'] = 1;
+
+    }
+    if (element['board'] == 'testing') {
+        element['progress'] = 66;
+        element['progressNumber'] = 2;
+
+    }
+    if (element['board'] == 'done') {
+        element['progress'] = 100;
+        element['progressNumber'] = 3;
+
+    }
+
 }

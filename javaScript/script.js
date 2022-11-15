@@ -97,6 +97,23 @@ function checkLoginStatus() {
 }
 
 /**
+ * Checks the username in the sessionStorage, when its Guest then Guest would be set in the profile-img and background color would be changed.
+ * When there is a real name the name get sliced to the initials and get set in the profile-img.
+ * 
+ */
+function getProfileInit() {
+    if(sessionStorage.getItem('sessionUser') == 'Guest') {
+        document.getElementById('profile-init').innerHTML = 'Guest';
+        document.getElementsByClassName('profile-img').style.backgroundColor = "#2A3647 !important";
+        document.getElementsByClassName('profile-img').style.borderColor = "#2A3647 !important";
+    } else {
+        let fullname = sessionStorage.getItem('sessionUser').split(" ");
+        let init = `${fullname[0].slice(1,2)}${fullname[fullname.length-1].slice(0,1)}`;
+        document.getElementById('profile-init').innerHTML = `${init}`;
+    }
+}
+
+/**
 /* A function that is used to open the logout container. */
 
 
@@ -183,6 +200,7 @@ async function includeHTML() {
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
+            getProfileInit();
         } else {
             element.innerHTML = 'Page not found';
         }

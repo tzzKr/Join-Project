@@ -59,7 +59,7 @@ function showSuccessfulMsg() {
 
 function goToSummary() {
     document.getElementById('hover-active1').classList.add('navbar-active');
-    // window.location.href = 'summary.html';
+    window.location.href = 'summary.html';
 }
 
 function goToBoard() {

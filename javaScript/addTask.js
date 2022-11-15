@@ -10,25 +10,42 @@
     * - Author          : hosny
     * - Modification    : 
 **/
-// let allTasks = [];
-// let allCategories = [];
-// let assignedUser = [];
-// let subtasks = [];
 
 
-let currentCategory;
-let currentPrio;
-let tesks = [];
-let currentMembers = [];
-let currentSubtasks = [];
-let colorNewCategory;
-let colorBtnIsClicked = flase;
 
-async function initAddTask() {
-    await loadDataFromServer();
-    await init();
-    await includeHTML('include-addtask-html');
+async function createTask() {
+    let newTask = {
+        id: 0,
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        category: document.getElementById('category').value,
+        assignedTo: document.getElementById('assignedTo').value,
+        dueDate: document.getElementById('Date').value,
+        prio: document.getElementById('prio').value,
+        subtasks: document.getElementById('subtasks').value
+    }
+
 }
+
+function addTitle() {
+    document.getElementById('input').value;
+}
+
+function addDescription() {
+    document.getElementById('description').value;
+}
+
+// function selectCategory() {
+//     document.getElementById('selectField').innerHTML += 
+// }
+
+function AssignedTo() {
+    
+}
+
+
+
+
 
 
 

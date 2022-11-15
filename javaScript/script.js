@@ -102,14 +102,16 @@ function checkLoginStatus() {
  * 
  */
 function getProfileInit() {
-    if(sessionStorage.getItem('sessionUser') == 'Guest') {
+    if(getSessionUser() == 'Guest') {
         document.getElementById('profile-init').innerHTML = 'Guest';
-        document.getElementsByClassName('profile-img').style.backgroundColor = "#2A3647 !important";
-        document.getElementsByClassName('profile-img').style.borderColor = "#2A3647 !important";
+        document.getElementById('openLogOutContainer').style.fontSize = '16px';
+        document.getElementById('openLogOutContainer').style.backgroundColor = '#2A3647';
+        document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
     } else {
         let fullname = sessionStorage.getItem('sessionUser').split(" ");
         let init = `${fullname[0].slice(1,2)}${fullname[fullname.length-1].slice(0,1)}`;
         document.getElementById('profile-init').innerHTML = `${init}`;
+        document.getElementById('openLogOutContainer').style.backgroundColor = '#29ABE2';
     }
 }
 

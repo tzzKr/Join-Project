@@ -18,13 +18,14 @@ let tasks;
  */
 function renderGreetingMessage() {
     let sessionUser = getSessionUser();
+    console.log(sessionUser);
     let message = getGreeting();
-    if(sessionUser.name == 'guest') {
+    if(sessionUser == 'Guest') {
         document.getElementById('greeting-message').innerHTML = message;
         document.getElementById('greeting-user').innerHTML = '';
     } else {
         document.getElementById('greeting-message').innerHTML = message + ',';
-        document.getElementById('greeting-user').innerHTML = sessionUser.name;
+        document.getElementById('greeting-user').innerHTML = sessionUser;
     }
     loadTasksFromServer();
 }

@@ -33,6 +33,16 @@ async function login() {
     }
  }
 
+ /**
+  * Set the sessionUser to 'Guest' so a guest can see the website behind the login. 
+  * 
+  */
+function guestLogin() {
+    actualUser = 'Guest';
+    actualUser = JSON.stringify(actualUser);
+    sessionStorage.setItem('sessionUser', actualUser);
+    window.location.href = 'summary.html';
+}
 
 //  const urlParams = new URLSearchParams(window.location.search);
 //  const msg = urlParams.get('msg');

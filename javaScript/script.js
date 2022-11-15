@@ -25,7 +25,7 @@ let guest = [];
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
+    users.push({ name: name.value, email: email.value, password: password.value});
     await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
     window.location.href = 'index.html?msg=Successful registration';

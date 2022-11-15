@@ -53,17 +53,25 @@
                         </div>
 
                         <div id="list" class="list d-none">
-                            <li onclick="newCategory()" class="options">
+                            <div onclick="newCategory()" class="options">
                                 <p id="selectText">New category</p>
-                            </li>
-                            <li onclick="selectOptions()" class="options">
-                                <div class="listContactInitials contactScale bgRo left"></div>
+                            </div>
+                            <div onclick="selectOptions()" class="options">
                                 <p>Sales</p>
-                            </li>
-                            <li onclick="selectOptions()" class="options">
-                                <div class="listContactInitials contactScale bgLg"></div>
+                                <div class="listContactInitials contactScale bgRo left"></div>
+                            </div>
+                            <div onclick="selectOptions()" class="options">
                                 <p>Backoffice</p>
-                            </li>
+                                <div class="listContactInitials contactScale bgLg"></div>
+                            </div>
+                            <div onclick="selectOptions()" class="options">
+                                <p>Design</p>
+                                <div class="listContactInitials contactScale bgLg"></div>
+                            </div>
+                            <div onclick="selectOptions()" class="options">
+                                <p>Development</p>
+                                <div class="listContactInitials contactScale bgLg"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="container">
@@ -84,18 +92,22 @@
                         </div>
 
                         <div id="listContact" class="list d-none">
-                            <li onclick="selectOptions()" class="options">
+                            <div onclick="selectOptions()" class="options">
                                 <input class="p-absolute" type="checkbox">
-                                <p>You</p>
-                            </li>
-                            <li onclick="selectOptions()" class="options">
+                                <p id="addedUser">Gerhard</p>
+                            </div>
+                            <div onclick="selectOptions()" class="options">
                                 <input class="p-absolute" type="checkbox">
                                 <p id="addedUser">Hosny</p>
-                            </li>
-                            <li class="options" onclick="inputNewContact()">
+                            </div>
+                            <div onclick="selectOptions()" class="options">
+                                <input class="p-absolute" type="checkbox">
+                                <p id="addedUser">Yannik</p>
+                            </div>
+                            <div class="options" onclick="inputNewContact()">
                                 <img class="p-absolute" src="img/add-user.png">
                                 <p id="newContact">Invite new contact</p>
-                            </li>
+                            </div>
                         </div>
                     </div>
                 </div>

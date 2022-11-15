@@ -123,12 +123,9 @@ textarea {
 .listContactInitials {
     width: 20px;
     height: 20px;
-    left: 140px;
     color: #FFFFFF;
     border-radius: 100%;
     transition: 225ms;
-    position: absolute;
-    top: 14px;
     border: 2px solid #FFFFFF;
 }
 
@@ -184,18 +181,17 @@ textarea {
     right: 22px;
 }
 
-li img {
+/* li img {
     width: 30px;
-}
+} */
 
 .list {
     width: 100%;
-    height: 56%;
+    height: 146px;
     overflow: auto;
     white-space: nowrap;
     background: #FFFFFF;
     border-radius: 10px;
-    padding-inline-start: 0;
     margin-block-start: 4px;
     margin-block-end: 0;
     transition: all 200ms ease-in-out;
@@ -205,13 +201,14 @@ li img {
 }
 
 .options {
+    display: flex;
+    align-items: center;
     width: 100%;
     padding: 1px 0 1px 0;
     padding-left: 20px;
     list-style: none;
     cursor: pointer;
     box-sizing: border-box;
-    position: relative;
 }
 
 .options p {

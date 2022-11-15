@@ -60,16 +60,40 @@ body {
 }
 
 .logo-container {
-    position: absolute;
+    /* position: absolute; */
     left: 80px;
     top: 60px;
     cursor: pointer;
 }
 
 .logo-container img {
-    width: 100px;
-    height: 121px;
+  position: absolute;
+  top: 35px;
+  left: 80px;
+  width: 100px;
+  animation: animate-logo ease-in 1000ms;
+  z-index: 999;
 }
+
+@keyframes animate-logo {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform: scale(3);
+    }
+    55% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform: scale(3);
+    }
+    100% {
+      top: 35px;
+      left: 80px;
+      transform: scale(1);
+    }
+  }
 
 .login-content {
     display: flex;

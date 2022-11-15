@@ -1,4 +1,23 @@
+/**
+    * @description      : 
+    * @author           : Hosny, Gerhard, Yannik.
+    * @group            : 
+    * @created          : 27/10/2022 - 19:11:24
+    * 
+    * MODIFICATION LOG
+    * - Version         : 1.0.0
+    * - Date            : 27/10/2022
+    * - Author          : hosny
+    * - Modification    : 
+**/
 setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
+
+let guest = [];
+
+
+
+
+
 
 //**signUp Functions **//
  /* A function that is used to include the header.html file into the index.html file. */
@@ -13,9 +32,14 @@ setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
     showSuccessfulMsg();
 }
 
+/**
+ * It removes the class 'display-none' from the element with the id 'messageBox' and adds the class
+ * 'growIn' to the same element. Then, after 200 milliseconds, it removes the class 'growIn' from the
+ * same element.
+ */
 function showSuccessfulMsg() {
-    document.getElementById('messageBox').classList.remove('display-none');
-    document.getElementById('messageBox').classList.add('growIn');
+    document.getElementById('msg-box').classList.remove('d-none');
+    document.getElementById('msg-box').classList.add('growIn');
     setTimeout(() => {
         document.getElementById('messageBox').classList.remove('growIn');
     }, 200);
@@ -34,14 +58,18 @@ function showSuccessfulMsg() {
  * /* A function that is used to include the header.html file into the index.html file. */
 
 function goToSummary() {
-    window.location.href = 'summary.html';
+    document.getElementById('hover-active1').classList.add('navbar-active');
+    // window.location.href = 'summary.html';
 }
 
 function goToBoard() {
     window.location.href = 'board.html';
+    document.getElementById('hover-active1').classList.add('navbar-active');
 
 }
-
+/**
+ * 
+ */
 function goToAddTask() {
     window.location.href = 'addTask.html';
 }
@@ -115,7 +143,10 @@ function closeLogOutContainer() {
 }
 
 
-
+/**
+ * It adds the class 'msgBox-in-out' to the element with the id 'msgBox' and removes the class 'd-none'
+ * from the same element.
+ */
 // Message Box
 function openMsgBox() {
     document.getElementById('msgBox').classList.add('msgBox-in-out');
@@ -126,6 +157,9 @@ function closeMsgBox() {
 
 }
 
+/**
+ * Download the users from the server, and if there are none, create an empty array.
+ */
 async function init() {
     await downloadFromServer();
     users = JSON.parse(await backend.getItem('users')) || [];

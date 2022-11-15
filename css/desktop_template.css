@@ -106,7 +106,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 0px;
-    gap: 15px;
+    gap: 4px;
     width: 232px;
     height: 229px;
     margin-top: 40px;
@@ -114,8 +114,8 @@ body {
 }
 
 .navbar img {
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    height: 30px;
     top: 1.17px;
     left: 1px;
 }
@@ -135,6 +135,10 @@ body {
 
 .navbar div:hover {
     transition: all 100ms ease-in-out;
+    background-color: #091931;
+}
+
+.navbar-active {
     background-color: #091931;
 }
 

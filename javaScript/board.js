@@ -8,7 +8,10 @@ async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
     renderTodos(boardTasks);
+
 }
+
+// HALLO
 
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
@@ -22,7 +25,7 @@ function filterTasks() {
     renderTodos(filterdTasks);
 }
 /**
- * Renders every task on board page
+ * Renders every task on board page"!
  * 
  * @param {Array} tasks all task informations
  */

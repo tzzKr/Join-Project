@@ -37,7 +37,7 @@
                         <div id="newCategory" class="new-category d-none">
                             <input class="input-addTask" placeholder="New category name" type=""><img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
                             <div class="line"></div>
-                            <img class="right-img" onclick="select()" src="img/addTask-right.svg">
+                            <img class="right-img" onclick="selectAllCategory()" src="img/addTask-right.svg">
                         </div>
                         <div id="selectCorlor" class="select-color d-none">
                             <div onclick="selectColor()" class="listContactInitial bgVi"></div>
@@ -52,7 +52,7 @@
                             <img src="img/arrow.png">
                         </div>
 
-                        <ul id="list" class="list d-none">
+                        <div id="list" class="list d-none">
                             <li onclick="newCategory()" class="options">
                                 <p id="selectText">New category</p>
                             </li>
@@ -64,7 +64,7 @@
                                 <div class="listContactInitials contactScale bgLg"></div>
                                 <p>Backoffice</p>
                             </li>
-                        </ul>
+                        </div>
                     </div>
                     <div class="container">
                         <h3>Assigned to</h3>
@@ -83,7 +83,7 @@
                             <img src="img/arrow.png">
                         </div>
 
-                        <ul id="listContact" class="list d-none">
+                        <div id="listContact" class="list d-none">
                             <li onclick="selectOptions()" class="options">
                                 <input class="p-absolute" type="checkbox">
                                 <p>You</p>
@@ -96,7 +96,7 @@
                                 <img class="p-absolute" src="img/add-user.png">
                                 <p id="newContact">Invite new contact</p>
                             </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
 

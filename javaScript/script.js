@@ -144,19 +144,35 @@ function closeLogOutContainer() {
     document.getElementById('openLogOutContainer').setAttribute('onclick', `openLogOutContainer()`);
 }
 
-
-/**
- * It adds the class 'msgBox-in-out' to the element with the id 'msgBox' and removes the class 'd-none'
- * from the same element.
- */
 // Message Box
+/**
+ * Sets the message for the 'MsgBox' and triggers the opening function.
+ * 
+ * @param {string} msg - Message string that should displayed in the 'MsgBox' 
+ */
+function initMsgBox(msg) {
+   document.getElementById('msgBox').innerHTML = `${msg}`;
+   openMsgBox();
+}
+/**
+ * It removes the class 'animationFadeOut', adds the class 'animationFadeIn' to the 'msgBox' and removes the class 'd-none'
+ * after 3000ms the function 'closeMsgBox' is called.
+ * 
+ */
 function openMsgBox() {
-    document.getElementById('msgBox').classList.add('msgBox-in-out');
+    document.getElementById('msgBox').classList.remove('animationFadeOut');
+    document.getElementById('msgBox').classList.add('animationFadeIn');
     document.getElementById('msgBox').classList.remove('d-none');
+    setTimeout(closeMsgBox, 3000);
 }
 
+/**
+ * It removes the class 'animationFadeIn' and adds the class 'animationFadeOut' to the 'msgBox'.
+ * 
+ */
 function closeMsgBox() {
-
+    document.getElementById('msgBox').classList.remove('animationFadeIn');
+    document.getElementById('msgBox').classList.add('animationFadeOut');
 }
 
 /**

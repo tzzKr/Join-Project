@@ -153,6 +153,7 @@ async function deleteContact() {
     contacts.splice(index,1);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    initMsgBox('Contact succesfully deleted');
     closeOverlay();  
 }
 
@@ -169,6 +170,7 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].phone = document.getElementById('input-phone').value;
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    initMsgBox('Contact succesfully changed');
     closeOverlay();
 }
 
@@ -182,13 +184,14 @@ async function createContact() {
     let inputPhone = document.getElementById('input-phone').value;
     let existingContact = contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone);
     if(existingContact) {
-        alert('Contact already exists!')
+        initMsgBox('Contact already exists!');
     } else {
         await downloadFromServer();
         let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
         serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
+        initMsgBox('Contact succesfully created');
     }
     closeOverlay();
 }

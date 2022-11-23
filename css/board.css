@@ -93,7 +93,40 @@ h2 {
   text-align: left;
 }
 
+/* Task Info */
+.taskInfoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 115px);
+  z-index: 99999;
+}
+.taskInfoBg {
+  height: 70vh;
+  width: 30vw;
+  background-color: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0px 0px 5px 4px rgba(102, 102, 102, 0.5);
+  box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
 
+.infoTitle {
+  font-size: 61px;
+  color: #282828;
+  padding: 0;
+}
+.infoDesc {
+  font-size: 21px;
+}
 
 /* Board content  */
 .categoryTag {
@@ -282,106 +315,6 @@ h2 {
   background-color: #FFC701;
 }
 
-/* Task Information popup  */
-
-.moreBoardInfo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  background-color: #ffffff;
-  width: 623px;
-  height: 80vh;
-  z-index: 9999;
-  border-radius: 30px;
-  overflow-x: auto;
-  row-gap: 25px;
-  display: flex;
-  box-shadow: 0px 0px 75px -10px rgba(0, 0, 0, 0.75);
-}
-
-.moreTaskInfo {
-  padding: 50px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  row-gap: 25px;
-  position: relative;
-}
-
-.infoHeadline {
-  font-size: 35px;
-  margin: -50px 0;
-}
-
-.infoDecription {
-  font-size: 21px;
-}
-
-.infoDueDate {
-  display: flex;
-  align-items: center;
-  column-gap: 25px;
-  font-size: 21px;
-}
-
-.infoDueDate h2 {
-  font-size: 21px;
-}
-
-.infoPriority {
-  display: flex;
-  column-gap: 25px;
-  align-items: center;
-
-}
-
-.infoPriority h2 {
-  font-size: 21px;
-}
-
-.infoAssignedTo h2 {
-  font-size: 21px;
-
-}
-
-.infoAssignedUser {
-  display: flex;
-  flex-direction: column;
-  row-gap: 25px;
-}
-
-.infoUser_name {
-  display: flex;
-  align-items: center;
-  column-gap: 25px;
-  font-size: 21px;
-}
-
-.infoClose {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 42px;
-  margin-right: 42px;
-  cursor: pointer;
-}
-
-.infoAssignedUserPic {
-  height: 45px;
-  width: 45px;
-  background: #0190E0;
-  border-radius: 58px;
-  border: solid 2px rgb(255, 255, 255);
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px -6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
 
 /* Priority tags */
 

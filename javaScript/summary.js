@@ -70,7 +70,7 @@ function renderSummaryInformations() {
     document.getElementById('tasksInBoard').innerHTML = tasks.length;
     document.getElementById('tasksInProgress').innerHTML = getOccurrence('board', 'inProgress');
     document.getElementById('awaitingFeedback').innerHTML = getOccurrence('boad', 'testing');
-    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'urgent');
+    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'high');
     document.getElementById('upcomingDate').innerHTML = getNextUrgentDueDate();
     document.getElementById('tasksInToDo').innerHTML = getOccurrence('board', 'todo');
     document.getElementById('tasksInDone').innerHTML = getOccurrence('board', 'done');
@@ -97,7 +97,7 @@ function getOccurrence(subelement, value) {
  */
 function getNextUrgentDueDate() {
     let dates = [];
-    tasks.forEach((v) => (v['prio'] === 'urgent' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
+    tasks.forEach((v) => (v['prio'] === 'high' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
     dates.sort((date1, date2) => date1 - date2);
     console.log(dates)
     let upcomingDate = new Date(dates[0]);

@@ -103,8 +103,10 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 115px);
+  height: calc(100vh);
   z-index: 99999;
+  background-color: #00000020;
+  
 }
 .taskInfoBg {
   height: 70vh;
@@ -126,6 +128,28 @@ h2 {
 }
 .infoDesc {
   font-size: 21px;
+}
+.urgencyTagInfo{
+ height: 33px;
+ width: fit-content;
+ border-radius: 10px;
+ box-sizing: border-box;
+ padding: 4px 18px; 
+ background-color: #0190E0;
+ font-size: 21px;
+ display: flex;
+ justify-content: center;
+ color: white;
+}
+.priorityInfo{
+  display: flex;
+  column-gap: 30px;
+}
+.header-line {
+  z-index: 999999999 !important;
+}
+.header{
+  z-index: 99999999999 !important;
 }
 
 /* Board content  */

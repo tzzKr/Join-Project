@@ -76,7 +76,7 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/Prio-${element['prio']}.svg" alt="${element['prio']}"> 
+            <img src="img/prio_${element['prio']}.svg" alt="${element['prio']}"> 
         </div>
     </div>`
 }

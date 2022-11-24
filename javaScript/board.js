@@ -1,3 +1,15 @@
+/**
+    * @description      : 
+    * @author           : hosny
+    * @group            : 
+    * @created          : 24/11/2022 - 21:38:38
+    * 
+    * MODIFICATION LOG
+    * - Version         : 1.0.0
+    * - Date            : 24/11/2022
+    * - Author          : hosny
+    * - Modification    : 
+**/
 // Board arrays
 
 let boardTasks;

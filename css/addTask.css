@@ -342,6 +342,10 @@ textarea {
     line-height: 120%;
 }
 
+.bg-btn-orange {
+    background-color: #FF3D00;
+}
+
 .prio-buttons button:hover {
     transition: all 100ms ease-in-out;
     transform: scale(1.05);
@@ -485,7 +489,46 @@ textarea {
         width: 400px;
     }
 
+    .select-field {
+        width: 400px;
+    }
+
     textarea {
         width: 400px;
+    }
+
+    .list {
+        width: 400px;
+    }
+}
+
+@media(max-width: 1080px) {
+    .prio-buttons button {
+        width: 113px;
+    }
+
+    .container input {
+        width: 360px;
+    }
+
+    select {
+        width: 360px;
+    }
+
+    .select-field {
+        width: 360px;
+        font-size: 18px;
+    }
+
+    textarea {
+        width: 360px;
+    }
+
+    .list {
+        width: 360px;
+    }
+
+    .prio-buttons button {
+        font-size: 16px;
     }
 }

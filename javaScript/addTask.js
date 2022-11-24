@@ -27,6 +27,31 @@ async function createTask() {
 
 }
 
+function selectCategory() {
+    let categoryList = document.getElementById('selectField');
+    // if (categoryList) {
+    //     categoryList.innerHTML = `
+    //     <div onclick="openSelection()" class="select-field" id="selectField">
+    //     <p class="textBox">${name}</p>
+    //     <img src="img/arrow.png">
+    //     </div>`;
+        for (let i = 0; i < allCategories.length; i++) {
+            let category = allCategories[i];
+            let id = category.id;
+            let name = category.name;
+            let color = category.color;
+            categoryList.innerHTML += renderCategoriesTemplate(id, name, color);
+        }
+    }
+// }
+
+function renderCategoriesTemplate(id, name, color) {
+    return `<div id="${id}" onclick="selectCategory('${id}')" class="options">
+    <p>${name}</p>
+    <div class="listContactInitials contactScale ${color}"></div>
+    </div>`
+}
+
 function addTitle() {
     document.getElementById('input').value;
 }
@@ -41,6 +66,24 @@ function addDescription() {
 
 function AssignedTo() {
     
+}
+
+
+function addSubtask() {
+    let taskInput = document.getElementById('inputSubtask').value;
+    renderSubtask(taskInput);
+    document.getElementById('inputSubtask').value = ``;
+}
+/**
+ * 
+ * @param {*} taskInput 
+ */
+function renderSubtask(taskInput) {
+    document.getElementById('addSubtaskElement').innerHTML += `
+    <div class="checkbox">
+        <input class="" type="checkbox">
+        <span>${taskInput}</span>
+    </div>`
 }
 
 
@@ -171,4 +214,13 @@ function clearInviteNewContact() {
     document.getElementById('inviteNewContact').classList.add('d-none');
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
+}
+/**
+ * 
+ */
+
+function selectUrgent() {
+    document.getElementById('buttonColorUrgent').classList.remove('prio-buttons');
+    document.getElementById('buttonColorUrgent').classList.add('bg-btn-orange');
+
 }

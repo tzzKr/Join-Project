@@ -29,7 +29,19 @@ let guest = [];
     await backend.setItem('users', JSON.stringify(users));
     // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
     window.location.href = 'index.html?msg=Successful registration';
-    showSuccessfulMsg();
+}
+
+/**
+ * Checks if the URL have a msg (it gets one in the addUser function), if so initMsgBox get triggert with the msg
+ * 
+ */
+function checkRegistrationStatus() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg');
+    if(msg) {
+        initMsgBox(msg);  
+    }
+    
 }
 
 /**
@@ -202,13 +214,6 @@ function deleteSessionUser() {
     sessionStorage.removeItem('sessionUser');
 }
 
-// async function signUp() {
-//     users.push('');
-//     await backend.setItem('users', JSON.stringify(users));
-// }
-
-
-
 //**Include Function */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -223,8 +228,4 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-}
-
-async function headerInclude() {
-
 }

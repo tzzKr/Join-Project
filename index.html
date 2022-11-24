@@ -19,7 +19,7 @@
     <title>Join-Login</title>
 </head>
 
-<body onload="init()">
+<body onload="init(), checkRegistrationStatus()">
     <div class="white-background"></div>
     <div class="main-container-login">
         <div class="log-in-headline">
@@ -59,7 +59,7 @@
                 <div class="guest-container">
                     <button onclick="guestLogin()" class="guest-button">Guest Log in</button>
                 </div>
-                <div class="msg-box d-none" id="msgBox"></div>
+                <dialog id="msgBox" class="msgBox d-none"></dialog>
             </div>
 
         </div>

@@ -43,9 +43,3 @@ function guestLogin() {
     sessionStorage.setItem('sessionUser', actualUser);
     window.location.href = 'summary.html';
 }
-
-//  const urlParams = new URLSearchParams(window.location.search);
-//  const msg = urlParams.get('msg');
-//  if(msg) {
-//     msgBox.innerHTML = msg;
-//  }

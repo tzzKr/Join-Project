@@ -126,7 +126,7 @@ input {
 }
 
 /*------------------------- recurring animations -------------------------*/
-@keyframes fade-in {
+/* @keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -142,14 +142,23 @@ input {
     0% {
         opacity: 1;
     }
-}
+} */
 
 @keyframes slipe-up {
-    0% {
-        transform: translateY(100%);
+        0%{
+          transform: translateY(200px);
+        }
+        100%{
+          transform: translateX(0px);
+        }
+}
+
+@keyframes slipe-down {
+    0%{
+      transform: translateX(0px);
     }
-    100% {
-        transform: translateY(0%);
+    100%{
+      transform: translateY(200px);
     }
 }
 
@@ -312,14 +321,15 @@ input {
     color: #FFFFFF;
     position: fixed;
     top: 90%;
-    left: calc(50% - (var(--width) / 2));
+    left: calc(50% - (var(--width)));
+    right: calc(50% - (var(--width)));
 }
 
 .animationFadeIn {
-    animation: fade-in 500ms forwards;
+    animation: slipe-up 200ms forwards;
 }
 
 .animationFadeOut {
-    animation: fade-out 500ms forwards;
+    animation: slipe-down 200ms forwards;
 }
 

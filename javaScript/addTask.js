@@ -12,43 +12,62 @@
 **/
 
 
-
-async function createTask() {
-    let newTask = {
-        id: 0,
-        title: document.getElementById('title').value,
-        description: document.getElementById('description').value,
-        category: document.getElementById('category').value,
-        assignedTo: document.getElementById('assignedTo').value,
-        dueDate: document.getElementById('Date').value,
-        prio: document.getElementById('prio').value,
-        subtasks: document.getElementById('subtasks').value
-    }
-
+let task = {
+    id:"",
+    board:"",
+    category:"",
+    title:"",
+    description:"",
+    progress:0,
+    progressNumber:0,
+    assignedTo:"",
+    prio:"",
+    dueDate:"",
+    subtasks:new Array
 }
 
-function selectCategory() {
-    let categoryList = document.getElementById('selectField');
-    // if (categoryList) {
-    //     categoryList.innerHTML = `
-    //     <div onclick="openSelection()" class="select-field" id="selectField">
-    //     <p class="textBox">${name}</p>
-    //     <img src="img/arrow.png">
-    //     </div>`;
-        for (let i = 0; i < allCategories.length; i++) {
-            let category = allCategories[i];
-            let id = category.id;
-            let name = category.name;
-            let color = category.color;
-            categoryList.innerHTML += renderCategoriesTemplate(id, name, color);
-        }
-    }
+let categories = [
+    {name:"Sales", color:"#E200BE"},
+    {name:"Backoffice", color:"#2AD300"},
+    {name:"Design", color:"#FF8A00"},
+    {name:"Development", color:"#8AA4FF"}
+];
+
+
+// async function createTask() {
+//     let newTask = {
+//         id: 0,
+//         title: document.getElementById('title').value,
+//         description: document.getElementById('description').value,
+//         category: document.getElementById('category').value,
+//         assignedTo: document.getElementById('assignedTo').value,
+//         dueDate: document.getElementById('Date').value,
+//         prio: document.getElementById('prio').value,
+//         subtasks: document.getElementById('subtasks').value
+//     }
+
 // }
 
-function renderCategoriesTemplate(id, name, color) {
-    return `<div id="${id}" onclick="selectCategory('${id}')" class="options">
+function selectCategory() {
+    closeSelection();
+    // document.getElementById('selectField').innerHTML = 
+    let categoryList = document.getElementById('selectField');
+    if (categoryList) {
+        categoryList.innerHTML = `
+        <div onclick="openSelection()" class="select-field" id="selectField">
+        <p class="textBox">${name}</p>
+        <img src="img/arrow.png">
+        </div>`;
+        for (let i = 0; i < categories.length; i++) {
+            categoryList.innerHTML += renderCategoriesTemplate(categories[i].name, categories[i].color);
+        }
+    }
+}
+
+function renderCategoriesTemplate(name, color) {
+    return `<div class="options">
     <p>${name}</p>
-    <div class="listContactInitials contactScale ${color}"></div>
+    <div class="listContactInitials bgRo contactScale"></div>
     </div>`
 }
 
@@ -71,8 +90,10 @@ function AssignedTo() {
 
 function addSubtask() {
     let taskInput = document.getElementById('inputSubtask').value;
+    task.subtasks.push(taskInput);
     renderSubtask(taskInput);
     document.getElementById('inputSubtask').value = ``;
+    console.log(task.subtasks);
 }
 /**
  * 
@@ -84,6 +105,10 @@ function renderSubtask(taskInput) {
         <input class="" type="checkbox">
         <span>${taskInput}</span>
     </div>`
+}
+
+function saveSubtaskInJson() {
+
 }
 
 
@@ -219,8 +244,7 @@ function clearInviteNewContact() {
  * 
  */
 
-function selectUrgent() {
-    document.getElementById('buttonColorUrgent').classList.remove('prio-buttons');
-    document.getElementById('buttonColorUrgent').classList.add('bg-btn-orange');
+function selectPrio() {
+
 
 }

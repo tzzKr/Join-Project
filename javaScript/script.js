@@ -66,37 +66,7 @@ function showSuccessfulMsg() {
 //    messageBox.innerHTML = msg
 // }
 
-/**
- * /* A function that is used to include the header.html file into the index.html file. */
 
-function goToSummary() {
-    document.getElementById('hover-active1').classList.add('navbar-active');
-    window.location.href = 'summary.html';
-}
-
-function goToBoard() {
-    window.location.href = 'board.html';
-    document.getElementById('hover-active1').classList.add('navbar-active');
-
-}
-/**
- * 
- */
-function goToAddTask() {
-    window.location.href = 'addTask.html';
-}
-
-function goToContacts() {
-    window.location.href = 'contacts.html';
-}
-
-function goToSignUp() {
-    window.location.href = 'signUp.html';
-}
-
-function goToLogIn() {
-    window.location.href = 'index.html';
-}
 
 /**
  * Checks from the sessionStorage if the user is logged in. If not redirect to index.html

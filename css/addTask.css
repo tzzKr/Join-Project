@@ -532,3 +532,15 @@ textarea {
         font-size: 16px;
     }
 }
+
+@media(max-width: 1000px) {
+    .addTask {
+        flex-direction: column;
+    }
+
+    .create-task-buttons{
+        position: unset;
+        margin-top: 12%;
+        margin-bottom: 12%;
+    }
+}

@@ -126,7 +126,7 @@ input {
 }
 
 /*------------------------- recurring animations -------------------------*/
-/* @keyframes fade-in {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -139,10 +139,13 @@ input {
     100% {
         opacity: 0;
     }
+    50% {
+        opacity: 1;
+    }
     0% {
         opacity: 1;
     }
-} */
+}
 
 @keyframes slipe-up {
         0%{

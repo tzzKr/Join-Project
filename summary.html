@@ -18,7 +18,7 @@
     <script src="./javaScript/navbar.js"></script>
 </head>
 
-<body onload="checkLoginStatus(), includeHTML(), renderGreetingMessage()">
+<body onload="checkLoginStatus(), includeHTML(), renderGreetingMessage(), mobileOperator()">
     
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
@@ -93,7 +93,7 @@
 
             </div>
 
-            <div class="welcomeMessage">
+            <div id="welcome-message" class="welcomeMessage">
                 <div id="greeting-message" class="greeting">Hello</div><br>
                 <div id="greeting-user" class="userName"></div>
             </div>

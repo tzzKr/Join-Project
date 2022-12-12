@@ -107,3 +107,13 @@ function getNextUrgentDueDate() {
     upcomingDate = `${month} ${upcomingDate.getDate()}, ${upcomingDate.getFullYear()}`;
     return upcomingDate; 
 }
+
+function mobileOperator() {
+    if(window.innerWidth <= '760') {
+        setTimeout(mobileGreetingDisapparator, 2000);
+    }  
+}
+
+function mobileGreetingDisapparator() {
+    document.getElementById('welcome-message').classList.add('d-none');
+}

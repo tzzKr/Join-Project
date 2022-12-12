@@ -32,7 +32,7 @@ function renderContactbook() {
                     <div class="listSeperator"></div>`
             for(let j = 0; j < orderedContacts[i].length; j++) {
                 document.getElementById('contact-book').innerHTML += /*html*/ `
-                        <div class="listContact" onclick="renderContactDetails(${i},${j})">
+                        <div class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
                             <div class="listContactInitials bgOr">VM</div>
                             <div class="listContactInfo">
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
@@ -117,7 +117,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
+            <div class="userContainer">
                 <span id="overlay-user-img" class="overlayUserImg bgLp">VM</span>
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
@@ -225,7 +225,7 @@ function changeOverlayToNewContact() {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
+            <div class="userContainer">
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
             <form class="overlayInputForm" onsubmit="createContact(); return false;">
@@ -249,4 +249,35 @@ function changeOverlayToNewContact() {
             </button>        
         </div>`;
     openOverlay();
+}
+
+/**
+ * Checks if the window size is equal or less than 760px and than execute code in it.
+ * 
+ */
+function mobileOperator() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('to-contactbook-btn').classList.remove('d-none');
+        document.getElementById('content').classList.add('d-none'); 
+    }  
+}
+
+/**
+ * 
+ * 
+ */
+function mobileSwitchToDetail() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('contact-book').classList.add('d-none');
+        document.getElementById('new-contact-btn').classList.add('d-none');
+        document.getElementById('content').classList.remove('d-none');
+    }
+}
+
+function toContactbookBtn() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('content').classList.add('d-none');
+        document.getElementById('contact-book').classList.remove('d-none');
+        document.getElementById('new-contact-btn').classList.remove('d-none');
+    }
 }

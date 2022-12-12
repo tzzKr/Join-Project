@@ -182,7 +182,6 @@
     .content {
         display: flex;
         flex-direction: column-reverse;
-        margin-bottom: 100px;
     }
 
     .welcomeMessage {

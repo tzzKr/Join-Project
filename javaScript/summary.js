@@ -107,3 +107,21 @@ function getNextUrgentDueDate() {
     upcomingDate = `${month} ${upcomingDate.getDate()}, ${upcomingDate.getFullYear()}`;
     return upcomingDate; 
 }
+
+/**
+ * Checks if the window size is equal or less than 760px and than execute code in it.
+ * 
+ */
+function mobileOperator() {
+    if(window.innerWidth <= '760') {
+        setTimeout(mobileGreetingDisapparator, 2000);
+    }  
+}
+
+/**
+ * Disabled the welcome message element
+ * 
+ */
+function mobileGreetingDisapparator() {
+    document.getElementById('welcome-message').classList.add('d-none');
+}

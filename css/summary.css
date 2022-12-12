@@ -177,3 +177,21 @@
     font-weight: 700;
     font-size: 62px;
 }
+
+@media (max-width: 760px) {
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .welcomeMessage {
+        position: fixed;
+        background-color: #F5F5F5;
+        top: 100px;
+        width: 760px;
+        height: 1170px;
+        text-align: center;
+        padding-top: calc(50% - 50px);
+        animation: fade-out 2000ms forwards;
+    }    
+}

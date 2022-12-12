@@ -11,6 +11,7 @@
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/addTask.js"></script>
+    <script src="./javaScript/navbar.js"></script>
     <title>Join-AddTask</title>
 
 </head>
@@ -122,9 +123,9 @@
                     <div class="prio">
                         <h3>Prio</h3>
                         <div class="prio-buttons">
-                            <button onclick="selectUrgent()" id="buttonColorUrgent">Urgent <img src="img/Prio-urgent.svg"></button>
-                            <button onclick="selectMedium()" id="buttonColorMedium">Medium <img src="img/prio_medium.svg"></button>
-                            <button onclick="selectLow()" id="buttonColorLow">Low <img src="img/prio_low.svg"></button>
+                            <button onclick="changePriority()" id="urgent">Urgent <img id="urgent-img" src="img/prio_high.svg"></button>
+                            <button onclick="changePriority()" id="medium">Medium <img id="medium-img" src="img/prio_medium.svg"></button>
+                            <button onclick="changePriority()" id="low">Low <img id="low-img" src="img/prio_low.svg"></button>
                         </div>
                     </div>
                     <div class="container">

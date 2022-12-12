@@ -61,7 +61,7 @@ function renderTodos(tasks) {
  */
 function generateTaskHTML(element) {
 
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="boardTask">
+    return /*html*/ `<div onclick="openTaskInfo(${element})" draggable="true" ondragstart="startDragging(${element['id']})" class="boardTask">
     <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
     <div>
         <h3>${element['title']}</h3>
@@ -91,6 +91,31 @@ function generateTaskHTML(element) {
             <img src="img/prio_${element['prio']}.svg" alt="${element['prio']}"> 
         </div>
     </div>`
+}
+
+function openTaskInfo(element) {
+    let infoContainer =  document.getElementById('taskInfoContainer');
+    infoContainer.innerHTML = generateTaskInfoHTML(element);
+    infoContainer.classList.remove('d-none')
+}
+
+function generateTaskInfoHTML(element) {
+    return /*html*/ `<div class="taskInfoBg">
+    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
+    
+    <div> <b class="infoTitle">Lorem ipsum dolor sit amet </b> </div>
+    <div> <span class="infoDesc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, ab? Et
+            labore excepturi eius iusto nesciunt optio voluptatibus ad consequuntur illo cumque ipsa </span>
+    </div>
+    <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">05-08-2022</span> </div>
+    <div class="priorityInfo"> <b class="infoDesc">Priority:</b> <div class="urgencyTagInfo"><p>high</p> <img style="height: 20px;" src="img/prio_high.svg" alt=""></div></div>
+    <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
+    <div class="assingedUserInfoContainer">
+        <div class="assingedUserInfo">
+            <div class="assignedUserImg">GB</div> <span>Max Mustermann</span>
+        </div>
+    </div>
+</div>`
 }
 
 

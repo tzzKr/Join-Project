@@ -117,7 +117,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
+            <div class="userContainer">
                 <span id="overlay-user-img" class="overlayUserImg bgLp">VM</span>
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
@@ -225,7 +225,7 @@ function changeOverlayToNewContact() {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
+            <div class="userContainer">
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
             <form class="overlayInputForm" onsubmit="createContact(); return false;">

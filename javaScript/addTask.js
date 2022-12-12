@@ -1,36 +1,25 @@
-/**
-    * @description      : 
-    * @author           : hosny
-    * @group            : 
-    * @created          : 12/11/2022 - 17:11:39
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 12/11/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
+/** AddTask Functions **/
 
 
 let task = {
-    id:"",
-    board:"",
-    category:"",
-    title:"",
-    description:"",
-    progress:0,
-    progressNumber:0,
-    assignedTo:"",
-    prio:"",
-    dueDate:"",
-    subtasks:new Array
+    id: "",
+    board: "",
+    category: "",
+    title: "",
+    description: "",
+    progress: 0,
+    progressNumber: 0,
+    assignedTo: "",
+    prio: "",
+    dueDate: "",
+    subtasks: new Array
 }
 
 let categories = [
-    {name:"Sales", color:"#E200BE"},
-    {name:"Backoffice", color:"#2AD300"},
-    {name:"Design", color:"#FF8A00"},
-    {name:"Development", color:"#8AA4FF"}
+    { name: "Sales", color: "bgRo" },
+    { name: "Backoffice", color: "bgLg" },
+    { name: "Design", color: "bgOg" },
+    { name: "Development", color: "bgVi" }
 ];
 
 
@@ -48,28 +37,25 @@ let categories = [
 
 // }
 
-function selectCategory() {
+/**
+ * It takes two parameters, a name and a color, and then it changes the innerHTML of a div to display
+ * the name and color.
+ * @param name - The name of the category
+ * @param color - the class name of the color you want to use
+ */
+function selectCategory(name, color) {
     closeSelection();
-    // document.getElementById('selectField').innerHTML = 
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
         categoryList.innerHTML = `
-        <div onclick="openSelection()" class="select-field" id="selectField">
-        <p class="textBox">${name}</p>
-        <img src="img/arrow.png">
-        </div>`;
-        for (let i = 0; i < categories.length; i++) {
-            categoryList.innerHTML += renderCategoriesTemplate(categories[i].name, categories[i].color);
-        }
+        <p id="categoryName" class="textBox"></p>
+        <div id="categoryColor" class="listContactInitials contactScale left"></div>
+        `;
+        document.getElementById('categoryName').innerHTML = name;
+        document.getElementById('categoryColor').classList.add(color);
     }
 }
 
-function renderCategoriesTemplate(name, color) {
-    return `<div class="options">
-    <p>${name}</p>
-    <div class="listContactInitials bgRo contactScale"></div>
-    </div>`
-}
 
 function addTitle() {
     document.getElementById('input').value;
@@ -84,7 +70,7 @@ function addDescription() {
 // }
 
 function AssignedTo() {
-    
+
 }
 
 

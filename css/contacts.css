@@ -504,7 +504,6 @@
 
     .content {
         margin-left: 0;
-        height: calc(100vh - 80px);
     }
 
     .contactOverlay {

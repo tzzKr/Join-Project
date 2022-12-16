@@ -254,6 +254,9 @@ body {
         width: 75px;
         height: 80px;
     }
+    .mobile-menu:hover{
+        background-color: #091931;
+    }
     .mobile-menu img {
         width: 30px;
         height: 30px;

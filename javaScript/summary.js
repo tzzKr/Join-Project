@@ -113,7 +113,7 @@ function getNextUrgentDueDate() {
  * 
  */
 function mobileOperator() {
-    if(window.innerWidth <= '760') {
+    if(window.innerWidth <= 760) {
         setTimeout(mobileGreetingDisapparator, 2000);
     }  
 }

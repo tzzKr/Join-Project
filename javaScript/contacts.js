@@ -170,6 +170,7 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].name = document.getElementById('input-name').value;
     contacts[id].email = document.getElementById('input-email').value;
     contacts[id].phone = document.getElementById('input-phone').value;
+    contacts[id].initials = getInitials(document.getElementById('input-name').value);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
     initMsgBox('Contact succesfully changed');
@@ -190,12 +191,27 @@ async function createContact() {
     } else {
         await downloadFromServer();
         let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
-        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: 'MM'});
+        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: getInitials(inputName)});
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
         initMsgBox('Contact succesfully created');
     }
     closeOverlay();
+}
+
+/**
+ * Combins and returns the first letter and the first letter of the last word of the string in uppercase
+ * 
+ * @param {string} name - name string
+ */
+function getInitials(name) {
+    let initials
+    if(name.includes(' ')){
+        initials = `${name.charAt(0)}${name.charAt(name.lastIndexOf(' ') + 1)}`
+    } else {
+        initials = `${name.charAt(0)}`
+    }
+    return initials.toUpperCase();
 }
 
 /**

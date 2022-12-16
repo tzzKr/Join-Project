@@ -33,12 +33,13 @@ function renderContactbook() {
             for(let j = 0; j < orderedContacts[i].length; j++) {
                 document.getElementById('contact-book').innerHTML += /*html*/ `
                         <div class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
-                            <div class="listContactInitials bgOr">VM</div>
+                            <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">VM</div>
                             <div class="listContactInfo">
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
                                 <span class="listContactEmail">${orderedContacts[i][j].email}</span>
                             </div>
                         </div>`;
+                document.getElementById(`single-contact-init${orderedContacts[i][j].id}`).style.backgroundColor = orderedContacts[i][j].color;
             }
             document.getElementById('contact-book').innerHTML += /*html*/ `</div>`
         }
@@ -55,7 +56,7 @@ function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
     document.getElementById('contact-details').innerHTML += /*html*/ `
         <div class="contactHeader">
-            <span class="listContactInitials contactScale bgLp">VM</span>
+            <span id="single-contact-detail-init" class="listContactInitials contactScale">VM</span>
             <div class="contactInfo">
                 <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
                 <a href="addTask.html" class="contactAddTaskBtn">
@@ -81,6 +82,7 @@ function renderContactDetails(firstIndex, secondIndex) {
                 <a href="tel: 0123456789" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
             </div>
         </div>`;
+        document.getElementById('single-contact-detail-init').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
 }
 
 /**

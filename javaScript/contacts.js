@@ -155,6 +155,8 @@ async function deleteContact() {
     contacts.splice(index,1);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    document.getElementById('contact-details').innerHTML = '';
+    toContactbookBtn();
     initMsgBox('Contact succesfully deleted');
     closeOverlay();  
 }

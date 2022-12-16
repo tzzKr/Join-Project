@@ -86,38 +86,6 @@
     max-width: 180px;
 }
 
-
-/* Color Example */
-
-.bgOr {
-    background-color: #FF7A00;
-}
-
-.bgLp {
-    background-color: #9327FF;
-}
-
-.bgLb {
-    background-color: #29ABE2;
-}
-
-.bgRo {
-    background-color: #FC71FF;
-}
-
-.bgLg {
-    background-color: #02CF2F;
-}
-
-.bgDr {
-    background-color: #AF1616;
-}
-
-.bgDp {
-    background-color: #462F8A;
-}
-
-
 /* Scrollbar */
 
 .contactBook::-webkit-scrollbar-thumb {

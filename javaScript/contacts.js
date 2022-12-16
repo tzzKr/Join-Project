@@ -1,7 +1,7 @@
 let sessionUser = getSessionUser();
 let contacts = [];
 let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
-
+let colorRange = ['#FF7A00','#9327FF','#29ABE2','#FC71FF','#02CF2F','#AF1616','#462F8A'];
 /**
  * Sorts contacts by alphabetical order into orderedContacts and then executes renderCpntacts()
  * 
@@ -33,7 +33,7 @@ function renderContactbook() {
             for(let j = 0; j < orderedContacts[i].length; j++) {
                 document.getElementById('contact-book').innerHTML += /*html*/ `
                         <div class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
-                            <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">VM</div>
+                            <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
                             <div class="listContactInfo">
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
                                 <span class="listContactEmail">${orderedContacts[i][j].email}</span>
@@ -56,7 +56,7 @@ function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
     document.getElementById('contact-details').innerHTML += /*html*/ `
         <div class="contactHeader">
-            <span id="single-contact-detail-init" class="listContactInitials contactScale">VM</span>
+            <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
             <div class="contactInfo">
                 <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
                 <a href="addTask.html" class="contactAddTaskBtn">
@@ -120,7 +120,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
             <div class="userContainer">
-                <span id="overlay-user-img" class="overlayUserImg bgLp">VM</span>
+                <span id="overlay-user-img" class="overlayUserImg">${orderedContacts[firstIndex][secondIndex].initials}</span>
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
                 <div class="overlayInputSection">
@@ -138,8 +138,8 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
                     <span>Delete</span>
                     <img src="img/trash.png">
                 </button>
-                
         </div>`;
+        document.getElementById('overlay-user-img').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
     openOverlay();
 }
 
@@ -190,7 +190,7 @@ async function createContact() {
     } else {
         await downloadFromServer();
         let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
-        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
+        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: 'MM'});
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
         initMsgBox('Contact succesfully created');

@@ -1,37 +1,28 @@
-/**
-    * @description      : 
-    * @author           : hosny
-    * @group            : 
-    * @created          : 12/11/2022 - 17:11:39
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 12/11/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
-
+/** AddTask Functions **/
+let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038FF'];
 
 let task = {
-    id:"",
-    board:"",
-    category:"",
-    title:"",
-    description:"",
-    progress:0,
-    progressNumber:0,
-    assignedTo:"",
-    prio:"",
-    dueDate:"",
-    subtasks:new Array
+    id: "",
+    board: "",
+    category: "",
+    title: "",
+    description: "",
+    progress: 0,
+    progressNumber: 0,
+    assignedTo: "",
+    prio: "",
+    dueDate: "",
+    subtasks: new Array
 }
 
 let categories = [
-    {name:"Sales", color:"#E200BE"},
-    {name:"Backoffice", color:"#2AD300"},
-    {name:"Design", color:"#FF8A00"},
-    {name:"Development", color:"#8AA4FF"}
+    { name: "Sales", color: "#E200BE" },
+    { name: "Backoffice", color: "#2AD300" },
+    { name: "Design", color: "#FF8A00" },
+    { name: "Development", color: "#8AA4FF" }
 ];
+
+
 
 
 // async function createTask() {
@@ -48,28 +39,27 @@ let categories = [
 
 // }
 
-function selectCategory() {
+/**
+ * It takes two parameters, a name and a color, and then it changes the innerHTML of a div to display
+ * the name and color.
+ * @param name - The name of the category
+ * @param color - the class name of the color you want to use
+ */
+function selectCategory(name, color) {
     closeSelection();
-    // document.getElementById('selectField').innerHTML = 
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
         categoryList.innerHTML = `
-        <div onclick="openSelection()" class="select-field" id="selectField">
-        <p class="textBox">${name}</p>
-        <img src="img/arrow.png">
-        </div>`;
-        for (let i = 0; i < categories.length; i++) {
-            categoryList.innerHTML += renderCategoriesTemplate(categories[i].name, categories[i].color);
-        }
+        <p id="categoryName" class="textBox"></p>
+        <div id="categoryColor" class="listContactInitials contactScale left"></div>
+        `;
+        document.getElementById('categoryName').innerHTML = name;
+        document.getElementById('categoryColor').style.backgroundColor = color;
     }
 }
 
-function renderCategoriesTemplate(name, color) {
-    return `<div class="options">
-    <p>${name}</p>
-    <div class="listContactInitials bgRo contactScale"></div>
-    </div>`
-}
+
+
 
 function addTitle() {
     document.getElementById('input').value;
@@ -79,15 +69,49 @@ function addDescription() {
     document.getElementById('description').value;
 }
 
-// function selectCategory() {
-//     document.getElementById('selectField').innerHTML += 
-// }
+/**
+ * It takes a color as an argument and pushes a new object to the categories array. The object has a
+ * name and color property. The name property is the value of the categoryInput element. The color
+ * property is the color argument.
+ * 
+ * The function then calls the selectCategory function with the name and color of the new category.
+ * 
+ * The function then calls the clearNewCategory function.
+ * @param color - the color of the category
+ */
+function selectNewCategory(color) {
+    let categoryInput = document.getElementById('categoryInput').value
+    if(categoryInput) {
+        categories.push({ name: categoryInput, color: color });
+        selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
+        clearNewCategory();
+    }
+}
 
-function AssignedTo() {
-    
+/**
+ * When the user clicks on a color, the function 'selectNewCategory' will be called with the color as a
+ * parameter.
+ * @param color - The color of the category.
+ */
+function selectColor(color) {
+    document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
+}
+
+function checkIfNewCategorySelected() {
+
 }
 
 
+
+function AssignedTo() {
+
+}
+
+
+/**
+ * The function takes the value of the input field, pushes it to the array, renders the subtask, clears
+ * the input field, and logs the array.
+ */
 function addSubtask() {
     let taskInput = document.getElementById('inputSubtask').value;
     task.subtasks.push(taskInput);
@@ -96,8 +120,8 @@ function addSubtask() {
     console.log(task.subtasks);
 }
 /**
- * 
- * @param {*} taskInput 
+ * It takes the value of the input field and adds it to the HTML as a checkbox.
+ * @param {*} taskInput - the value of the input field
  */
 function renderSubtask(taskInput) {
     document.getElementById('addSubtaskElement').innerHTML += `
@@ -150,7 +174,7 @@ function closeSelection() {
     setTimeout(() => {
         document.getElementById('list').classList.add('d-none');
         document.getElementById('list').classList.remove('growOut');
-    }, 200);
+    }, 100);
     document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
 }
 
@@ -189,25 +213,26 @@ function closeContactSelection() {
 
 /**
  * When the user clicks the button, the function will remove the class 'd-none' from the element with
- * the id 'newCategory' and the element with the id 'selectCorlor' and add the class 'd-none' to the
+ * the id 'newCategory' and the element with the id 'colorSelection' and add the class 'd-none' to the
  * element with the id 'selectField' and the element with the id 'list'.
  */
 function newCategory() {
     document.getElementById('newCategory').classList.remove('d-none');
-    document.getElementById('selectCorlor').classList.remove('d-none');
+    document.getElementById('colorSelection').classList.remove('d-none');
     document.getElementById('selectField').classList.add('d-none');
     document.getElementById('list').classList.add('d-none');
 }
 
 /**
  * It removes the class 'd-none' from the element with the id 'selectField' and adds the class 'd-none'
- * to the element with the id 'newCategory' and the element with the id 'selectCorlor'. It also sets
+ * to the element with the id 'newCategory' and the element with the id 'colorSelection'. It also sets
  * the onclick attribute of the element with the id 'selectField' to the function 'openSelection()'.
  */
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
+    document.getElementById('categoryInput').value = ''
     document.getElementById('newCategory').classList.add('d-none');
-    document.getElementById('selectCorlor').classList.add('d-none');
+    document.getElementById('colorSelection').classList.add('d-none');
     document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
 }
 

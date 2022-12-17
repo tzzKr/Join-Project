@@ -36,17 +36,17 @@
                     <div class="container">
                         <h3>Category</h3>
                         <div id="newCategory" class="new-category d-none">
-                            <input class="input-addTask" placeholder="New category name" type=""><img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
+                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type=""><img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
                             <div class="line"></div>
-                            <img class="right-img" onclick="selectAllCategory()" src="img/addTask-right.svg">
+                            <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
                         </div>
-                        <div id="selectCorlor" class="select-color d-none">
-                            <div onclick="selectColor()" class="listContactInitial bgVi"></div>
-                            <div onclick="selectColor()" class="listContactInitial bgRd"></div>
-                            <div onclick="selectColor()" class="listContactInitial bgLg"></div>
-                            <div onclick="selectColor()" class="listContactInitial bgOg"></div>
-                            <div onclick="selectColor()" class="listContactInitial bgRo"></div>
-                            <div onclick="selectColor()" class="listContactInitial bgBu"></div>
+                        <div id="colorSelection" class="select-color d-none">
+                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu" id="newCategoryColor"></div>
                         </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
@@ -57,19 +57,19 @@
                             <div onclick="newCategory()" class="options">
                                 <p id="selectText">New category</p>
                             </div>
-                            <div id="sales" onclick="selectCategory('sales')" class="options">
+                            <div id="sales" onclick="selectCategory('Sales', categories[0].color)" class="options">
                                 <p>Sales</p>
                                 <div class="listContactInitials contactScale bgRo left"></div>
                             </div>
-                            <div id="backoffice" onclick="selectCategory('backoffice')" class="options">
+                            <div id="backoffice" onclick="selectCategory('Backoffice', categories[1].color)" class="options">
                                 <p>Backoffice</p>
                                 <div class="listContactInitials contactScale bgLg"></div>
                             </div>
-                            <div id="design" onclick="selectCategory('design')" class="options">
+                            <div id="design" onclick="selectCategory('Design', categories[2].color)" class="options">
                                 <p>Design</p>
                                 <div class="listContactInitials contactScale bgOg"></div>
                             </div>
-                            <div id="development" onclick="selectCategory('development')" class="options">
+                            <div id="development" onclick="selectCategory('Development', categories[3].color)" class="options">
                                 <p>Development</p>
                                 <div class="listContactInitials contactScale bgVi"></div>
                             </div>
@@ -82,6 +82,9 @@
                             <div class="line"></div>
                             <img class="right-img" onclick="addNewContact()" src="img/addTask-right.svg">
                         </div>
+                        <!-- <div>
+                            <p>Please </p> ----- warning msg
+                        </div> -->
                         <div id="selectContact" class="select-color d-none">
                             <div id="contactCircle" class=" bgVi"></div>
                             <div id="contactCircle" class="listContact bgRd"></div>

@@ -41,12 +41,12 @@
                             <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
                         </div>
                         <div id="colorSelection" class="select-color d-none">
-                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi" id="newCategoryColor"></div>
-                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd" id="newCategoryColor"></div>
-                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg" id="newCategoryColor"></div>
-                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg" id="newCategoryColor"></div>
-                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo" id="newCategoryColor"></div>
-                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu" id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi" id="newCategoryColor1"></div>
+                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd" id="newCategoryColor2"></div>
+                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg" id="newCategoryColor3"></div>
+                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg" id="newCategoryColor4"></div>
+                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo" id="newCategoryColor5"></div>
+                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu" id="newCategoryColor6"></div>
                         </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
@@ -57,28 +57,14 @@
                             <div onclick="newCategory()" class="options">
                                 <p id="selectText">New category</p>
                             </div>
-                            <div id="sales" onclick="selectCategory('Sales', categories[0].color)" class="options">
-                                <p>Sales</p>
-                                <div class="listContactInitials contactScale bgRo left"></div>
-                            </div>
-                            <div id="backoffice" onclick="selectCategory('Backoffice', categories[1].color)" class="options">
-                                <p>Backoffice</p>
-                                <div class="listContactInitials contactScale bgLg"></div>
-                            </div>
-                            <div id="design" onclick="selectCategory('Design', categories[2].color)" class="options">
-                                <p>Design</p>
-                                <div class="listContactInitials contactScale bgOg"></div>
-                            </div>
-                            <div id="development" onclick="selectCategory('Development', categories[3].color)" class="options">
-                                <p>Development</p>
-                                <div class="listContactInitials contactScale bgVi"></div>
-                            </div>
+                            <div id="mainCategories"></div>
+
                         </div>
                     </div>
                     <div class="container">
                         <h3>Assigned to</h3>
                         <div id="inviteNewContact" class="new-contact d-none">
-                            <input class="input-addTask" placeholder="Contact email" type="email"><img class="clear-img" onclick="clearInviteNewContact()" src="img/clear.svg">
+                            <input id="assignedToInput" class="input-addTask" placeholder="Contact email" type="email"><img class="clear-img" onclick="clearInviteNewContact()" src="img/clear.svg">
                             <div class="line"></div>
                             <img class="right-img" onclick="addNewContact()" src="img/addTask-right.svg">
                         </div>
@@ -96,17 +82,17 @@
                         </div>
 
                         <div id="listContact" class="list d-none">
-                            <div onclick="selectOptions()" class="options-2">
-                                <p id="addedUser">Gerhard</p>
-                                <input class="p-absolute" type="checkbox">
+                            <div class="options-2">
+                                <p id="addedUser1">Gerhard Baliet</p>
+                                <input id="checkboxAssignedTo1" onclick="checkboxAssignedTo('checkboxAssignedTo1', 'addedUser1')" class="p-absolute" type="checkbox">
                             </div>
-                            <div onclick="selectOptions()" class="options-2">
-                                <p id="addedUser">Hosny</p>
-                                <input class="p-absolute" type="checkbox">
+                            <div class="options-2">
+                                <p id="addedUser2">Hosny Fahim</p>
+                                <input id="checkboxAssignedTo2" onclick="checkboxAssignedTo('checkboxAssignedTo2', 'addedUser2')" class="p-absolute" type="checkbox">
                             </div>
-                            <div onclick="selectOptions()" class="options-2">
-                                <p id="addedUser">Yannik</p>
-                                <input class="p-absolute" type="checkbox">
+                            <div class="options-2">
+                                <p id="addedUser3">Yannik Morjan</p>
+                                <input id="checkboxAssignedTo3" onclick="checkboxAssignedTo('checkboxAssignedTo3', 'addedUser3')" class="p-absolute" type="checkbox">
                             </div>
                             <div class="options-2" onclick="inputNewContact()">
                                 <p id="newContact">Invite new contact</p>

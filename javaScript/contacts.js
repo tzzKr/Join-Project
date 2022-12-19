@@ -175,6 +175,8 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].initials = getInitials(document.getElementById('input-name').value);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    document.getElementById('contact-details').innerHTML = '';
+    toContactbookBtn();
     initMsgBox('Contact succesfully changed');
     closeOverlay();
 }

@@ -41,12 +41,12 @@
                             <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
                         </div>
                         <div id="colorSelection" class="select-color d-none">
-                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi" id="newCategoryColor1"></div>
-                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd" id="newCategoryColor2"></div>
-                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg" id="newCategoryColor3"></div>
-                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg" id="newCategoryColor4"></div>
-                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo" id="newCategoryColor5"></div>
-                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu" id="newCategoryColor6"></div>
+                            <div onclick="selectColor('colorRange[0]', this)" class="listContactInitial bgVi" id="newCategoryColor1"></div>
+                            <div onclick="selectColor('colorRange[1]', this)" class="listContactInitial bgRd" id="newCategoryColor2"></div>
+                            <div onclick="selectColor('colorRange[2]', this)" class="listContactInitial bgLg" id="newCategoryColor3"></div>
+                            <div onclick="selectColor('colorRange[3]', this)" class="listContactInitial bgOg" id="newCategoryColor4"></div>
+                            <div onclick="selectColor('colorRange[4]', this)" class="listContactInitial bgRo" id="newCategoryColor5"></div>
+                            <div onclick="selectColor('colorRange[5]', this)" class="listContactInitial bgBu" id="newCategoryColor6"></div>
                         </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
@@ -112,9 +112,9 @@
                     <div class="prio">
                         <h3>Prio</h3>
                         <div class="prio-buttons">
-                            <button onclick="changePriority()" id="urgent">Urgent <img id="urgent-img" src="img/prio_high.svg"></button>
-                            <button onclick="changePriority()" id="medium">Medium <img id="medium-img" src="img/prio_medium.svg"></button>
-                            <button onclick="changePriority()" id="low">Low <img id="low-img" src="img/prio_low.svg"></button>
+                            <div class="prio-btns" onclick="changePriority(this)" id="urgent">Urgent <img id="urgent-img" src="img/prio_high.svg"></div>
+                            <div class="prio-btns" onclick="changePriority(this)" id="medium">Medium <img id="medium-img" src="img/prio_medium.svg"></div>
+                            <div class="prio-btns" onclick="changePriority(this)" id="low">Low <img id="low-img" src="img/prio_low.svg"></div>
                         </div>
                     </div>
                     <div class="container">

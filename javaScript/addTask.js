@@ -118,8 +118,7 @@ function renderNewCategory() {
  */
 function selectColor(color) {
     document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
-    document.getElementById('newCategoryColor1').style.width.height = `25px`;
-    document.getElementById('newCategoryColor1').style.height = `25px`;
+    let 
 }
 
 function changeSelectedColorStyle() {
@@ -180,6 +179,54 @@ function renderSubtask(inputSubtask) {
 }
 
 function saveSubtaskInJson() {
+
+}
+
+/**
+ * It changes the background color of the button that is clicked.
+ * @param button - the button that was clicked
+ */
+function changePriority(button) {
+    if (button.id == "urgent") {
+        button.style.backgroundColor = '#FF3D00';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);   
+    } else if (button.id == "medium") {
+        button.style.backgroundColor = '#FFA800';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
+    } else if (button.id == "low") {
+        button.style.backgroundColor = '#8BE644';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
+    }
+}
+
+/**
+ * It resets the background color of the button to white and changes the onclick attribute to the
+ * function changePriority(this).
+ * @param button - the button that was clicked
+ */
+function resetBgColor(button) {
+    if (button.id == "urgent") {
+        button.style.backgroundColor = '#FFFFFF';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    } else if (button.id == "medium") {
+        button.style.backgroundColor = '#FFFFFF';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+    } else if (button.id == "low") {
+        button.style.backgroundColor = '#FFFFFF';
+        setTimeout(() => {
+        }, 200);
+        document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
+    }
 
 }
 

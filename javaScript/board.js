@@ -19,7 +19,8 @@ let currentDraggedElement;
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
-    renderTodos(boardTasks);
+    filterdTasks = boardTasks;
+    renderTodos(filterdTasks);
 }
 
 // HALLO
@@ -47,7 +48,7 @@ function renderTodos(tasks) {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         checkProgress(tasks[i]);
-        document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(tasks[i]);
+        document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
     
 
     }
@@ -59,21 +60,22 @@ function renderTodos(tasks) {
  * @param {object} element all task informations
  * @returns board task HTML elements
  */
-function generateTaskHTML(element) {
+function generateTaskHTML(i) {
 
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="boardTask">
-    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
+    
+    return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
+    <div class="categoryTag tag${filterdTasks[i]['category']}"> ${filterdTasks[i]['category']} </div>
     <div>
-        <h3>${element['title']}</h3>
-        <span class="taskDesc">${element['description']}</span>
+        <h3>${filterdTasks[i]['title']}</h3>
+        <span class="taskDesc">${filterdTasks[i]['description']}</span>
     </div>
     <div class="progressContainer">
         <div class="progressBar">
-            <div class="progressLine" style="width: ${element['progress']}%">
+            <div class="progressLine" style="width: ${filterdTasks[i]['progress']}%">
 
             </div>
         </div>
-        <p>${element['progressNumber']}/3 Done</p>
+        <p>${filterdTasks[i]['progressNumber']}/3 Done</p>
     </div>
     <div class="user_urgency">
         <div class="assignedTo">
@@ -88,9 +90,42 @@ function generateTaskHTML(element) {
             </div>
         </div>
         <div class="urgency">
-            <img src="img/prio_${element['prio']}.svg" alt="${element['prio']}"> 
+            <img src="img/prio_${filterdTasks[i]['prio']}.svg" alt="${filterdTasks[i]['prio']}"> 
         </div>
     </div>`
+}
+
+function openTaskInfo(i) {
+    let infoContainer =  document.getElementById('taskInfoContainer');
+    infoContainer.classList.remove('d-none');
+    infoContainer.innerHTML = generateTaskInfoHTML(filterdTasks[i]);
+    document.getElementById('backgroundCloser').classList.remove('d-none');
+    console.log(filterdTasks[i])
+}
+
+function generateTaskInfoHTML(element) {
+    return /*html*/ `<div class="taskInfoBg">
+    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
+    
+    <div> <b class="infoTitle">${element['title']}</b> </div>
+    <div> <span class="infoDesc">${element['description']}</span>
+    </div>
+    <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
+    <div class="priorityInfo"> <b class="infoDesc">Priority:</b> <div class="urgencyTagInfo"><p>${element['prio']}</p> <img style="height: 20px;" src="img/prio_high.svg" alt=""></div></div>
+    <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
+    <div class="assingedUserInfoContainer">
+        <div class="assingedUserInfo">
+            <div class="assignedUserImg">GB</div> <span>Max Mustermann</span>
+        </div>
+    </div>
+</div>`
+}
+
+function closeMoreInfo() {
+    let infoContainer =  document.getElementById('taskInfoContainer');
+    infoContainer.classList.add('d-none');
+    document.getElementById('backgroundCloser').classList.add('d-none');
+    
 }
 
 

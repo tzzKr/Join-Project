@@ -116,7 +116,7 @@ function openLogOutContainer() {
  * 
  */
 function closeLogOutContainer() {
-    document.getElementById('logOutContainer').classList.add('d-none');
+    // document.getElementById('logOutContainer').classList.add('d-none');
     document.getElementById('logOutContainer').classList.add('growOut');
 
     setTimeout(() => {

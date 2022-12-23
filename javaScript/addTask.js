@@ -23,9 +23,9 @@ let categories = [
 ];
 
 let contacts = [
-    {name: 'Hosny Fahim', email:'hosny@test.com'},
-    {name: 'Yannik Morjan', email:'yannik@test.com'},
-    {name: 'Gerhard Baliet', email:'gerhard@test.com'}
+    { name: 'Hosny Fahim', email: 'hosny@test.com' },
+    { name: 'Yannik Morjan', email: 'yannik@test.com' },
+    { name: 'Gerhard Baliet', email: 'gerhard@test.com' }
 ];
 
 
@@ -118,7 +118,7 @@ function renderNewCategory() {
  */
 function selectColor(color) {
     document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
-    let 
+    let
 }
 
 function changeSelectedColorStyle() {
@@ -146,7 +146,7 @@ function addNewContact() {
 function checkboxAssignedTo(checkboxId, nameId) {
     let checkBox = document.getElementById(checkboxId);
     let name = document.getElementById(nameId).innerHTML;
-    if(checkBox.checked == true) {
+    if (checkBox.checked == true) {
         task.assignedTo.push(name);
     } else {
         let index = task.assignedTo.indexOf(name);
@@ -186,23 +186,36 @@ function saveSubtaskInJson() {
  * It changes the background color of the button that is clicked.
  * @param button - the button that was clicked
  */
-function changePriority(button) {
-    if (button.id == "urgent") {
-        button.style.backgroundColor = '#FF3D00';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);   
-    } else if (button.id == "medium") {
-        button.style.backgroundColor = '#FFA800';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
-    } else if (button.id == "low") {
-        button.style.backgroundColor = '#8BE644';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
-    }
+function changePriority(id, color) {
+    document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
+    document.getElementById('low').style.backgroundColor = '#FFFFFF';
+    task.prio = id;
+    console.log(task.prio);
+    document.getElementById(id).style.backgroundColor = color;
+    setTimeout(() => {
+        document.getElementById(id).onclick = function () { resetBgColor(id, color) };
+    }, 200);
+
+    // document.getElementById(id).setAttribute('onclick', `resetBgColor('${id}', '${color}')`);
+
+    // if (button.id == "urgent") {
+    //     button.style.backgroundColor = '#FF3D00';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);   
+    // } else if (button.id == "medium") {
+    //     button.style.backgroundColor = '#FFA800';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
+    // } else if (button.id == "low") {
+    //     button.style.backgroundColor = '#8BE644';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
+    // }
 }
 
 /**
@@ -210,25 +223,38 @@ function changePriority(button) {
  * function changePriority(this).
  * @param button - the button that was clicked
  */
-function resetBgColor(button) {
-    if (button.id == "urgent") {
-        button.style.backgroundColor = '#FFFFFF';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
-    } else if (button.id == "medium") {
-        button.style.backgroundColor = '#FFFFFF';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
-    } else if (button.id == "low") {
-        button.style.backgroundColor = '#FFFFFF';
-        setTimeout(() => {
-        }, 200);
-        document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
-    }
+function resetBgColor(id, color) {
+    document.getElementById(id + '-img').style.filter = '';
+    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
+    document.getElementById('low').style.backgroundColor = '#FFFFFF';
+    task.prio = '';
+    console.log(task.prio);
+    document.getElementById(id).style.backgroundColor = '#FFFFFF';
+    setTimeout(() => {
+        document.getElementById(id).onclick = function () { changePriority(id, color) };
+    }, 200);
+    // document.getElementById(id).setAttribute('onclick', `changePriority('${id}', '${color}')`);
+    // if (button.id == "urgent") {
+    //     button.style.backgroundColor = '#FFFFFF';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    // } else if (button.id == "medium") {
+    //     button.style.backgroundColor = '#FFFFFF';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+    // } else if (button.id == "low") {
+    //     button.style.backgroundColor = '#FFFFFF';
+    //     setTimeout(() => {
+    //     }, 200);
+    //     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
+    // }
 
 }
+
+
 
 
 

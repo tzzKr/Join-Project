@@ -94,6 +94,20 @@ h2 {
 }
 
 /* Task Info */
+
+.InfoCategoryTag {
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 4px 18px;
+  background-color: #e00110;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
 .taskInfoContainer {
   position: absolute;
   top: 0;
@@ -104,12 +118,23 @@ h2 {
   justify-content: center;
   align-items: center;
   height: calc(100vh);
-  z-index: 99999;
-  background-color: #00000020;
-  
+ 
+
 }
+
+.backgroundCloser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000020;
+  z-index: 99997;
+}
+
 .taskInfoBg {
   height: 70vh;
+  min-width: 500px;
   width: 30vw;
   background-color: #ffffff;
   border-radius: 40px;
@@ -119,6 +144,46 @@ h2 {
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+  overflow: auto;
+  z-index: 999999;
+}
+
+.taskInfoBg::-webkit-scrollbar {
+  height: 90px;
+
+}
+
+.taskInfoBg::-webkit-scrollbar-thumb {
+  border-radius: 100vw !important;
+}
+
+.taskInfoBg::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 30px;
+}
+
+.taskInfoBg::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 30px;
+}
+
+.assingedUserInfoContainer {
+  font-size: 21px;
+}
+.assingedUserInfo {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.assignedUserImg {
+  height: 45px;
+  width: 45px;
+  border-radius:100% ;
+  background-color: #1d86ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .infoTitle {
@@ -126,29 +191,36 @@ h2 {
   color: #282828;
   padding: 0;
 }
+
 .infoDesc {
   font-size: 21px;
 }
-.urgencyTagInfo{
- height: 33px;
- width: fit-content;
- border-radius: 10px;
- box-sizing: border-box;
- padding: 4px 18px; 
- background-color: #0190E0;
- font-size: 21px;
- display: flex;
- justify-content: center;
- color: white;
+
+.urgencyTagInfo {
+  height: 33px;
+  width: fit-content;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 4px 18px;
+  background-color: #0190E0;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  column-gap: 10px;
+  align-items: center;
 }
-.priorityInfo{
+
+.priorityInfo {
   display: flex;
   column-gap: 30px;
 }
+
 .header-line {
   z-index: 999999999 !important;
 }
-.header{
+
+.header {
   z-index: 99999999999 !important;
 }
 
@@ -220,9 +292,10 @@ h2 {
   row-gap: 35px;
   display: flex;
 }
+
 .dragBackground {
   background: #e7e7e7;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)  ; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .boardTask {
@@ -307,12 +380,12 @@ h2 {
 /* board scrollbar */
 
 .boardLists::-webkit-scrollbar-thumb {
-  border-radius: 100vw;
+  border-radius: 100vw !important;
 }
 
 .boardLists::-webkit-scrollbar-button {
-  width: 15px;
-  height: 15px;
+  width: 15px !important;
+  height: 15px !important;
 }
 
 

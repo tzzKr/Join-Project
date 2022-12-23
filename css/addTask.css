@@ -118,6 +118,7 @@ textarea {
     gap: 14px;
     margin-top: 8px;
     margin-left: 18px;
+    height: 30px;
 }
 
 .listContactInitials {

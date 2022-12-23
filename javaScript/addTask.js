@@ -9,7 +9,7 @@ let task = {
     description: "",
     progress: 0,
     progressNumber: 0,
-    assignedTo: "",
+    assignedTo: new Array,
     prio: "",
     dueDate: "",
     subtasks: new Array
@@ -20,6 +20,12 @@ let categories = [
     { name: "Backoffice", color: "#2AD300" },
     { name: "Design", color: "#FF8A00" },
     { name: "Development", color: "#8AA4FF" }
+];
+
+let contacts = [
+    {name: 'Hosny Fahim', email:'hosny@test.com'},
+    {name: 'Yannik Morjan', email:'yannik@test.com'},
+    {name: 'Gerhard Baliet', email:'gerhard@test.com'}
 ];
 
 
@@ -80,11 +86,28 @@ function addDescription() {
  * @param color - the color of the category
  */
 function selectNewCategory(color) {
-    let categoryInput = document.getElementById('categoryInput').value
-    if(categoryInput) {
+    let categoryInput = document.getElementById('categoryInput').value;
+    if (categoryInput) {
         categories.push({ name: categoryInput, color: color });
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
+        renderNewCategory();
         clearNewCategory();
+        changeSelectedColorStyle();
+        document.getElementById('saveNewCategory').setAttribute('onclick', '');
+    }
+}
+
+
+/* Rendering the categories to the page. */
+function renderNewCategory() {
+    document.getElementById('mainCategories').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategories').innerHTML += `
+        <div onclick="selectCategory('${categories[i].name}', '${categories[i].color}')" class="options">
+            <p>${categories[i].name}</p>
+            <div id="categoryColorDiv${i}" class="listContactInitials contactScale left"></div>
+        </div>`;
+        document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;
     }
 }
 
@@ -95,27 +118,52 @@ function selectNewCategory(color) {
  */
 function selectColor(color) {
     document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
+    document.getElementById('newCategoryColor1').style.width.height = `25px`;
+    document.getElementById('newCategoryColor1').style.height = `25px`;
 }
 
-function checkIfNewCategorySelected() {
-
-}
-
-
-
-function AssignedTo() {
+function changeSelectedColorStyle() {
 
 }
 
+
+
+
+
+function addNewContact() {
+    let assignedToInput = document.getElementById('assignedToInput').value;
+    if (assignedToInput) {
+        document.getElementById('assignedToInput').value = ``;
+        clearInviteNewContact();
+    }
+}
+
+/**
+ * If the checkbox is checked, add the name to the assignedTo array, if it's unchecked, remove the name
+ * from the array
+ * @param checkboxId - the id of the checkbox that was clicked
+ * @param nameId - the id of the name of the person you want to assign the task to
+ */
+function checkboxAssignedTo(checkboxId, nameId) {
+    let checkBox = document.getElementById(checkboxId);
+    let name = document.getElementById(nameId).innerHTML;
+    if(checkBox.checked == true) {
+        task.assignedTo.push(name);
+    } else {
+        let index = task.assignedTo.indexOf(name);
+        task.assignedTo.splice(index, 1);
+    }
+    console.log(task.assignedTo);
+}
 
 /**
  * The function takes the value of the input field, pushes it to the array, renders the subtask, clears
  * the input field, and logs the array.
  */
 function addSubtask() {
-    let taskInput = document.getElementById('inputSubtask').value;
-    task.subtasks.push(taskInput);
-    renderSubtask(taskInput);
+    let inputSubtask = document.getElementById('inputSubtask').value;
+    task.subtasks.push(inputSubtask);
+    renderSubtask(inputSubtask);
     document.getElementById('inputSubtask').value = ``;
     console.log(task.subtasks);
 }
@@ -123,11 +171,11 @@ function addSubtask() {
  * It takes the value of the input field and adds it to the HTML as a checkbox.
  * @param {*} taskInput - the value of the input field
  */
-function renderSubtask(taskInput) {
+function renderSubtask(inputSubtask) {
     document.getElementById('addSubtaskElement').innerHTML += `
     <div class="checkbox">
-        <input class="" type="checkbox">
-        <span>${taskInput}</span>
+        <input class="p-absolute" type="checkbox">
+        <span>${inputSubtask}</span>
     </div>`
 }
 
@@ -158,6 +206,7 @@ function saveSubtaskInJson() {
  */
 function openSelection() {
     document.getElementById('list').classList.remove('d-none');
+    renderNewCategory();
     document.getElementById('list').classList.add('growIn');
     setTimeout(() => {
         document.getElementById('list').classList.remove('growIn');
@@ -221,6 +270,7 @@ function newCategory() {
     document.getElementById('colorSelection').classList.remove('d-none');
     document.getElementById('selectField').classList.add('d-none');
     document.getElementById('list').classList.add('d-none');
+
 }
 
 /**

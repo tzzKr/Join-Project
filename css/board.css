@@ -118,11 +118,19 @@ h2 {
   justify-content: center;
   align-items: center;
   height: calc(100vh);
-  z-index: 99998;
-  background-color: #00000020;
+ 
 
 }
 
+.backgroundCloser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000020;
+  z-index: 99997;
+}
 
 .taskInfoBg {
   height: 70vh;
@@ -137,6 +145,7 @@ h2 {
   flex-direction: column;
   row-gap: 25px;
   overflow: auto;
+  z-index: 999999;
 }
 
 .taskInfoBg::-webkit-scrollbar {

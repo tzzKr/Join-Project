@@ -1,7 +1,7 @@
 let sessionUser = getSessionUser();
 let contacts = [];
 let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
-
+let colorRange = ['#FF7A00','#9327FF','#29ABE2','#FC71FF','#02CF2F','#AF1616','#462F8A'];
 /**
  * Sorts contacts by alphabetical order into orderedContacts and then executes renderCpntacts()
  * 
@@ -32,13 +32,14 @@ function renderContactbook() {
                     <div class="listSeperator"></div>`
             for(let j = 0; j < orderedContacts[i].length; j++) {
                 document.getElementById('contact-book').innerHTML += /*html*/ `
-                        <div class="listContact" onclick="renderContactDetails(${i},${j})">
-                            <div class="listContactInitials bgOr">VM</div>
+                        <div class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
+                            <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
                             <div class="listContactInfo">
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
                                 <span class="listContactEmail">${orderedContacts[i][j].email}</span>
                             </div>
                         </div>`;
+                document.getElementById(`single-contact-init${orderedContacts[i][j].id}`).style.backgroundColor = orderedContacts[i][j].color;
             }
             document.getElementById('contact-book').innerHTML += /*html*/ `</div>`
         }
@@ -55,7 +56,7 @@ function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
     document.getElementById('contact-details').innerHTML += /*html*/ `
         <div class="contactHeader">
-            <span class="listContactInitials contactScale bgLp">VM</span>
+            <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
             <div class="contactInfo">
                 <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
                 <a href="addTask.html" class="contactAddTaskBtn">
@@ -81,6 +82,7 @@ function renderContactDetails(firstIndex, secondIndex) {
                 <a href="tel: 0123456789" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
             </div>
         </div>`;
+        document.getElementById('single-contact-detail-init').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
 }
 
 /**
@@ -117,8 +119,8 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
-                <span id="overlay-user-img" class="overlayUserImg bgLp">VM</span>
+            <div class="userContainer">
+                <span id="overlay-user-img" class="overlayUserImg">${orderedContacts[firstIndex][secondIndex].initials}</span>
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
                 <div class="overlayInputSection">
@@ -136,8 +138,8 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
                     <span>Delete</span>
                     <img src="img/trash.png">
                 </button>
-                
         </div>`;
+        document.getElementById('overlay-user-img').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
     openOverlay();
 }
 
@@ -153,6 +155,8 @@ async function deleteContact() {
     contacts.splice(index,1);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    document.getElementById('contact-details').innerHTML = '';
+    toContactbookBtn();
     initMsgBox('Contact succesfully deleted');
     closeOverlay();  
 }
@@ -168,8 +172,11 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].name = document.getElementById('input-name').value;
     contacts[id].email = document.getElementById('input-email').value;
     contacts[id].phone = document.getElementById('input-phone').value;
+    contacts[id].initials = getInitials(document.getElementById('input-name').value);
     await backend.setItem('contacts', JSON.stringify(contacts));
     loadContactsFromServer();
+    document.getElementById('contact-details').innerHTML = '';
+    toContactbookBtn();
     initMsgBox('Contact succesfully changed');
     closeOverlay();
 }
@@ -188,12 +195,27 @@ async function createContact() {
     } else {
         await downloadFromServer();
         let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
-        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone});
+        serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: getInitials(inputName)});
         await backend.setItem('contacts', JSON.stringify(serverContacts));
         loadContactsFromServer();
         initMsgBox('Contact succesfully created');
     }
     closeOverlay();
+}
+
+/**
+ * Combins and returns the first letter and the first letter of the last word of the string in uppercase
+ * 
+ * @param {string} name - name string
+ */
+function getInitials(name) {
+    let initials
+    if(name.includes(' ')){
+        initials = `${name.charAt(0)}${name.charAt(name.lastIndexOf(' ') + 1)}`
+    } else {
+        initials = `${name.charAt(0)}`
+    }
+    return initials.toUpperCase();
 }
 
 /**
@@ -225,7 +247,7 @@ function changeOverlayToNewContact() {
         </div>
         <div class="overlayRight">
             <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
-            <div>
+            <div class="userContainer">
                 <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
             </div>
             <form class="overlayInputForm" onsubmit="createContact(); return false;">
@@ -249,4 +271,35 @@ function changeOverlayToNewContact() {
             </button>        
         </div>`;
     openOverlay();
+}
+
+/**
+ * Checks if the window size is equal or less than 760px and than execute code in it.
+ * 
+ */
+function mobileOperator() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('to-contactbook-btn').classList.remove('d-none');
+        document.getElementById('content').classList.add('d-none'); 
+    }  
+}
+
+/**
+ * 
+ * 
+ */
+function mobileSwitchToDetail() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('contact-book').classList.add('d-none');
+        document.getElementById('new-contact-btn').classList.add('d-none');
+        document.getElementById('content').classList.remove('d-none');
+    }
+}
+
+function toContactbookBtn() {
+    if(window.innerWidth <= '760') {
+        document.getElementById('content').classList.add('d-none');
+        document.getElementById('contact-book').classList.remove('d-none');
+        document.getElementById('new-contact-btn').classList.remove('d-none');
+    }
 }

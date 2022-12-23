@@ -17,25 +17,28 @@
     <script src="./javaScript/navbar.js"></script>
 </head>
 
-<body onload="includeHTML(), loadContactsFromServer()">
+<body onload="checkLoginStatus(), includeHTML(), loadContactsFromServer(), mobileOperator()">
 
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
     <div class="parentContainer">
 
+        <button onclick="changeOverlayToNewContact()" id="new-contact-btn" class="newContactBtn">
+            <span>New contact</span>
+            <img src="img/newContact.svg">
+        </button>
+
         <div id="contact-book" class="contactBook"></div>
 
-        <div class="content">
+
+        <div id="content" class="content">
             <div class="headline">
+                <img src="img/back.svg" class="d-none" id="to-contactbook-btn" onclick="toContactbookBtn()">
                 <h1>Contacts</h1>
                 <div class="hlSeperator"></div>
                 <span class="subheadline">Better with a team</span>
             </div>
             <div id="contact-details"></div>
-            <button onclick="changeOverlayToNewContact()" class="newContactBtn">
-                <span>New contact</span>
-                <img src="img/newContact.svg">
-            </button>
         </div>
     </div>
     

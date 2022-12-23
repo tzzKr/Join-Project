@@ -126,7 +126,59 @@ input {
     bottom: 24px;
 }
 
+/* -----------------------------------Page Headline---------------------------------------------------- */
+
+.headline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-left: 75px; */
+    gap: 30px;
+}
+
+.headline h1 {
+    font-size: 61px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+.hlSeperator {
+    width: 4px;
+    height: 59px;
+    background-color: #29ABE2;
+    border-radius: 3px;
+}
+
+.subheadline {
+    font-weight: 400;
+    font-size: 27px;
+    color: #2A3647;
+}
+
+.headline span {
+    color: #203192;
+}
+
+
+/* -----------------------------------Help---------------------------------------------------- */
+
+.helpMainpage {
+    margin-left: 150px;
+    color: rgb(230, 230, 230);
+}
+
+.helpMainpage div {
+    background-color: rgba(32, 49, 146, 0.7);
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 16px;
+    width: 90%;
+}
+
 /*------------------------- recurring animations -------------------------*/
+
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -163,7 +215,36 @@ input {
     }
 }
 
+/* ----------------------------------------Message Box---------------------------------------- */
 
+.msgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --width: 326px;
+    width: var(--width);
+    /* height: 74px; */
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 23px;
+    color: #FFFFFF;
+    position: fixed;
+    top: 90%;
+    left: calc(50% - (var(--width)));
+    right: calc(50% - (var(--width)));
+}
+
+.animationFadeIn {
+    animation: slipe-up 200ms forwards;
+}
+
+.animationFadeOut {
+    animation: slipe-down 200ms forwards;
+}
+
+/* ----------------------------------------Media Querrys---------------------------------------- */
 
 @media (max-width: 1395px) {
     .parentContainer {
@@ -193,6 +274,10 @@ input {
     .parentContainer {
         margin-left: 25px;
         position: relative;
+    }
+
+    .msgBox {
+        top: 80%;
     }
 }
 
@@ -251,86 +336,3 @@ input {
         height: 63vh;
     }
 }
-
-
-/* -----------------------------------Page Headline---------------------------------------------------- */
-
-.headline {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* margin-left: 75px; */
-    gap: 30px;
-}
-
-.headline h1 {
-    font-size: 61px;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 60px;
-    margin-top: 40px;
-}
-
-.hlSeperator {
-    width: 4px;
-    height: 59px;
-    background-color: #29ABE2;
-    border-radius: 3px;
-}
-
-.subheadline {
-    font-weight: 400;
-    font-size: 27px;
-    color: #2A3647;
-}
-
-.headline span {
-    color: #203192;
-}
-
-
-/* -----------------------------------Help---------------------------------------------------- */
-
-.helpMainpage {
-    margin-left: 150px;
-    color: rgb(230, 230, 230);
-}
-
-.helpMainpage div {
-    background-color: rgba(32, 49, 146, 0.7);
-    padding: 8px;
-    border-radius: 10px;
-    margin-top: 16px;
-    width: 90%;
-}
-
-
-/* ----------------------------------------Message Box---------------------------------------- */
-
-.msgBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    --width: 326px;
-    width: var(--width);
-    /* height: 74px; */
-    background: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    font-weight: 400;
-    font-size: 23px;
-    color: #FFFFFF;
-    position: fixed;
-    top: 90%;
-    left: calc(50% - (var(--width)));
-    right: calc(50% - (var(--width)));
-}
-
-.animationFadeIn {
-    animation: slipe-up 200ms forwards;
-}
-
-.animationFadeOut {
-    animation: slipe-down 200ms forwards;
-}
-

@@ -112,13 +112,21 @@ function renderNewCategory() {
 }
 
 /**
- * When the user clicks on a color, the function 'selectNewCategory' will be called with the color as a
- * parameter.
- * @param color - The color of the category.
+ * When the user clicks on a color, the function will wait 100 milliseconds, then it will change the
+ * onclick attribute of the saveNewCategory button to selectNewCategory(color).
+ * @param color - The color that the user selected.
  */
-function selectColor(color) {
-    document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
-    let
+function selectColor(id, color) {
+
+    setTimeout(() => {
+        let element = document.getElementById('newCategoryColor');
+        if (element.classList.contains('selected')) {
+            element.classList.remove('selected');
+        } else {
+            element.classList.add('selected');
+        }
+        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${id, color})`);
+    }, 100);
 }
 
 function changeSelectedColorStyle() {
@@ -182,76 +190,135 @@ function saveSubtaskInJson() {
 
 }
 
-/**
- * It changes the background color of the button that is clicked.
- * @param button - the button that was clicked
- */
-function changePriority(id, color) {
-    document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    task.prio = id;
-    console.log(task.prio);
-    document.getElementById(id).style.backgroundColor = color;
-    setTimeout(() => {
-        document.getElementById(id).onclick = function () { resetBgColor(id, color) };
-    }, 200);
 
-    // document.getElementById(id).setAttribute('onclick', `resetBgColor('${id}', '${color}')`);
-
-    // if (button.id == "urgent") {
-    //     button.style.backgroundColor = '#FF3D00';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);   
-    // } else if (button.id == "medium") {
-    //     button.style.backgroundColor = '#FFA800';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
-    // } else if (button.id == "low") {
-    //     button.style.backgroundColor = '#8BE644';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
-    // }
+/* Checking the id of the button that was clicked and then calling the appropriate function. */
+function changePriority(button) {
+    if (button.id == 'urgent') {
+        changeColorUrgent(button);
+    } else if (button.id == 'medium') {
+        changeColorMedium(button);
+    } else if (button.id == 'low') {
+        changeColorLow(button);
+    }
+        // document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
+    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
+    // task.prio = id;
+    // console.log(task.prio);
+    // document.getElementById(id).style.backgroundColor = color;
+    // setTimeout(() => {
+    //     document.getElementById(id).onclick = function () {resetBgColor(id, color)};
+    // }, 100);
 }
 
 /**
- * It resets the background color of the button to white and changes the onclick attribute to the
- * function changePriority(this).
+ * It changes the background color of the button that was clicked, and then changes the onclick
+ * attribute of the other buttons to a different function.
  * @param button - the button that was clicked
  */
-function resetBgColor(id, color) {
-    document.getElementById(id + '-img').style.filter = '';
-    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+function changeColorUrgent(button) {
+    button.style.backgroundColor = '#FF3D00';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);
+    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').style.backgroundColor = '#FFFFFF';
     document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    task.prio = '';
-    console.log(task.prio);
-    document.getElementById(id).style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-        document.getElementById(id).onclick = function () { changePriority(id, color) };
-    }, 200);
-    // document.getElementById(id).setAttribute('onclick', `changePriority('${id}', '${color}')`);
-    // if (button.id == "urgent") {
-    //     button.style.backgroundColor = '#FFFFFF';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
-    // } else if (button.id == "medium") {
-    //     button.style.backgroundColor = '#FFFFFF';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
-    // } else if (button.id == "low") {
-    //     button.style.backgroundColor = '#FFFFFF';
-    //     setTimeout(() => {
-    //     }, 200);
-    //     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
-    // }
+}
 
+/**
+ * It changes the background color of the button to orange, and then changes the onclick attribute of
+ * the other two buttons to a function that changes the priority of the task.
+ * @param button - the button that was clicked
+ */
+function changeColorMedium(button) {
+    button.style.backgroundColor = '#FFA800';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
+    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    document.getElementById('low').style.backgroundColor = '#FFFFFF';
+}
+
+/**
+ * When the user clicks on the 'low' button, the button's background color changes to green, and the
+ * other buttons' background colors change to white.
+ * @param button - the button that was clicked
+ */
+function changeColorLow(button) {
+    button.style.backgroundColor = '#8BE644';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
+    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
+}
+
+
+
+/* Checking the id of the button that was clicked and then calling the appropriate function to reset
+the background color. */
+function resetBgColor(button) {
+    if (button.id == 'urgent') {
+        resetColorUrgent (button);
+    } else if (button.id == 'medium') {
+        resetColorMedium (button);
+    } else if (button.id == 'low') {
+        resetColorLow(button);
+    }
+        // document.getElementById(id + '-img').style.filter = '';
+    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
+    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
+    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
+    // task.prio = '';
+    // console.log(task.prio);
+    // document.getElementById(id).style.backgroundColor = '#FFFFFF';
+    // setTimeout(() => {
+    //     document.getElementById(id).onclick = function () {changePriority(id, color)};
+    // }, 100);
+
+}
+
+/**
+ * When the user clicks the button, the button's background color changes to red, and the button's
+ * onclick attribute is changed to a function that resets the button's background color to white.
+ * @param button - the button that was clicked
+ */
+function resetColorUrgent(button) {
+    button.style.backgroundColor = '#FFFFFF';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+}
+
+/**
+ * When the user clicks on the button, the button's background color changes to white, and the button's
+ * onclick attribute is set to the changePriority function.
+ * @param button - the button that was clicked
+ */
+function resetColorMedium(button) {
+    button.style.backgroundColor = '#FFFFFF';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+}
+
+/**
+ * When the user clicks on the button, the button's background color changes to white, and the onclick
+ * attribute of the button is set to the changePriority function.
+ * @param button - the button that was clicked
+ */
+function resetColorLow(button) {
+    button.style.backgroundColor = '#FFFFFF';
+    setTimeout(() => {
+    }, 200);
+    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
 }
 
 
@@ -387,12 +454,4 @@ function clearInviteNewContact() {
     document.getElementById('inviteNewContact').classList.add('d-none');
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
-}
-/**
- * 
- */
-
-function selectPrio() {
-
-
 }

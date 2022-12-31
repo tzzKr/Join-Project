@@ -138,6 +138,11 @@ textarea {
     transition: 225ms;
     border: 2px solid #FFFFFF;
     cursor: pointer;
+    transform: scale(1);
+}
+
+.selected {
+    transform: scale(1.2);
 }
 
 .bgVi {
@@ -372,6 +377,10 @@ textarea {
     position: absolute;
     right: 3%;
     cursor: pointer;
+}
+.checkbox {
+    display: flex;
+    gap: 8px;
 }
 
 .create-task-buttons {

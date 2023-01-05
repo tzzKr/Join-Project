@@ -204,21 +204,6 @@ async function createContact() {
 }
 
 /**
- * Combins and returns the first letter and the first letter of the last word of the string in uppercase
- * 
- * @param {string} name - name string
- */
-function getInitials(name) {
-    let initials
-    if(name.includes(' ')){
-        initials = `${name.charAt(0)}${name.charAt(name.lastIndexOf(' ') + 1)}`
-    } else {
-        initials = `${name.charAt(0)}`
-    }
-    return initials.toUpperCase();
-}
-
-/**
  * Load contacts from server
  * 
  */

@@ -138,6 +138,11 @@ textarea {
     transition: 225ms;
     border: 2px solid #FFFFFF;
     cursor: pointer;
+    transform: scale(1);
+}
+
+.selected {
+    transform: scale(1.2);
 }
 
 .bgVi {
@@ -323,15 +328,15 @@ textarea {
     gap: 8px;
 }
 
-.prio-buttons button {
+.prio-btns {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 136px;
-    height: 51px;
+    width: 114px;
+    height: 16px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     /* white */
     background: #FFFFFF;
@@ -341,13 +346,20 @@ textarea {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
+    cursor: pointer;
 }
 
-.bg-btn-orange {
+.bg-btn-urgent {
     background-color: #FF3D00;
 }
+.bg-btn-medium {
+    background-color: #FFA800;
+}
+.bg-btn-low {
+    background-color: #8BE644;
+}
 
-.prio-buttons button:hover {
+.prio-btns:hover {
     transition: all 100ms ease-in-out;
     transform: scale(1.05);
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
@@ -365,6 +377,10 @@ textarea {
     position: absolute;
     right: 3%;
     cursor: pointer;
+}
+.checkbox {
+    display: flex;
+    gap: 8px;
 }
 
 .create-task-buttons {

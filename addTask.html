@@ -31,22 +31,30 @@
                     </div>
                     <div class="container">
                         <h3>Description</h3>
-                        <textarea required placeholder="Enter a description" id="description" method="dialog"></textarea>
+                        <textarea required placeholder="Enter a description" id="description"
+                            method="dialog"></textarea>
                     </div>
                     <div class="container">
                         <h3>Category</h3>
                         <div id="newCategory" class="new-category d-none">
-                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type=""><img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
+                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type=""><img
+                                class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
                             <div class="line"></div>
                             <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
                         </div>
                         <div id="colorSelection" class="select-color d-none">
-                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi" id="newCategoryColor1"></div>
-                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd" id="newCategoryColor2"></div>
-                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg" id="newCategoryColor3"></div>
-                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg" id="newCategoryColor4"></div>
-                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo" id="newCategoryColor5"></div>
-                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu" id="newCategoryColor6"></div>
+                            <div onclick="selectColor('colorRange[0]')" class="listContactInitial bgVi"
+                                id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[1]')" class="listContactInitial bgRd"
+                                id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[2]')" class="listContactInitial bgLg"
+                                id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[3]')" class="listContactInitial bgOg"
+                                id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[4]')" class="listContactInitial bgRo"
+                                id="newCategoryColor"></div>
+                            <div onclick="selectColor('colorRange[5]')" class="listContactInitial bgBu"
+                                id="newCategoryColor"></div>
                         </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
@@ -64,7 +72,9 @@
                     <div class="container">
                         <h3>Assigned to</h3>
                         <div id="inviteNewContact" class="new-contact d-none">
-                            <input id="assignedToInput" class="input-addTask" placeholder="Contact email" type="email"><img class="clear-img" onclick="clearInviteNewContact()" src="img/clear.svg">
+                            <input id="assignedToInput" class="input-addTask" placeholder="Contact email"
+                                type="email"><img class="clear-img" onclick="clearInviteNewContact()"
+                                src="img/clear.svg">
                             <div class="line"></div>
                             <img class="right-img" onclick="addNewContact()" src="img/addTask-right.svg">
                         </div>
@@ -84,15 +94,21 @@
                         <div id="listContact" class="list d-none">
                             <div class="options-2">
                                 <p id="addedUser1">Gerhard Baliet</p>
-                                <input id="checkboxAssignedTo1" onclick="checkboxAssignedTo('checkboxAssignedTo1', 'addedUser1')" class="p-absolute" type="checkbox">
+                                <input id="checkboxAssignedTo1"
+                                    onclick="checkboxAssignedTo('checkboxAssignedTo1', 'addedUser1')" class="p-absolute"
+                                    type="checkbox">
                             </div>
                             <div class="options-2">
                                 <p id="addedUser2">Hosny Fahim</p>
-                                <input id="checkboxAssignedTo2" onclick="checkboxAssignedTo('checkboxAssignedTo2', 'addedUser2')" class="p-absolute" type="checkbox">
+                                <input id="checkboxAssignedTo2"
+                                    onclick="checkboxAssignedTo('checkboxAssignedTo2', 'addedUser2')" class="p-absolute"
+                                    type="checkbox">
                             </div>
                             <div class="options-2">
                                 <p id="addedUser3">Yannik Morjan</p>
-                                <input id="checkboxAssignedTo3" onclick="checkboxAssignedTo('checkboxAssignedTo3', 'addedUser3')" class="p-absolute" type="checkbox">
+                                <input id="checkboxAssignedTo3"
+                                    onclick="checkboxAssignedTo('checkboxAssignedTo3', 'addedUser3')" class="p-absolute"
+                                    type="checkbox">
                             </div>
                             <div class="options-2" onclick="inputNewContact()">
                                 <p id="newContact">Invite new contact</p>
@@ -112,16 +128,26 @@
                     <div class="prio">
                         <h3>Prio</h3>
                         <div class="prio-buttons">
-                            <button onclick="changePriority()" id="urgent">Urgent <img id="urgent-img" src="img/prio_high.svg"></button>
-                            <button onclick="changePriority()" id="medium">Medium <img id="medium-img" src="img/prio_medium.svg"></button>
-                            <button onclick="changePriority()" id="low">Low <img id="low-img" src="img/prio_low.svg"></button>
+                            <div class="prio-btns" onclick="changePriority(this)" id="urgent">
+                                Urgent
+                                <img id="urgent-img" src="img/prio_high.svg">
+                            </div>
+                            <div class="prio-btns" onclick="changePriority(this)" id="medium">
+                                Medium
+                                <img id="medium-img" src="img/prio_medium.svg">
+                            </div>
+                            <div class="prio-btns" onclick="changePriority(this)" id="low">
+                                Low
+                                <img id="low-img" src="img/prio_low.svg">
+                            </div>
                         </div>
                     </div>
                     <div class="container">
 
                         <h3>Subtasks</h3>
                         <div class="subtasks">
-                            <input id="inputSubtask" class="input-addTask" placeholder="Add new subtask" type=""><img onclick="addSubtask()" src="img/plus.svg">
+                            <input id="inputSubtask" class="input-addTask" placeholder="Add new subtask" type=""><img
+                                onclick="addSubtask()" src="img/plus.svg">
                         </div>
                     </div>
                     <div id="addSubtaskElement">
@@ -129,7 +155,8 @@
 
                     <div class="create-task-buttons">
                         <button onclick="clear()" class="clear-btn">Clear <img src="img/clear.svg"></button>
-                        <button onclick="createTask()" class="create-task-btn">Create Task <img src="img/addTask-right.svg"></button>
+                        <button onclick="createTask()" class="create-task-btn">Create Task <img
+                                src="img/addTask-right.svg"></button>
                     </div>
                 </div>
 

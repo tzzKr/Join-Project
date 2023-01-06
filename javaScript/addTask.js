@@ -3,7 +3,7 @@ let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038F
 
 let task = {
     id: "",
-    board: "",
+    board: "todo",
     category: "",
     title: "",
     description: "",
@@ -67,12 +67,18 @@ function selectCategory(name, color) {
 
 
 
+/**
+ * The function is called addTitle. It takes the value of the input field and pushes it into the
+ * task.title array.
+ */
 function addTitle() {
     document.getElementById('input').value;
+    task.title.push();
 }
 
 function addDescription() {
     document.getElementById('description').value;
+    task.description.push();
 }
 
 /**
@@ -215,8 +221,6 @@ function changeColorUrgent(button) {
     button.style.backgroundColor = '#FF3D00';
     resetFilterImgPriority();
     document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    // setTimeout(() => {
-    // }, 200);
     document.getElementById('urgent').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
@@ -233,8 +237,6 @@ function changeColorMedium(button) {
     button.style.backgroundColor = '#FFA800';
     resetFilterImgPriority();
     document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    // setTimeout(() => {
-    // }, 200);
     document.getElementById('medium').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
@@ -251,8 +253,6 @@ function changeColorLow(button) {
     button.style.backgroundColor = '#8BE644';
     resetFilterImgPriority();
     document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    // setTimeout(() => {
-    // }, 200);
     document.getElementById('low').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
@@ -274,11 +274,23 @@ function resetColorPriority(button) {
     resetFilterImgPriority();
 }
 
+/**
+ * This function resets the filter property of the three images to 'none'.
+ */
 function resetFilterImgPriority() {
     document.getElementById('urgent-img').style.filter = 'none';
     document.getElementById('medium-img').style.filter = 'none';
     document.getElementById('low-img').style.filter = 'none';
 }
+
+/// *****   date Functions  *****  ///
+
+// function addDate() {
+//     let date = document.getElementById('date');
+//     if (date) date.valueAsDate = new Date();
+// }
+
+
 
 
 
@@ -415,4 +427,15 @@ function clearInviteNewContact() {
     document.getElementById('inviteNewContact').classList.add('d-none');
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
+}
+
+// *******  Create Task Functions  *******  //
+
+function addDate() {
+    let date = document.getElementById('date').value;
+    date = new Date(date);
+    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear()
+    date.toString(date);
+    task.dueDate = date;
+    console.log(task);
 }

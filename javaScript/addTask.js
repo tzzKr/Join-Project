@@ -3,7 +3,7 @@ let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038F
 
 let task = {
     id: "",
-    board: "",
+    board: "todo",
     category: "",
     title: "",
     description: "",
@@ -67,12 +67,18 @@ function selectCategory(name, color) {
 
 
 
+/**
+ * The function is called addTitle. It takes the value of the input field and pushes it into the
+ * task.title array.
+ */
 function addTitle() {
     document.getElementById('input').value;
+    task.title.push();
 }
 
 function addDescription() {
     document.getElementById('description').value;
+    task.description.push();
 }
 
 /**
@@ -116,16 +122,17 @@ function renderNewCategory() {
  * onclick attribute of the saveNewCategory button to selectNewCategory(color).
  * @param color - The color that the user selected.
  */
-function selectColor(id, color) {
-
-    setTimeout(() => {
-        let element = document.getElementById('newCategoryColor');
-        if (element.classList.contains('selected')) {
-            element.classList.remove('selected');
+function selectColor(color, id) {
+    for (let i = 1; i <= 6; i++) {
+        let element = 'newCategoryColor-' + i;
+        if (id == element) {
+            document.getElementById(id).classList.add('selected');
         } else {
-            element.classList.add('selected');
+            document.getElementById(element).classList.remove('selected');
         }
-        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${id, color})`);
+    }
+    setTimeout(() => {
+        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
     }, 100);
 }
 
@@ -202,14 +209,7 @@ function changePriority(button) {
     }
         // document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
     // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    // task.prio = id;
-    // console.log(task.prio);
-    // document.getElementById(id).style.backgroundColor = color;
-    // setTimeout(() => {
-    //     document.getElementById(id).onclick = function () {resetBgColor(id, color)};
-    // }, 100);
+
 }
 
 /**
@@ -219,9 +219,9 @@ function changePriority(button) {
  */
 function changeColorUrgent(button) {
     button.style.backgroundColor = '#FF3D00';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('urgent').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').style.backgroundColor = '#FFFFFF';
@@ -235,9 +235,9 @@ function changeColorUrgent(button) {
  */
 function changeColorMedium(button) {
     button.style.backgroundColor = '#FFA800';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('medium').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
@@ -251,9 +251,9 @@ function changeColorMedium(button) {
  */
 function changeColorLow(button) {
     button.style.backgroundColor = '#8BE644';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('low').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
@@ -261,65 +261,38 @@ function changeColorLow(button) {
 }
 
 
-
-/* Checking the id of the button that was clicked and then calling the appropriate function to reset
-the background color. */
-function resetBgColor(button) {
-    if (button.id == 'urgent') {
-        resetColorUrgent (button);
-    } else if (button.id == 'medium') {
-        resetColorMedium (button);
-    } else if (button.id == 'low') {
-        resetColorLow(button);
-    }
-        // document.getElementById(id + '-img').style.filter = '';
-    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    // task.prio = '';
-    // console.log(task.prio);
-    // document.getElementById(id).style.backgroundColor = '#FFFFFF';
-    // setTimeout(() => {
-    //     document.getElementById(id).onclick = function () {changePriority(id, color)};
-    // }, 100);
-
-}
-
 /**
  * When the user clicks the button, the button's background color changes to red, and the button's
  * onclick attribute is changed to a function that resets the button's background color to white.
  * @param button - the button that was clicked
  */
-function resetColorUrgent(button) {
+function resetColorPriority(button) {
     button.style.backgroundColor = '#FFFFFF';
     setTimeout(() => {
     }, 200);
-    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById(button.id).setAttribute('onclick', `changePriority(this)`);
+    resetFilterImgPriority();
 }
 
 /**
- * When the user clicks on the button, the button's background color changes to white, and the button's
- * onclick attribute is set to the changePriority function.
- * @param button - the button that was clicked
+ * This function resets the filter property of the three images to 'none'.
  */
-function resetColorMedium(button) {
-    button.style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+function resetFilterImgPriority() {
+    document.getElementById('urgent-img').style.filter = 'none';
+    document.getElementById('medium-img').style.filter = 'none';
+    document.getElementById('low-img').style.filter = 'none';
 }
 
-/**
- * When the user clicks on the button, the button's background color changes to white, and the onclick
- * attribute of the button is set to the changePriority function.
- * @param button - the button that was clicked
- */
-function resetColorLow(button) {
-    button.style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
-}
+/// *****   date Functions  *****  ///
+
+// function addDate() {
+//     let date = document.getElementById('date');
+//     if (date) date.valueAsDate = new Date();
+// }
+
+
+
+
 
 
 
@@ -454,4 +427,15 @@ function clearInviteNewContact() {
     document.getElementById('inviteNewContact').classList.add('d-none');
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
+}
+
+// *******  Create Task Functions  *******  //
+
+function addDate() {
+    let date = document.getElementById('date').value;
+    date = new Date(date);
+    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear()
+    date.toString(date);
+    task.dueDate = date;
+    console.log(task);
 }

@@ -70,7 +70,7 @@ function renderSummaryInformations() {
     document.getElementById('tasksInBoard').innerHTML = tasks.length;
     document.getElementById('tasksInProgress').innerHTML = getOccurrence('board', 'inProgress');
     document.getElementById('awaitingFeedback').innerHTML = getOccurrence('boad', 'testing');
-    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'high');
+    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'urgent');
     document.getElementById('upcomingDate').innerHTML = getNextUrgentDueDate();
     document.getElementById('tasksInToDo').innerHTML = getOccurrence('board', 'todo');
     document.getElementById('tasksInDone').innerHTML = getOccurrence('board', 'done');

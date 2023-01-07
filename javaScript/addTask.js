@@ -1,10 +1,12 @@
 /** AddTask Functions **/
+let tasks;
 let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038FF'];
 
 let task = {
     id: "",
     board: "todo",
     category: "",
+    categoryColor: "",
     title: "",
     description: "",
     progress: 0,
@@ -29,21 +31,12 @@ let contacts = [
 ];
 
 
+async function loadTasksFromServer() {
+    await downloadFromServer();
+    tasks = JSON.parse(await backend.getItem('tasks')) || [];
+}
 
 
-// async function createTask() {
-//     let newTask = {
-//         id: 0,
-//         title: document.getElementById('title').value,
-//         description: document.getElementById('description').value,
-//         category: document.getElementById('category').value,
-//         assignedTo: document.getElementById('assignedTo').value,
-//         dueDate: document.getElementById('Date').value,
-//         prio: document.getElementById('prio').value,
-//         subtasks: document.getElementById('subtasks').value
-//     }
-
-// }
 
 /**
  * It takes two parameters, a name and a color, and then it changes the innerHTML of a div to display
@@ -55,6 +48,7 @@ function selectCategory(name, color) {
     closeSelection();
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
+        saveNewCategoryInObject(name, color);
         categoryList.innerHTML = `
         <p id="categoryName" class="textBox"></p>
         <div id="categoryColor" class="listContactInitials contactScale left"></div>
@@ -62,6 +56,11 @@ function selectCategory(name, color) {
         document.getElementById('categoryName').innerHTML = name;
         document.getElementById('categoryColor').style.backgroundColor = color;
     }
+}
+
+function saveNewCategoryInObject(name, color) {
+    task.categoryColor = color; 
+    task.category = name;
 }
 
 
@@ -72,13 +71,19 @@ function selectCategory(name, color) {
  * task.title array.
  */
 function addTitle() {
-    document.getElementById('input').value;
-    task.title.push();
+    let titleInput = document.getElementById('title').value;
+    task.title.toString(titleInput);
+    task.title = titleInput;
 }
 
+/**
+ * The function takes the value of the input field with the id of 'description' and assigns it to the
+ * description property of the task object.
+ */
 function addDescription() {
-    document.getElementById('description').value;
-    task.description.push();
+    let descriptionInput = document.getElementById('description').value;
+    task.title.toString(descriptionInput);
+    task.description = descriptionInput;
 }
 
 /**
@@ -167,7 +172,6 @@ function checkboxAssignedTo(checkboxId, nameId) {
         let index = task.assignedTo.indexOf(name);
         task.assignedTo.splice(index, 1);
     }
-    console.log(task.assignedTo);
 }
 
 /**
@@ -179,7 +183,6 @@ function addSubtask() {
     task.subtasks.push(inputSubtask);
     renderSubtask(inputSubtask);
     document.getElementById('inputSubtask').value = ``;
-    console.log(task.subtasks);
 }
 /**
  * It takes the value of the input field and adds it to the HTML as a checkbox.
@@ -207,10 +210,10 @@ function changePriority(button) {
     } else if (button.id == 'low') {
         changeColorLow(button);
     }
-        // document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-
+    task.prio = button.id;
+    console.log(task);
 }
+
 
 /**
  * It changes the background color of the button that was clicked, and then changes the onclick
@@ -285,10 +288,19 @@ function resetFilterImgPriority() {
 
 /// *****   date Functions  *****  ///
 
-// function addDate() {
-//     let date = document.getElementById('date');
-//     if (date) date.valueAsDate = new Date();
-// }
+/**
+ * It takes the value of the input field with the id of 'date', converts it to a date object, then
+ * converts it to a string in the format of 'MM.DD.YYYY', and then assigns it to the dueDate property
+ * of the task object.
+ */
+function addDate() {
+    let date = document.getElementById('date').value;
+    date = new Date(date);
+    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear();
+    date.toString(date);
+    task.dueDate = date;
+    console.log(task);
+}
 
 
 
@@ -431,11 +443,10 @@ function clearInviteNewContact() {
 
 // *******  Create Task Functions  *******  //
 
-function addDate() {
-    let date = document.getElementById('date').value;
-    date = new Date(date);
-    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear()
-    date.toString(date);
-    task.dueDate = date;
-    console.log(task);
+async function createTask() {
+   await loadTasksFromServer();
+   tasks = JSON.parse(await backend.getItem('tasks')) || [];
+   tasks.push(task);
+   await backend.setItem('tasks', JSON.stringify(tasks));
+   console.log(tasks);
 }

@@ -23,16 +23,15 @@
             <h1>Add Task</h1>
         </div>
         <div id="main-container-addTask" class="main-container-addTask">
-            <form action="" class="addTask" id="add-new-task" method="dialog">
+            <form onsubmit="createTask()" action="" class="addTask" id="add-new-task" method="dialog">
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>
-                        <input class="input-addTask" required placeholder="Add Title" id="title">
+                        <input class="input-addTask" required placeholder="Add Title" id="title" onchange="addTitle()">
                     </div>
                     <div class="container">
                         <h3>Description</h3>
-                        <textarea required placeholder="Enter a description" id="description"
-                            method="dialog"></textarea>
+                        <textarea required placeholder="Enter a description" id="description" method="dialog" onchange="addDescription()"></textarea>
                     </div>
                     <div class="container">
                         <h3>Category</h3>
@@ -155,7 +154,7 @@
 
                     <div class="create-task-buttons">
                         <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img src="img/clear.svg"></button>
-                        <button onclick="createTask()" class="create-task-btn">Create Task <img
+                        <button type="submit" class="create-task-btn">Create Task <img
                         src="img/addTask-right.svg"></button>
                     </div>
                 </div>

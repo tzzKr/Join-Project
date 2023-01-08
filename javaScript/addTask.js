@@ -37,12 +37,11 @@ async function loadTasksFromServer() {
 }
 
 
-
 /**
- * It takes two parameters, a name and a color, and then it changes the innerHTML of a div to display
- * the name and color.
- * @param name - The name of the category
- * @param color - the class name of the color you want to use
+ * It takes two parameters, a name and a color, and then it saves the name and color in an object, and
+ * then it displays the name and color in the HTML.
+ * @param name - the name of the category
+ * @param color - #FF0000
  */
 function selectCategory(name, color) {
     closeSelection();
@@ -58,17 +57,21 @@ function selectCategory(name, color) {
     }
 }
 
+/**
+ * This function takes two arguments, a name and a color, and assigns them to the task object's
+ * category and categoryColor properties.
+ * @param name - the name of the category
+ * @param color - the color of the category
+ */
 function saveNewCategoryInObject(name, color) {
     task.categoryColor = color; 
     task.category = name;
 }
 
 
-
-
 /**
- * The function is called addTitle. It takes the value of the input field and pushes it into the
- * task.title array.
+ * The function takes the value of the input field with the id of 'title' and assigns it to the title
+ * property of the task object.
  */
 function addTitle() {
     let titleInput = document.getElementById('title').value;
@@ -86,14 +89,11 @@ function addDescription() {
     task.description = descriptionInput;
 }
 
+
 /**
- * It takes a color as an argument and pushes a new object to the categories array. The object has a
- * name and color property. The name property is the value of the categoryInput element. The color
- * property is the color argument.
- * 
- * The function then calls the selectCategory function with the name and color of the new category.
- * 
- * The function then calls the clearNewCategory function.
+ * It adds a new category to the categories array, then renders the new category, clears the new
+ * category input, changes the selected color style, and removes the onclick attribute from the save
+ * button.
  * @param color - the color of the category
  */
 function selectNewCategory(color) {
@@ -109,7 +109,9 @@ function selectNewCategory(color) {
 }
 
 
-/* Rendering the categories to the page. */
+/**
+ * It renders the categories in the HTML.
+ */
 function renderNewCategory() {
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
@@ -123,9 +125,9 @@ function renderNewCategory() {
 }
 
 /**
- * When the user clicks on a color, the function will wait 100 milliseconds, then it will change the
- * onclick attribute of the saveNewCategory button to selectNewCategory(color).
- * @param color - The color that the user selected.
+ * It adds a class to the element that was clicked and removes the class from all other elements.
+ * @param color - The color of the category
+ * @param id - the id of the element that was clicked
  */
 function selectColor(color, id) {
     for (let i = 1; i <= 6; i++) {
@@ -141,14 +143,10 @@ function selectColor(color, id) {
     }, 100);
 }
 
-function changeSelectedColorStyle() {
 
-}
-
-
-
-
-
+/**
+ * If the input field is not empty, clear the input field and clear the invite new contact div.
+ */
 function addNewContact() {
     let assignedToInput = document.getElementById('assignedToInput').value;
     if (assignedToInput) {
@@ -174,9 +172,10 @@ function checkboxAssignedTo(checkboxId, nameId) {
     }
 }
 
+
 /**
- * The function takes the value of the input field, pushes it to the array, renders the subtask, clears
- * the input field, and logs the array.
+ * The function takes the value of the input field, pushes it to the subtasks array, and then renders
+ * the subtask to the DOM.
  */
 function addSubtask() {
     let inputSubtask = document.getElementById('inputSubtask').value;
@@ -184,9 +183,11 @@ function addSubtask() {
     renderSubtask(inputSubtask);
     document.getElementById('inputSubtask').value = ``;
 }
+
 /**
- * It takes the value of the input field and adds it to the HTML as a checkbox.
- * @param {*} taskInput - the value of the input field
+ * It takes the inputSubtask parameter and adds it to the HTML element with the id of
+ * addSubtaskElement.
+ * @param inputSubtask - the value of the input field
  */
 function renderSubtask(inputSubtask) {
     document.getElementById('addSubtaskElement').innerHTML += `
@@ -196,12 +197,12 @@ function renderSubtask(inputSubtask) {
     </div>`
 }
 
-function saveSubtaskInJson() {
-
-}
-
-
-/* Checking the id of the button that was clicked and then calling the appropriate function. */
+/**
+ * If the button's id is urgent, call the changeColorUrgent function, else if the button's id is
+ * medium, call the changeColorMedium function, else if the button's id is low, call the changeColorLow
+ * function.
+ * @param button - the button that was clicked
+ */
 function changePriority(button) {
     if (button.id == 'urgent') {
         changeColorUrgent(button);
@@ -216,8 +217,8 @@ function changePriority(button) {
 
 
 /**
- * It changes the background color of the button that was clicked, and then changes the onclick
- * attribute of the other buttons to a different function.
+ * It changes the background color of the button to red, resets the filter of the image, changes the
+ * filter of the image, and changes the onclick attribute of the other buttons.
  * @param button - the button that was clicked
  */
 function changeColorUrgent(button) {
@@ -231,9 +232,13 @@ function changeColorUrgent(button) {
     document.getElementById('low').style.backgroundColor = '#FFFFFF';
 }
 
+
 /**
- * It changes the background color of the button to orange, and then changes the onclick attribute of
- * the other two buttons to a function that changes the priority of the task.
+ * When the user clicks on the button with the id of 'medium', the background color of the button will
+ * change to orange, the filter of the image with the id of 'medium-img' will change to a sepia filter,
+ * and the onclick attribute of the button with the id of 'medium' will change to a function that
+ * resets the color of the button to white, while the onclick attribute of the buttons with the id of
+ * 'urgent' and 'low' will change to a function that changes the color of the button to orange.
  * @param button - the button that was clicked
  */
 function changeColorMedium(button) {
@@ -265,8 +270,8 @@ function changeColorLow(button) {
 
 
 /**
- * When the user clicks the button, the button's background color changes to red, and the button's
- * onclick attribute is changed to a function that resets the button's background color to white.
+ * When the user clicks on a button, the button's background color changes to white, and the button's
+ * onclick attribute is changed to call the changePriority() function.
  * @param button - the button that was clicked
  */
 function resetColorPriority(button) {
@@ -288,10 +293,12 @@ function resetFilterImgPriority() {
 
 /// *****   date Functions  *****  ///
 
+
 /**
- * It takes the value of the input field with the id of 'date', converts it to a date object, then
- * converts it to a string in the format of 'MM.DD.YYYY', and then assigns it to the dueDate property
- * of the task object.
+ * The function takes the value of the input field with the id of 'date' and assigns it to the variable
+ * 'date'. Then it converts the value of 'date' to a date object and assigns it to the variable 'date'.
+ * Then it assigns the value of 'date' to the property 'dueDate' of the object 'task'. Then it logs the
+ * value of 'task' to the console.
  */
 function addDate() {
     let date = document.getElementById('date').value;
@@ -323,11 +330,11 @@ function addDate() {
 ///**      Selection Functions       **///
 
 
+
 /**
- * It removes the class 'd-none' from the element with the id 'list' and adds the class 'growIn' to the
- * same element. Then, after 200 milliseconds, it removes the class 'growIn' from the same element.
- * Finally, it changes the onclick attribute of the element with the id 'selectField' to
- * 'closeSelection()'.
+ * It removes the class 'd-none' from the list, renders a new category, adds the class 'growIn' to the
+ * list, removes the class 'growIn' from the list after 200ms, and changes the onclick attribute of the
+ * selectField to closeSelection().
  */
 function openSelection() {
     document.getElementById('list').classList.remove('d-none');
@@ -339,9 +346,10 @@ function openSelection() {
     document.getElementById('selectField').setAttribute('onclick', `closeSelection()`);
 }
 
+
 /**
- * It adds a class to the list element that makes it grow out, then after 200ms it adds a class that
- * makes it disappear and removes the class that makes it grow out.
+ * It adds a class to the list element, then after 100ms, it adds a class to hide the list element and
+ * removes the class that was added to make it grow out.
  */
 function closeSelection() {
     document.getElementById('list').classList.add('growOut');
@@ -385,10 +393,9 @@ function closeContactSelection() {
 
 ///**      Select Option Functions       **///
 
+
 /**
- * When the user clicks the button, the function will remove the class 'd-none' from the element with
- * the id 'newCategory' and the element with the id 'colorSelection' and add the class 'd-none' to the
- * element with the id 'selectField' and the element with the id 'list'.
+ * When the user clicks the button, the new category form appears and the other elements disappear.
  */
 function newCategory() {
     document.getElementById('newCategory').classList.remove('d-none');
@@ -398,10 +405,11 @@ function newCategory() {
 
 }
 
+
 /**
- * It removes the class 'd-none' from the element with the id 'selectField' and adds the class 'd-none'
- * to the element with the id 'newCategory' and the element with the id 'colorSelection'. It also sets
- * the onclick attribute of the element with the id 'selectField' to the function 'openSelection()'.
+ * It removes the class 'd-none' from the select field, clears the value of the input field, adds the
+ * class 'd-none' to the input field, adds the class 'd-none' to the color selection, and sets the
+ * onclick attribute of the select field to openSelection().
  */
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
@@ -416,7 +424,6 @@ function clearNewCategory() {
  * class of 'd-none' from the element with the id of 'inviteNewContact', and add the class of 'd-none'
  * to the elements with the ids of 'selectioContactField' and 'listContact'.
  */
-
 function inputNewContact() {
     document.getElementById('inviteNewContact').classList.remove('d-none');
     document.getElementById('selectioContactField').classList.add('d-none');
@@ -428,12 +435,13 @@ function inputNewContact() {
  * It removes the class 'd-none' from the element with the id 'selectioContactField' and adds the class
  * 'd-none' to the elements with the ids 'inviteNewContact' and 'listContact'. It also sets the onclick
  * attribute of the element with the id 'selectioContactField' to the function
- * 'openContactSelection()'.</code>
+ * 'openContactSelection()'
  * 
  * 
  * 
  * I'm not sure if this is the best way to do this, but it works.
  */
+
 function clearInviteNewContact() {
     document.getElementById('selectioContactField').classList.remove('d-none');
     document.getElementById('inviteNewContact').classList.add('d-none');
@@ -443,6 +451,10 @@ function clearInviteNewContact() {
 
 // *******  Create Task Functions  *******  //
 
+/**
+ * It loads the tasks from the server, then it pushes the new task to the tasks array, then it saves
+ * the tasks array to the server.
+ */
 async function createTask() {
    await loadTasksFromServer();
    tasks = JSON.parse(await backend.getItem('tasks')) || [];

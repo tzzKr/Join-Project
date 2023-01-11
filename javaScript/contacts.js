@@ -153,7 +153,12 @@ async function deleteContact() {
     let inputPhone = document.getElementById('input-phone').value;
     let index = contacts.indexOf(contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone));
     contacts.splice(index,1);
-    await backend.setItem('contacts', JSON.stringify(contacts));
+    let users = JSON.parse(backend.getItem('users')) || [];
+    let username = sessionStorage.getItem('sessionUser');
+    let user = users.find( u => u.name == JSON.parse(username));
+    let userIndex = users.indexOf(user);
+    users[userIndex].contacts = contacts;
+    await backend.setItem('users', JSON.stringify(users));
     loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
     toContactbookBtn();

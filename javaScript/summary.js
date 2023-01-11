@@ -18,7 +18,6 @@ let tasks;
  */
 function renderGreetingMessage() {
     let sessionUser = getSessionUser();
-    console.log(sessionUser);
     let message = getGreeting();
     if(sessionUser == 'Guest') {
         document.getElementById('greeting-message').innerHTML = message;
@@ -37,7 +36,6 @@ function renderGreetingMessage() {
  */
 function getGreeting() {
     let time = new Date();
-    console.log(time)
     time = time.getHours();
     
     if(time >= 5 && time < 12) {
@@ -99,7 +97,6 @@ function getNextUrgentDueDate() {
     let dates = [];
     tasks.forEach((v) => (v['prio'] === 'urgent' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
     dates.sort((date1, date2) => date1 - date2);
-    console.log(dates)
     let upcomingDate = new Date(dates[0]);
     let month = ["January", "February", "March", "April", "May", "June",
                  "July", "August", "September", "October", "November", "December"]

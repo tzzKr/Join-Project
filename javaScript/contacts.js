@@ -173,7 +173,13 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].email = document.getElementById('input-email').value;
     contacts[id].phone = document.getElementById('input-phone').value;
     contacts[id].initials = getInitials(document.getElementById('input-name').value);
-    await backend.setItem('contacts', JSON.stringify(contacts));
+    await downloadFromServer();
+    let users = JSON.parse(backend.getItem('users')) || [];
+    let username = sessionStorage.getItem('sessionUser');
+    let user = users.find( u => u.name == JSON.parse(username));
+    let index = users.indexOf(user);
+    users[index].contacts = contacts;
+    await backend.setItem('users', JSON.stringify(users));
     loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
     toContactbookBtn();
@@ -194,22 +200,29 @@ async function createContact() {
         initMsgBox('Contact already exists!');
     } else {
         await downloadFromServer();
-        let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+        let users = JSON.parse(backend.getItem('users')) || [];
+        let username = sessionStorage.getItem('sessionUser');
+        let user = users.find( u => u.name == JSON.parse(username));
+        let index = users.indexOf(user);
+        let serverContacts = users[index].contacts;
         serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: getInitials(inputName)});
-        await backend.setItem('contacts', JSON.stringify(serverContacts));
+        users[index].contacts = serverContacts;
+        await backend.setItem('users', JSON.stringify(users));
         loadContactsFromServer();
         initMsgBox('Contact succesfully created');
     }
     closeOverlay();
 }
-
 /**
  * Load contacts from server
  * 
  */
 async function loadContactsFromServer() {
     await downloadFromServer();
-    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
+    let users = JSON.parse(backend.getItem('users')) || [];
+    let username = sessionStorage.getItem('sessionUser');
+    let user = users.find( u => u.name == JSON.parse(username));
+    let serverContacts = user.contacts;
     contacts = serverContacts;
     if(contacts.length > 0) {
         orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);

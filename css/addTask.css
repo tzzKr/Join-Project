@@ -53,6 +53,7 @@ textarea {
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-size: 16px;
+    font-family: 'Inter';
     resize: none;
 }
 
@@ -266,33 +267,6 @@ textarea {
     transform-origin: bottom;
 }
 
-@keyframes grow-in {
-    0% {
-        /* transform: scale(0); */
-        height: 0%;
-        /* -webkit-transform: scale(0); */
-    }
-
-    100% {
-        /* transform: scale(1.0); */
-        height: 40%;
-        /* -webkit-transform: scale(1.0); */
-    }
-}
-
-@keyframes grow-out {
-    0% {
-        /* transform: scale(1.0);
-        -webkit-transform: scale(1.0); */
-        height: 40%;
-    }
-
-    100% {
-        /* transform: scale(0);
-        -webkit-transform: scale(0); */
-        height: 0%;
-    }
-}
 
 .middleLine {
     position: absolute;

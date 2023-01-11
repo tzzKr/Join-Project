@@ -450,10 +450,7 @@ async function createTask() {
    tasks = JSON.parse(await backend.getItem('tasks')) || [];
    tasks.push(task);
    await backend.setItem('tasks', JSON.stringify(tasks));
+   initMsgBox('New Task added to Board!');
    console.log(tasks);
 }
 
-async function loadContactsFromContactList () {
-    await downloadFromServer();
-    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
-}

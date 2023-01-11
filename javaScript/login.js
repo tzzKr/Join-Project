@@ -16,7 +16,7 @@ async function login() {
         sessionStorage.setItem('sessionUser', actualUser);
         window.location.href = 'summary.html';
     } else {
-        alert('User not found. Please try again or sign up!');
+        initMsgBox('Password or E-Mail is wrong!');
     }
  }
 

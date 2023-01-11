@@ -144,16 +144,6 @@ function selectColor(color, id) {
 }
 
 
-/**
- * If the input field is not empty, clear the input field and clear the invite new contact div.
- */
-function addNewContact() {
-    let assignedToInput = document.getElementById('assignedToInput').value;
-    if (assignedToInput) {
-        document.getElementById('assignedToInput').value = ``;
-        clearInviteNewContact();
-    }
-}
 
 /**
  * If the checkbox is checked, add the name to the assignedTo array, if it's unchecked, remove the name
@@ -461,4 +451,9 @@ async function createTask() {
    tasks.push(task);
    await backend.setItem('tasks', JSON.stringify(tasks));
    console.log(tasks);
+}
+
+async function loadContactsFromContactList () {
+    await downloadFromServer();
+    let serverContacts = JSON.parse(backend.getItem('contacts')) || [];
 }

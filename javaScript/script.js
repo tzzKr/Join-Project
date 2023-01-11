@@ -14,10 +14,16 @@ async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value});
-    await backend.setItem('users', JSON.stringify(users));
-    window.location.href = 'index.html?msg=Successful registration';
+    let existingUser = users.find( u => u.email == email.value );
+    if (existingUser) {
+       initMsgBox('User already existing!');
+    } else {
+        users.push({name: name.value, email: email.value, password: password.value, contacts: new Array()});
+        await backend.setItem('users', JSON.stringify(users));
+        window.location.href = 'index.html?msg=Successful registration';
+    }
 }
+
 
 
 /**

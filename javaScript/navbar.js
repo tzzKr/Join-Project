@@ -16,14 +16,12 @@
  * /* A function that is used to include the header.html file into the index.html file. */
 
  function goToSummary() {
-    document.getElementById('hover-active1').classList.add('navbar-active');
     window.location.href = 'summary.html';
+    document.getElementById('hover-active1').classList.add('navbar-active');
 }
 
 function goToBoard() {
     window.location.href = 'board.html';
-    document.getElementById('hover-active1').classList.add('navbar-active');
-
 }
 /**
  * 

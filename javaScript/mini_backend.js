@@ -1,6 +1,7 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
 
+/* A function that is used to set, get and delete items from the server. */
 const backend = {
     setItem: function(key, item) {
         jsonFromServer[key] = item;

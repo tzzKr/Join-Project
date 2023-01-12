@@ -18,7 +18,6 @@ let tasks;
  */
 function renderGreetingMessage() {
     let sessionUser = getSessionUser();
-    console.log(sessionUser);
     let message = getGreeting();
     if(sessionUser == 'Guest') {
         document.getElementById('greeting-message').innerHTML = message;
@@ -37,7 +36,6 @@ function renderGreetingMessage() {
  */
 function getGreeting() {
     let time = new Date();
-    console.log(time)
     time = time.getHours();
     
     if(time >= 5 && time < 12) {
@@ -70,7 +68,7 @@ function renderSummaryInformations() {
     document.getElementById('tasksInBoard').innerHTML = tasks.length;
     document.getElementById('tasksInProgress').innerHTML = getOccurrence('board', 'inProgress');
     document.getElementById('awaitingFeedback').innerHTML = getOccurrence('boad', 'testing');
-    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'high');
+    document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'urgent');
     document.getElementById('upcomingDate').innerHTML = getNextUrgentDueDate();
     document.getElementById('tasksInToDo').innerHTML = getOccurrence('board', 'todo');
     document.getElementById('tasksInDone').innerHTML = getOccurrence('board', 'done');
@@ -97,9 +95,8 @@ function getOccurrence(subelement, value) {
  */
 function getNextUrgentDueDate() {
     let dates = [];
-    tasks.forEach((v) => (v['prio'] === 'high' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
+    tasks.forEach((v) => (v['prio'] === 'urgent' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
     dates.sort((date1, date2) => date1 - date2);
-    console.log(dates)
     let upcomingDate = new Date(dates[0]);
     let month = ["January", "February", "March", "April", "May", "June",
                  "July", "August", "September", "October", "November", "December"]

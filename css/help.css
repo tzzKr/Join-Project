@@ -12,3 +12,20 @@
     font-weight: 400;
     font-size: 14px;
 }
+
+.headline {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.content {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 760px) {
+    .content {
+        margin-bottom: 120px;
+    }
+}

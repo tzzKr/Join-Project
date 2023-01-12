@@ -1,22 +1,9 @@
 
-/**
-    * @description      : 
-    * @author           : hosny
-    * @group            : 
-    * @created          : 14/11/2022 - 18:44:16
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 14/11/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
-
 
 /**
  * It takes the email and password from the login form, checks if the user exists in the users array,
- * if it does, it saves the user's name and email in the sessionStorage and redirects to the summary
- * page.
+ * if it does, it sets the actualUser variable to the user's name, stringifies it and sets it to the
+ * sessionStorage, then redirects to the summary page.
  */
 async function login() {
     let actualUser;
@@ -29,14 +16,15 @@ async function login() {
         sessionStorage.setItem('sessionUser', actualUser);
         window.location.href = 'summary.html';
     } else {
-        alert('User not found. Please try again or sign up!');
+        initMsgBox('Password or E-Mail is wrong!');
     }
  }
 
- /**
-  * Set the sessionUser to 'Guest' so a guest can see the website behind the login. 
-  * 
-  */
+
+/**
+ * When the user clicks the button, the function will set the sessionStorage item 'sessionUser' to the
+ * string 'Guest' and then redirect the user to the summary.html page.
+ */
 function guestLogin() {
     actualUser = 'Guest';
     actualUser = JSON.stringify(actualUser);

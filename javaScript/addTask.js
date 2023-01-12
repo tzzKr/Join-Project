@@ -1,10 +1,12 @@
 /** AddTask Functions **/
+let tasks;
 let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038FF'];
 
 let task = {
     id: "",
-    board: "",
+    board: "todo",
     category: "",
+    categoryColor: "",
     title: "",
     description: "",
     progress: 0,
@@ -29,32 +31,23 @@ let contacts = [
 ];
 
 
+async function loadTasksFromServer() {
+    await downloadFromServer();
+    tasks = JSON.parse(await backend.getItem('tasks')) || [];
+}
 
-
-// async function createTask() {
-//     let newTask = {
-//         id: 0,
-//         title: document.getElementById('title').value,
-//         description: document.getElementById('description').value,
-//         category: document.getElementById('category').value,
-//         assignedTo: document.getElementById('assignedTo').value,
-//         dueDate: document.getElementById('Date').value,
-//         prio: document.getElementById('prio').value,
-//         subtasks: document.getElementById('subtasks').value
-//     }
-
-// }
 
 /**
- * It takes two parameters, a name and a color, and then it changes the innerHTML of a div to display
- * the name and color.
- * @param name - The name of the category
- * @param color - the class name of the color you want to use
+ * It takes two parameters, a name and a color, and then it saves the name and color in an object, and
+ * then it displays the name and color in the HTML.
+ * @param name - the name of the category
+ * @param color - #FF0000
  */
 function selectCategory(name, color) {
     closeSelection();
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
+        saveNewCategoryInObject(name, color);
         categoryList.innerHTML = `
         <p id="categoryName" class="textBox"></p>
         <div id="categoryColor" class="listContactInitials contactScale left"></div>
@@ -64,25 +57,43 @@ function selectCategory(name, color) {
     }
 }
 
-
-
-
-function addTitle() {
-    document.getElementById('input').value;
+/**
+ * This function takes two arguments, a name and a color, and assigns them to the task object's
+ * category and categoryColor properties.
+ * @param name - the name of the category
+ * @param color - the color of the category
+ */
+function saveNewCategoryInObject(name, color) {
+    task.categoryColor = color; 
+    task.category = name;
 }
 
-function addDescription() {
-    document.getElementById('description').value;
+
+/**
+ * The function takes the value of the input field with the id of 'title' and assigns it to the title
+ * property of the task object.
+ */
+function addTitle() {
+    let titleInput = document.getElementById('title').value;
+    task.title.toString(titleInput);
+    task.title = titleInput;
 }
 
 /**
- * It takes a color as an argument and pushes a new object to the categories array. The object has a
- * name and color property. The name property is the value of the categoryInput element. The color
- * property is the color argument.
- * 
- * The function then calls the selectCategory function with the name and color of the new category.
- * 
- * The function then calls the clearNewCategory function.
+ * The function takes the value of the input field with the id of 'description' and assigns it to the
+ * description property of the task object.
+ */
+function addDescription() {
+    let descriptionInput = document.getElementById('description').value;
+    task.title.toString(descriptionInput);
+    task.description = descriptionInput;
+}
+
+
+/**
+ * It adds a new category to the categories array, then renders the new category, clears the new
+ * category input, changes the selected color style, and removes the onclick attribute from the save
+ * button.
  * @param color - the color of the category
  */
 function selectNewCategory(color) {
@@ -98,7 +109,9 @@ function selectNewCategory(color) {
 }
 
 
-/* Rendering the categories to the page. */
+/**
+ * It renders the categories in the HTML.
+ */
 function renderNewCategory() {
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
@@ -112,38 +125,25 @@ function renderNewCategory() {
 }
 
 /**
- * When the user clicks on a color, the function will wait 100 milliseconds, then it will change the
- * onclick attribute of the saveNewCategory button to selectNewCategory(color).
- * @param color - The color that the user selected.
+ * It adds a class to the element that was clicked and removes the class from all other elements.
+ * @param color - The color of the category
+ * @param id - the id of the element that was clicked
  */
-function selectColor(id, color) {
-
-    setTimeout(() => {
-        let element = document.getElementById('newCategoryColor');
-        if (element.classList.contains('selected')) {
-            element.classList.remove('selected');
+function selectColor(color, id) {
+    for (let i = 1; i <= 6; i++) {
+        let element = 'newCategoryColor-' + i;
+        if (id == element) {
+            document.getElementById(id).classList.add('selected');
         } else {
-            element.classList.add('selected');
+            document.getElementById(element).classList.remove('selected');
         }
-        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${id, color})`);
+    }
+    setTimeout(() => {
+        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
     }, 100);
 }
 
-function changeSelectedColorStyle() {
 
-}
-
-
-
-
-
-function addNewContact() {
-    let assignedToInput = document.getElementById('assignedToInput').value;
-    if (assignedToInput) {
-        document.getElementById('assignedToInput').value = ``;
-        clearInviteNewContact();
-    }
-}
 
 /**
  * If the checkbox is checked, add the name to the assignedTo array, if it's unchecked, remove the name
@@ -160,23 +160,24 @@ function checkboxAssignedTo(checkboxId, nameId) {
         let index = task.assignedTo.indexOf(name);
         task.assignedTo.splice(index, 1);
     }
-    console.log(task.assignedTo);
 }
 
+
 /**
- * The function takes the value of the input field, pushes it to the array, renders the subtask, clears
- * the input field, and logs the array.
+ * The function takes the value of the input field, pushes it to the subtasks array, and then renders
+ * the subtask to the DOM.
  */
 function addSubtask() {
     let inputSubtask = document.getElementById('inputSubtask').value;
     task.subtasks.push(inputSubtask);
     renderSubtask(inputSubtask);
     document.getElementById('inputSubtask').value = ``;
-    console.log(task.subtasks);
 }
+
 /**
- * It takes the value of the input field and adds it to the HTML as a checkbox.
- * @param {*} taskInput - the value of the input field
+ * It takes the inputSubtask parameter and adds it to the HTML element with the id of
+ * addSubtaskElement.
+ * @param inputSubtask - the value of the input field
  */
 function renderSubtask(inputSubtask) {
     document.getElementById('addSubtaskElement').innerHTML += `
@@ -186,12 +187,12 @@ function renderSubtask(inputSubtask) {
     </div>`
 }
 
-function saveSubtaskInJson() {
-
-}
-
-
-/* Checking the id of the button that was clicked and then calling the appropriate function. */
+/**
+ * If the button's id is urgent, call the changeColorUrgent function, else if the button's id is
+ * medium, call the changeColorMedium function, else if the button's id is low, call the changeColorLow
+ * function.
+ * @param button - the button that was clicked
+ */
 function changePriority(button) {
     if (button.id == 'urgent') {
         changeColorUrgent(button);
@@ -200,44 +201,41 @@ function changePriority(button) {
     } else if (button.id == 'low') {
         changeColorLow(button);
     }
-        // document.getElementById(id + '-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    // task.prio = id;
-    // console.log(task.prio);
-    // document.getElementById(id).style.backgroundColor = color;
-    // setTimeout(() => {
-    //     document.getElementById(id).onclick = function () {resetBgColor(id, color)};
-    // }, 100);
+    task.prio = button.id;
+    console.log(task);
 }
 
+
 /**
- * It changes the background color of the button that was clicked, and then changes the onclick
- * attribute of the other buttons to a different function.
+ * It changes the background color of the button to red, resets the filter of the image, changes the
+ * filter of the image, and changes the onclick attribute of the other buttons.
  * @param button - the button that was clicked
  */
 function changeColorUrgent(button) {
     button.style.backgroundColor = '#FF3D00';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('urgent').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('urgent').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').style.backgroundColor = '#FFFFFF';
     document.getElementById('low').style.backgroundColor = '#FFFFFF';
 }
 
+
 /**
- * It changes the background color of the button to orange, and then changes the onclick attribute of
- * the other two buttons to a function that changes the priority of the task.
+ * When the user clicks on the button with the id of 'medium', the background color of the button will
+ * change to orange, the filter of the image with the id of 'medium-img' will change to a sepia filter,
+ * and the onclick attribute of the button with the id of 'medium' will change to a function that
+ * resets the color of the button to white, while the onclick attribute of the buttons with the id of
+ * 'urgent' and 'low' will change to a function that changes the color of the button to orange.
  * @param button - the button that was clicked
  */
 function changeColorMedium(button) {
     button.style.backgroundColor = '#FFA800';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('medium').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('medium').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
@@ -251,9 +249,9 @@ function changeColorMedium(button) {
  */
 function changeColorLow(button) {
     button.style.backgroundColor = '#8BE644';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('low').setAttribute('onclick', `resetBgColor(this)`);
+    resetFilterImgPriority();
+    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById('low').setAttribute('onclick', `resetColorPriority(this)`);
     document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
     document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
@@ -261,65 +259,49 @@ function changeColorLow(button) {
 }
 
 
-
-/* Checking the id of the button that was clicked and then calling the appropriate function to reset
-the background color. */
-function resetBgColor(button) {
-    if (button.id == 'urgent') {
-        resetColorUrgent (button);
-    } else if (button.id == 'medium') {
-        resetColorMedium (button);
-    } else if (button.id == 'low') {
-        resetColorLow(button);
-    }
-        // document.getElementById(id + '-img').style.filter = '';
-    // document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    // document.getElementById('low').style.backgroundColor = '#FFFFFF';
-    // task.prio = '';
-    // console.log(task.prio);
-    // document.getElementById(id).style.backgroundColor = '#FFFFFF';
-    // setTimeout(() => {
-    //     document.getElementById(id).onclick = function () {changePriority(id, color)};
-    // }, 100);
-
-}
-
 /**
- * When the user clicks the button, the button's background color changes to red, and the button's
- * onclick attribute is changed to a function that resets the button's background color to white.
+ * When the user clicks on a button, the button's background color changes to white, and the button's
+ * onclick attribute is changed to call the changePriority() function.
  * @param button - the button that was clicked
  */
-function resetColorUrgent(button) {
+function resetColorPriority(button) {
     button.style.backgroundColor = '#FFFFFF';
     setTimeout(() => {
     }, 200);
-    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
+    document.getElementById(button.id).setAttribute('onclick', `changePriority(this)`);
+    resetFilterImgPriority();
 }
 
 /**
- * When the user clicks on the button, the button's background color changes to white, and the button's
- * onclick attribute is set to the changePriority function.
- * @param button - the button that was clicked
+ * This function resets the filter property of the three images to 'none'.
  */
-function resetColorMedium(button) {
-    button.style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
+function resetFilterImgPriority() {
+    document.getElementById('urgent-img').style.filter = 'none';
+    document.getElementById('medium-img').style.filter = 'none';
+    document.getElementById('low-img').style.filter = 'none';
 }
 
+/// *****   date Functions  *****  ///
+
+
 /**
- * When the user clicks on the button, the button's background color changes to white, and the onclick
- * attribute of the button is set to the changePriority function.
- * @param button - the button that was clicked
+ * The function takes the value of the input field with the id of 'date' and assigns it to the variable
+ * 'date'. Then it converts the value of 'date' to a date object and assigns it to the variable 'date'.
+ * Then it assigns the value of 'date' to the property 'dueDate' of the object 'task'. Then it logs the
+ * value of 'task' to the console.
  */
-function resetColorLow(button) {
-    button.style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
+function addDate() {
+    let date = document.getElementById('date').value;
+    date = new Date(date);
+    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear();
+    date.toString(date);
+    task.dueDate = date;
+    console.log(task);
 }
+
+
+
+
 
 
 
@@ -338,11 +320,11 @@ function resetColorLow(button) {
 ///**      Selection Functions       **///
 
 
+
 /**
- * It removes the class 'd-none' from the element with the id 'list' and adds the class 'growIn' to the
- * same element. Then, after 200 milliseconds, it removes the class 'growIn' from the same element.
- * Finally, it changes the onclick attribute of the element with the id 'selectField' to
- * 'closeSelection()'.
+ * It removes the class 'd-none' from the list, renders a new category, adds the class 'growIn' to the
+ * list, removes the class 'growIn' from the list after 200ms, and changes the onclick attribute of the
+ * selectField to closeSelection().
  */
 function openSelection() {
     document.getElementById('list').classList.remove('d-none');
@@ -354,9 +336,10 @@ function openSelection() {
     document.getElementById('selectField').setAttribute('onclick', `closeSelection()`);
 }
 
+
 /**
- * It adds a class to the list element that makes it grow out, then after 200ms it adds a class that
- * makes it disappear and removes the class that makes it grow out.
+ * It adds a class to the list element, then after 100ms, it adds a class to hide the list element and
+ * removes the class that was added to make it grow out.
  */
 function closeSelection() {
     document.getElementById('list').classList.add('growOut');
@@ -400,10 +383,9 @@ function closeContactSelection() {
 
 ///**      Select Option Functions       **///
 
+
 /**
- * When the user clicks the button, the function will remove the class 'd-none' from the element with
- * the id 'newCategory' and the element with the id 'colorSelection' and add the class 'd-none' to the
- * element with the id 'selectField' and the element with the id 'list'.
+ * When the user clicks the button, the new category form appears and the other elements disappear.
  */
 function newCategory() {
     document.getElementById('newCategory').classList.remove('d-none');
@@ -413,10 +395,11 @@ function newCategory() {
 
 }
 
+
 /**
- * It removes the class 'd-none' from the element with the id 'selectField' and adds the class 'd-none'
- * to the element with the id 'newCategory' and the element with the id 'colorSelection'. It also sets
- * the onclick attribute of the element with the id 'selectField' to the function 'openSelection()'.
+ * It removes the class 'd-none' from the select field, clears the value of the input field, adds the
+ * class 'd-none' to the input field, adds the class 'd-none' to the color selection, and sets the
+ * onclick attribute of the select field to openSelection().
  */
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
@@ -431,7 +414,6 @@ function clearNewCategory() {
  * class of 'd-none' from the element with the id of 'inviteNewContact', and add the class of 'd-none'
  * to the elements with the ids of 'selectioContactField' and 'listContact'.
  */
-
 function inputNewContact() {
     document.getElementById('inviteNewContact').classList.remove('d-none');
     document.getElementById('selectioContactField').classList.add('d-none');
@@ -443,15 +425,32 @@ function inputNewContact() {
  * It removes the class 'd-none' from the element with the id 'selectioContactField' and adds the class
  * 'd-none' to the elements with the ids 'inviteNewContact' and 'listContact'. It also sets the onclick
  * attribute of the element with the id 'selectioContactField' to the function
- * 'openContactSelection()'.</code>
+ * 'openContactSelection()'
  * 
  * 
  * 
  * I'm not sure if this is the best way to do this, but it works.
  */
+
 function clearInviteNewContact() {
     document.getElementById('selectioContactField').classList.remove('d-none');
     document.getElementById('inviteNewContact').classList.add('d-none');
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
+
+// *******  Create Task Functions  *******  //
+
+/**
+ * It loads the tasks from the server, then it pushes the new task to the tasks array, then it saves
+ * the tasks array to the server.
+ */
+async function createTask() {
+   await loadTasksFromServer();
+   tasks = JSON.parse(await backend.getItem('tasks')) || [];
+   tasks.push(task);
+   await backend.setItem('tasks', JSON.stringify(tasks));
+   initMsgBox('New Task added to Board!');
+   console.log(tasks);
+}
+

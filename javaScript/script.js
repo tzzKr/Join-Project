@@ -1,39 +1,34 @@
-/**
-    * @description      : 
-    * @author           : Hosny, Gerhard, Yannik.
-    * @group            : 
-    * @created          : 27/10/2022 - 19:11:24
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 27/10/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
 setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
 
 let guest = [];
 
 
-
-
-
-
 //**signUp Functions **//
- /* A function that is used to include the header.html file into the index.html file. */
- async function addUser() {
+
+
+/**
+ * It takes the values from the input fields, adds them to the users array, then saves the users array
+ * to the browser's local storage.
+ */
+async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    users.push({ name: name.value, email: email.value, password: password.value});
-    await backend.setItem('users', JSON.stringify(users));
-    // Weiterleitung zu login Seite + Nachricht anzeigen: "Successful registration"
-    window.location.href = 'index.html?msg=Successful registration';
+    let existingUser = users.find( u => u.email == email.value );
+    if (existingUser) {
+       initMsgBox('User already existing!');
+    } else {
+        users.push({name: name.value, email: email.value, password: password.value, contacts: new Array()});
+        await backend.setItem('users', JSON.stringify(users));
+        window.location.href = 'index.html?msg=Successful registration';
+    }
 }
 
+
+
 /**
- * Checks if the URL have a msg (it gets one in the addUser function), if so initMsgBox get triggert with the msg
- * 
+ * If the URL contains a query string parameter named "msg", then call the function initMsgBox() and
+ * pass it the value of the "msg" parameter.
  */
 function checkRegistrationStatus() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -44,10 +39,11 @@ function checkRegistrationStatus() {
     
 }
 
+
 /**
- * It removes the class 'display-none' from the element with the id 'messageBox' and adds the class
- * 'growIn' to the same element. Then, after 200 milliseconds, it removes the class 'growIn' from the
- * same element.
+ * It removes the class 'd-none' from the element with the id 'msg-box' and adds the class 'growIn' to
+ * the same element. Then it removes the class 'growIn' from the element with the id 'messageBox' after
+ * 200 milliseconds.
  */
 function showSuccessfulMsg() {
     document.getElementById('msg-box').classList.remove('d-none');
@@ -57,20 +53,9 @@ function showSuccessfulMsg() {
     }, 200);
 }
 
-/* A comment. */
-/* A variable that is used to store the element with the id "msgBox" in it. */
-
-// const urlParams = new URLSearchParams(window.location.search);
-// const msg = urlParams.get('msg');
-// if(msg) {
-//    messageBox.innerHTML = msg
-// }
-
-
 
 /**
- * Checks from the sessionStorage if the user is logged in. If not redirect to index.html
- * 
+ * If the sessionUser key is not found in sessionStorage, redirect to the index.html page
  */
 function checkLoginStatus() {
     if (sessionStorage.getItem('sessionUser') == null){
@@ -78,10 +63,10 @@ function checkLoginStatus() {
     }
 }
 
+
 /**
- * Checks the username in the sessionStorage, when its Guest then Guest would be set in the profile-img and background color would be changed.
- * When there is a real name the name get sliced to the initials and get set in the profile-img.
- * 
+ * If the user is a guest, change the profile-init element to 'Guest' and change the background color
+ * of the openLogOutContainer element to #2A3647.
  */
 function getProfileInit() {
     if(getSessionUser() == 'Guest') {
@@ -97,10 +82,12 @@ function getProfileInit() {
     }
 }
 
+
 /**
-/* A function that is used to open the logout container. */
-
-
+ * It removes the class 'd-none' from the element with the id 'logOutContainer' and adds the class
+ * 'growIn' to the element with the id 'logOutContainer'. Then, it sets the onclick attribute of the
+ * element with the id 'openLogOutContainer' to the function 'closeLogOutContainer()'.
+ */
 function openLogOutContainer() {
     document.getElementById('logOutContainer').classList.remove('d-none');
     document.getElementById('logOutContainer').classList.add('growIn');
@@ -111,9 +98,11 @@ function openLogOutContainer() {
 
     document.getElementById('openLogOutContainer').setAttribute('onclick', `closeLogOutContainer()`);
 }
-/* A function that is used to close the logout container. */
+
 /**
- * 
+ * It adds a class to the element with the id of 'logOutContainer' that makes it invisible, then after
+ * 200 milliseconds, it removes the class that makes it invisible and adds a class that makes it
+ * visible.
  */
 function closeLogOutContainer() {
     // document.getElementById('logOutContainer').classList.add('d-none');
@@ -127,19 +116,21 @@ function closeLogOutContainer() {
 }
 
 // Message Box
+
 /**
- * Sets the message for the 'MsgBox' and triggers the opening function.
- * 
- * @param {string} msg - Message string that should displayed in the 'MsgBox' 
+ * The function takes a string as an argument and sets the innerHTML of the msgBox element to the
+ * string.
+ * @param msg - The message to be displayed in the message box.
  */
 function initMsgBox(msg) {
    document.getElementById('msgBox').innerHTML = `${msg}`;
    openMsgBox();
 }
+
 /**
- * It removes the class 'animationFadeOut', adds the class 'animationFadeIn' to the 'msgBox' and removes the class 'd-none'
- * after 3000ms the function 'closeMsgBox' is called.
- * 
+ * It removes the class 'animationFadeOut' from the element with the id 'msgBox'. It adds the class
+ * 'animationFadeIn' to the element with the id 'msgBox'. It removes the class 'd-none' from the
+ * element with the id 'msgBox'. It calls the function 'closeMsgBox' after 3 seconds.
  */
 function openMsgBox() {
     document.getElementById('msgBox').classList.remove('animationFadeOut');
@@ -148,27 +139,30 @@ function openMsgBox() {
     setTimeout(closeMsgBox, 3000);
 }
 
+
 /**
- * It removes the class 'animationFadeIn' and adds the class 'animationFadeOut' to the 'msgBox'.
- * 
+ * It removes the class 'animationFadeIn' from the element with the id 'msgBox' and adds the class
+ * 'animationFadeOut' to the same element.
  */
 function closeMsgBox() {
     document.getElementById('msgBox').classList.remove('animationFadeIn');
     document.getElementById('msgBox').classList.add('animationFadeOut');
 }
 
+
 /**
- * Download the users from the server, and if there are none, create an empty array.
+ * Download the users from the server, and if the download fails, use the users that are already stored
+ * in the browser.
  */
 async function init() {
     await downloadFromServer();
     users = JSON.parse(await backend.getItem('users')) || [];
 }
 
+
 /**
- * Get you the data of the actual session user from the sessionStorage in parsed form.
- * 
- * @returns session user object
+ * It gets the user from the session storage, parses it, and returns it.
+ * @returns The user object.
  */
 function getSessionUser() {
     let user = sessionStorage.getItem('sessionUser');
@@ -176,15 +170,21 @@ function getSessionUser() {
     return user; 
 }
 
+
 /**
- * Deletes the actual session user from the sessionStorage
- * 
+ * It removes the sessionUser from the sessionStorage.
  */
 function deleteSessionUser() {
     sessionStorage.removeItem('sessionUser');
 }
 
 //**Include Function */
+
+
+/**
+ * For each element with the attribute w3-include-html, fetch the file specified by the attribute, and
+ * if the fetch is successful, replace the element's innerHTML with the file's contents.
+ */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -200,10 +200,12 @@ async function includeHTML() {
     }
 }
 
+
 /**
- * Combins and returns the first letter and the first letter of the last word of the string in uppercase
- * 
- * @param {string} name - name string
+ * If the name contains a space, return the first letter of the first name and the first letter of the
+ * last name. Otherwise, return the first letter of the name.
+ * @param name - The name of the person you want to get the initials of.
+ * @returns The first letter of the first name and the first letter of the last name.
  */
 function getInitials(name) {
     let initials

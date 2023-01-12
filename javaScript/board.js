@@ -16,6 +16,20 @@ let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
 
+let task = {
+    id: "",
+    board: "",
+    category: "",
+    title: "",
+    description: "",
+    progress: 0,
+    progressNumber: 0,
+    assignedTo: new Array,
+    prio: "",
+    dueDate: "",
+    subtasks: new Array
+}
+
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];

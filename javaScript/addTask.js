@@ -1,7 +1,7 @@
 /** AddTask Functions **/
 let tasks;
 let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038FF'];
-
+let contacts;
 let task = {
     id: "",
     board: "todo",
@@ -24,16 +24,40 @@ let categories = [
     { name: "Development", color: "#8AA4FF" }
 ];
 
-let contacts = [
-    { name: 'Hosny Fahim', email: 'hosny@test.com' },
-    { name: 'Yannik Morjan', email: 'yannik@test.com' },
-    { name: 'Gerhard Baliet', email: 'gerhard@test.com' }
-];
-
-
 async function loadTasksFromServer() {
     await downloadFromServer();
     tasks = JSON.parse(await backend.getItem('tasks')) || [];
+}
+
+// *******  Create Task Functions  *******  //
+
+/**
+ * It loads the tasks from the server, then it pushes the new task to the tasks array, then it saves
+ * the tasks array to the server.
+ */
+async function createTask() {
+    await loadTasksFromServer();
+    tasks = JSON.parse(await backend.getItem('tasks')) || [];
+    tasks.push(task);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    initMsgBox('New Task added to Board!');
+    console.log(tasks);
+}
+
+
+/**
+ * Get the contacts for the current user from the server.
+ * @returns An array of contacts.
+ */
+async function getContacts() {
+    await downloadFromServer();
+    let users = JSON.parse(backend.getItem('users')) || [];
+    let userName = sessionStorage.getItem('sessionUser');
+    let user = users.find(u => u.name == JSON.parse(userName));
+    contacts = user.contacts;
+    renderContactsAssigndTo();
+    // renderColorSelection();
+    console.log(contacts);
 }
 
 
@@ -64,7 +88,7 @@ function selectCategory(name, color) {
  * @param color - the color of the category
  */
 function saveNewCategoryInObject(name, color) {
-    task.categoryColor = color; 
+    task.categoryColor = color;
     task.category = name;
 }
 
@@ -103,10 +127,12 @@ function selectNewCategory(color) {
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
         renderNewCategory();
         clearNewCategory();
-        changeSelectedColorStyle();
+        // changeSelectedColorStyle();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     }
 }
+
+////////// ***************************   Render Functions  *******************************  //////////////////
 
 
 /**
@@ -122,6 +148,44 @@ function renderNewCategory() {
         </div>`;
         document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;
     }
+}
+
+// function renderColorSelection() {
+//     document.getElementById('colorSelection').innerHTML = '';
+//     for (let i = 0; i < colorRange.length; i++) {
+//         document.getElementById('colorSelection').innerHTML = `
+//         <div onclick="selectColor('${colorRange[i]}', 'newCategoryColor-1')" class="listContactInitial bgVi"
+//           id="newCategoryColor-${i + 1}"></div>
+//         <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')" class="listContactInitial bgRd"`;
+        
+//     }
+// }
+
+function renderContactsAssigndTo() {
+    document.getElementById('listContact').innerHTML = ``;
+    for (let i = 0; i < contacts.length; i++) {
+        document.getElementById('listContact').innerHTML += `
+        <div class="options-2">
+            <p id='addedUser${i + 1}'>${contacts[i].name}</p>
+            <input id="checkboxAssignedTo${i + 1}"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="p-absolute"
+            type="checkbox">
+        </div>`;
+
+    }
+}
+
+/**
+ * It takes the inputSubtask parameter and adds it to the HTML element with the id of
+ * addSubtaskElement.
+ * @param inputSubtask - the value of the input field
+ */
+function renderSubtask(inputSubtask) {
+    document.getElementById('addSubtaskElement').innerHTML += `
+    <div class="checkbox">
+        <input class="p-absolute" type="checkbox">
+        <span>${inputSubtask}</span>
+    </div>`
 }
 
 /**
@@ -174,18 +238,6 @@ function addSubtask() {
     document.getElementById('inputSubtask').value = ``;
 }
 
-/**
- * It takes the inputSubtask parameter and adds it to the HTML element with the id of
- * addSubtaskElement.
- * @param inputSubtask - the value of the input field
- */
-function renderSubtask(inputSubtask) {
-    document.getElementById('addSubtaskElement').innerHTML += `
-    <div class="checkbox">
-        <input class="p-absolute" type="checkbox">
-        <span>${inputSubtask}</span>
-    </div>`
-}
 
 /**
  * If the button's id is urgent, call the changeColorUrgent function, else if the button's id is
@@ -281,7 +333,7 @@ function resetFilterImgPriority() {
     document.getElementById('low-img').style.filter = 'none';
 }
 
-/// *****   date Functions  *****  ///
+////////// ***************************   date Functions  *******************************  //////////////////
 
 
 /**
@@ -293,33 +345,14 @@ function resetFilterImgPriority() {
 function addDate() {
     let date = document.getElementById('date').value;
     date = new Date(date);
-    date = (date.getMonth()+1) + '.' + date.getDate() + '.' +  date.getFullYear();
+    date = (date.getMonth() + 1) + '.' + date.getDate() + '.' + date.getFullYear();
     date.toString(date);
     task.dueDate = date;
     console.log(task);
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///**      Selection Functions       **///
-
-
+////////// ***************************   Selection Functions  *******************************  //////////////////
 
 /**
  * It removes the class 'd-none' from the list, renders a new category, adds the class 'growIn' to the
@@ -439,18 +472,4 @@ function clearInviteNewContact() {
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
 
-// *******  Create Task Functions  *******  //
-
-/**
- * It loads the tasks from the server, then it pushes the new task to the tasks array, then it saves
- * the tasks array to the server.
- */
-async function createTask() {
-   await loadTasksFromServer();
-   tasks = JSON.parse(await backend.getItem('tasks')) || [];
-   tasks.push(task);
-   await backend.setItem('tasks', JSON.stringify(tasks));
-   initMsgBox('New Task added to Board!');
-   console.log(tasks);
-}
 

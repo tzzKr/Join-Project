@@ -16,7 +16,7 @@
 
 </head>
 
-<body onload="checkLoginStatus(), includeHTML()">
+<body onload="checkLoginStatus(), includeHTML(), getContacts()">
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
     <div class="parentContainer" id="bigContainer">
         <div class="headline h1AddTask">
@@ -31,7 +31,8 @@
                     </div>
                     <div class="container">
                         <h3>Description</h3>
-                        <textarea required placeholder="Enter a description" id="description" method="dialog" onchange="addDescription()"></textarea>
+                        <textarea required placeholder="Enter a description" id="description" method="dialog"
+                            onchange="addDescription()"></textarea>
                     </div>
                     <div class="container">
                         <h3>Category</h3>
@@ -42,18 +43,24 @@
                             <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
                         </div>
                         <div id="colorSelection" class="select-color d-none">
-                            <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')" class="listContactInitial bgVi"
-                                id="newCategoryColor-1"></div>
-                            <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')" class="listContactInitial bgRd"
-                                id="newCategoryColor-2"></div>
-                            <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')" class="listContactInitial bgLg"
-                                id="newCategoryColor-3"></div>
-                            <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')" class="listContactInitial bgOg"
-                                id="newCategoryColor-4"></div>
-                            <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')" class="listContactInitial bgRo"
-                                id="newCategoryColor-5"></div>
-                            <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')" class="listContactInitial bgBu"
-                                id="newCategoryColor-6"></div>
+                            <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')"
+                                class="listContactInitial bgVi" id="newCategoryColor-1">
+                            </div>
+                            <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')"
+                                class="listContactInitial bgRd" id="newCategoryColor-2">
+                            </div>
+                            <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')"
+                                class="listContactInitial bgLg" id="newCategoryColor-3">
+                            </div>
+                            <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')"
+                                class="listContactInitial bgOg" id="newCategoryColor-4">
+                            </div>
+                            <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')"
+                                class="listContactInitial bgRo" id="newCategoryColor-5">
+                            </div>
+                            <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')"
+                                class="listContactInitial bgBu" id="newCategoryColor-6">
+                            </div>
                         </div>
                         <div onclick="openSelection()" class="select-field" id="selectField">
                             <p class="textBox">Select task category</p>
@@ -80,26 +87,7 @@
                             <img src="img/arrow.png">
                         </div>
 
-                        <div id="listContact" class="list d-none">
-                            <div class="options-2">
-                                <p id="addedUser1">Gerhard Baliet</p>
-                                <input id="checkboxAssignedTo1"
-                                    onclick="checkboxAssignedTo('checkboxAssignedTo1', 'addedUser1')" class="p-absolute"
-                                    type="checkbox">
-                            </div>
-                            <div class="options-2">
-                                <p id="addedUser2">Hosny Fahim</p>
-                                <input id="checkboxAssignedTo2"
-                                    onclick="checkboxAssignedTo('checkboxAssignedTo2', 'addedUser2')" class="p-absolute"
-                                    type="checkbox">
-                            </div>
-                            <div class="options-2">
-                                <p id="addedUser3">Yannik Morjan</p>
-                                <input id="checkboxAssignedTo3"
-                                    onclick="checkboxAssignedTo('checkboxAssignedTo3', 'addedUser3')" class="p-absolute"
-                                    type="checkbox">
-                            </div>
-                        </div>
+                        <div id="listContact" class="list d-none"></div>
                     </div>
                 </div>
 
@@ -139,9 +127,10 @@
                     </div>
 
                     <div class="create-task-buttons">
-                        <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img src="img/clear.svg"></button>
+                        <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img
+                                src="img/clear.svg"></button>
                         <button type="submit" class="create-task-btn">Create Task <img
-                        src="img/addTask-right.svg"></button>
+                                src="img/addTask-right.svg"></button>
                     </div>
                 </div>
 

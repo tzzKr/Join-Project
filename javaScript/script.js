@@ -3,6 +3,8 @@ setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
 let guest = [];
 
 
+
+
 //**signUp Functions **//
 
 
@@ -23,7 +25,6 @@ async function addUser() {
         window.location.href = 'index.html?msg=Successful registration';
     }
 }
-
 
 
 /**
@@ -91,7 +92,6 @@ function getProfileInit() {
 function openLogOutContainer() {
     document.getElementById('logOutContainer').classList.remove('d-none');
     document.getElementById('logOutContainer').classList.add('growIn');
-
     setTimeout(() => {
         document.getElementById('logOutContainer').classList.remove('growIn');
     }, 200);
@@ -105,9 +105,7 @@ function openLogOutContainer() {
  * visible.
  */
 function closeLogOutContainer() {
-    // document.getElementById('logOutContainer').classList.add('d-none');
     document.getElementById('logOutContainer').classList.add('growOut');
-
     setTimeout(() => {
         document.getElementById('logOutContainer').classList.add('d-none');
         document.getElementById('logOutContainer').classList.remove('growOut');

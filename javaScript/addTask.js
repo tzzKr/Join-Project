@@ -17,16 +17,21 @@ let task = {
     subtasks: new Array
 }
 
-let categories = [
-    { name: "Sales", color: "#E200BE" },
-    { name: "Backoffice", color: "#2AD300" },
-    { name: "Design", color: "#FF8A00" },
-    { name: "Development", color: "#8AA4FF" }
-];
+let categories = [];
 
 async function loadTasksFromServer() {
     await downloadFromServer();
     tasks = JSON.parse(await backend.getItem('tasks')) || [];
+}
+
+async function getTaskCatrgories() {
+    await downloadFromServer();
+    categories = JSON.parse(backend.getItem('taskCategories')) || [];
+}
+
+async function saveTaskCategories() {
+    await backend.setItem('taskCategories', JSON.stringify(categories));
+    initMsgBox('New Category created!');
 }
 
 // *******  Create Task Functions  *******  //
@@ -41,9 +46,7 @@ async function createTask() {
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));
     initMsgBox('New Task added to Board!');
-    console.log(tasks);
 }
-
 
 /**
  * Get the contacts for the current user from the server.
@@ -57,7 +60,6 @@ async function getContacts() {
     contacts = user.contacts;
     renderContactsAssigndTo();
     // renderColorSelection();
-    console.log(contacts);
 }
 
 
@@ -124,6 +126,7 @@ function selectNewCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
     if (categoryInput) {
         categories.push({ name: categoryInput, color: color });
+        saveTaskCategories();
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
         renderNewCategory();
         clearNewCategory();
@@ -254,7 +257,6 @@ function changePriority(button) {
         changeColorLow(button);
     }
     task.prio = button.id;
-    console.log(task);
 }
 
 
@@ -348,7 +350,6 @@ function addDate() {
     date = (date.getMonth() + 1) + '.' + date.getDate() + '.' + date.getFullYear();
     date.toString(date);
     task.dueDate = date;
-    console.log(task);
 }
 
 
@@ -471,5 +472,3 @@ function clearInviteNewContact() {
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
-
-

@@ -327,9 +327,11 @@ textarea {
 .bg-btn-urgent {
     background-color: #FF3D00;
 }
+
 .bg-btn-medium {
     background-color: #FFA800;
 }
+
 .bg-btn-low {
     background-color: #8BE644;
 }
@@ -353,6 +355,7 @@ textarea {
     right: 3%;
     cursor: pointer;
 }
+
 .checkbox {
     display: flex;
     gap: 8px;
@@ -469,8 +472,8 @@ textarea {
 }
 
 @media(max-width: 1180px) {
-    .prio-buttons button {
-        width: 127px;
+    .prio-btns {
+        width: 107px;
     }
 
     .container input {
@@ -495,8 +498,8 @@ textarea {
 }
 
 @media(max-width: 1080px) {
-    .prio-buttons button {
-        width: 113px;
+    .prio-btns {
+        width: 94px;
     }
 
     .container input {
@@ -530,9 +533,58 @@ textarea {
         flex-direction: column;
     }
 
-    .create-task-buttons{
+    .parentContainer {
+        margin-left: calc(300px + 20px) !important;
+    }
+
+    .create-task-buttons {
         position: unset;
         margin-top: 12%;
         margin-bottom: 12%;
+    }
+}
+
+@media(max-width: 760px) {
+    .addTask {
+        display: flex;
+        align-items: center;
+    }
+
+    .parentContainer {
+        margin-left: unset !important;
+    }
+
+    .headline {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .headline-img {
+        display: none !important;
+    }
+
+    .create-task-btn {
+        position: fixed;
+        z-index: 999;
+        top: 12px;
+        right: 12px;
+        height: 50px;
+        width: 140px;
+        font-size: 14px;
+
+    }
+
+    .clear-btn {
+        position: fixed;
+        z-index: 999;
+        top: 12px;
+        right: 160px;
+        width: 120px;
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .main-container-addTask {
+
     }
 }

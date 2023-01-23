@@ -10,7 +10,8 @@
 .addTask {
     display: flex;
     height: 100%;
-    gap: 80px;
+    justify-content: space-between;
+    max-width: 1300px;
 }
 
 .columnLeft {
@@ -19,7 +20,6 @@
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: calc(50% - 64px);
 }
 
 .input-addTask {
@@ -269,12 +269,8 @@ textarea {
 
 
 .middleLine {
-    position: absolute;
     width: 0px;
     height: 550px;
-    left: 40%;
-    top: 40px;
-    /* Style */
     border: 1px solid #D1D1D1;
 }
 
@@ -284,7 +280,6 @@ textarea {
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: calc(50% - 64px);
 }
 
 #date {
@@ -547,7 +542,8 @@ textarea {
 @media(max-width: 760px) {
     .addTask {
         display: flex;
-        align-items: center;
+        margin: auto;
+        width: fit-content;
     }
 
     .parentContainer {

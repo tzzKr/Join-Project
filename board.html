@@ -15,11 +15,12 @@
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/board.js"></script>
     <script src="./javaScript/navbar.js"></script>
+    <script src="./javaScript/templates.js"></script>
+    <script src="./javaScript/addTask.js"></script>
 </head>
 
 <body onload="checkLoginStatus(), includeHTML(), loadTasks()">
     <header w3-include-html="templates/desktop_template.html"></header>
-
 
 
     <div id="taskInfoContainer" class="taskInfoContainer d-none">
@@ -102,6 +103,11 @@
 
 
         </div>
+
+        <div id="editContainer" class="editBg">
+        
+        </div>
+        
 
     </div>
 </body>

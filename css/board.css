@@ -133,6 +133,7 @@ h2 {
 }
 
 .taskInfoBg {
+  position: relative;
   height: 70vh;
   min-width: 500px;
   width: 30vw;
@@ -222,6 +223,40 @@ h2 {
 
 .header {
   z-index: 99999999999 !important;
+}
+.editBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #29ABE2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editBtnImg {
+  filter: invert(0);
+  height: 48px;
+  width: 48px;
+}
+.deleteTaskBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 30px;
+  margin-right: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #c5000d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Board content  */
@@ -432,4 +467,29 @@ h2 {
 
 .infoPrioHigh img {
   filter: brightness(200);
+}
+
+/* infoEdit */
+
+.editInfo {
+  height: 700px;
+  width: 1240px;
+  background-color: white;
+  border-radius: 33px;
+  
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-task-buttons {
+  margin-top: 300px !important;
+}
+.editBg {
+ height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
 }

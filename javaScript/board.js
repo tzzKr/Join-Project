@@ -5,19 +5,7 @@ let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
 
-let task = {
-    id: "",
-    board: "",
-    category: "",
-    title: "",
-    description: "",
-    progress: 0,
-    progressNumber: 0,
-    assignedTo: new Array,
-    prio: "",
-    dueDate: "",
-    subtasks: new Array
-}
+
 
 async function loadTasks() {
     await downloadFromServer();
@@ -51,6 +39,7 @@ function renderTodos(tasks) {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         checkProgress(tasks[i]);
+        tasks[i]['id'] = i;
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
     
 
@@ -58,71 +47,15 @@ function renderTodos(tasks) {
     
 }
 
-/**
- * Generates HTML script
- * @param {object} element all task informations
- * @returns board task HTML elements
- */
-function generateTaskHTML(i) {
-
-    
-    return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
-    <div class="categoryTag tag${filterdTasks[i]['category']}"> ${filterdTasks[i]['category']} </div>
-    <div>
-        <h3>${filterdTasks[i]['title']}</h3>
-        <span class="taskDesc">${filterdTasks[i]['description']}</span>
-    </div>
-    <div class="progressContainer">
-        <div class="progressBar">
-            <div class="progressLine" style="width: ${filterdTasks[i]['progress']}%">
-
-            </div>
-        </div>
-        <p>${filterdTasks[i]['progressNumber']}/3 Done</p>
-    </div>
-    <div class="user_urgency">
-        <div class="assignedTo">
-            <div class="assignedUser">
-                HF
-            </div>
-            <div class="assignedUser">
-                YM
-            </div>
-            <div class="assignedUser">
-                GB
-            </div>
-        </div>
-        <div class="urgency">
-            <img src="img/prio_${filterdTasks[i]['prio']}.svg" alt="${filterdTasks[i]['prio']}"> 
-        </div>
-    </div>`
-}
 
 function openTaskInfo(i) {
     let infoContainer =  document.getElementById('taskInfoContainer');
     infoContainer.classList.remove('d-none');
-    infoContainer.innerHTML = generateTaskInfoHTML(filterdTasks[i]);
+    infoContainer.innerHTML = generateTaskInfoHTML(i);
     document.getElementById('backgroundCloser').classList.remove('d-none');
-    console.log(filterdTasks[i])
 }
 
-function generateTaskInfoHTML(element) {
-    return /*html*/ `<div class="taskInfoBg">
-    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
-    
-    <div> <b class="infoTitle">${element['title']}</b> </div>
-    <div> <span class="infoDesc">${element['description']}</span>
-    </div>
-    <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
-    <div class="priorityInfo"> <b class="infoDesc">Priority:</b> <div class="urgencyTagInfo"><p>${element['prio']}</p> <img style="height: 20px;" src="img/prio_high.svg" alt=""></div></div>
-    <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
-    <div class="assingedUserInfoContainer">
-        <div class="assingedUserInfo">
-            <div class="assignedUserImg">GB</div> <span>Max Mustermann</span>
-        </div>
-    </div>
-</div>`
-}
+
 
 function closeMoreInfo() {
     let infoContainer =  document.getElementById('taskInfoContainer');
@@ -189,4 +122,15 @@ function checkProgress(element) {
 
     }
 
+}
+
+function openEditTool(i) {
+
+document.getElementById('editContainer').innerHTML = generateEditBoardTask(i);
+
+
+
+    // document.getElementById('titleInfo').innerHTML = `
+    // <input class="input-addTask" id="titleChange" value="${filterdTasks[i]['title']}" onchange="">
+    // `
 }

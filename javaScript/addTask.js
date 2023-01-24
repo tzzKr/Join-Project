@@ -164,7 +164,6 @@ function renderContactsAssigndTo() {
               onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="p-absolute"
             type="checkbox">
         </div>`;
-
     }
 }
 

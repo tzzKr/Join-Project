@@ -363,7 +363,6 @@ textarea {
     align-items: center;
     padding: 0px;
     gap: 25px;
-    position: fixed;
     margin-left: 10%;
     margin-top: 21%;
     top: 43%;
@@ -396,7 +395,7 @@ textarea {
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 177px;
+    width: fit-content;
     height: 61px;
     background: #2A3647;
     border-radius: 10px;
@@ -580,7 +579,4 @@ textarea {
         font-size: 14px;
     }
 
-    .main-container-addTask {
-
-    }
 }

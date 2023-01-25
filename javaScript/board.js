@@ -4,14 +4,28 @@
 let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
+let categoriesBoard = [];
 
 
+async function getTaskCatrgories() {
+    await downloadFromServer();
+    categoriesBoard = JSON.parse(backend.getItem('taskCategories')) || [];
+}
+
+async function saveTaskCategories() {
+    await backend.setItem('taskCategories', JSON.stringify(categoriesBoard));
+    initMsgBox('New Category created!');
+}
 
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
+    for (let i = 0; i < boardTasks.length; i++) {
+        boardTasks[i]['id'] = i;
+    }
     filterdTasks = boardTasks;
     renderTodos(filterdTasks);
+
 }
 
 // HALLO
@@ -39,35 +53,36 @@ function renderTodos(tasks) {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         checkProgress(tasks[i]);
-        tasks[i]['id'] = i;
+
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
-    
+        renderAssingedUser(i);
 
     }
-    
+
 }
 
 
 function openTaskInfo(i) {
-    let infoContainer =  document.getElementById('taskInfoContainer');
+    let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.remove('d-none');
     infoContainer.innerHTML = generateTaskInfoHTML(i);
     document.getElementById('backgroundCloser').classList.remove('d-none');
+    renderAssingedUserInfo(i);
 }
 
 
 
 function closeMoreInfo() {
-    let infoContainer =  document.getElementById('taskInfoContainer');
+    let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.add('d-none');
     document.getElementById('backgroundCloser').classList.add('d-none');
-    
+
 }
 
 
 function startDragging(id) {
     currentDraggedElement = id;
-    
+
 }
 
 function allowDrop(ev) {
@@ -90,7 +105,7 @@ function showDragAreas() {
     document.getElementById('inProgress').classList.add('dragBackground');
     document.getElementById('testing').classList.add('dragBackground');
     document.getElementById('done').classList.add('dragBackground');
-    
+
 }
 function removeDragAreas() {
     document.getElementById('todo').classList.remove('dragBackground');
@@ -100,8 +115,8 @@ function removeDragAreas() {
 }
 
 function checkProgress(element) {
+
     
-    console.log(element['board'])
     if (element['board'] == 'todo') {
         element['progress'] = 0;
         element['progressNumber'] = 0;
@@ -126,11 +141,75 @@ function checkProgress(element) {
 
 function openEditTool(i) {
 
-document.getElementById('editContainer').innerHTML = generateEditBoardTask(i);
+
+    let task = boardTasks.find(t => t.id == filterdTasks[i].id);
+    let index = boardTasks.indexOf(task);
+    document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
+    renderNewCategoryBoard();
+    selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
+
+
+    document.getElementById('moreInfoBg').classList.remove('d-none')
+    document.getElementById('taskInfoContainer').classList.add('d-none')
+    document.getElementById('backgroundCloser').classList.add('d-none')
+
+
+}
+
+function closeEditTool(i) {
+    document.getElementById('moreInfoBg').classList.add('d-none')
+    document.getElementById('editInfo').classList.add('d-none')
+
+}
+
+function renderNewCategoryBoard() {
+    document.getElementById('mainCategoriesBoard').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategoriesBoard').innerHTML += `
+        <div onclick="selectCategory('${categories[i].name}', '${categories[i].color}')" class="options">
+            <p>${categories[i].name}</p>
+            <div id="categoryColorDivBoard${i}" class="listContactInitials contactScale left"></div>
+        </div>`;
+        document.getElementById(`categoryColorDivBoard${i}`).style.backgroundColor = categories[i].color;
+    }
+}
+
+function renderAssingedUserInfo(i) {
+    document.getElementById('assignedUserInfo').innerHTML = '';
+
+    for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
+
+        document.getElementById('assignedUserInfo').innerHTML += /*html*/`
+        <div>
+            <div class="assignedUserImg">
+            ${getInitials(boardTasks[i].assignedTo[y])}
+             </div>
+            <p>${boardTasks[i].assignedTo[y]}</p>
+    </div>
+        
+        `
+    }
+}
 
 
 
-    // document.getElementById('titleInfo').innerHTML = `
-    // <input class="input-addTask" id="titleChange" value="${filterdTasks[i]['title']}" onchange="">
-    // `
+function renderAssingedUser(i) {
+
+    for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
+
+        if (y == 2 && boardTasks[i].assignedTo.length > 3) {
+            document.getElementById('assignedUser' + i).innerHTML += /*html*/`
+            <div class="assignedUser">
+                +${boardTasks[i].assignedTo.length - 2}
+                    </div>`
+                    break
+        } 
+
+        
+            document.getElementById('assignedUser' + i).innerHTML += /*html*/`
+
+            <div class="assignedUser">
+                ${getInitials(boardTasks[i].assignedTo[y])}
+                    </div>`
+    }  
 }

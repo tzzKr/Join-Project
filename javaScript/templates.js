@@ -10,8 +10,8 @@ function generateTaskInfoHTML(i) {
     <div class="priorityInfo"> <b class="infoDesc">Priority:</b> <div class="urgencyTagInfo"><p>${element['prio']}</p> <img style="height: 20px;" src="img/prio_high.svg" alt=""></div></div>
     <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
     <div class="assingedUserInfoContainer">
-        <div class="assingedUserInfo">
-            <div class="assignedUserImg">GB</div> <span>Max Mustermann</span>
+        <div id="assignedUserInfo" class="assingedUserInfo">
+            <div  class="assignedUserImg">GB</div> <span>Max Mustermann</span>
         </div>
     </div>
 <div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""  ></div>
@@ -45,16 +45,8 @@ function generateTaskHTML(i) {
         <p>${filterdTasks[i]['progressNumber']}/3 Done</p>
     </div>
     <div class="user_urgency">
-        <div class="assignedTo">
-            <div class="assignedUser">
-                HF
-            </div>
-            <div class="assignedUser">
-                YM
-            </div>
-            <div class="assignedUser">
-                GB
-            </div>
+            <div id='assignedUser${i}' class="assignedTo">
+            
         </div>
         <div class="urgency">
             <img src="img/prio_${filterdTasks[i]['prio']}.svg" alt="${filterdTasks[i]['prio']}"> 
@@ -65,18 +57,18 @@ function generateTaskHTML(i) {
 
 function generateEditBoardTask(i) {
     return /*html*/ `
-     <div class="editInfo">
+     <div id="editInfo" class="editInfo">
+
             <div id="main-container-addTask" class="main-container-addTask">
-                <form onsubmit="createTask()" action="" class="addTask" id="add-new-task" method="dialog">
+                <form action="" class="addTask" id="add-new-task" method="dialog">
                     <div class="columnLeft">
                         <div class="container">
                             <h3>Title</h3>
-                            <input class="input-addTask" required placeholder="Add Title" id="title" onchange="addTitle()">
+                            <input class="input-addTask" required placeholder="Add Title" id="title" value="${filterdTasks[i]['title']}">
                         </div>
                         <div class="container">
                             <h3>Description</h3>
-                            <textarea required placeholder="Enter a description" id="description" method="dialog"
-                                onchange="addDescription()"></textarea>
+                            <textarea required  placeholder="Enter a description" id="description" method="dialog" >${filterdTasks[i]['description']}</textarea>
                         </div>
                         <div class="container">
                             <h3>Category</h3>
@@ -107,25 +99,25 @@ function generateEditBoardTask(i) {
                                 </div>
                             </div>
                             <div onclick="openSelection()" class="select-field" id="selectField">
-                                <p class="textBox">Select task category</p>
+                                <p class="textBox">${filterdTasks[i]['category']}</p>
                                 <img src="img/arrow.png">
+                               
+                                 
+
+
                             </div>
     
                             <div id="list" class="list d-none">
                                 <div onclick="newCategory()" class="options">
                                     <p id="selectText">New category</p>
                                 </div>
-                                <div id="mainCategories"></div>
+                                <div id="mainCategoriesBoard"></div>
     
                             </div>
                         </div>
                         <div class="container">
                             <h3>Assigned to</h3>
-                            <div id="selectContact" class="select-color d-none">
-                                <div id="contactCircle" class=" bgVi"></div>
-                                <div id="contactCircle" class="listContact bgRd"></div>
-                                <div id="contactCircle" class="listContact bgLg"></div>
-                            </div>
+                          
                             <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
                                 <p>Select contacts to assign</p>
                                 <img src="img/arrow.png">
@@ -138,9 +130,10 @@ function generateEditBoardTask(i) {
                     <div class="middleLine"></div>
     
                     <div class="columnRight">
+                        <div>
                         <div class="container">
                             <h3>Due date</h3>
-                            <input onchange="addDate()" class="input-addTask" type="date" id="date">
+                            <input value="${filterdTasks[i]['dueDate']}" class="input-addTask" type="date" id="date">
                         </div>
                         <div class="prio">
                             <h3>Prio</h3>
@@ -169,11 +162,13 @@ function generateEditBoardTask(i) {
                         </div>
                         <div id="addSubtaskElement">
                         </div>
+                        </div>
+                        
     
                         <div class="create-task-buttons">
-                            <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img
+                            <button type="reset" onclick="closeEditTool()" class="clear-btn">Cancel<img
                                     src="img/clear.svg"></button>
-                            <button type="submit" class="create-task-btn">Create Task <img
+                            <button type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
                         </div>
                     </div>
@@ -182,5 +177,7 @@ function generateEditBoardTask(i) {
                 </form>
             </div>
             <dialog id="msgBox" class="msgBox d-none"></dialog>
+        
+
         </div>`
 }

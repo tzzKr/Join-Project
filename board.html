@@ -19,7 +19,7 @@
     <script src="./javaScript/addTask.js"></script>
 </head>
 
-<body onload="checkLoginStatus(), includeHTML(), loadTasks()">
+<body onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories()">
     <header w3-include-html="templates/desktop_template.html"></header>
 
 
@@ -108,8 +108,10 @@
         
         </div>
         
+        
 
     </div>
+    <div id="moreInfoBg" class="moreInfoBg backgroundBlur d-none"></div>
 </body>
 
 </html>

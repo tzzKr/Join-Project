@@ -472,6 +472,7 @@
 
     .content {
         margin-left: 0;
+        display: none;
     }
 
     .contactOverlay {

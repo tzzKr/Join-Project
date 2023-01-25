@@ -1,5 +1,3 @@
-
-
 /**
  * It takes the email and password from the login form, checks if the user exists in the users array,
  * if it does, it sets the actualUser variable to the user's name, stringifies it and sets it to the
@@ -26,7 +24,7 @@ async function login() {
  * string 'Guest' and then redirect the user to the summary.html page.
  */
 function guestLogin() {
-    actualUser = 'Guest';
+    let actualUser = 'Guest';
     actualUser = JSON.stringify(actualUser);
     sessionStorage.setItem('sessionUser', actualUser);
     window.location.href = 'summary.html';

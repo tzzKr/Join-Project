@@ -336,3 +336,10 @@ input {
         height: 63vh;
     }
 }
+
+/* background blur */
+
+.backgroundBlur {
+    background-color: #38383860;
+  backdrop-filter: blur(5px);
+}

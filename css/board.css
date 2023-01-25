@@ -133,6 +133,7 @@ h2 {
 }
 
 .taskInfoBg {
+  position: relative;
   height: 70vh;
   min-width: 500px;
   width: 30vw;
@@ -216,12 +217,40 @@ h2 {
   column-gap: 30px;
 }
 
-.header-line {
-  z-index: 999999999 !important;
+
+.editBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #29ABE2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header {
-  z-index: 99999999999 !important;
+.editBtnImg {
+  filter: invert(0);
+  height: 48px;
+  width: 48px;
+}
+.deleteTaskBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 30px;
+  margin-right: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #c5000d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Board content  */
@@ -270,7 +299,7 @@ h2 {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9;
   background-color: #F5F5F5;
 
 }
@@ -433,3 +462,41 @@ h2 {
 .infoPrioHigh img {
   filter: brightness(200);
 }
+
+/* infoEdit */
+
+.editInfo {
+  height: fit-content;
+  width: 1240px;
+  background-color: white;
+  border-radius: 33px;
+  
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-task-buttons {
+  margin-top: 100px !important;
+  margin-left: 100px !important;
+}
+.main-container-addTask {
+  padding: 50px 0px;
+}
+.editBg {
+ height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+.moreInfoBg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+

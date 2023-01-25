@@ -10,7 +10,8 @@
 .addTask {
     display: flex;
     height: 100%;
-    gap: 80px;
+    justify-content: space-between;
+    max-width: 1300px;
 }
 
 .columnLeft {
@@ -19,7 +20,6 @@
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: calc(50% - 64px);
 }
 
 .input-addTask {
@@ -269,12 +269,8 @@ textarea {
 
 
 .middleLine {
-    position: absolute;
     width: 0px;
     height: 550px;
-    left: 40%;
-    top: 40px;
-    /* Style */
     border: 1px solid #D1D1D1;
 }
 
@@ -284,7 +280,6 @@ textarea {
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: calc(50% - 64px);
 }
 
 #date {
@@ -327,9 +322,11 @@ textarea {
 .bg-btn-urgent {
     background-color: #FF3D00;
 }
+
 .bg-btn-medium {
     background-color: #FFA800;
 }
+
 .bg-btn-low {
     background-color: #8BE644;
 }
@@ -353,6 +350,7 @@ textarea {
     right: 3%;
     cursor: pointer;
 }
+
 .checkbox {
     display: flex;
     gap: 8px;
@@ -365,7 +363,6 @@ textarea {
     align-items: center;
     padding: 0px;
     gap: 25px;
-    position: fixed;
     margin-left: 10%;
     margin-top: 21%;
     top: 43%;
@@ -398,7 +395,7 @@ textarea {
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 177px;
+    width: fit-content;
     height: 61px;
     background: #2A3647;
     border-radius: 10px;
@@ -469,8 +466,8 @@ textarea {
 }
 
 @media(max-width: 1180px) {
-    .prio-buttons button {
-        width: 127px;
+    .prio-btns {
+        width: 107px;
     }
 
     .container input {
@@ -495,8 +492,8 @@ textarea {
 }
 
 @media(max-width: 1080px) {
-    .prio-buttons button {
-        width: 113px;
+    .prio-btns {
+        width: 94px;
     }
 
     .container input {
@@ -530,9 +527,56 @@ textarea {
         flex-direction: column;
     }
 
-    .create-task-buttons{
+    .parentContainer {
+        margin-left: calc(300px + 20px) !important;
+    }
+
+    .create-task-buttons {
         position: unset;
         margin-top: 12%;
         margin-bottom: 12%;
     }
+}
+
+@media(max-width: 760px) {
+    .addTask {
+        display: flex;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .parentContainer {
+        margin-left: unset !important;
+    }
+
+    .headline {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .headline-img {
+        display: none !important;
+    }
+
+    .create-task-btn {
+        position: fixed;
+        z-index: 999;
+        top: 12px;
+        right: 12px;
+        height: 50px;
+        width: 140px;
+        font-size: 14px;
+
+    }
+
+    .clear-btn {
+        position: fixed;
+        z-index: 999;
+        top: 12px;
+        right: 160px;
+        width: 120px;
+        height: 50px;
+        font-size: 14px;
+    }
+
 }

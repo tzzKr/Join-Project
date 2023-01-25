@@ -59,6 +59,7 @@ async function getContacts() {
     let user = users.find(u => u.name == JSON.parse(userName));
     contacts = user.contacts;
     renderContactsAssigndTo();
+    console.log(contacts);
     // renderColorSelection();
 }
 
@@ -130,7 +131,6 @@ function selectNewCategory(color) {
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
         renderNewCategory();
         clearNewCategory();
-        // changeSelectedColorStyle();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     }
 }
@@ -153,16 +153,6 @@ function renderNewCategory() {
     }
 }
 
-// function renderColorSelection() {
-//     document.getElementById('colorSelection').innerHTML = '';
-//     for (let i = 0; i < colorRange.length; i++) {
-//         document.getElementById('colorSelection').innerHTML = `
-//         <div onclick="selectColor('${colorRange[i]}', 'newCategoryColor-1')" class="listContactInitial bgVi"
-//           id="newCategoryColor-${i + 1}"></div>
-//         <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')" class="listContactInitial bgRd"`;
-        
-//     }
-// }
 
 function renderContactsAssigndTo() {
     document.getElementById('listContact').innerHTML = ``;
@@ -174,7 +164,6 @@ function renderContactsAssigndTo() {
               onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="p-absolute"
             type="checkbox">
         </div>`;
-
     }
 }
 

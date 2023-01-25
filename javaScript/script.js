@@ -199,26 +199,6 @@ async function includeHTML() {
     }
 }
 
-/**
- * Gets the current path, then undo the onclick function and styles the background in the navbar depending to the current path.
- * 
- */
-function checkCurrentPage() {
-    const pathname = window.location.pathname;
-    if(pathname == '/contacts.html') {
-        document.getElementById('hover-active4').setAttribute('onClick', '');
-        document.getElementById('hover-active4').classList.add('navbar-active');
-    }else if(pathname == '/addTask.html') {
-        document.getElementById('hover-active3').setAttribute('onClick', '');
-        document.getElementById('hover-active3').classList.add('navbar-active');
-    }else if(pathname == '/board.html') {
-        document.getElementById('hover-active2').setAttribute('onClick', '');
-        document.getElementById('hover-active2').classList.add('navbar-active');
-    }else if(pathname == '/summary.html') {
-        document.getElementById('hover-active1').setAttribute('onClick', '');
-        document.getElementById('hover-active1').classList.add('navbar-active');
-    }
-}
 
 /**
  * If the name contains a space, return the first letter of the first name and the first letter of the

@@ -19,16 +19,27 @@ let task = {
 
 let categories = [];
 
+/**
+ * Load the tasks from the server, and if there are none, set the tasks to an empty array.
+ */
 async function loadTasksFromServer() {
     await downloadFromServer();
     tasks = JSON.parse(await backend.getItem('tasks')) || [];
 }
 
+/**
+ * Get the task categories from the server, and if there are none, set the categories to an empty
+ * array.
+ */
 async function getTaskCatrgories() {
     await downloadFromServer();
     categories = JSON.parse(backend.getItem('taskCategories')) || [];
 }
 
+/**
+ * This function saves the categories array to the local storage, and then calls the initMsgBox
+ * function to display a message to the user.
+ */
 async function saveTaskCategories() {
     await backend.setItem('taskCategories', JSON.stringify(categories));
     initMsgBox('New Category created!');

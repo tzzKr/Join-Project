@@ -111,6 +111,8 @@ body {
     height: 229px;
     margin-top: 40px;
     box-sizing: border-box;
+    color: #D8D8D8;
+    text-align: left;
 }
 
 .navbar img {
@@ -136,20 +138,11 @@ body {
 .navbar div:hover {
     transition: all 100ms ease-in-out;
     background-color: #091931;
+    color: white;
 }
 
 .navbar-active {
     background-color: #091931;
-}
-
-.navbar a {
-    color: #D8D8D8;
-    text-align: left;
-}
-
-.navbar a:hover {
-    color: white;
-    transition: all 225ms ease-in-out;
 }
 
 .headerTop-img {

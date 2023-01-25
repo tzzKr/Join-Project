@@ -461,7 +461,7 @@ textarea {
 
 @media(max-width: 1220px) {
     .main-container-addTask {
-        width: calc(100% - 10px);
+        width: 100%;
     }
 }
 
@@ -579,4 +579,58 @@ textarea {
         font-size: 14px;
     }
 
+}
+
+@media(max-width: 440px) {
+    .clear-btn {
+        top: 14px !important;
+        width: 80px;
+        height: 47px;
+        gap: 0;
+
+    }
+}
+
+@media(max-width: 390px) {
+    .container input {
+        width: 340px;
+    }
+    textarea {
+        width: 340px;
+    }
+    .select-field {
+        width: 340px;
+    }
+    .list {
+        width: 340px;
+    }
+    .prio-buttons {
+        flex-direction: column;
+        width: 330px;
+    }
+    .prio-btns {
+        width: 320px;
+    }
+}
+
+@media(max-width: 370px) {
+    .container input {
+        width: 320px;
+    }
+    textarea {
+        width: 320px;
+    }
+    .select-field {
+        width: 320px;
+    }
+    .list {
+        width: 320px;
+    }
+    .prio-buttons {
+        flex-direction: column;
+        width: 330px;
+    }
+    .prio-btns {
+        width: 300px;
+    }
 }

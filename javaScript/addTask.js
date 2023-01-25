@@ -161,9 +161,10 @@ function renderContactsAssigndTo() {
         <div class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
             <input id="checkboxAssignedTo${i + 1}"
-              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="p-absolute"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="checkbox"
             type="checkbox">
         </div>`;
+
     }
 }
 

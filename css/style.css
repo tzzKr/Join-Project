@@ -288,6 +288,10 @@ input {
         margin-left: 16px;
         margin-right: 16px;
     }
+
+    .headline h1 {
+        font-size: 50px;
+    }
 }
 
 @media (max-height: 610px) {
@@ -319,6 +323,10 @@ input {
     }
     .text span {
         font-size: 14px;
+    }
+    .msgBox {
+        width: 300px;
+        font-size: 16px;
     }
 }
 

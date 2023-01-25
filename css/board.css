@@ -217,13 +217,7 @@ h2 {
   column-gap: 30px;
 }
 
-.header-line {
-  z-index: 999999999 !important;
-}
 
-.header {
-  z-index: 99999999999 !important;
-}
 .editBtn {
   position: absolute;
   bottom: 0;
@@ -305,7 +299,7 @@ h2 {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9;
   background-color: #F5F5F5;
 
 }
@@ -472,24 +466,37 @@ h2 {
 /* infoEdit */
 
 .editInfo {
-  height: 700px;
+  height: fit-content;
   width: 1240px;
   background-color: white;
   border-radius: 33px;
   
-  z-index: 999;
+  z-index: 11;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .create-task-buttons {
-  margin-top: 300px !important;
+  margin-top: 100px !important;
+  margin-left: 100px !important;
+}
+.main-container-addTask {
+  padding: 50px 0px;
 }
 .editBg {
  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 9999;
 
 }
+.moreInfoBg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+

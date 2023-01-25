@@ -65,18 +65,18 @@ function generateTaskHTML(i) {
 
 function generateEditBoardTask(i) {
     return /*html*/ `
-     <div class="editInfo">
+     <div id="editInfo" class="editInfo">
+
             <div id="main-container-addTask" class="main-container-addTask">
-                <form onsubmit="createTask()" action="" class="addTask" id="add-new-task" method="dialog">
+                <form action="" class="addTask" id="add-new-task" method="dialog">
                     <div class="columnLeft">
                         <div class="container">
                             <h3>Title</h3>
-                            <input class="input-addTask" required placeholder="Add Title" id="title" onchange="addTitle()">
+                            <input class="input-addTask" required placeholder="Add Title" id="title" value="${filterdTasks[i]['title']}">
                         </div>
                         <div class="container">
                             <h3>Description</h3>
-                            <textarea required placeholder="Enter a description" id="description" method="dialog"
-                                onchange="addDescription()"></textarea>
+                            <textarea required  placeholder="Enter a description" id="description" method="dialog" >${filterdTasks[i]['description']}</textarea>
                         </div>
                         <div class="container">
                             <h3>Category</h3>
@@ -115,7 +115,7 @@ function generateEditBoardTask(i) {
                                 <div onclick="newCategory()" class="options">
                                     <p id="selectText">New category</p>
                                 </div>
-                                <div id="mainCategories"></div>
+                                <div id="mainCategoriesBoard"></div>
     
                             </div>
                         </div>
@@ -138,9 +138,10 @@ function generateEditBoardTask(i) {
                     <div class="middleLine"></div>
     
                     <div class="columnRight">
+                        <div>
                         <div class="container">
                             <h3>Due date</h3>
-                            <input onchange="addDate()" class="input-addTask" type="date" id="date">
+                            <input value="${filterdTasks[i]['dueDate']}" class="input-addTask" type="date" id="date">
                         </div>
                         <div class="prio">
                             <h3>Prio</h3>
@@ -169,11 +170,13 @@ function generateEditBoardTask(i) {
                         </div>
                         <div id="addSubtaskElement">
                         </div>
+                        </div>
+                        
     
                         <div class="create-task-buttons">
-                            <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img
+                            <button type="reset" onclick="closeEditTool()" class="clear-btn">Cancel<img
                                     src="img/clear.svg"></button>
-                            <button type="submit" class="create-task-btn">Create Task <img
+                            <button type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
                         </div>
                     </div>
@@ -182,5 +185,7 @@ function generateEditBoardTask(i) {
                 </form>
             </div>
             <dialog id="msgBox" class="msgBox d-none"></dialog>
+        
+
         </div>`
 }

@@ -4,14 +4,28 @@
 let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
+let categoriesBoard = [];
 
 
+async function getTaskCatrgories() {
+    await downloadFromServer();
+    categoriesBoard = JSON.parse(backend.getItem('taskCategories')) || [];
+}
+
+async function saveTaskCategories() {
+    await backend.setItem('taskCategories', JSON.stringify(categoriesBoard));
+    initMsgBox('New Category created!');
+}
 
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
+    for (let i = 0; i < boardTasks.length; i++) {
+        boardTasks[i]['id'] = i;
+    }
     filterdTasks = boardTasks;
     renderTodos(filterdTasks);
+    
 }
 
 // HALLO
@@ -39,7 +53,7 @@ function renderTodos(tasks) {
     document.getElementById('done').innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         checkProgress(tasks[i]);
-        tasks[i]['id'] = i;
+       
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
     
 
@@ -125,12 +139,35 @@ function checkProgress(element) {
 }
 
 function openEditTool(i) {
+    
 
-document.getElementById('editContainer').innerHTML = generateEditBoardTask(i);
+let task = boardTasks.find(t => t.id == filterdTasks[i].id);
+let index = boardTasks.indexOf(task);
+document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
+renderNewCategoryBoard();
 
 
+document.getElementById('moreInfoBg').classList.remove('d-none')
+document.getElementById('taskInfoContainer').classList.add('d-none')
+document.getElementById('backgroundCloser').classList.add('d-none')
 
-    // document.getElementById('titleInfo').innerHTML = `
-    // <input class="input-addTask" id="titleChange" value="${filterdTasks[i]['title']}" onchange="">
-    // `
+
+}
+
+function closeEditTool(i) {
+document.getElementById('moreInfoBg').classList.add('d-none')
+document.getElementById('editInfo').classList.add('d-none')
+    
+}
+
+function renderNewCategoryBoard() {
+    document.getElementById('mainCategoriesBoard').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategoriesBoard').innerHTML += `
+        <div onclick="selectCategory('${categories[i].name}', '${categories[i].color}')" class="options">
+            <p>${categories[i].name}</p>
+            <div id="categoryColorDivBoard${i}" class="listContactInitials contactScale left"></div>
+        </div>`;
+        document.getElementById(`categoryColorDivBoard${i}`).style.backgroundColor = categories[i].color;
+    }
 }

@@ -145,6 +145,10 @@ body {
     background-color: #091931;
 }
 
+.display-none {
+    display: none;
+}
+
 .headerTop-img {
     width: 100.03px;
     height: 121.97px;
@@ -271,7 +275,7 @@ body {
         display: none;
     }
     .mobile-menu-container {
-        display: flex;
+        display: flex !important;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;

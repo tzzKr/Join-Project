@@ -500,6 +500,10 @@ textarea {
         width: 360px;
     }
 
+    .checkbox {
+        width: auto !important;
+    }
+
     select {
         width: 360px;
     }

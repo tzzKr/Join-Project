@@ -234,6 +234,7 @@ input {
     top: 90%;
     left: calc(50% - (var(--width)));
     right: calc(50% - (var(--width)));
+    cursor: pointer;
 }
 
 .animationFadeIn {

@@ -186,7 +186,7 @@ function renderAssingedUserInfo(i) {
     for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
 
         document.getElementById('assignedUserInfo').innerHTML += /*html*/`
-        <div>
+        <div class="assignedUserInfoParent">
             <div class="assignedUserImg">
             ${getInitials(boardTasks[i].assignedTo[y])}
              </div>

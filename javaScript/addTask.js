@@ -348,7 +348,11 @@ function resetFilterImgPriority() {
 function addDate() {
     let date = document.getElementById('date').value;
     date = new Date(date);
-    date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    dateMonth = (date.getMonth() + 1)
+    dateDay = date.getDate();
+    dateMonth.toString();
+    dateDay.toString();
+    date = date.getFullYear() + '-' +('00' + dateMonth).slice(-2) + '-' +('000' + dateDay).slice(-2) ;
     date.toString(date);
     task.dueDate = date;
     console.log(task.dueDate);

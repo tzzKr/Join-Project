@@ -11,7 +11,7 @@ function generateTaskInfoHTML(i) {
     <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
     <div class="assingedUserInfoContainer">
         <div id="assignedUserInfo" class="assingedUserInfo">
-            <div  class="assignedUserImg">GB</div> <span>Max Mustermann</span>
+            
         </div>
     </div>
 <div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""  ></div>
@@ -35,7 +35,7 @@ function generateTaskHTML(i) {
 
     
     return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
-    <div class="categoryTag tag${filterdTasks[i]['category']}"> ${filterdTasks[i]['category']} </div>
+    <div class="categoryTag" style="background-color: ${filterdTasks[i]['categoryColor']}"> ${filterdTasks[i]['category']} </div>
     <div>
         <h3>${filterdTasks[i]['title']}</h3>
         <span class="taskDesc">${filterdTasks[i]['description']}</span>

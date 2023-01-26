@@ -26,7 +26,11 @@ function generateTaskInfoHTML(i) {
  * Generates HTML script
  * @param {object} element all task informations
  * @returns board task HTML elements
+ * 
  */
+
+
+
 function generateTaskHTML(i) {
 
     

@@ -46,16 +46,20 @@ function filterTasks() {
  * 
  * @param {Array} tasks all task informations
  */
+
 function renderTodos(tasks) {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('testing').innerHTML = '';
     document.getElementById('done').innerHTML = '';
+    
     for (let i = 0; i < tasks.length; i++) {
+        let task = boardTasks.find(t => t.id == filterdTasks[i].id);
+        let index = boardTasks.indexOf(task);
         checkProgress(tasks[i]);
 
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
-        renderAssingedUser(i);
+        renderAssingedUser(index);
 
     }
 
@@ -144,6 +148,8 @@ function openEditTool(i) {
 
     let task = boardTasks.find(t => t.id == filterdTasks[i].id);
     let index = boardTasks.indexOf(task);
+    console.log(boardTasks[index]['dueDate'])
+
     document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
     renderNewCategoryBoard();
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);

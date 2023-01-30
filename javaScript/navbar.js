@@ -39,6 +39,10 @@ function goToLogIn() {
     window.location.href = 'index.html';
 }
 
+function goToLegal() {
+    window.location.href = 'legal.html';
+}
+
 function addBgrToContactNav() {
     document.getElementById('hover-active4').setAttribute('onClick', '');
     document.getElementById('hover-active8').setAttribute('onClick', '');
@@ -67,6 +71,11 @@ function addBgrToSummaryNav() {
     document.getElementById('hover-active5').classList.add('navbar-active');
 }
 
+function addBgrToLegalNav() {
+    document.getElementById('hover-active9').setAttribute('onClick', '');
+    document.getElementById('hover-active9').classList.add('navbar-active');
+}
+
 /**
  * Gets the current path, then undo the onclick function and styles the background in the navbar depending to the current path.
  * 
@@ -81,5 +90,7 @@ function checkCurrentPage() {
         addBgrToBoardNav();
     }else if(pathname == '/summary.html') {
         addBgrToSummaryNav();
+    }else if(pathname == '/legal.html') {
+        addBgrToLegalNav();
     }
 }

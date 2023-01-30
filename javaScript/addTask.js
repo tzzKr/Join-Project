@@ -40,9 +40,9 @@ async function getTaskCatrgories() {
  * This function saves the categories array to the local storage, and then calls the initMsgBox
  * function to display a message to the user.
  */
-async function saveTaskCategories() {
+async function saveTaskCategories(msg) {
     await backend.setItem('taskCategories', JSON.stringify(categories));
-    initMsgBox('New Category created!');
+    initMsgBox(msg);
 }
 
 // *******  Create Task Functions  *******  //
@@ -127,6 +127,17 @@ function addDescription() {
     task.description = descriptionInput;
 }
 
+function deleteCategory(i) {
+    categories.splice(i, 1);
+    saveTaskCategories('Category is deleted!');
+    task.category = '';
+    task.categoryColor = '';
+    document.getElementById('selectField').innerHTML = `
+    <p class="textBox">Select task category</p>
+    <img src="img/arrow.png">`;
+    closeSelection();
+}
+
 
 /**
  * It adds a new category to the categories array, then renders the new category, clears the new
@@ -134,15 +145,16 @@ function addDescription() {
  * button.
  * @param color - the color of the category
  */
-function selectNewCategory(color) {
+function selectNewCategory(color, id) {
     let categoryInput = document.getElementById('categoryInput').value;
     if (categoryInput) {
         categories.push({ name: categoryInput, color: color });
-        saveTaskCategories();
+        saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
         renderNewCategory();
         clearNewCategory();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
+        document.getElementById(id).classList.remove('selected');
     }
 }
 
@@ -156,9 +168,14 @@ function renderNewCategory() {
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
         document.getElementById('mainCategories').innerHTML += `
-        <div onclick="selectCategory('${categories[i].name}', '${categories[i].color}')" class="options">
-            <p>${categories[i].name}</p>
-            <div id="categoryColorDiv${i}" class="listContactInitials contactScale left"></div>
+        <div  class="options">
+            <div class="justify-content-center" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
+              <p>${categories[i].name}</p>
+              <div id="categoryColorDiv${i}" class="listContactInitials contactScale left"></div>
+            </div>
+            <div class="delete-img">
+              <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">
+            </div>  
         </div>`;
         document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;
     }
@@ -172,7 +189,7 @@ function renderContactsAssigndTo() {
         <div class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
             <input id="checkboxAssignedTo${i + 1}"
-              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}')" class="checkbox"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}', ${i})" class="checkbox"
             type="checkbox">
         </div>`;
 
@@ -212,20 +229,22 @@ function selectColor(color, id) {
 }
 
 
-
 /**
- * If the checkbox is checked, add the name to the assignedTo array, if it's unchecked, remove the name
- * from the array
+ * If the checkbox is checked, add the contact to the task.assignedTo array. If the checkbox is
+ * unchecked, remove the contact from the task.assignedTo array.
  * @param checkboxId - the id of the checkbox that was clicked
- * @param nameId - the id of the name of the person you want to assign the task to
+ * @param i - the index of the contact in the contacts array
  */
-function checkboxAssignedTo(checkboxId, nameId) {
+function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
-    let name = document.getElementById(nameId).innerHTML;
+    let contact =  {
+        name: contacts[i].name,
+        color: contacts[i].color
+    };
     if (checkBox.checked == true) {
-        task.assignedTo.push(name);
+        task.assignedTo.push(contact);
     } else {
-        let index = task.assignedTo.indexOf(name);
+        let index = task.assignedTo.indexOf(task.assignedTo.find(u => u.name == contacts[i].name));
         task.assignedTo.splice(index, 1);
     }
 }

@@ -1,23 +1,41 @@
 function generateTaskInfoHTML(i) {
     let element = filterdTasks[i]
-    return /*html*/ `<div class="taskInfoBg">
-    <div class="categoryTag tag${element['category']}"> ${element['category']} </div>
+    return /*html*/ `
+    <div class="taskInfoBg">
+        <div class="categoryTag categoryTagInfo" style="background-color: ${element['categoryColor']}"> <b>${element['category']}</b>  </div>
     
-    <div id="titleInfo"> <b class="infoTitle">${element['title']}</b> </div>
-    <div> <span class="infoDesc">${element['description']}</span>
-    </div>
-    <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
-    <div class="priorityInfo"> <b class="infoDesc">Priority:</b> <div class="urgencyTagInfo"><p>${element['prio']}</p> <img style="height: 20px;" src="img/prio_high.svg" alt=""></div></div>
-    <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
-    <div class="assingedUserInfoContainer">
-        <div id="assignedUserInfo" class="assingedUserInfo">
-            
-        </div>
-    </div>
-<div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""  ></div>
-<div id="deleteTask" class="deleteTaskBtn d-none"><img class="" src="img/delete.svg" alt=""></div>
+        <div class="taskMoreInfo">
 
-</div>
+            <div class="taskMoreInfoL">
+                <div id="titleInfo"> <b class="infoTitle">${element['title']}</b> </div>
+                <div> <span class="infoDesc">${element['description']}</span></div>
+                <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
+                <div class="priorityInfo"> <b class="infoDesc">Priority:</b> 
+                    <div class="urgencyTagInfo"><p>${element['prio']}</p> 
+                        <img style="height: 20px;" src="img/prio_urgent.svg" alt="">
+                    </div>
+                </div>
+                <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
+                <div class="assingedUserInfoContainer">
+                    <div id="assignedUserInfo" class="assingedUserInfo">
+
+                    </div>
+                </div>
+                <div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""></div>
+                <div id="deleteTask" class="deleteTaskBtn d-none"><img class="" src="img/delete.svg" alt=""></div>
+            
+            </div>
+
+            <div class="taskMoreInfoR">
+                <div class="SubtasksHeader">
+                    <h2> Subtasks:</h2>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
 
 `
 }
@@ -33,7 +51,7 @@ function generateTaskInfoHTML(i) {
 
 function generateTaskHTML(i) {
 
-    
+
     return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
     <div class="categoryTag" style="background-color: ${filterdTasks[i]['categoryColor']}"> ${filterdTasks[i]['category']} </div>
     <div>
@@ -68,11 +86,11 @@ function generateEditBoardTask(i) {
                     <div class="columnLeft">
                         <div class="container">
                             <h3>Title</h3>
-                            <input class="input-addTask" required placeholder="Add Title" id="title" value="${filterdTasks[i]['title']}">
+                            <input class="input-addTask" required placeholder="Add Title" id="title" value="${boardTasks[i]['title']}">
                         </div>
                         <div class="container">
                             <h3>Description</h3>
-                            <textarea required  placeholder="Enter a description" id="description" method="dialog" >${filterdTasks[i]['description']}</textarea>
+                            <textarea required  placeholder="Enter a description" id="description" method="dialog" >${boardTasks[i]['description']}</textarea>
                         </div>
                         <div class="container">
                             <h3>Category</h3>
@@ -103,7 +121,7 @@ function generateEditBoardTask(i) {
                                 </div>
                             </div>
                             <div onclick="openSelection()" class="select-field" id="selectField">
-                                <p class="textBox">${filterdTasks[i]['category']}</p>
+                                <p class="textBox">${boardTasks[i]['category']}</p>
                                 <img src="img/arrow.png">
                                
                                  
@@ -137,7 +155,7 @@ function generateEditBoardTask(i) {
                         <div>
                         <div class="container">
                             <h3>Due date</h3>
-                            <input value="${filterdTasks[i]['dueDate']}" class="input-addTask" type="date" id="date">
+                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="date">
                         </div>
                         <div class="prio">
                             <h3>Prio</h3>
@@ -170,8 +188,8 @@ function generateEditBoardTask(i) {
                         
     
                         <div class="create-task-buttons">
-                            <button type="reset" onclick="closeEditTool()" class="clear-btn">Cancel<img
-                                    src="img/clear.svg"></button>
+                            <button type="reset" onclick="deleteTask(${i})" class="clear-btn">Delete<img
+                                    src="img/delete.svg"></button>
                             <button type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
                         </div>

@@ -17,6 +17,10 @@ async function saveTaskCategories() {
     initMsgBox('New Category created!');
 }
 
+async function saveTasks() {
+    await backend.setItem('tasks',JSON.stringify(boardTasks))
+}
+
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(await backend.getItem('tasks')) || [];
@@ -55,11 +59,12 @@ function renderTodos(tasks) {
     
     for (let i = 0; i < tasks.length; i++) {
         let task = boardTasks.find(t => t.id == filterdTasks[i].id);
-        let index = boardTasks.indexOf(task);
+        let boardIndex = boardTasks.indexOf(task);
+        
         checkProgress(tasks[i]);
 
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
-        renderAssingedUser(index);
+        renderAssingedUser(boardIndex, i);
 
     }
 
@@ -72,6 +77,7 @@ function openTaskInfo(i) {
     infoContainer.innerHTML = generateTaskInfoHTML(i);
     document.getElementById('backgroundCloser').classList.remove('d-none');
     renderAssingedUserInfo(i);
+    emptySearch();
 }
 
 
@@ -80,6 +86,7 @@ function closeMoreInfo() {
     let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.add('d-none');
     document.getElementById('backgroundCloser').classList.add('d-none');
+    filterTasks()
 
 }
 
@@ -165,7 +172,7 @@ function openEditTool(i) {
 function closeEditTool(i) {
     document.getElementById('moreInfoBg').classList.add('d-none')
     document.getElementById('editInfo').classList.add('d-none')
-
+renderTodos(boardTasks)
 }
 
 function renderNewCategoryBoard() {
@@ -197,25 +204,39 @@ function renderAssingedUserInfo(i) {
     }
 }
 
+function emptySearch() {
+    let search = document.getElementById('boardInput');
+    search.value = ""
+}
 
 
-function renderAssingedUser(i) {
+function renderAssingedUser(boardIndex, locationIndex) {
 
-    for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
+    for (let y = 0; y < boardTasks[boardIndex].assignedTo.length; y++) {
 
-        if (y == 2 && boardTasks[i].assignedTo.length > 3) {
-            document.getElementById('assignedUser' + i).innerHTML += /*html*/`
+        if (y == 2 && boardTasks[boardIndex].assignedTo.length > 3) {
+            document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
             <div class="assignedUser">
-                +${boardTasks[i].assignedTo.length - 2}
+                +${boardTasks[boardIndex].assignedTo.length - 2}
                     </div>`
                     break
         } 
 
         
-            document.getElementById('assignedUser' + i).innerHTML += /*html*/`
+            document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
 
             <div class="assignedUser">
-                ${getInitials(boardTasks[i].assignedTo[y])}
+                ${getInitials(boardTasks[boardIndex].assignedTo[y])}
                     </div>`
     }  
+}
+
+function deleteTask(i) {
+
+    boardTasks.splice(i,1);
+    closeEditTool()
+    filterdTasks = boardTasks
+    emptySearch()
+    renderTodos(boardTasks)
+    saveTasks();
 }

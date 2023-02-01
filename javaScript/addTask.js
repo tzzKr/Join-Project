@@ -204,13 +204,11 @@ function renderSubtask(subtask) {
     let index = task.subtasks.indexOf(subtask);
     document.getElementById('addSubtaskElement').innerHTML += `
     <div class="checkbox">
-        <input onclick="subtaskChecked(${index})" id="checkbox-subtask${index}" class="p-absolute" type="checkbox"></input>
+        <input onclick="subtaskChecked(${index})" id="checkbox-subtask" class="p-absolute" type="checkbox"></input>
         <span>${subtask.title}</span>
         <img src="img/trash.png">
     </div>`;
-    if (task.subtasks[index].status) {
-        document.getElementById('checkbox-subtask' + index).defaultChecked;
-    }
+    
 }
 
 function subtaskChecked(i) {

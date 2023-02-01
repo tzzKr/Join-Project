@@ -200,13 +200,29 @@ function renderContactsAssigndTo() {
  * addSubtaskElement.
  * @param inputSubtask - the value of the input field
  */
-function renderSubtask(inputSubtask) {
+function renderSubtask(subtask) {
+    let index = task.subtasks.indexOf(subtask);
     document.getElementById('addSubtaskElement').innerHTML += `
     <div class="checkbox">
-        <input class="p-absolute" type="checkbox">
-        <span>${inputSubtask}</span>
-    </div>`
+        <input onclick="subtaskChecked(${index})" id="checkbox-subtask${index}" class="p-absolute" type="checkbox"></input>
+        <span>${subtask.title}</span>
+        <img src="img/trash.png">
+    </div>`;
+    if (task.subtasks[index].status) {
+        document.getElementById('checkbox-subtask' + index).defaultChecked;
+    }
 }
+
+function subtaskChecked(i) {
+    let checkBox = document.getElementById('checkbox-subtask' + i).checked;
+    if (checkBox) {
+        task.subtasks[i].status = true;
+    } else {
+        task.subtasks[i].status = false;
+    }
+    console.log(task.subtasks);
+}
+
 
 /**
  * It adds a class to the element that was clicked and removes the class from all other elements.
@@ -240,7 +256,6 @@ function resetCategoryColor(id) {
  */
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
-    console.log(contacts);
     let contact =  {
         name: contacts[i].name,
         color: contacts[i].color
@@ -260,8 +275,11 @@ function checkboxAssignedTo(checkboxId, i) {
  */
 function addSubtask() {
     let inputSubtask = document.getElementById('inputSubtask').value;
-    task.subtasks.push(inputSubtask);
-    renderSubtask(inputSubtask);
+    if (inputSubtask) {
+        let subtask = {title: inputSubtask, status: false};
+        task.subtasks.push(subtask);
+        renderSubtask(subtask);
+    } 
     document.getElementById('inputSubtask').value = ``;
 }
 

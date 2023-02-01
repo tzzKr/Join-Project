@@ -65,7 +65,6 @@ function renderTodos(tasks) {
 
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i);
         renderAssingedUser(boardIndex, i);
-
     }
 
 }
@@ -77,6 +76,7 @@ function openTaskInfo(i) {
     infoContainer.innerHTML = generateTaskInfoHTML(i);
     document.getElementById('backgroundCloser').classList.remove('d-none');
     renderAssingedUserInfo(i);
+    renderSubTasksInfo(i);
     emptySearch();
 }
 
@@ -194,10 +194,10 @@ function renderAssingedUserInfo(i) {
 
         document.getElementById('assignedUserInfo').innerHTML += /*html*/`
         <div class="assignedUserInfoParent">
-            <div class="assignedUserImg">
-            ${getInitials(boardTasks[i].assignedTo[y])}
+            <div class="assignedUserImg" style="background-color: ${boardTasks[i].assignedTo[y].color}">
+            ${getInitials(boardTasks[i].assignedTo[y].name)}
              </div>
-            <p>${boardTasks[i].assignedTo[y]}</p>
+            <p>${boardTasks[i].assignedTo[y].name}</p>
     </div>
         
         `
@@ -225,10 +225,26 @@ function renderAssingedUser(boardIndex, locationIndex) {
         
             document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
 
-            <div class="assignedUser">
-                ${getInitials(boardTasks[boardIndex].assignedTo[y])}
+            <div class="assignedUser" style="background-color: ${boardTasks[boardIndex].assignedTo[y].color}">
+                ${getInitials(boardTasks[boardIndex].assignedTo[y].name)}
                     </div>`
     }  
+}
+
+function renderSubTasksInfo(i) {
+    
+    for (let y = 0; y < boardTasks.length; y++) {
+
+        
+
+        document.getElementById('subTaskContainer').innerHTML += /*html*/`
+        
+        <div class="subtaskInfo">
+            <input type="checkbox">
+            <p>${boardTasks[i].subtasks[y]}</p>
+        </div>
+        `
+    }
 }
 
 function deleteTask(i) {

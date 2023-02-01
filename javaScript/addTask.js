@@ -200,25 +200,43 @@ function renderContactsAssigndTo() {
  * addSubtaskElement.
  * @param inputSubtask - the value of the input field
  */
-function renderSubtask(subtask) {
-    let index = task.subtasks.indexOf(subtask);
-    document.getElementById('addSubtaskElement').innerHTML += `
-    <div class="checkbox">
-        <input onclick="subtaskChecked(${index})" id="checkbox-subtask${index}" class="p-absolute" type="checkbox"></input>
-        <span>${subtask.title}</span>
-        <img src="img/trash.png">
-    </div>`;
-    if (task.subtasks[index].status) {
-        document.getElementById('checkbox-subtask' + index).defaultChecked;
+function renderSubtask() {
+
+    document.getElementById('addSubtaskElement').innerHTML = ``;
+
+    for (let i = 0; i < task.subtasks.length; i++) {
+  
+    if (!task.subtasks[i].status) {
+        document.getElementById('addSubtaskElement').innerHTML  += `
+        <div class="checkbox">
+            <input onclick="subtaskChecked(${i})"  id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+            <span>${task.subtasks[i].title}</span>
+            <img src="img/trash.png">
+        </div>`;
     }
+    else {
+        document.getElementById('addSubtaskElement').innerHTML  += `
+        <div class="checkbox">
+            <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+            <span>${task.subtasks[i].title}</span>
+            <img src="img/trash.png">
+        </div>`;
+    }
+    
 }
+       
+}
+
 
 function subtaskChecked(i) {
     let checkBox = document.getElementById('checkbox-subtask' + i).checked;
     if (checkBox) {
         task.subtasks[i].status = true;
+        
+
     } else {
         task.subtasks[i].status = false;
+       
     }
     console.log(task.subtasks);
 }
@@ -278,7 +296,7 @@ function addSubtask() {
     if (inputSubtask) {
         let subtask = {title: inputSubtask, status: false};
         task.subtasks.push(subtask);
-        renderSubtask(subtask);
+        renderSubtask();
     } 
     document.getElementById('inputSubtask').value = ``;
 }

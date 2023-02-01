@@ -29,6 +29,9 @@ function generateTaskInfoHTML(i) {
             <div class="taskMoreInfoR">
                 <div class="SubtasksHeader">
                     <h2> Subtasks:</h2>
+                    <div class="subTaskContainer" id="subTaskContainer">
+                        
+                    </div>
                 </div>
 
             </div>

@@ -413,7 +413,7 @@ align-items: center;
 .assignedUser {
   height: 35px;
   width: 35px;
-  background: #0190E0;
+  background: #717171;
   border-radius: 58px;
   border: solid 2px rgb(255, 255, 255);
   flex: none;
@@ -509,4 +509,7 @@ align-items: center;
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.subtaskInfo {
+  display: flex;
 }

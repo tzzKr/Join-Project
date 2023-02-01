@@ -145,7 +145,7 @@ function deleteCategory(i) {
  * button.
  * @param color - the color of the category
  */
-function selectNewCategory(color, id) {
+function selectNewCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
     if (categoryInput) {
         categories.push({ name: categoryInput, color: color });
@@ -154,7 +154,6 @@ function selectNewCategory(color, id) {
         renderNewCategory();
         clearNewCategory();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
-        document.getElementById(id).classList.remove('selected');
     }
 }
 
@@ -189,7 +188,7 @@ function renderContactsAssigndTo() {
         <div class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
             <input id="checkboxAssignedTo${i + 1}"
-              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', 'addedUser${i + 1}', ${i})" class="checkbox"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', ${i})" class="checkbox"
             type="checkbox">
         </div>`;
 
@@ -228,6 +227,10 @@ function selectColor(color, id) {
     }, 100);
 }
 
+function resetCategoryColor(id) {
+    document.getElementById(id).classList.remove('selected');
+}
+
 
 /**
  * If the checkbox is checked, add the contact to the task.assignedTo array. If the checkbox is
@@ -237,6 +240,7 @@ function selectColor(color, id) {
  */
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
+    console.log(contacts);
     let contact =  {
         name: contacts[i].name,
         color: contacts[i].color

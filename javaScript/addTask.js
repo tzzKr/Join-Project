@@ -184,7 +184,7 @@ function renderNewCategory() {
     for (let i = 0; i < categories.length; i++) {
         document.getElementById('mainCategories').innerHTML += `
         <div  class="options">
-            <div class="justify-content-center" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
+            <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
               <p>${categories[i].name}</p>
               <div id="categoryColorDiv${i}" class="listContactInitials contactScale left"></div>
             </div>

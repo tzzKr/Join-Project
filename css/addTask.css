@@ -220,9 +220,16 @@ textarea {
     gap: 8px;
 }
 
+.category-element {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80%;
+}
+
 .justify-content-center {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap: 8px;
 }

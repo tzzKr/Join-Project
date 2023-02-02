@@ -27,8 +27,17 @@
             <div onclick="openLogOutContainer()" class="profile-img" id="openLogOutContainer">
                 <span id="profile-init"></span>
             </div>
-            <div onclick="deleteSessionUser(), goToLogIn()" class="logOut-container d-none" id="logOutContainer">
-                Log out
+            <div class="logOut-container d-none" id="logOutContainer">
+                <div onclick="deleteSessionUser(), goToLogIn()" class="logout-element">
+                    Log out
+                </div>
+                <div onclick="goToLegal()" class="legal-notice-element display-none">
+                    Legal notice
+                </div>
+                <div class="legal-notice-element display-none">
+                    Help
+                </div>
+                
             </div>
         </div>
     </div>

@@ -41,12 +41,12 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2A3647;
+    background: #A8A8A8;
+    border-radius: 7px;
 }
 
 .parentContainer {

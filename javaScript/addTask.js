@@ -127,15 +127,31 @@ function addDescription() {
     task.description = descriptionInput;
 }
 
+/**
+ * It deletes a category from the array and then updates the select field.
+ * </code>
+ * @param i - the index of the category in the array
+ */
 function deleteCategory(i) {
     categories.splice(i, 1);
     saveTaskCategories('Category is deleted!');
     task.category = '';
     task.categoryColor = '';
     document.getElementById('selectField').innerHTML = `
-    <p class="textBox">Select task category</p>
-    <img src="img/arrow.png">`;
+     <p class="textBox">Select task category</p>
+     <img src="img/arrow.png">`;
     closeSelection();
+}
+
+/**
+ * It takes the index of the subtask in the array and removes it from the array.
+ * @param i - the subtask to be deleted
+ */
+function deleteSubtask(i) {
+    task.subtasks.splice(i, 1);
+    renderSubtask();
+    console.log(task.subtasks);
+    initMsgBox('Subtask is deleted!');
 }
 
 
@@ -181,6 +197,9 @@ function renderNewCategory() {
 }
 
 
+/**
+ * It renders the contacts to the page.
+ */
 function renderContactsAssigndTo() {
     document.getElementById('listContact').innerHTML = ``;
     for (let i = 0; i < contacts.length; i++) {
@@ -200,17 +219,44 @@ function renderContactsAssigndTo() {
  * addSubtaskElement.
  * @param inputSubtask - the value of the input field
  */
-function renderSubtask(subtask) {
-    let index = task.subtasks.indexOf(subtask);
-    document.getElementById('addSubtaskElement').innerHTML += `
-    <div class="checkbox">
-        <input onclick="subtaskChecked(${index})" id="checkbox-subtask" class="p-absolute" type="checkbox"></input>
-        <span>${subtask.title}</span>
-        <img src="img/trash.png">
-    </div>`;
+function renderSubtask() {
+
+    document.getElementById('addSubtaskContainer').innerHTML = ``;
+    for (let i = 0; i < task.subtasks.length; i++) {
+    if (!task.subtasks[i].status) {
+        document.getElementById('addSubtaskContainer').innerHTML  += `
+        <div class="subtask-element">
+            <div class="justify-content-center">
+              <input onclick="subtaskChecked(${i})" id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+              <span>${task.subtasks[i].title}</span>
+            </div>
+            <div class="delete-img">
+              <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+            </div>
+        </div>`;
+    }
+    else {
+        document.getElementById('addSubtaskContainer').innerHTML  += `
+        <div class="subtask-element">
+            <div class="justify-content-center">
+              <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+              <span>${task.subtasks[i].title}</span>
+            </div>
+            <div class="delete-img">
+              <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+            </div>
+        </div>`;
+    }
     
 }
+       
+}
 
+
+/**
+ * If the checkbox is checked, set the status of the subtask to true, otherwise set it to false.
+ * @param i - the index of the subtask in the subtasks array
+ */
 function subtaskChecked(i) {
     let checkBox = document.getElementById('checkbox-subtask' + i).checked;
     if (checkBox) {
@@ -218,7 +264,6 @@ function subtaskChecked(i) {
     } else {
         task.subtasks[i].status = false;
     }
-    console.log(task.subtasks);
 }
 
 
@@ -276,9 +321,10 @@ function addSubtask() {
     if (inputSubtask) {
         let subtask = {title: inputSubtask, status: false};
         task.subtasks.push(subtask);
-        renderSubtask(subtask);
+        renderSubtask();
     } 
     document.getElementById('inputSubtask').value = ``;
+    console.log(task.subtasks);
 }
 
 

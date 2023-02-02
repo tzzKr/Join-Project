@@ -241,7 +241,7 @@ function renderSubTasksInfo(i) {
         
         <div class="subtaskInfo">
             <input type="checkbox">
-            <p>${boardTasks[i].subtasks[y]}</p>
+            <p>${boardTasks[i].subtasks[y].title}</p>
         </div>
         `
     }

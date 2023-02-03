@@ -158,7 +158,7 @@ function openEditTool(i) {
     console.log(boardTasks[index]['dueDate'])
 
     document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
-    renderNewCategoryBoard();
+    renderNewCategory();
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
 
 
@@ -166,7 +166,8 @@ function openEditTool(i) {
     document.getElementById('taskInfoContainer').classList.add('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
 
-
+    getContacts();
+    showPrioEditTool(i);
 }
 
 function closeEditTool(i) {
@@ -175,7 +176,7 @@ function closeEditTool(i) {
 renderTodos(boardTasks)
 }
 
-function renderNewCategoryBoard() {
+function renderNewCategory() {
     document.getElementById('mainCategoriesBoard').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
         document.getElementById('mainCategoriesBoard').innerHTML += `
@@ -233,9 +234,8 @@ function renderAssingedUser(boardIndex, locationIndex) {
 
 function renderSubTasksInfo(i) {
     
-    for (let y = 0; y < boardTasks.length; y++) {
+    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
 
-        
 
         document.getElementById('subTaskContainer').innerHTML += /*html*/`
         
@@ -255,4 +255,17 @@ function deleteTask(i) {
     emptySearch()
     renderTodos(boardTasks)
     saveTasks();
+}
+
+function showPrioEditTool(i) {
+
+    let button = document.getElementById(boardTasks[i].prio);
+    
+    if (boardTasks[i].prio == `urgent`) {
+        changeColorUrgent(button);
+    } else if (boardTasks[i].prio == `medium`) {
+        changeColorMedium(button);
+    } else if (boardTasks[i].prio == `low`) {
+        changeColorLow(button);
+    }
 }

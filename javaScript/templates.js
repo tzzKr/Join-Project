@@ -12,7 +12,7 @@ function generateTaskInfoHTML(i) {
                 <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
                 <div class="priorityInfo"> <b class="infoDesc">Priority:</b> 
                     <div class="urgencyTagInfo"><p>${element['prio']}</p> 
-                        <img style="height: 20px;" src="img/prio_urgent.svg" alt="">
+                        <img style="height: 20px; width: 20px" src="img/prio_${element['prio']}.svg" alt="">
                     </div>
                 </div>
                 <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
@@ -22,7 +22,6 @@ function generateTaskInfoHTML(i) {
                     </div>
                 </div>
                 <div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""></div>
-                <div id="deleteTask" class="deleteTaskBtn d-none"><img class="" src="img/delete.svg" alt=""></div>
             
             </div>
 
@@ -136,7 +135,7 @@ function generateEditBoardTask(i) {
                                 <div onclick="newCategory()" class="options">
                                     <p id="selectText">New category</p>
                                 </div>
-                                <div id="mainCategoriesBoard"></div>
+                                <div id="mainCategories"></div>
     
                             </div>
                         </div>
@@ -192,7 +191,7 @@ function generateEditBoardTask(i) {
     
                         <div class="create-task-buttons">
                             <button type="reset" onclick="deleteTask(${i})" class="clear-btn">Delete<img
-                                    src="img/delete.svg"></button>
+                                    src="img/trash.png"></button>
                             <button type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
                         </div>

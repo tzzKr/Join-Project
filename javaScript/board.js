@@ -233,9 +233,8 @@ function renderAssingedUser(boardIndex, locationIndex) {
 
 function renderSubTasksInfo(i) {
     
-    for (let y = 0; y < boardTasks.length; y++) {
+    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
 
-        
 
         document.getElementById('subTaskContainer').innerHTML += /*html*/`
         

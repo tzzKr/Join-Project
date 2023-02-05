@@ -513,3 +513,9 @@ align-items: center;
 .subtaskInfo {
   display: flex;
 }
+
+.editTask {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

@@ -52,8 +52,9 @@ function generateTaskInfoHTML(i) {
                                 <h3>Category</h3>
                                 
                                 
-                                <div class="input-addTask" id="selectField">
-                                    <p class="textBox">${boardTasks[i]['category']}</p>          
+                                <div class="input-addTask" style="justify-content: space-between" id="selectField">
+                                    <p class="textBox">${boardTasks[i]['category']}</p>
+                                    <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>          
                                 </div>
         
                         
@@ -68,8 +69,8 @@ function generateTaskInfoHTML(i) {
         
                         <div class="middleLine"></div>
         
-                        <div class="columnRight">
-                            <div>
+                        <div class="columnRight" style="justify-content: space-between;">
+                        <div> 
                             <div class="container">
                                 <h3>Due date</h3>
                                 <p  class="input-addTask" id="date"> ${boardTasks[i]['dueDate']} </p>
@@ -94,19 +95,17 @@ function generateTaskInfoHTML(i) {
                             <div class="container">
         
                                 <h3>Subtasks</h3>
-                                <div class="subTaskContainer" id="subTaskContainer">                   
-                                </div>
+                                <div class="subTaskContainer" id="subTaskContainer"> </div>
                             </div>
                             
                             
-        
-                            <div class="create-task-buttons">
-                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit<img
+                            </div>
+                            <div class="editTask">
+                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task<img
                                         src="img/addTask-right.svg"></button>
                             </div>
-                        </div>
         
-        
+                        
                     </form>
                 </div>
                 </div> 

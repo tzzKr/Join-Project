@@ -303,7 +303,8 @@ textarea {
 
 .middleLine {
     width: 0px;
-    height: 550px;
+    height: auto;
+    max-height: 1000px;
     border: 1px solid #D1D1D1;
 }
 

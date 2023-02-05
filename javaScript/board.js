@@ -5,6 +5,8 @@ let boardTasks;
 let filterdTasks = [];
 let currentDraggedElement;
 let categoriesBoard = [];
+let contactsBoard;
+
 
 
 async function getTaskCatrgories() {
@@ -166,11 +168,11 @@ function openEditTool(i) {
     document.getElementById('taskInfoContainer').classList.add('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
 
-    getContacts();
+    getContactsBoard(i);
     showPrioEditTool(i);
 }
 
-function closeEditTool(i) {
+function closeEditTool() {
     document.getElementById('moreInfoBg').classList.add('d-none')
     document.getElementById('editInfo').classList.add('d-none')
 renderTodos(boardTasks)
@@ -269,3 +271,42 @@ function showPrioEditTool(i) {
         changeColorLow(button);
     }
 }
+async function getContactsBoard(i) {
+    await downloadFromServer();
+    let users = JSON.parse(backend.getItem('users')) || [];
+    let userName = sessionStorage.getItem('sessionUser');
+    let user = users.find(u => u.name == JSON.parse(userName));
+    contactsBoard = user.contacts;
+    renderContactsAssigndToBoard(i);
+    console.log(contactsBoard);
+}
+
+
+function renderContactsAssigndToBoard(i) {
+    let array1 = boardTasks[i].assignedTo;
+    let array2 = contactsBoard
+
+    for (let j = 0; j < array1.length; j++) {
+        for (let k = 0; k < array2.length; k++) {
+             if (array1[j].name == array2[k].name) {
+                 array2.splice(k, 1)
+             }
+            }   
+        }
+
+let mergedCantacts = array1.concat(array2);
+    document.getElementById('listContact').innerHTML = ``;
+    
+    for (let y = 0; y < mergedCantacts.length; y++) {
+        document.getElementById('listContact').innerHTML += `
+        <div class="options-2">
+            <p id='addedUser${y + 1}'>${mergedCantacts[y].name}</p>
+            <input id="checkboxAssignedTo${y + 1}"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', ${y})" class="checkbox"
+            type="checkbox">
+        </div>`;
+        
+    }
+    
+
+};

@@ -1,36 +1,3 @@
-// function generateTaskInfoHTML(i) {
-//     let element = filterdTasks[i]
-//     return /*html*/ `
-//     <div class="taskInfoBg">
-//         <div class="categoryTag categoryTagInfo" style="background-color: ${element['categoryColor']}"> <b>${element['category']}</b>  </div>    
-//         <div class="taskMoreInfo">
-//             <div class="taskMoreInfoL">
-//                 <div id="titleInfo"> <b class="infoTitle">${element['title']}</b> </div>
-//                 <div> <span class="infoDesc">${element['description']}</span></div>
-//                 <div class="priorityInfo"> <b class="infoDesc">Due date:</b> <span class="infoDesc">${element['dueDate']}</span> </div>
-//                 <div class="priorityInfo"> <b class="infoDesc">Priority:</b> 
-//                     <div class="urgencyTagInfo"><p>${element['prio']}</p> 
-//                         <img style="height: 20px; width: 20px" src="img/prio_${element['prio']}.svg" alt="">
-//                     </div>
-//                 </div>
-//                 <div class="priorityInfo"> <b class="infoDesc">Assigned To:</b>  </div>
-//                 <div class="assingedUserInfoContainer">
-//                     <div id="assignedUserInfo" class="assingedUserInfo">
-//                     </div>
-//                 </div>
-//                 <div class="editBtn" onclick="openEditTool(${i})"><img class="editBtnImg" src="img/edit.svg" alt=""></div>           
-//             </div>
-//             <div class="taskMoreInfoR">
-//                 <div class="SubtasksHeader">
-//                     <h2> Subtasks:</h2>
-//                     <div class="subTaskContainer" id="subTaskContainer">                   
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-// `
-// }
 
 
 function generateTaskInfoHTML(i) {
@@ -77,18 +44,18 @@ function generateTaskInfoHTML(i) {
                             </div>
                             <div class="prio">
                                 <h3>Prio</h3>
-                                <div class="prio-buttons">
-                                    <div class="prio-btns" id="urgent">
+                                <div class="prio-buttons" >
+                                    <div class="prio-btns" id="urgentBoardInfo" style="cursor: default">
                                         Urgent
-                                        <img id="urgent-img" src="img/prio_urgent.svg">
+                                        <img id="urgentBoardInfo-img" src="img/prio_urgent.svg">
                                     </div>
-                                    <div class="prio-btns" id="medium">
+                                    <div class="prio-btns" id="mediumBoardInfo" style="cursor: default">
                                         Medium
-                                        <img id="medium-img" src="img/prio_medium.svg">
+                                        <img id="mediumBoardInfo-img" src="img/prio_medium.svg">
                                     </div>
-                                    <div class="prio-btns" id="low">
+                                    <div class="prio-btns" id="lowBoardInfo" style="cursor: default">
                                         Low
-                                        <img id="low-img" src="img/prio_low.svg">
+                                        <img id="lowBoardInfo-img" src="img/prio_low.svg">
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +90,7 @@ function generateTaskInfoHTML(i) {
 
 
 
-function generateTaskHTML(i) {
+function generateTaskHTML(i, boardIndex) {
 
 
     return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
@@ -132,7 +99,7 @@ function generateTaskHTML(i) {
         <h3>${filterdTasks[i]['title']}</h3>
         <span class="taskDesc">${filterdTasks[i]['description']}</span>
     </div>
-    <div class="progressContainer">
+    <div class="progressContainer" id="progressContainer${boardIndex}">
         <div class="progressBar">
             <div class="progressLine" style="width: ${filterdTasks[i]['progress']}%">
 
@@ -234,17 +201,17 @@ function generateEditBoardTask(i) {
                         <div class="prio">
                             <h3>Prio</h3>
                             <div class="prio-buttons">
-                                <div class="prio-btns" onclick="changePriority(this)" id="urgent">
+                                <div class="prio-btns" onclick="toggleColor(this)" id="urgentBoard">
                                     Urgent
-                                    <img id="urgent-img" src="img/prio_urgent.svg">
+                                    <img id="urgentBoard-img" src="img/prio_urgent.svg">
                                 </div>
-                                <div class="prio-btns" onclick="changePriority(this)" id="medium">
+                                <div class="prio-btns" onclick="toggleColor(this)" id="mediumBoard">
                                     Medium
-                                    <img id="medium-img" src="img/prio_medium.svg">
+                                    <img id="mediumBoard-img" src="img/prio_medium.svg">
                                 </div>
-                                <div class="prio-btns" onclick="changePriority(this)" id="low">
+                                <div class="prio-btns" onclick="toggleColor(this)" id="lowBoard">
                                     Low
-                                    <img id="low-img" src="img/prio_low.svg">
+                                    <img id="lowBoard-img" src="img/prio_low.svg">
                                 </div>
                             </div>
                         </div>

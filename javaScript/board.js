@@ -64,7 +64,6 @@ function renderTodos(tasks) {
         let boardIndex = boardTasks.indexOf(task);
 
         
-
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i, boardIndex);
         renderAssingedUser(boardIndex, i);
         checkProgress(boardIndex);
@@ -132,19 +131,12 @@ function removeDragAreas() {
 function checkProgress(i) {
 
 
-    if (boardTasks[i].board == 'todo' || boardTasks[i].board == 'todo') {
-        document.getElementById('progressContainer'+i).classList.add('d-none');
-        
+    if (boardTasks[i].board == 'todo' || boardTasks[i].board == 'done') {
+        document.getElementById('progressContainer'+i).classList.add('d-none');  
     }
     if (boardTasks[i].subtasks.length == 0) {   
-    
         document.getElementById('progressContainer'+i).classList.add('d-none');
-
     }
-
-
-    
-
 }
 
 function openEditTool(i) {

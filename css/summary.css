@@ -4,7 +4,7 @@
     display: flex;
     margin-top: 87px;
     align-items: center;
-    gap: 67px;
+    gap: 15px;
 }
 
 /* ---------- Card Container ---------- */
@@ -163,7 +163,7 @@
     align-items: center;
     gap: 22px;
     font-style: normal;
-    margin-bottom: 78px;
+    margin-bottom: 28px;
 }
 
 .greeting {

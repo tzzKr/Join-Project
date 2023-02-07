@@ -30,7 +30,7 @@ async function loadTasks() {
         boardTasks[i]['id'] = i;
     }
     filterdTasks = boardTasks;
-    renderTodos(filterdTasks);
+    renderTodos(boardTasks);
 
 }
 
@@ -137,6 +137,26 @@ function checkProgress(i) {
     if (boardTasks[i].subtasks.length == 0) {   
         document.getElementById('progressContainer'+i).classList.add('d-none');
     }
+    countCheckedSubtasks(i)
+}
+
+function countCheckedSubtasks(i) {
+  
+let numberSubtask = boardTasks[i].subtasks.length;
+
+boardTasks[i].progressNumber = 0
+for (let j = 0; j < numberSubtask; j++) {
+ if (boardTasks[i].subtasks[j].status) {
+    boardTasks[i].progressNumber++
+ }    
+}
+if (boardTasks[i].progressNumber == 0) {
+    return '0'
+}else {
+return (boardTasks[i].progressNumber / numberSubtask) * 100
+
+}
+
 }
 
 function openEditTool(i) {
@@ -147,15 +167,16 @@ function openEditTool(i) {
     console.log(boardTasks[index]['dueDate'])
 
     document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
-    renderNewCategory();
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
 
 
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('taskInfoContainer').classList.add('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
+    
+
     getContactsBoard(i);
-    // showPrioEditTool(i)
+    showSelectedBtnEdit(i);
 }
 
 function closeEditTool() {
@@ -164,17 +185,7 @@ function closeEditTool() {
     renderTodos(boardTasks)
 }
 
-function renderNewCategory() {
-    document.getElementById('mainCategoriesBoard').innerHTML = '';
-    for (let i = 0; i < categories.length; i++) {
-        document.getElementById('mainCategoriesBoard').innerHTML += `
-        <div onclick="selectCategory('${categories[i].name}', '${categories[i].color}')" class="options">
-            <p>${categories[i].name}</p>
-            <div id="categoryColorDivBoard${i}" class="listContactInitials contactScale left"></div>
-        </div>`;
-        document.getElementById(`categoryColorDivBoard${i}`).style.backgroundColor = categories[i].color;
-    }
-}
+
 
 function renderAssingedUserInfo(i) {
     document.getElementById('assignedUserInfo').innerHTML = '';
@@ -339,15 +350,36 @@ function showSelectedBtn(i) {
         if (boardTasks[i].prio == 'urgent') {
             document.getElementById("urgentBoardInfo").style.backgroundColor = "#FF3D00";
             document.getElementById('urgentBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-
+           
         } else if (boardTasks[i].prio == 'medium') {
             document.getElementById("mediumBoardInfo").style.backgroundColor = "#FFA800";
             document.getElementById('mediumBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-
+           
         } else if (boardTasks[i].prio == 'low') {
             document.getElementById("lowBoardInfo").style.backgroundColor = "#8BE644";
             document.getElementById('lowBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-
+           
         }
        
+}
+
+
+function showSelectedBtnEdit(i) {
+    
+
+
+    if (boardTasks[i].prio == 'urgent') {
+        document.getElementById("urgentBoard").style.backgroundColor = "#FF3D00";
+        document.getElementById('urgentBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+
+    } else if (boardTasks[i].prio == 'medium') {
+         document.getElementById("mediumBoard").style.backgroundColor = "#FFA800";
+        document.getElementById('mediumBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+
+    } else if (boardTasks[i].prio == 'low') {
+        document.getElementById("lowBoard").style.backgroundColor = "#8BE644";
+        document.getElementById('lowBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+
+    }
+   
 }

@@ -93,26 +93,26 @@ function generateTaskInfoHTML(i) {
 function generateTaskHTML(i, boardIndex) {
 
 
-    return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${filterdTasks[i]['id']})" class="boardTask">
-    <div class="categoryTag" style="background-color: ${filterdTasks[i]['categoryColor']}"> ${filterdTasks[i]['category']} </div>
+    return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${boardTasks[i]['id']})" class="boardTask">
+    <div class="categoryTag" style="background-color: ${boardTasks[i]['categoryColor']}"> ${boardTasks[i]['category']} </div>
     <div>
-        <h3>${filterdTasks[i]['title']}</h3>
-        <span class="taskDesc">${filterdTasks[i]['description']}</span>
+        <h3>${boardTasks[i]['title']}</h3>
+        <span class="taskDesc">${boardTasks[i]['description']}</span>
     </div>
     <div class="progressContainer" id="progressContainer${boardIndex}">
         <div class="progressBar">
-            <div class="progressLine" style="width: ${filterdTasks[i]['progress']}%">
+            <div class="progressLine" style="width:${countCheckedSubtasks(boardIndex)}%;">
 
             </div>
         </div>
-        <p>${filterdTasks[i]['progressNumber']}/3 Done</p>
+        <p>${boardTasks[i]['progressNumber']}/${boardTasks[i].subtasks.length} Done</p>
     </div>
     <div class="user_urgency">
             <div id='assignedUser${i}' class="assignedTo">
             
         </div>
         <div class="urgency">
-            <img src="img/prio_${filterdTasks[i]['prio']}.svg" alt="${filterdTasks[i]['prio']}"> 
+            <img src="img/prio_${boardTasks[i]['prio']}.svg" alt="${boardTasks[i]['prio']}"> 
         </div>
     </div>
     `
@@ -162,11 +162,10 @@ function generateEditBoardTask(i) {
                                 </div>
                             </div>
                             <div onclick="openSelection()" class="select-field" id="selectField">
-                                <p class="textBox">${boardTasks[i]['category']}</p>
-                                <img src="img/arrow.png">
-                               
-                                 
 
+                                <p class="textBox">${boardTasks[i]['category']}</p>
+                                <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>          
+                                
 
                             </div>
     

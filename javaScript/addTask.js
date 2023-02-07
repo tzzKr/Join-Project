@@ -204,15 +204,23 @@ function renderContactsAssigndTo() {
     document.getElementById('listContact').innerHTML = ``;
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('listContact').innerHTML += `
-        <div class="options-2">
+        <div onclick="checkClick(${i + 1})" class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
-            <input id="checkboxAssignedTo${i + 1}"
-              onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', ${i})" class="checkbox"
-            type="checkbox">
+            <input id="checkboxAssignedTo${i + 1}"onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', ${i})"type="checkbox" class="assigndTo-input">
         </div>`;
-
     }
 }
+
+/**
+ * If the checkbox is checked, uncheck it. If the checkbox is unchecked, check it.
+ * @param i - the index of the checkbox
+ */
+function checkClick(i) {
+    let checkbox = document.getElementById('checkboxAssignedTo' + i);
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+    }
+  }
 
 /**
  * It takes the inputSubtask parameter and adds it to the HTML element with the id of
@@ -268,23 +276,23 @@ function subtaskChecked(i) {
 
 
 /**
- * It adds a class to the element that was clicked and removes the class from all other elements.
- * @param color - The color of the category
- * @param id - the id of the element that was clicked
+  * It toggles the class 'selected' on the element with the id 'newCategoryColor-i' if the element's id
+  * is equal to the id passed to the function.
+  * 
+  * Then, it sets the onclick attribute of the element with the id 'saveNewCategory' to the function
+  * selectNewCategory with the color passed to the function as the argument.
+  * @param color - The color of the category
+  * @param id - the id of the element that was clicked
  */
 function selectColor(color, id) {
-    for (let i = 1; i <= 6; i++) {
-        let element = 'newCategoryColor-' + i;
-        if (id == element) {
-            document.getElementById(id).classList.add('selected');
-        } else {
-            document.getElementById(element).classList.remove('selected');
-        }
-    }
+    [1, 2, 3, 4, 5, 6].forEach(i => {
+      let element = 'newCategoryColor-' + i;
+      document.getElementById(element).classList.toggle('selected', element === id);
+    });
     setTimeout(() => {
-        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
+      document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
     }, 100);
-}
+  }
 
 function resetCategoryColor(id) {
     document.getElementById(id).classList.remove('selected');

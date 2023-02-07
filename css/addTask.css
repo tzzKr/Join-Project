@@ -388,7 +388,7 @@ textarea {
 .subtask-container {
     display: flex;
     flex-direction: column;
-    overflow-x: scroll;
+    overflow: scroll;
     max-height: 110px;
     width: 326px;
     gap: 6px;
@@ -534,6 +534,10 @@ textarea {
 
     .container input {
         width: 400px;
+    }
+
+    .assigndTo-input {
+        width: auto !important;
     }
 
     select {

@@ -177,6 +177,7 @@ function openEditTool(i) {
 
     getContactsBoard(i);
     showSelectedBtnEdit(i);
+    renderSubTasksEdit(i)
 }
 
 function closeEditTool() {
@@ -233,6 +234,8 @@ function renderAssingedUser(boardIndex, locationIndex) {
 
 function renderSubTasksInfo(i) {
 
+
+
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
 
         if (!boardTasks[i].subtasks[y].status) {
@@ -242,9 +245,7 @@ function renderSubTasksInfo(i) {
                 <p>${boardTasks[i].subtasks[y].title}</p>
             </div>
             `
-    
         }else {
-
             document.getElementById('subTaskContainer').innerHTML += /*html*/`
         
             <div class="subtaskInfo">
@@ -252,11 +253,44 @@ function renderSubTasksInfo(i) {
                 <p>${boardTasks[i].subtasks[y].title}</p>
             </div>
             `
-
         }
-
-
     }
+}
+
+function renderSubTasksEdit(i) {
+
+    document.getElementById('subTaskContainerEdit').innerHTML = '';
+
+    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
+
+        if (!boardTasks[i].subtasks[y].status) {
+            document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`
+            <div class="subtaskInfo">
+                <input type="checkbox">
+                <p>${boardTasks[i].subtasks[y].title}</p>
+            </div>
+            `
+        }else {
+            document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`       
+            <div class="subtaskInfo">
+                <input checked type="checkbox">
+                <p>${boardTasks[i].subtasks[y].title}</p>
+            </div>
+            `
+        }
+    }
+}
+
+function addSubtaskBoard(i) {
+    let inputSubtask = document.getElementById('inputSubtaskBoard').value;
+
+    if (inputSubtask) {
+        let subtask = {title: inputSubtask, status: false};
+        boardTasks[i].subtasks.push(subtask);
+    } 
+
+    document.getElementById('inputSubtaskBoard').value = ``;
+    renderSubTasksEdit(i);
 }
 
 function deleteTask(i) {

@@ -218,11 +218,11 @@ function generateEditBoardTask(i) {
     
                             <h3>Subtasks</h3>
                             <div class="subtasks">
-                                <input id="inputSubtask" class="input-addTask" placeholder="Add new subtask" type=""><img
-                                    onclick="addSubtask()" src="img/plus.svg">
+                                <input id="inputSubtaskBoard" class="input-addTask" placeholder="Add new subtask" type=""><img
+                                    onclick="addSubtaskBoard(${i})" src="img/plus.svg">
                             </div>
-                        </div>
-                        <div id="addSubtaskElement">
+                             <div class="subTaskContainer" style="margin-top: 20px" id="subTaskContainerEdit"> </div>
+
                         </div>
                         </div>
                         

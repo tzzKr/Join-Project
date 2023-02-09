@@ -67,9 +67,11 @@ function generateTaskInfoHTML(i) {
                             
                             
                             </div>
-                            <div class="editTask">
-                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task<img
+                            <div class="editTask" style="gap: 10px">
+                            <button onclick="closeAndSaveInfo()" id="okBoardInfo" type="submit" class="create-task-btn">Ok<img
                                         src="img/addTask-right.svg"></button>
+                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task</button>
+                                
                             </div>
         
                         
@@ -221,7 +223,7 @@ function generateEditBoardTask(i) {
                                 <input id="inputSubtaskBoard" class="input-addTask" placeholder="Add new subtask" type=""><img
                                     onclick="addSubtaskBoard(${i})" src="img/plus.svg">
                             </div>
-                             <div class="subTaskContainer" style="margin-top: 20px" id="subTaskContainerEdit"> </div>
+                             <div class="subTaskContainerBoard" id="subTaskContainerEdit"> </div>
 
                         </div>
                         </div>

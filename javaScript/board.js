@@ -89,8 +89,15 @@ function closeMoreInfo() {
     let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.add('d-none');
     document.getElementById('backgroundCloser').classList.add('d-none');
-    filterTasks()
+    filterTasks();
+    
+}
 
+function closeAndSaveInfo() {
+    
+    saveTasks();
+    closeMoreInfo();
+    renderTodos(boardTasks);
 }
 
 
@@ -241,7 +248,7 @@ function renderSubTasksInfo(i) {
         if (!boardTasks[i].subtasks[y].status) {
             document.getElementById('subTaskContainer').innerHTML += /*html*/`
             <div class="subtaskInfo">
-                <input type="checkbox">
+                <input onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" type="checkbox">
                 <p>${boardTasks[i].subtasks[y].title}</p>
             </div>
             `
@@ -249,7 +256,7 @@ function renderSubTasksInfo(i) {
             document.getElementById('subTaskContainer').innerHTML += /*html*/`
         
             <div class="subtaskInfo">
-                <input checked type="checkbox">
+                <input onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" checked type="checkbox">
                 <p>${boardTasks[i].subtasks[y].title}</p>
             </div>
             `
@@ -265,20 +272,43 @@ function renderSubTasksEdit(i) {
 
         if (!boardTasks[i].subtasks[y].status) {
             document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`
-            <div class="subtaskInfo">
-                <input type="checkbox">
-                <p>${boardTasks[i].subtasks[y].title}</p>
+            <div class="subTaskParent">
+                
+                <div class="subtaskInfo">
+                    <input id="subtaskCheckboxBoard" onclick="subtaskCheckedBoard(${i})" type="checkbox">
+                    <p>${boardTasks[i].subtasks[y].title}</p>
+                </div>
+                
+                <div class="delete-img">
+                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i})">
+                </div>
             </div>
             `
         }else {
             document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`       
-            <div class="subtaskInfo">
-                <input checked type="checkbox">
-                <p>${boardTasks[i].subtasks[y].title}</p>
+             <div class="subTaskParent">
+                
+                <div class="subtaskInfo">
+                    <input checked id="subtaskCheckboxBoard" onclick="subtaskCheckedBoard(${i})" type="checkbox">
+                    <p>${boardTasks[i].subtasks[y].title}</p>
+                </div>
+                
+                <div class="delete-img">
+                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i})">
+                </div>
             </div>
             `
+            
         }
     }
+}
+
+function deleteSubtaskBoard(i) {
+    boardTasks[i].subtasks.splice(i, 1);
+    renderSubTasksEdit(i);
+    console.log(boardTasks[i].subtasks);
+    initMsgBox('Subtask is deleted!');
+
 }
 
 function addSubtaskBoard(i) {
@@ -292,6 +322,43 @@ function addSubtaskBoard(i) {
     document.getElementById('inputSubtaskBoard').value = ``;
     renderSubTasksEdit(i);
 }
+
+function subtaskCheckedBoard(i) {
+    let checkBox = document.getElementById('subtaskCheckboxBoard' + i).checked;
+    
+    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
+        console.log(checkBox)
+        if (checkBox) {
+            boardTasks[i].subtasks[y].status = true;
+        } else {
+            boardTasks[i].subtasks[y].status = false;
+
+        }
+    }
+    
+}
+
+function subtaskCheckedInfo(i) {
+  
+    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
+        
+        let checked = document.getElementById('subtaskCheckboxInfo' + y).checked
+        
+        if (checked) {
+            boardTasks[i].subtasks[y].status = true;
+        } else {
+            boardTasks[i].subtasks[y].status = false;
+        }
+        console.log(boardTasks[i].subtasks[y])
+    }
+}
+
+
+
+
+
+
+
 
 function deleteTask(i) {
 

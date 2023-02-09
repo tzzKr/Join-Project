@@ -512,10 +512,27 @@ align-items: center;
 }
 .subtaskInfo {
   display: flex;
+  gap: 6px
 }
 
 .editTask {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.subTaskContainerBoard{
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 110px;
+  width: 326px;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.subTaskParent{
+  display: flex;
+  justify-content: space-between;
 }

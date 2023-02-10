@@ -1,9 +1,12 @@
+/**
+ * It opens a modal window with a form to edit a task.
+ * @param i - the index of the task in the array
+ */
 function openEditTool(i) {
 
 
     let task = boardTasks.find(t => t.id == filterdTasks[i].id);
     let index = boardTasks.indexOf(task);
-    console.log(boardTasks[index]['dueDate'])
 
     document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
     
@@ -17,12 +20,21 @@ function openEditTool(i) {
     renderSubTasksEdit(i)
 }
 
+
+/**
+ * It closes the Edit Window
+ */
 function closeEditTool() {
     document.getElementById('moreInfoBg').classList.add('d-none')
     document.getElementById('editInfo').classList.add('d-none')
     renderTodos(boardTasks)
 }
 
+
+/**
+ * It renders the subtasks in the edit window
+ * @param i - the index of the task in the array
+ */
 function renderSubTasksEdit(i) {
 
     document.getElementById('subTaskContainerEdit').innerHTML = '';
@@ -62,7 +74,10 @@ function renderSubTasksEdit(i) {
     }
 }
 
-
+/**
+ * It deletes the picked Task
+ * @param i - the index of the task in the array
+ */
 function deleteTask(i) {
 
     boardTasks.splice(i, 1);
@@ -73,6 +88,10 @@ function deleteTask(i) {
     saveTasks();
 }
 
+/**
+ * It showes the current selected priority of the Task
+ * @param i - the index of the task in the array
+ */
 function showSelectedBtnEdit(i) {
 
     if (boardTasks[i].prio == 'urgent') {

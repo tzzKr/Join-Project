@@ -9,17 +9,17 @@ function generateTaskInfoHTML(i) {
                         <div class="columnLeft">
                             <div class="container">
                                 <h3>Title</h3>
-                                <p class="input-addTask" id="title"> ${boardTasks[i]['title']} </p>
+                                <p class="input-addTask">${boardTasks[i]['title']}</p>
                             </div>
                             <div class="container">
                                 <h3>Description</h3>
-                                <span class="input-addTask" style="height: fit-content" id="description" method="dialog" >${boardTasks[i]['description']}</span>
+                                <span class="input-addTask" style="height: fit-content" method="dialog" >${boardTasks[i]['description']}</span>
                             </div>
                             <div class="container">
                                 <h3>Category</h3>
                                 
                                 
-                                <div class="input-addTask" style="justify-content: space-between" id="selectField">
+                                <div class="input-addTask" style="justify-content: space-between"> 
                                     <p class="textBox">${boardTasks[i]['category']}</p>
                                     <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>          
                                 </div>

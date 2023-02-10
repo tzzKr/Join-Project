@@ -129,11 +129,11 @@ function generateEditBoardTask(i) {
                     <div class="columnLeft">
                         <div class="container">
                             <h3>Title</h3>
-                            <input class="input-addTask" required placeholder="Add Title" id="title" value="${boardTasks[i]['title']}">
+                            <input class="input-addTask" required placeholder="Add Title" id="titleEditBoard" value="${boardTasks[i]['title']}">
                         </div>
                         <div class="container">
                             <h3>Description</h3>
-                            <textarea required  placeholder="Enter a description" id="description" method="dialog" >${boardTasks[i]['description']}</textarea>
+                            <textarea required  placeholder="Enter a description" id="descriptionEditBoard" method="dialog" >${boardTasks[i]['description']}</textarea>
                         </div>
                         <div class="container">
                             <h3>Category</h3>
@@ -163,7 +163,7 @@ function generateEditBoardTask(i) {
                                     class="listContactInitial bgBu" id="newCategoryColor-6">
                                 </div>
                             </div>
-                            <div onclick="openSelection()" class="select-field" id="selectField">
+                            <div onclick="openSelectionBoard()" class="select-field" id="selectField">
 
                                 <p class="textBox">${boardTasks[i]['category']}</p>
                                 <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>          

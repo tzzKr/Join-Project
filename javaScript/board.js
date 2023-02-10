@@ -356,6 +356,17 @@ function subtaskCheckedInfo(i) {
 
 
 
+function deleteCategoryBoard(i) {
+    categoriesBoard.splice(i, 1);
+    saveTaskCategories('Category is deleted!');
+    boardTasks[i].category = '';
+    boardTasks[i].categoryColor = '';
+    document.getElementById('selectFieldBoard').innerHTML = `
+     <p class="textBox">Select task category</p>
+     <img src="img/arrow.png">`;
+    closeSelectionBoard(i);
+}
+
 
 
 
@@ -403,7 +414,7 @@ function renderContactsAssigndToBoard(i) {
     for (let y = 0; y < mergedCantacts.length; y++) {
         document.getElementById('listContact').innerHTML += `
         <div class="options-2">
-            <p id='addedUser${y + 1}'>${mergedCantacts[y].name}</p>openopen
+            <p id='addedUser${y + 1}'>${mergedCantacts[y].name}</p>
             <input id="checkboxAssignedTo${y + 1}"
               onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" class="checkbox"
             type="checkbox">

@@ -8,6 +8,7 @@
     <link rel="icon" href="img/logo-black.svg">
     <link rel="stylesheet" href="./css/addTask.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/board.css">
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/addTask.js"></script>
@@ -79,11 +80,12 @@
                     <div class="container">
                         <h3>Assigned to</h3>
                         <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
-                            <p>Select contacts to assign</p>
+                            <p id="contactNumber">Select contacts to assign</p>
                             <img src="img/arrow.png">
                         </div>
 
                         <div id="listContact" class="list d-none"></div>
+                        <div id="contactInfoContainer" class="contact-info-container"></div>
                     </div>
                 </div>
 

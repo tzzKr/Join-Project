@@ -2,6 +2,7 @@
 let tasks;
 let colorRange = ['#8AA4FF', '#FF0000', '#2AD300', '#FF8A00', '#E200BE', '#0038FF'];
 let contacts;
+let numberAssingendUser = 0;
 let task = {
     id: "",
     board: "todo",
@@ -52,11 +53,25 @@ async function saveTaskCategories(msg) {
  * the tasks array to the server.
  */
 async function createTask() {
-    await loadTasksFromServer();
-    tasks = JSON.parse(await backend.getItem('tasks')) || [];
-    tasks.push(task);
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    initMsgBox('New Task added to Board!');
+    if (checkForm()) {
+        await loadTasksFromServer();
+        tasks = JSON.parse(await backend.getItem('tasks')) || [];
+        tasks.push(task);
+        await backend.setItem('tasks', JSON.stringify(tasks));
+        initMsgBox('New Task added to Board!');
+    } else {
+        alert('Fehlt etwas!');
+
+    }
+
+}
+
+function checkForm() {
+    if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -138,8 +153,8 @@ function deleteCategory(i) {
     task.category = '';
     task.categoryColor = '';
     document.getElementById('selectField').innerHTML = `
-     <p class="textBox">Select task category</p>
-     <img src="img/arrow.png">`;
+      <p class="textBox">Select task category</p>
+      <img src="img/arrow.png">`;
     closeSelection();
 }
 
@@ -204,23 +219,13 @@ function renderContactsAssigndTo() {
     document.getElementById('listContact').innerHTML = ``;
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('listContact').innerHTML += `
-        <div onclick="checkClick(${i + 1})" class="options-2">
+        <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
             <input id="checkboxAssignedTo${i + 1}"onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', ${i})"type="checkbox" class="assigndTo-input">
         </div>`;
     }
 }
 
-/**
- * If the checkbox is checked, uncheck it. If the checkbox is unchecked, check it.
- * @param i - the index of the checkbox
- */
-function checkClick(i) {
-    let checkbox = document.getElementById('checkboxAssignedTo' + i);
-    if (checkbox) {
-        checkbox.checked = !checkbox.checked;
-    }
-  }
 
 /**
  * It takes the inputSubtask parameter and adds it to the HTML element with the id of
@@ -231,33 +236,70 @@ function renderSubtask() {
 
     document.getElementById('addSubtaskContainer').innerHTML = ``;
     for (let i = 0; i < task.subtasks.length; i++) {
-    if (!task.subtasks[i].status) {
-        document.getElementById('addSubtaskContainer').innerHTML  += `
-        <div class="subtask-element">
-            <div class="justify-content-center">
-              <input onclick="subtaskChecked(${i})" id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
-              <span>${task.subtasks[i].title}</span>
-            </div>
-            <div class="delete-img">
-              <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
-            </div>
-        </div>`;
+        if (!task.subtasks[i].status) {
+            document.getElementById('addSubtaskContainer').innerHTML += `
+            <div class="subtask-element">
+                <div class="justify-content-center">
+                  <input onclick="subtaskChecked(${i})" id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+                  <span>${task.subtasks[i].title}</span>
+                </div>
+                <div class="delete-img">
+                  <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+                </div>
+            </div>`;
+        }
+        else {
+            document.getElementById('addSubtaskContainer').innerHTML += `
+            <div class="subtask-element">
+                <div class="justify-content-center">
+                  <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+                  <span>${task.subtasks[i].title}</span>
+                </div>
+                <div class="delete-img">
+                  <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+                </div>
+            </div>`;
+        }
+
     }
-    else {
-        document.getElementById('addSubtaskContainer').innerHTML  += `
-        <div class="subtask-element">
-            <div class="justify-content-center">
-              <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
-              <span>${task.subtasks[i].title}</span>
-            </div>
-            <div class="delete-img">
-              <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
-            </div>
-        </div>`;
-    }
-    
+
 }
-       
+
+/**
+ * If the addition parameter is true, then add 1 to the numberAssingendUser variable, otherwise
+ * subtract 1 from the numberAssingendUser variable. Then, set the innerHTML of the contactNumber
+ * element to the numberAssingendUser variable, and if the numberAssingendUser variable is equal to 0,
+ * then set the innerHTML of the contactNumber element to the string 'Select contacts to assign'.
+ * @param addition - true or false, depending on whether the user is adding or removing a contact
+ */
+function renderContactNumber(addition) {
+    if (addition) {
+        numberAssingendUser += 1;
+    } else {
+        numberAssingendUser -= 1;
+    }
+    document.getElementById('contactNumber').innerHTML = `${numberAssingendUser} contacts assigned`;
+    if (numberAssingendUser == 0) {
+        document.getElementById('contactNumber').innerHTML = `Select contacts to assign`;
+    } else if (numberAssingendUser == 1) {
+        document.getElementById('contactNumber').innerHTML = `${numberAssingendUser} contact assigned`;
+    }
+
+}
+
+
+
+/**
+ * If the checkbox exists, toggle its checked state and call the checkboxAssignedTo function.
+ * @param id - the id of the checkbox
+ * @param i - the index of the row in the table
+ */
+function checkClick(id, i) {
+    let checkbox = document.getElementById(id);
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+    }
+    checkboxAssignedTo(id, i);
 }
 
 
@@ -286,36 +328,34 @@ function subtaskChecked(i) {
  */
 function selectColor(color, id) {
     [1, 2, 3, 4, 5, 6].forEach(i => {
-      let element = 'newCategoryColor-' + i;
-      document.getElementById(element).classList.toggle('selected', element === id);
+        let element = 'newCategoryColor-' + i;
+        document.getElementById(element).classList.toggle('selected', element === id);
     });
     setTimeout(() => {
-      document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
+        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
     }, 100);
-  }
-
-function resetCategoryColor(id) {
-    document.getElementById(id).classList.remove('selected');
 }
+
+// function resetCategoryColor(id) {
+//     document.getElementById(id).classList.remove('selected');
+// }
 
 
 /**
- * If the checkbox is checked, add the contact to the task.assignedTo array. If the checkbox is
- * unchecked, remove the contact from the task.assignedTo array.
+ * If the checkbox is checked, add the contact to the task.assignedTo array, and render the contact
+ * number. If the checkbox is unchecked, remove the contact from the task.assignedTo array, and render
+ * the contact number.
  * @param checkboxId - the id of the checkbox that was clicked
  * @param i - the index of the contact in the contacts array
  */
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
-    let contact =  {
-        name: contacts[i].name,
-        color: contacts[i].color
-    };
     if (checkBox.checked == true) {
-        task.assignedTo.push(contact);
+        task.assignedTo.push({ name: contacts[i].name, color: contacts[i].color });
+        renderContactNumber(true);
     } else {
-        let index = task.assignedTo.indexOf(task.assignedTo.find(u => u.name == contacts[i].name));
-        task.assignedTo.splice(index, 1);
+        task.assignedTo.splice(task.assignedTo.findIndex(u => u.name == contacts[i].name), 1);
+        renderContactNumber(false);
     }
 }
 
@@ -327,10 +367,10 @@ function checkboxAssignedTo(checkboxId, i) {
 function addSubtask() {
     let inputSubtask = document.getElementById('inputSubtask').value;
     if (inputSubtask) {
-        let subtask = {title: inputSubtask, status: false};
+        let subtask = { title: inputSubtask, status: false };
         task.subtasks.push(subtask);
         renderSubtask();
-    } 
+    }
     document.getElementById('inputSubtask').value = ``;
     console.log(task.subtasks);
 }
@@ -445,7 +485,7 @@ function addDate() {
     dateDay = date.getDate();
     dateMonth.toString();
     dateDay.toString();
-    date = date.getFullYear() + '-' +('00' + dateMonth).slice(-2) + '-' +('000' + dateDay).slice(-2) ;
+    date = date.getFullYear() + '-' + ('00' + dateMonth).slice(-2) + '-' + ('000' + dateDay).slice(-2);
     date.toString(date);
     task.dueDate = date;
     console.log(task.dueDate);

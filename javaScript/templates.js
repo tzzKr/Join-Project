@@ -163,11 +163,11 @@ function generateEditBoardTask(i) {
                                     class="listContactInitial bgBu" id="newCategoryColor-6">
                                 </div>
                             </div>
-                            <div onclick="openSelectionBoard()" class="select-field" id="selectField">
+                            <div onclick="openSelection()" class="select-field" id="selectField">
 
-                                <p class="textBox">${boardTasks[i]['category']}</p>
-                                <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>          
-                                
+                                <p class="textBox">Select task category</p>
+                                <!-- <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>           -->
+                                <img src="img/arrow.png">
 
                             </div>
     
@@ -202,15 +202,15 @@ function generateEditBoardTask(i) {
                         <div class="prio">
                             <h3>Prio</h3>
                             <div class="prio-buttons">
-                                <div class="prio-btns" onclick="toggleColor(this)" id="urgentBoard">
+                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="urgentBoard">
                                     Urgent
                                     <img id="urgentBoard-img" src="img/prio_urgent.svg">
                                 </div>
-                                <div class="prio-btns" onclick="toggleColor(this)" id="mediumBoard">
+                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="mediumBoard">
                                     Medium
                                     <img id="mediumBoard-img" src="img/prio_medium.svg">
                                 </div>
-                                <div class="prio-btns" onclick="toggleColor(this)" id="lowBoard">
+                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="lowBoard">
                                     Low
                                     <img id="lowBoard-img" src="img/prio_low.svg">
                                 </div>
@@ -244,4 +244,21 @@ function generateEditBoardTask(i) {
         
 
         </div>`
+}
+
+function generateAssignedContacts(mergedCantacts) {
+
+    document.getElementById('listContact').innerHTML = ``;
+
+    for (let y = 0; y < mergedCantacts.length; y++) {
+        document.getElementById('listContact').innerHTML += /*html*/ `
+        <div class="options-2">
+            <p id='addedUser${y + 1}'>${mergedCantacts[y].name}</p>
+            <input id="checkboxAssignedTo${y + 1}"
+              onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" class="checkbox"
+            type="checkbox">
+        </div>`;
+    }
+    
+
 }

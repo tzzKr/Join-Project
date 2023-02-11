@@ -173,9 +173,7 @@ function setColorbutton(button) {
     let mergedCantacts = [];
 
     mergeContacts(array1,array2,uniqueContacts,mergedCantacts)
-    generateAssignedContacts(mergedCantacts);
-
-    
+    generateAssignedContacts(mergedCantacts, i);
 }
 
 function mergeContacts(array1,array2,uniqueContacts,mergedCantacts) {

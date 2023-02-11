@@ -183,7 +183,7 @@ function generateEditBoardTask(i) {
                             <h3>Assigned to</h3>
                           
                             <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
-                                <p>Select contacts to assign</p>
+                                <p id="contactNumber">Select contacts to assign</p>
                                 <img src="img/arrow.png">
                             </div>
     
@@ -246,19 +246,31 @@ function generateEditBoardTask(i) {
         </div>`
 }
 
-function generateAssignedContacts(mergedCantacts) {
+function generateAssignedContacts(mergedContacts, i) {
+
+    for(let j = 0; j < boardTasks[i].assignedTo.length; j++) {
+        mergedContacts[mergedContacts.indexOf(mergedContacts.find( u => u.name == boardTasks[i].assignedTo[j].name))].status = true;
+    }
 
     document.getElementById('listContact').innerHTML = ``;
-
-    for (let y = 0; y < mergedCantacts.length; y++) {
-        document.getElementById('listContact').innerHTML += /*html*/ `
-        <div class="options-2">
-            <p id='addedUser${y + 1}'>${mergedCantacts[y].name}</p>
-            <input id="checkboxAssignedTo${y + 1}"
-              onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" class="checkbox"
-            type="checkbox">
-        </div>`;
+    for (let y = 0; y < mergedContacts.length; y++) {
+            if(mergedContacts[y].status) {
+                document.getElementById('listContact').innerHTML += /*html*/ `
+                    <div class="options-2">
+                    <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
+                    <input id="checkboxAssignedTo${y + 1}"
+                        onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" checked class="checkbox"
+                        type="checkbox">
+                    </div>`;
+                
+            } else {
+                document.getElementById('listContact').innerHTML += /*html*/ `
+                    <div class="options-2">
+                    <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
+                    <input id="checkboxAssignedTo${y + 1}"
+                        onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" class="checkbox"
+                        type="checkbox">
+                    </div>`;
+            }   
     }
-    
-
 }

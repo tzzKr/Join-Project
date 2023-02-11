@@ -9,6 +9,7 @@
     <title>board</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/boardMobile.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/addTask.css">
     <script src="./javaScript/mini_backend.js"></script>
@@ -43,9 +44,11 @@
 
 
             <div class="headline boardHead">
-                <h1>Board</h1>
+                
+                
 
                 <div class="boardHeadRightSide">
+                    <h1>Board</h1>
                     <div class="boardSearchParent">
                         <input id="boardInput" class="boardSearchBar" type="text" onkeyup="filterTasks()">
                         <button class="searchBtn"><img src="img/search.svg" alt=""></button>
@@ -55,6 +58,8 @@
                         <p class="taskBtnText">Add task </p>
                         <img src="img/AddSymbol.svg" alt="">
                     </button>
+
+                    <button onclick="goToAddTask()" class="boardMobileAddTaskBtn"><img src="img/addtaskmobile.svg" alt=""></button>
                 </div>
 
 

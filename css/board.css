@@ -13,6 +13,10 @@ h2 {
   margin: 0;
 }
 
+h1 {
+  margin: 0;
+}
+
 .parentContainer {
   height: calc(100vh - 80px);
 }
@@ -25,6 +29,10 @@ h2 {
 
 }
 
+.boardMobileAddTaskBtn {
+  display: none;
+}
+
 /* Board Head  */
 
 .boardHead {
@@ -32,11 +40,13 @@ h2 {
   align-items: center;
   justify-content: space-between;
   padding-top: 80px;
+  box-sizing: border-box;
 }
 
 .boardHeadRightSide {
   display: flex;
   column-gap: 45px;
+  align-items: center;
 }
 
 .BoardAddTaskBtn {

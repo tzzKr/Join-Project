@@ -1,4 +1,4 @@
-
+let numberAssingendUserEdit = 0;
 
 function generateTaskInfoHTML(i) {
     return /*html*/`
@@ -246,31 +246,78 @@ function generateEditBoardTask(i) {
         </div>`
 }
 
-function generateAssignedContacts(mergedContacts, i) {
+function generateAssignedContacts(i) {
 
     for(let j = 0; j < boardTasks[i].assignedTo.length; j++) {
-        mergedContacts[mergedContacts.indexOf(mergedContacts.find( u => u.name == boardTasks[i].assignedTo[j].name))].status = true;
+        let matchId = mergedContacts.indexOf(mergedContacts.find( u => u.name == boardTasks[i].assignedTo[j].name));
+        mergedContacts[matchId].status = true;
     }
 
     document.getElementById('listContact').innerHTML = ``;
     for (let y = 0; y < mergedContacts.length; y++) {
             if(mergedContacts[y].status) {
                 document.getElementById('listContact').innerHTML += /*html*/ `
-                    <div class="options-2">
+                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
-                        onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" checked class="checkbox"
+                        onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" checked class="checkbox"
                         type="checkbox">
                     </div>`;
+                    renderAssinedNumberInEdit(true);
                 
             } else {
                 document.getElementById('listContact').innerHTML += /*html*/ `
-                    <div class="options-2">
+                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
-                        onclick="checkboxAssignedTo('checkboxAssignedTo${y + 1}', )" class="checkbox"
+                    onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" class="checkbox"
                         type="checkbox">
                     </div>`;
             }   
     }
 }
+
+/**
+ * If the addition parameter is true, increment the numberAssingendUserEdit variable by 1, otherwise
+ * decrement it by 1.
+ * 
+ * Then, update the contactNumber element's innerHTML to reflect the new value of
+ * numberAssingendUserEdit.
+ * 
+ * If the new value of numberAssingendUserEdit is 0, set the contactNumber element's innerHTML to
+ * "Select contacts to assign".
+ * 
+ * If the new value of numberAssingendUserEdit is 1, set the contactNumber element's innerHTML to "1
+ * contact assigned".</code>
+ * @param addition - true or false
+ */
+function renderAssinedNumberInEdit(addition) {
+    if (addition) {
+        numberAssingendUserEdit += 1;
+    } else {
+        numberAssingendUserEdit -= 1;
+    }
+    document.getElementById('contactNumber').innerHTML = `${numberAssingendUserEdit} contacts assigned`;
+    if (numberAssingendUserEdit == 0) {
+        document.getElementById('contactNumber').innerHTML = `Select contacts to assign`;
+    } else if (numberAssingendUserEdit == 1) {
+        document.getElementById('contactNumber').innerHTML = `${numberAssingendUserEdit} contact assigned`;
+    }
+}
+
+/**
+ * If the checkbox is checked, render the assigned number in the edit form. If the checkbox is not
+ * checked, do not render the assigned number in the edit form.
+ * @param checkboxId - the id of the checkbox
+ */
+function checkingIfAssinedTrue (checkboxId) {
+    let checkBox = document.getElementById(checkboxId);
+    
+        if (checkBox.checked == true) {
+            renderAssinedNumberInEdit(true);
+        } else {
+            renderAssinedNumberInEdit(false);
+        }
+        
+    }
+

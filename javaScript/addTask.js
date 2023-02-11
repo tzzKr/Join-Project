@@ -70,6 +70,7 @@ function checkForm() {
     if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {
         return true;
     } else {
+        console.log(task);
         return false;
     }
 }
@@ -207,7 +208,7 @@ function renderNewCategory() {
               <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">
             </div>  
         </div>`;
-        document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;
+        document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;    //// ======>  TO fixed
     }
 }
 
@@ -221,7 +222,7 @@ function renderContactsAssigndTo() {
         document.getElementById('listContact').innerHTML += `
         <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
             <p id='addedUser${i + 1}'>${contacts[i].name}</p>
-            <input id="checkboxAssignedTo${i + 1}"onclick="checkboxAssignedTo('checkboxAssignedTo${i + 1}', ${i})"type="checkbox" class="assigndTo-input">
+            <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
         </div>`;
     }
 }
@@ -473,10 +474,10 @@ function resetFilterImgPriority() {
 
 
 /**
- * The function takes the value of the input field with the id of 'date' and assigns it to the variable
- * 'date'. Then it converts the value of 'date' to a date object and assigns it to the variable 'date'.
- * Then it assigns the value of 'date' to the property 'dueDate' of the object 'task'. Then it logs the
- * value of 'task' to the console.
+ * It takes a date in the format of "YYYY-MM-DD" and returns the same date in the format of
+ * "MM-DD-YYYY".
+ * @param date - the date you want to format
+ * @returns A string in the format of YYYY-MM-DD
  */
 function addDate() {
     let date = document.getElementById('date').value;
@@ -488,7 +489,7 @@ function addDate() {
     date = date.getFullYear() + '-' + ('00' + dateMonth).slice(-2) + '-' + ('000' + dateDay).slice(-2);
     date.toString(date);
     task.dueDate = date;
-    console.log(task.dueDate);
+
 }
 
 

@@ -12,6 +12,7 @@
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
     <script src="./javaScript/register.js"></script>
+    <script src="./javaScript/navbar.js"></script>
     <script>
         setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever')
     </script>
@@ -28,22 +29,23 @@
             <div class="login-container">
                 <div class="login-header">
                     <div class="back-img-container">
-                        <a href="index.html">
-                            <img src="img/back.svg">
-                        </a>
+                        <img src="img/back.svg" onclick="goToLogIn()">
                     </div>
                     <span>Sign Up</span>
                     <div class="horizonal-line"></div>
                 </div>
                 <form onsubmit="addUser(); return false;" class="form-container">
                     <div class="input-img">
-                        <input class="input-login" required placeholder="Name" type="name" id="name"><img src="img/user.svg">
+                        <input class="input-login" required placeholder="Name" type="name" id="name"><img
+                            src="img/user.svg">
                     </div>
                     <div class="input-img">
-                        <input class="input-login" required placeholder="Email" type="email" id="email"><img src="img/Email.svg">
+                        <input class="input-login" required placeholder="Email" type="email" id="email"><img
+                            src="img/Email.svg">
                     </div>
                     <div class="input-img">
-                        <input class="input-login" required placeholder="Password" type="password" id="password"><img src="img/password.svg">
+                        <input class="input-login" required placeholder="Password" type="password" id="password"><img
+                            src="img/password.svg">
                     </div>
                     <div class="login-btn">
                         <button class="login-button">Sign Up</button>

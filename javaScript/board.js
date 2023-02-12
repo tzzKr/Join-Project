@@ -176,7 +176,7 @@ function checkProgress(i) {
     if (boardTasks[i].subtasks.length == 0) {
         document.getElementById('progressContainer' + i).classList.add('d-none');
     }
-    countCheckedSubtasks(i)
+    countCheckedSubtasks(i);
 }
 
 function countCheckedSubtasks(i) {

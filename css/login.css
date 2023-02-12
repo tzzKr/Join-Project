@@ -343,14 +343,14 @@ body {
 }
 @media (max-width: 1050px) {
     .login-content {
-        left: 10%;
-        right: 10%;
+        left: 0%;
+        right: 0%;
     }
 }
 @media (max-width: 900px) {
     .login-content {
-        left: 4%;
-        right: 4%;
+        left: 0%;
+        right: 0%;
     }
 }
 @media (max-width: 700px) {
@@ -360,14 +360,10 @@ body {
         position: absolute;
         right: 20%;
         top: auto;
-        bottom: 10%;
+        bottom: 6%;
         left: 20%;
         z-index: 999;
         height: 60px;
-    }
-    .logo-container {
-        left: 26px;
-        top: 52px;
     }
 }
 
@@ -397,10 +393,6 @@ body {
     }
     .input-login {
         width: 407px;
-    }
-    .logo-container {
-        left: 26px;
-        top: 52px;
     }
 
 }

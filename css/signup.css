@@ -72,6 +72,7 @@ body {
 .back-img-container img {
     width: 26px;
     height: 26px;
+    cursor: pointer;
 }
 
 .horizonal-line {

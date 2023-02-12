@@ -47,6 +47,7 @@ h1 {
   display: flex;
   column-gap: 45px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .BoardAddTaskBtn {

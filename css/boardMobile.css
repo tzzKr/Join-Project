@@ -4,6 +4,7 @@
     overflow: visible;
     flex-direction: column;
     gap: 20px;
+    margin-left: 25px;
 }
 .singleBoards {
     min-height: 250px;
@@ -21,7 +22,7 @@
     display: none;
 }
 .boardBg {
-    margin-left: 25px;
+    
 }
 .header-line{
     z-index: 11;
@@ -50,4 +51,11 @@
 .boardMobileAddTaskBtn {
     display: block;
 }
+.boardHead {
+    width: fit-content;
+}
+
+
+
+
 }

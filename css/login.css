@@ -365,6 +365,10 @@ body {
         z-index: 999;
         height: 60px;
     }
+
+    .logo-container img {
+        left: 30px;
+    }
 }
 
 @media (max-width: 470px) {

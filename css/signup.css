@@ -7,9 +7,11 @@ body {
 }
 
 .main-container-login {
-    /* position: relative; */
-    height: fit-content;
-    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .logo-container {
@@ -28,9 +30,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 31%;
-    top: 24%;
+    width: fit-content;
+    min-width: 330px;
 }
 
 .login-container {
@@ -265,9 +266,7 @@ body {
     }
 }
 @media (max-width: 450px) {
-    .login-container {
-        width: 400px;
-    }
+
     .form-container {
         width: 400px;
     }
@@ -288,9 +287,6 @@ body {
     }
 }
 @media (max-width: 414px) {
-    .login-container {
-        width: 380px;
-    }
     .form-container {
         width: 380px;
     }
@@ -304,9 +300,6 @@ body {
     }
 }
 @media (max-width: 384px) {
-    .login-container {
-        width: 350px;
-    }
     .form-container {
         width: 350px;
     }
@@ -323,9 +316,6 @@ body {
 @media (max-width: 360px) {
     .guest-container{
         left: 26%;
-    }
-    .login-container {
-        width: 320px;
     }
     .form-container {
         width: 320px;
@@ -346,9 +336,6 @@ body {
 @media (max-width: 340px) {
     .guest-container {
         left: 23.5%;
-    }
-    .login-container {
-        width: 300px;
     }
     .form-container {
         width: 300px;
@@ -371,9 +358,6 @@ body {
     }
 }
 @media (max-width: 300px) {
-    .login-container {
-        width: 280px;
-    }
     .form-container {
         width: 280px;
     }

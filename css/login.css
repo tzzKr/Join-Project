@@ -7,9 +7,11 @@ body {
 }
 
 .main-container-login {
-    /* position: relative; */
-    height: fit-content;
-    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .log-in-headline {
@@ -253,11 +255,12 @@ body {
 }
 
 .guest-container {
-    left: 54%;
-    top: 75%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    position: absolute;
+    margin-top: 38px;
+    margin-left: 185px;
+
 }
 
 .guest-button {
@@ -382,11 +385,8 @@ body {
         margin-left: 0;
     }
     .guest-container {
-        left: 31%;
-        top: 87%;
-        display: flex;
-        align-items: center;
-        position: absolute;
+        margin-top: 103px;
+        margin-left: -1px;
     }
     .login-btn {
         margin-left: 0;
@@ -409,19 +409,12 @@ body {
     }
 }
 @media (max-width: 450px) {
-    .login-container {
-        width: 400px;
-    }
     .form-container {
         width: 400px;
     }
 
 }
-@media (max-width: 437px) {
-    .guest-container {
-        left: 29%;
-    }
-}
+
 @media (max-width: 420px) {
     .sign-up-container {
         gap: 16px;
@@ -432,9 +425,6 @@ body {
     }
 }
 @media (max-width: 414px) {
-    .login-container {
-        width: 380px;
-    }
     .form-container {
         width: 380px;
     }
@@ -442,15 +432,8 @@ body {
         width: 340px;
     }
 }
-@media (max-width: 400px) {
-    .guest-container {
-        left: 27%;
-    }
-}
+
 @media (max-width: 384px) {
-    .login-container {
-        width: 350px;
-    }
     .form-container {
         width: 350px;
     }
@@ -465,12 +448,6 @@ body {
     }
 }
 @media (max-width: 360px) {
-    .guest-container{
-        left: 26%;
-    }
-    .login-container {
-        width: 320px;
-    }
     .form-container {
         width: 320px;
     }
@@ -480,20 +457,11 @@ body {
 }
 
 @media (max-width: 350px) {
-    .guest-container {
-        left: 24.5%;
-    }
     .checkbox-container {
         font-size: 14px;
     }
 }
 @media (max-width: 340px) {
-    .guest-container {
-        left: 23.5%;
-    }
-    .login-container {
-        width: 300px;
-    }
     .form-container {
         width: 300px;
     }
@@ -502,22 +470,13 @@ body {
     }
 }
 @media (max-width: 330px) {
-    .guest-container {
-        left: 22.5%;
-    }
     .login-header {
         width: auto;
     }
 }
-@media (max-width: 320px) {
-    .guest-container {
-        left: 21.5%;
-    }
-}
+
 @media (max-width: 300px) {
-    .login-container {
-        width: 280px;
-    }
+
     .form-container {
         width: 280px;
     }

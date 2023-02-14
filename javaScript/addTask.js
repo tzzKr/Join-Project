@@ -60,8 +60,7 @@ async function createTask() {
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
     } else {
-        alert('Fehlt etwas!');
-
+        initMsgBoxAlert('Something missing!');
     }
 
 }
@@ -177,7 +176,7 @@ function deleteSubtask(i) {
  * button.
  * @param color - the color of the category
  */
-function selectNewCategory(color) {
+function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
     if (categoryInput) {
         categories.push({ name: categoryInput, color: color });
@@ -185,8 +184,13 @@ function selectNewCategory(color) {
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
         renderNewCategory();
         clearNewCategory();
+        resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     }
+}
+
+function checkIfCategoryExist() {
+
 }
 
 ////////// ***************************   Render Functions  *******************************  //////////////////
@@ -323,7 +327,7 @@ function subtaskChecked(i) {
   * is equal to the id passed to the function.
   * 
   * Then, it sets the onclick attribute of the element with the id 'saveNewCategory' to the function
-  * selectNewCategory with the color passed to the function as the argument.
+  * createCategory with the color passed to the function as the argument.
   * @param color - The color of the category
   * @param id - the id of the element that was clicked
  */
@@ -333,13 +337,21 @@ function selectColor(color, id) {
         document.getElementById(element).classList.toggle('selected', element === id);
     });
     setTimeout(() => {
-        document.getElementById('saveNewCategory').setAttribute('onclick', `selectNewCategory(${color})`);
+        document.getElementById('saveNewCategory').setAttribute('onclick', `createCategory(${color})`);
     }, 100);
 }
 
-// function resetCategoryColor(id) {
-//     document.getElementById(id).classList.remove('selected');
-// }
+/**
+ * It removes the class 'selected' from all elements with the id 'newCategoryColor-1',
+ * 'newCategoryColor-2', 'newCategoryColor-3', 'newCategoryColor-4', 'newCategoryColor-5', and
+ * 'newCategoryColor-6'.
+ */
+function resetSelectedColor() {
+    [1, 2, 3, 4, 5, 6].forEach(i => {
+        let element = 'newCategoryColor-' + i;
+        document.getElementById(element).classList.remove('selected');
+    });
+}
 
 
 /**
@@ -580,6 +592,7 @@ function clearNewCategory() {
     document.getElementById('categoryInput').value = ''
     document.getElementById('newCategory').classList.add('d-none');
     document.getElementById('colorSelection').classList.add('d-none');
+    resetSelectedColor();
     document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
 }
 

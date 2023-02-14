@@ -38,8 +38,7 @@
                     <div class="container">
                         <h3>Category</h3>
                         <div id="newCategory" class="new-category d-none">
-                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type=""
-                                maxlength="15">
+                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type="text" maxlength="20">
                             <img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
                             <div class="line"></div>
                             <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
@@ -135,6 +134,7 @@
             </form>
         </div>
         <dialog id="msgBox" class="msgBox d-none" onclick="goToBoard()"></dialog>
+        <dialog id="msgBoxAlert" style="background-color: tomato;" class="msgBox d-none"></dialog>
 
 
     </div>

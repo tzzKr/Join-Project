@@ -16,11 +16,11 @@ async function addUser() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    let existingUser = users.find( u => u.email == email.value );
+    let existingUser = users.find(u => u.email == email.value);
     if (existingUser) {
-       initMsgBox('User already existing!');
+        initMsgBox('User already existing!');
     } else {
-        users.push({name: name.value, email: email.value, password: password.value, contacts: new Array()});
+        users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
         await backend.setItem('users', JSON.stringify(users));
         window.location.href = 'index.html?msg=Successful registration';
     }
@@ -34,10 +34,10 @@ async function addUser() {
 function checkRegistrationStatus() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
-    if(msg) {
-        initMsgBox(msg);  
+    if (msg) {
+        initMsgBox(msg);
     }
-    
+
 }
 
 
@@ -59,7 +59,7 @@ function showSuccessfulMsg() {
  * If the sessionUser key is not found in sessionStorage, redirect to the index.html page
  */
 function checkLoginStatus() {
-    if (sessionStorage.getItem('sessionUser') == null){
+    if (sessionStorage.getItem('sessionUser') == null) {
         window.location.href = 'index.html';
     }
 }
@@ -70,14 +70,14 @@ function checkLoginStatus() {
  * of the openLogOutContainer element to #2A3647.
  */
 function getProfileInit() {
-    if(getSessionUser() == 'Guest') {
+    if (getSessionUser() == 'Guest') {
         document.getElementById('profile-init').innerHTML = 'Guest';
         document.getElementById('openLogOutContainer').style.fontSize = '16px';
         document.getElementById('openLogOutContainer').style.backgroundColor = '#2A3647';
         document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
     } else {
         let fullname = sessionStorage.getItem('sessionUser').split(" ");
-        let init = `${fullname[0].slice(1,2)}${fullname[fullname.length-1].slice(0,1)}`;
+        let init = `${fullname[0].slice(1, 2)}${fullname[fullname.length - 1].slice(0, 1)}`;
         document.getElementById('profile-init').innerHTML = `${init}`;
         document.getElementById('openLogOutContainer').style.backgroundColor = '#29ABE2';
     }
@@ -95,7 +95,6 @@ function openLogOutContainer() {
     setTimeout(() => {
         document.getElementById('logOutContainer').classList.remove('growIn');
     }, 200);
-
     document.getElementById('openLogOutContainer').setAttribute('onclick', `closeLogOutContainer()`);
 }
 
@@ -121,8 +120,13 @@ function closeLogOutContainer() {
  * @param msg - The message to be displayed in the message box.
  */
 function initMsgBox(msg) {
-   document.getElementById('msgBox').innerHTML = `${msg}`;
-   openMsgBox();
+    document.getElementById('msgBox').innerHTML = `${msg}`;
+    openMsgBox();
+}
+
+function initMsgBoxAlert(msgAlert) {
+    document.getElementById('msgBoxAlert').innerHTML = `${msgAlert}`;
+    openMsgBoxAlert();
 }
 
 /**
@@ -137,6 +141,18 @@ function openMsgBox() {
     setTimeout(closeMsgBox, 3000);
 }
 
+/**
+ * It removes the animationFadeOut class from the msgBoxAlert element, adds the animationFadeIn class
+ * to the msgBoxAlert element, removes the d-none class from the msgBoxAlert element, and then calls
+ * the closeMsgBoxAlert function after 3 seconds.
+ */
+function openMsgBoxAlert() {
+    document.getElementById('msgBoxAlert').classList.remove('animationFadeOut');
+    document.getElementById('msgBoxAlert').classList.add('animationFadeIn');
+    document.getElementById('msgBoxAlert').classList.remove('d-none');
+    setTimeout(closeMsgBoxAlert, 3000);
+}
+
 
 /**
  * It removes the class 'animationFadeIn' from the element with the id 'msgBox' and adds the class
@@ -145,6 +161,15 @@ function openMsgBox() {
 function closeMsgBox() {
     document.getElementById('msgBox').classList.remove('animationFadeIn');
     document.getElementById('msgBox').classList.add('animationFadeOut');
+}
+
+/**
+ * It removes the class 'animationFadeIn' from the element with the id 'msgBoxAlert' and adds the class
+ * 'animationFadeOut' to the same element.
+ */
+function closeMsgBoxAlert() {
+    document.getElementById('msgBoxAlert').classList.remove('animationFadeIn');
+    document.getElementById('msgBoxAlert').classList.add('animationFadeOut');
 }
 
 
@@ -165,7 +190,7 @@ async function init() {
 function getSessionUser() {
     let user = sessionStorage.getItem('sessionUser');
     user = JSON.parse(user);
-    return user; 
+    return user;
 }
 
 
@@ -208,7 +233,7 @@ async function includeHTML() {
  */
 function getInitials(name) {
     let initials
-    if(name.includes(' ')){
+    if (name.includes(' ')) {
         initials = `${name.charAt(0)}${name.charAt(name.lastIndexOf(' ') + 1)}`
     } else {
         initials = `${name.charAt(0)}`

@@ -35,7 +35,7 @@ async function getTaskCatrgories() {
  */
 async function saveTasks() {
     await backend.setItem('tasks', JSON.stringify(boardTasks));
-    loadTasks();
+    // loadTasks();
 }
 
 /**
@@ -105,14 +105,6 @@ function renderTodos(tasks) {
 
 
 
-
-
-
-
-
-
-
-
 /**
  * When the user starts dragging an element, set the currentDraggedElement variable to the id of the
  * element being dragged.
@@ -137,6 +129,7 @@ function allowDrop(ev) {
 function moveTo(boardCategory) {
     boardTasks[currentDraggedElement]['board'] = boardCategory;
     saveTasks();
+    renderTodos(boardTasks);
 }
 
 

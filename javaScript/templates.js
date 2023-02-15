@@ -4,7 +4,7 @@ function generateTaskInfoHTML(i) {
     return /*html*/`
 
 <div class="editInfo" style="z-index: 20">
-    <div id="main-container-addTask" class="main-container-addTask">
+    <div id="main-container-addTask" class="main-container-addTask-board">
                     <form action="" class="addTask" id="add-new-task" method="dialog">
                         <div class="columnLeft">
                             <div class="container">
@@ -124,7 +124,7 @@ function generateEditBoardTask(i) {
     return /*html*/ `
      <div id="editInfo" class="editInfo">
 
-            <div id="main-container-addTask" class="main-container-addTask">
+            <div id="main-container-addTask" class="main-container-addTask-board">
                 <form action="" class="addTask" id="add-new-task" method="dialog">
                     <div class="columnLeft">
                         <div class="container">

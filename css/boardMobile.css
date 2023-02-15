@@ -15,7 +15,7 @@
     column-gap: 10px;
 }
 .boardTask {
-    min-width: 350px;
+    
 }
 
 .boardSearchParent {
@@ -37,8 +37,6 @@
     align-items: center;
     height: 100px;
     justify-content: space-around;
-    flex: 1;
-    width: 100vw;
     max-width: 700px;
     box-sizing: border-box;
    
@@ -52,7 +50,8 @@
     display: block;
 }
 .boardHead {
-    width: fit-content;
+    width: 99vw !important;
+    justify-content: space-around;
 }
 
 

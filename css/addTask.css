@@ -542,7 +542,7 @@ textarea {
         width: 107px;
     }
 
-    .container input {
+    .input-addTask {
         width: 400px;
     }
 
@@ -572,7 +572,7 @@ textarea {
         width: 94px;
     }
 
-    .container input {
+    .input-addTask {
         width: 360px;
     }
 
@@ -672,7 +672,7 @@ textarea {
 }
 
 @media(max-width: 390px) {
-    .container input {
+    .input-addTask {
         width: 340px;
     }
     textarea {
@@ -694,7 +694,7 @@ textarea {
 }
 
 @media(max-width: 370px) {
-    .container input {
+    .input-addTask {
         width: 320px;
     }
     textarea {

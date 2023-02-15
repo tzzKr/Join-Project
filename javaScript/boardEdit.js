@@ -8,9 +8,8 @@ let mergedContacts = [];
 function openEditTool(i) {
     let task = boardTasks.find(t => t.id == filterdTasks[i].id);
     let index = boardTasks.indexOf(task);
-    document.getElementById('editContainer').innerHTML = generateEditBoardTask(index);
+    document.getElementById('taskInfoContainer').innerHTML = generateEditBoardTask(index);
     document.getElementById('moreInfoBg').classList.remove('d-none')
-    document.getElementById('taskInfoContainer').classList.add('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
     getContactsBoard(i);
@@ -26,6 +25,8 @@ function openEditTool(i) {
 function closeEditTool() {
     document.getElementById('moreInfoBg').classList.add('d-none')
     document.getElementById('editInfo').classList.add('d-none')
+    document.getElementById('taskInfoContainer').classList.add('d-none')
+
     renderTodos(boardTasks);
     numberAssingendUserEdit = 0;
 }

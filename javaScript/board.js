@@ -233,3 +233,6 @@ function subtaskCheckedBoard(i) {
     }
 }
 
+function mobileViewBoard(params) {
+    
+}

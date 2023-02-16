@@ -59,11 +59,15 @@ async function createTask() {
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
+        document.getElementById('msgBox').style.backgroundColor = '#2A3647';
+        document.getElementById('msgBox').onclick = function () { goToBoard(); };
     } else {
-        initMsgBoxAlert('Something missing!');
+        initMsgBox('Something missing!');
+        document.getElementById('msgBox').style.backgroundColor = 'tomato';
+        document.getElementById('msgBox').onclick = function () { };
     }
-
 }
+
 
 function checkForm() {
     if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {

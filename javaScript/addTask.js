@@ -73,7 +73,6 @@ function checkForm() {
     if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {
         return true;
     } else {
-        console.log(task);
         return false;
     }
 }
@@ -89,8 +88,6 @@ async function getContacts() {
     let user = users.find(u => u.name == JSON.parse(userName));
     contacts = user.contacts;
     renderContactsAssigndTo();
-    console.log(contacts);
-    // renderColorSelection();
 }
 
 
@@ -169,7 +166,6 @@ function deleteCategory(i) {
 function deleteSubtask(i) {
     task.subtasks.splice(i, 1);
     renderSubtask();
-    console.log(task.subtasks);
     initMsgBox('Subtask is deleted!');
 }
 
@@ -389,7 +385,6 @@ function addSubtask() {
         renderSubtask();
     }
     document.getElementById('inputSubtask').value = ``;
-    console.log(task.subtasks);
 }
 
 
@@ -505,7 +500,6 @@ function addDate() {
     date = date.getFullYear() + '-' + ('00' + dateMonth).slice(-2) + '-' + ('000' + dateDay).slice(-2);
     date.toString(date);
     task.dueDate = date;
-
 }
 
 

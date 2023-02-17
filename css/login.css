@@ -125,8 +125,8 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 31%;
-    top: 24%;
+    left: 29%;
+    top: 20%;
 }
 
 .login-container {
@@ -363,10 +363,11 @@ body {
         position: absolute;
         right: 20%;
         top: auto;
-        bottom: 6%;
+        bottom: 2%;
         left: 20%;
         z-index: 999;
         height: 60px;
+        width: 252px;
     }
 
     .logo-container img {

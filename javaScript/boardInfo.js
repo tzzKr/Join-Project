@@ -7,6 +7,7 @@ function openTaskInfo(i) {
     renderSubTasksInfo(i);
     showSelectedBtn(i)
     emptySearch();
+    openMobileInfo()
 }
 
 function closeMoreInfo() {
@@ -14,7 +15,7 @@ function closeMoreInfo() {
     infoContainer.classList.add('d-none');
     document.getElementById('backgroundCloser').classList.add('d-none');
     filterTasks();
-    
+    closeMobileInfo();
 }
 
 function closeAndSaveInfo() {

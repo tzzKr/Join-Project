@@ -3,7 +3,7 @@ let numberAssingendUserEdit = 0;
 function generateTaskInfoHTML(i) {
     return /*html*/`
 
-<div class="editInfo" style="z-index: 20">
+<div class="editInfo">
     <div id="main-container-addTask" class="main-container-addTask-board">
                     <form action="" class="moreInfoForm" id="add-new-task" method="dialog">
                         <div class="columnLeft">
@@ -37,44 +37,52 @@ function generateTaskInfoHTML(i) {
                         <div class="middleLine"></div>
         
                         <div class="columnRight" style="justify-content: space-between;">
-                        <div> 
-                            <div class="container">
-                                <h3>Due date</h3>
-                                <p  class="input-addTask" id="date"> ${boardTasks[i]['dueDate']} </p>
-                            </div>
-                            <div class="prio">
-                                <h3>Prio</h3>
-                                <div class="prio-buttons" >
-                                    <div class="prio-btns" id="urgentBoardInfo" style="cursor: default">
-                                        Urgent
-                                        <img id="urgentBoardInfo-img" src="img/prio_urgent.svg">
-                                    </div>
-                                    <div class="prio-btns" id="mediumBoardInfo" style="cursor: default">
-                                        Medium
-                                        <img id="mediumBoardInfo-img" src="img/prio_medium.svg">
-                                    </div>
-                                    <div class="prio-btns" id="lowBoardInfo" style="cursor: default">
-                                        Low
-                                        <img id="lowBoardInfo-img" src="img/prio_low.svg">
+                            <div> 
+                                <div class="container">
+                                    <h3>Due date</h3>
+                                    <p  class="input-addTask" id="date"> ${boardTasks[i]['dueDate']} </p>
+                                </div>
+                                <div class="prio">
+                                    <h3>Prio</h3>
+                                    <div class="prio-buttons" >
+                                        <div class="prio-btns" id="urgentBoardInfo" style="cursor: default">
+                                            Urgent
+                                            <img id="urgentBoardInfo-img" src="img/prio_urgent.svg">
+                                        </div>
+                                        <div class="prio-btns" id="mediumBoardInfo" style="cursor: default">
+                                            Medium
+                                            <img id="mediumBoardInfo-img" src="img/prio_medium.svg">
+                                        </div>
+                                        <div class="prio-btns" id="lowBoardInfo" style="cursor: default">
+                                            Low
+                                            <img id="lowBoardInfo-img" src="img/prio_low.svg">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="container">
+                                <div class="container">
         
-                                <h3>Subtasks</h3>
-                                <div class="subTaskContainer" id="subTaskContainer"> </div>
-                            </div>
+                                    <h3>Subtasks</h3>
+                                    <div class="subTaskContainer" id="subTaskContainer"> </div>
+                                </div>
                             
                             
                             </div>
-                            <div class="editTask" style="gap: 10px">
-                            <button onclick="closeAndSaveInfo()" id="okBoardInfo" type="submit" class="create-task-btn">Ok<img
-                                        src="img/addTask-right.svg"></button>
+                            <div id="infoBtnsBoard" class="editTask" style="gap: 10px">
+                                <button onclick="closeAndSaveInfo()" id="okBoardInfo" type="submit" class="create-task-btn">Ok<img src="img/addTask-right.svg"></button>
                                 <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task</button>
                                 
                             </div>
-        
+                            
+                        </div>
                         
+                        <div>
+                            <div class="mobileBackToBoard">
+                                <button onclick="closeAndSaveInfo()"  type="submit" ><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
+                            </div>
+                            <div class="mobileOpenEdit">
+                                <button onclick="openEditTool(${i})" type="submit" ><img style="height: 48px; width: 48px;" src="img/openEdit.svg" alt=""></button>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 </div> 

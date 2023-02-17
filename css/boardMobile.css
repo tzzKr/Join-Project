@@ -67,6 +67,36 @@
 .moreInfoForm {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
+}
+.editTask {
+    display: none;
 }
 
+.mobileOpenEdit {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+   
+    z-index: 12;
+    display: block !important;
+}
+
+.mobileBackToBoard {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+   
+    z-index: 12;
+    display: block !important;
+}
+
+}
+
+
+.mobileOpenEdit {
+    display: none;
+}
+.mobileBackToBoard {
+    display: none;
 }

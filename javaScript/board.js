@@ -219,9 +219,8 @@ function renderAssingedUser(boardIndex, locationIndex) {
  * @param i - the index of the task in the array
  */
 function subtaskCheckedBoard(i) {
-    let checkBox = document.getElementById('subtaskCheckboxBoard' + i).checked;
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
-        console.log(checkBox)
+        let checkBox = document.getElementById('subtaskCheckboxBoard' + y).checked;
         if (checkBox) {
             boardTasks[i].subtasks[y].status = true;
         } else {

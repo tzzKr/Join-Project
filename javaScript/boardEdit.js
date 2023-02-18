@@ -48,7 +48,7 @@ function renderSubTasksEdit(i) {
             <div class="subTaskParent">
                 
                 <div class="subtaskInfo">
-                    <input id="subtaskCheckboxBoard" onclick="subtaskCheckedBoard(${i})" type="checkbox">
+                    <input id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
                     <p>${boardTasks[i].subtasks[y].title}</p>
                 </div>
                 
@@ -62,12 +62,12 @@ function renderSubTasksEdit(i) {
              <div class="subTaskParent">
                 
                 <div class="subtaskInfo">
-                    <input checked id="subtaskCheckboxBoard" onclick="subtaskCheckedBoard(${i})" type="checkbox">
+                    <input checked id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
                     <p>${boardTasks[i].subtasks[y].title}</p>
                 </div>
                 
                 <div class="delete-img">
-                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i} ${y})">
+                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
                 </div>
             </div>
             `

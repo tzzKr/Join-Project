@@ -230,17 +230,3 @@ function subtaskCheckedBoard(i) {
     }
 }
 
-function saveEditedTaskBoard(i) {
-    pushToBoardTask(i)
-    saveTasks()
-}
-
-function pushToBoardTask(i) {
-    boardTasks[i].title = document.getElementById('titleEditBoard').value;
-    boardTasks[i].description = document.getElementById('descriptionEditBoard').value;
-    boardTasks[i].dueDate = document.getElementById('dateBoardEdit').value;
-    boardTasks[i].category = document.getElementById('categoryName').innerHTML;
-    boardTasks[i].categoryColor = document.getElementById('categoryColor').style.backgroundColor;
-    boardTasks[i].dueDate = document.getElementById('EditDate').value
-    boardTasks[i].prio = currentPrio.replace('Board', '');
-}

@@ -12,6 +12,7 @@ function openEditTool(i) {
     document.getElementById('taskInfoContainer').innerHTML = generateEditBoardTask(index);
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
+    currentPrio = boardTasks[i].prio;
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
     getContactsBoard(i);
     showSelectedBtnEdit(i);
@@ -231,3 +232,18 @@ function checkClickEdit(id) {
 
 }
 
+function saveEditedTaskBoard(i) {
+    pushToBoardTask(i);
+    closeEditTool();
+    renderTodos(boardTasks);
+    saveTasks();
+}
+
+function pushToBoardTask(i) {
+    boardTasks[i].title = document.getElementById('titleEditBoard').value;
+    boardTasks[i].description = document.getElementById('descriptionEditBoard').value;
+    boardTasks[i].category = document.getElementById('categoryName').innerHTML;
+    boardTasks[i].categoryColor = document.getElementById('categoryColor').style.backgroundColor;
+    boardTasks[i].dueDate = document.getElementById('EditDate').value
+    boardTasks[i].prio = currentPrio.replace('Board', '');
+}

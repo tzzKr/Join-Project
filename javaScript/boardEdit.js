@@ -52,7 +52,7 @@ function renderSubTasksEdit(i) {
                 </div>
                 
                 <div class="delete-img">
-                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i})">
+                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
                 </div>
             </div>
             `
@@ -66,7 +66,7 @@ function renderSubTasksEdit(i) {
                 </div>
                 
                 <div class="delete-img">
-                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i})">
+                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i} ${y})">
                 </div>
             </div>
             `
@@ -110,8 +110,8 @@ function showSelectedBtnEdit(i) {
  * of false, and pushes that object into the subtasks array of the boardTasks object.
  * @param i - the index of the task in the boardTasks array
  */
-function deleteSubtaskBoard(i) {
-    boardTasks[i].subtasks.splice(i, 1);
+function deleteSubtaskBoard(i, y) {
+    boardTasks[i].subtasks.splice(y, 1);
     renderSubTasksEdit(i);
     console.log(boardTasks[i].subtasks);
     initMsgBox('Subtask is deleted!');

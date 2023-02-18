@@ -205,7 +205,7 @@ function generateEditBoardTask(i) {
                         <div>
                         <div class="container">
                             <h3>Due date</h3>
-                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="date">
+                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="EditDate">
                         </div>
                         <div class="prio">
                             <h3>Prio</h3>

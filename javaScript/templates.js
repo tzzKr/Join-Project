@@ -205,7 +205,7 @@ function generateEditBoardTask(i) {
                         <div>
                         <div class="container">
                             <h3>Due date</h3>
-                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="dateBoardEdit">
+                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="EditDate">
                         </div>
                         <div class="prio">
                             <h3>Prio</h3>
@@ -240,7 +240,7 @@ function generateEditBoardTask(i) {
                         <div class="create-task-buttons">
                             <button type="reset" onclick="deleteTask(${i})" class="clear-btn">Delete<img
                                     src="img/trash.png"></button>
-                            <button type="submit" class="create-task-btn">Edit<img
+                            <button onclick="saveEditedTaskBoard(${i})" type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
                         </div>
                     </div>

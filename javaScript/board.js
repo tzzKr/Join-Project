@@ -33,10 +33,7 @@ async function getTaskCatrgories() {
  * It saves the boardTasks array to the browser's local storage, then it loads the tasks from the local
  * storage.
  */
-async function saveTasks() {
-    await backend.setItem('tasks', JSON.stringify(boardTasks));
-    // loadTasks();
-}
+
 
 /**
  * This function saves the taskCategories array to local storage, and then calls the initMsgBox
@@ -234,7 +231,16 @@ function subtaskCheckedBoard(i) {
 }
 
 function saveEditedTaskBoard(i) {
-    document.getElementById('titleEditBoard').value = boardTasks[i].title;
-    document.getElementById('descriptionEditBoard').value = boardTasks[i].description;
-    document.getElementById('dateBoardEdit').value = boardTasks[i].dueDate;
+    pushToBoardTask(i)
+    saveTasks()
+}
+
+function pushToBoardTask(i) {
+    boardTasks[i].title = document.getElementById('titleEditBoard').value;
+    boardTasks[i].description = document.getElementById('descriptionEditBoard').value;
+    boardTasks[i].dueDate = document.getElementById('dateBoardEdit').value;
+    boardTasks[i].category = document.getElementById('categoryName').innerHTML;
+    boardTasks[i].categoryColor = document.getElementById('categoryColor').style.backgroundColor;
+    boardTasks[i].dueDate = document.getElementById('EditDate').value
+    boardTasks[i].prio = currentPrio.replace('Board', '');
 }

@@ -244,6 +244,15 @@ function generateEditBoardTask(i) {
                                     src="img/addTask-right.svg"></button>
                         </div>
                     </div>
+
+                    <div>
+                            <div class="mobileBackToBoard">
+                                <button onclick="closeEditTool()"  type="submit" ><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
+                            </div>
+                            <div class="saveEditMobile">
+                                <button onclick="openEditTool(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px;" src="img/addTask-right.svg" alt=""></button>
+                            </div>
+                    </div>
     
     
                 </form>

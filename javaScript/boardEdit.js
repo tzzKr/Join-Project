@@ -26,7 +26,7 @@ function closeEditTool() {
     document.getElementById('moreInfoBg').classList.add('d-none')
     document.getElementById('editInfo').classList.add('d-none')
     document.getElementById('taskInfoContainer').classList.add('d-none')
-
+    closeMobileInfo();
     renderTodos(boardTasks);
     numberAssingendUserEdit = 0;
 }

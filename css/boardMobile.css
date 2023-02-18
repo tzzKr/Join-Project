@@ -91,6 +91,27 @@
     display: block !important;
 }
 
+.saveEditMobile {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    height: 48px;
+    width: 48px;
+    
+    background-color: #2A3647;
+    border-radius: 10px;
+    z-index: 12;
+    display: block !important;
+}
+
+.centerButtonElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 }
 
 
@@ -98,5 +119,8 @@
     display: none;
 }
 .mobileBackToBoard {
+    display: none;
+}
+.saveEditMobile {
     display: none;
 }

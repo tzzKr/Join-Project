@@ -233,3 +233,8 @@ function subtaskCheckedBoard(i) {
     }
 }
 
+function saveEditedTaskBoard(i) {
+    document.getElementById('titleEditBoard').value = boardTasks[i].title;
+    document.getElementById('descriptionEditBoard').value = boardTasks[i].description;
+    document.getElementById('dateBoardEdit').value = boardTasks[i].dueDate;
+}

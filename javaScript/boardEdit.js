@@ -7,9 +7,9 @@ let currentPrio;
  * @param i - the index of the task in the filtered array
  */
 function openEditTool(i) {
-    let task = boardTasks.find(t => t.id == filterdTasks[i].id);
-    let index = boardTasks.indexOf(task);
-    document.getElementById('taskInfoContainer').innerHTML = generateEditBoardTask(index);
+    // let task = boardTasks.find(t => t.id == filterdTasks[i].id);
+    // let index = boardTasks.indexOf(task);
+    document.getElementById('taskInfoContainer').innerHTML = generateEditBoardTask(i);
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
     currentPrio = boardTasks[i].prio;
@@ -29,6 +29,7 @@ function closeEditTool() {
     document.getElementById('editInfo').classList.add('d-none')
     document.getElementById('taskInfoContainer').classList.add('d-none')
     closeMobileInfo();
+    filterdTasks = boardTasks;
     renderTodos(boardTasks);
     numberAssingendUserEdit = 0;
 }
@@ -49,7 +50,7 @@ function renderSubTasksEdit(i) {
             <div class="subTaskParent">
                 
                 <div class="subtaskInfo">
-                    <input id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
+                    <input class="subtaskCheckbox" id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
                     <p>${boardTasks[i].subtasks[y].title}</p>
                 </div>
                 

@@ -51,7 +51,7 @@ function renderSubTasksInfo(i) {
         if (!boardTasks[i].subtasks[y].status) {
             document.getElementById('subTaskContainer').innerHTML += /*html*/`
             <div class="subtaskInfo">
-                <input onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" type="checkbox">
+                <input class="subtaskCheckbox" onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" type="checkbox">
                 <p>${boardTasks[i].subtasks[y].title}</p>
             </div>
             `

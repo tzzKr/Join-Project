@@ -5,7 +5,7 @@ function generateTaskInfoHTML(i) {
 
 <div class="editInfo">
     <div id="main-container-addTask" class="main-container-addTask-board">
-                    <form action="" class="moreInfoForm" id="add-new-task" method="dialog">
+                    <div class="moreInfoForm" id="add-new-task" method="dialog">
                         <div class="columnLeft">
                             <div class="container">
                                 <h3>Title</h3>
@@ -69,32 +69,30 @@ function generateTaskInfoHTML(i) {
         
                                     <div id="assignedUserInfo" class="assingedUserInfo">
                                 </div>
-                                
+                                </div>
                             
                             </div>
                             <div id="infoBtnsBoard" class="editTask" style="gap: 10px">
-                                <button onclick="closeAndSaveInfo()" id="okBoardInfo" type="submit" class="create-task-btn">Ok<img src="img/addTask-right.svg"></button>
-                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task</button>
-                                
+                                <button onclick="closeAndSaveInfo()" id="okBoardInfo" class="create-task-btn">Ok<img src="img/addTask-right.svg"></button>
+                                <button onclick="openEditTool(${i})" type="submit" class="create-task-btn">Edit Task</button>   
                             </div>
-                            
                         </div>
                         
                         <div>
                             <div class="mobileBackToBoard">
-                                <button onclick="closeAndSaveInfo()"  type="submit" ><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
+                                <button onclick="closeAndSaveInfo()"><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
                             </div>
                             <div class="mobileOpenEdit">
                                 <button onclick="openEditTool(${i})" type="submit" ><img style="height: 48px; width: 48px;" src="img/openEdit.svg" alt=""></button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 </div> 
     `
-        
-    }
-    
+
+}
+
 
 /**
  * Generates HTML script
@@ -108,11 +106,11 @@ function generateTaskInfoHTML(i) {
 function generateTaskHTML(i, boardIndex) {
 
 
-    return /*html*/ `<div onclick="openTaskInfo(${i})" draggable="true" ondragstart="startDragging(${boardTasks[i]['id']})" class="boardTask">
-    <div class="categoryTag" style="background-color: ${boardTasks[i]['categoryColor']}"> ${boardTasks[i]['category']} </div>
+    return /*html*/ `<div onclick="openTaskInfo(${boardIndex})" draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
+    <div class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
     <div>
-        <h3>${boardTasks[i]['title']}</h3>
-        <span class="taskDesc">${boardTasks[i]['description']}</span>
+        <h3>${boardTasks[boardIndex]['title']}</h3>
+        <span class="taskDesc">${boardTasks[boardIndex]['description']}</span>
     </div>
     <div class="progressContainer" id="progressContainer${boardIndex}">
         <div class="progressBar">
@@ -120,14 +118,14 @@ function generateTaskHTML(i, boardIndex) {
 
             </div>
         </div>
-        <p>${boardTasks[i]['progressNumber']}/${boardTasks[i].subtasks.length} Done</p>
+        <p>${boardTasks[boardIndex]['progressNumber']}/${boardTasks[boardIndex].subtasks.length} Done</p>
     </div>
     <div class="user_urgency">
             <div id='assignedUser${i}' class="assignedTo">
             
         </div>
         <div class="urgency">
-            <img src="img/prio_${boardTasks[i]['prio']}.svg" alt="${boardTasks[i]['prio']}"> 
+            <img src="img/prio_${boardTasks[boardIndex]['prio']}.svg" alt="${boardTasks[boardIndex]['prio']}"> 
         </div>
     </div>
     `
@@ -138,7 +136,7 @@ function generateEditBoardTask(i) {
      <div id="editInfo" class="editInfo">
 
             <div id="main-container-addTask" class="main-container-addTask-board">
-                <form action="" class="moreInfoForm" id="add-new-task" method="dialog">
+                <form class="moreInfoForm" id="add-new-task" method="dialog">
                     <div class="columnLeft">
                         <div class="container">
                             <h3>Title</h3>
@@ -179,7 +177,6 @@ function generateEditBoardTask(i) {
                             <div onclick="openSelection()" class="select-field" id="selectField">
 
                                 <p class="textBox">Select task category</p>
-                                <!-- <div class="listContactInitials" style="background-color: ${boardTasks[i]['categoryColor']}"></div>           -->
                                 <img src="img/arrow.png">
 
                             </div>
@@ -262,10 +259,10 @@ function generateEditBoardTask(i) {
 
                     <div>
                             <div class="mobileBackToBoard">
-                                <button onclick="closeEditTool()"  type="submit" ><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
+                                <button onclick="closeEditTool()"><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
                             </div>
                             <div class="saveEditMobile">
-                                <button onclick="openEditTool(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px;" src="img/addTask-right.svg" alt=""></button>
+                                <button onclick="saveEditedTaskBoard(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px;" src="img/addTask-right.svg" alt=""></button>
                             </div>
                     </div>
     
@@ -280,32 +277,32 @@ function generateEditBoardTask(i) {
 
 function generateAssignedContacts(i) {
 
-    for(let j = 0; j < boardTasks[i].assignedTo.length; j++) {
-        let matchId = mergedContacts.indexOf(mergedContacts.find( u => u.name == boardTasks[i].assignedTo[j].name));
+    for (let j = 0; j < boardTasks[i].assignedTo.length; j++) {
+        let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.name == boardTasks[i].assignedTo[j].name));
         mergedContacts[matchId].status = true;
     }
 
     document.getElementById('listContact').innerHTML = ``;
     for (let y = 0; y < mergedContacts.length; y++) {
-            if(mergedContacts[y].status) {
-                document.getElementById('listContact').innerHTML += /*html*/ `
+        if (mergedContacts[y].status) {
+            document.getElementById('listContact').innerHTML += /*html*/ `
                     <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
                         onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" checked class="checkbox"
                         type="checkbox">
                     </div>`;
-                    renderAssinedNumberInEdit(true);
-                
-            } else {
-                document.getElementById('listContact').innerHTML += /*html*/ `
+            renderAssinedNumberInEdit(true);
+
+        } else {
+            document.getElementById('listContact').innerHTML += /*html*/ `
                     <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
                     onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" class="checkbox"
                         type="checkbox">
                     </div>`;
-            }   
+        }
     }
 }
 
@@ -342,14 +339,14 @@ function renderAssinedNumberInEdit(addition) {
  * checked, do not render the assigned number in the edit form.
  * @param checkboxId - the id of the checkbox
  */
-function checkingIfAssinedTrue (checkboxId) {
+function checkingIfAssinedTrue(checkboxId) {
     let checkBox = document.getElementById(checkboxId);
-    
-        if (checkBox.checked == true) {
-            renderAssinedNumberInEdit(true);
-        } else {
-            renderAssinedNumberInEdit(false);
-        }
-        
+
+    if (checkBox.checked == true) {
+        renderAssinedNumberInEdit(true);
+    } else {
+        renderAssinedNumberInEdit(false);
     }
+
+}
 

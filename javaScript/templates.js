@@ -26,7 +26,7 @@ function generateTaskInfoHTML(i) {
         
                         
                             </div>
-                            <div class="container">
+                            <div class="container mobile-d-none">
                                 <h3>Assigned to</h3>
         
                                 <div id="assignedUserInfo" class="assingedUserInfo">
@@ -64,7 +64,12 @@ function generateTaskInfoHTML(i) {
                                     <h3>Subtasks</h3>
                                     <div class="subTaskContainer" id="subTaskContainer"> </div>
                                 </div>
-                            
+                                <div class="container showOnlyMobile">
+                                    <h3>Assigned to</h3>
+        
+                                    <div id="assignedUserInfo" class="assingedUserInfo">
+                                </div>
+                                
                             
                             </div>
                             <div id="infoBtnsBoard" class="editTask" style="gap: 10px">
@@ -187,7 +192,7 @@ function generateEditBoardTask(i) {
     
                             </div>
                         </div>
-                        <div class="container">
+                        <div class="container mobile-d-none">
                             <h3>Assigned to</h3>
                           
                             <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
@@ -234,6 +239,16 @@ function generateEditBoardTask(i) {
                              <div class="subTaskContainerBoard" id="subTaskContainerEdit"> </div>
 
                         </div>
+                        
+                        <div class="container showOnlyMobile">
+                            <h3>Assigned to</h3>
+                          
+                            <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
+                                <p id="contactNumber">Select contacts to assign</p>
+                                <img src="img/arrow.png">
+                            </div>
+    
+                            <div id="listContact" class="list d-none"></div>
                         </div>
                         
     

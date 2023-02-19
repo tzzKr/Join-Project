@@ -215,7 +215,7 @@ align-items: center;
   row-gap: 10px;
   flex-direction: column;
   overflow: auto;
-  height: 165px;
+  max-height: 165px;
 }
 .assignedUserImg {
   height: 45px;

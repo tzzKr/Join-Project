@@ -16,7 +16,9 @@
     border-radius: 20px;
     column-gap: 10px;
 }
-
+.boardTask {
+    min-width: 48%;
+}
 
 .boardSearchParent {
     display: none;
@@ -52,8 +54,12 @@
     display: block;
 }
 .boardHead {
-    width: 99vw !important;
-    justify-content: space-around;
+    width: unset;
+    flex: 1;
+    justify-content: space-between;
+    margin-left: 30px;
+
+    box-sizing: border-box;
 }
 
 .taskInfoContainer{
@@ -111,6 +117,24 @@
     height: 100%;
     width: 100%;
 }
+.boardSearchMobile {
+    background-color: white;
+  width: 251px;
+  align-items: center;
+  height: 51px;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  margin-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex !important;
+}
+
+
+
+.headerAndMobileSearch {
+    width: 253px;
+}
 
 }
 
@@ -122,5 +146,9 @@
     display: none;
 }
 .saveEditMobile {
+    display: none;
+}
+
+.boardSearchMobile {
     display: none;
 }

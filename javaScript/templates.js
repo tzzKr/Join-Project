@@ -45,15 +45,15 @@ function generateTaskInfoHTML(i) {
                                 <div class="prio">
                                     <h3>Prio</h3>
                                     <div class="prio-buttons" >
-                                        <div class="prio-btns" id="urgentBoardInfo" style="cursor: default">
+                                        <div class="prio-btns" id="urgentBoardInfo" style="cursor: default; pointer-events: none; ">
                                             Urgent
                                             <img id="urgentBoardInfo-img" src="img/prio_urgent.svg">
                                         </div>
-                                        <div class="prio-btns" id="mediumBoardInfo" style="cursor: default">
+                                        <div class="prio-btns" id="mediumBoardInfo" style="cursor: default; pointer-events: none;">
                                             Medium
                                             <img id="mediumBoardInfo-img" src="img/prio_medium.svg">
                                         </div>
-                                        <div class="prio-btns" id="lowBoardInfo" style="cursor: default">
+                                        <div class="prio-btns" id="lowBoardInfo" style="cursor: default; pointer-events: none;">
                                             Low
                                             <img id="lowBoardInfo-img" src="img/prio_low.svg">
                                         </div>

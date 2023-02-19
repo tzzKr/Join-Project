@@ -45,7 +45,10 @@
 
 
             <div class="headline boardHead">
-                <div><h1>Board</h1></div>
+                <div class="headerAndMobileSearch">
+                    <h1>Board</h1>
+                    
+                </div>
 
 
 
@@ -61,14 +64,22 @@
                             <img src="img/AddSymbol.svg" alt="">
                         </button>
 
-                        <button onclick="goToAddTask()" class="boardMobileAddTaskBtn"><img src="img/addtaskmobile.svg"
-                                alt=""></button>
+                        
+                        <button onclick="goToAddTask()" class="boardMobileAddTaskBtn">
+                            <img src="img/addtaskmobile.svg" alt="">
+                        </button>
+                        
                     </div>
                 </div>
 
 
             </div>
 
+                <div class="boardSearchMobile">
+                    <input id="boardInput" class="boardSearchBar" type="text" onkeyup="filterTasks()">
+                    <button class="searchBtn"><img src="img/search.svg" alt=""></button>
+                </div>
+               
 
 
             <div class="boardLists">

@@ -72,12 +72,15 @@ async function loadTasks() {
  */
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
-    search = search.toLowerCase();
-    if (search.length == 0)
-        filterdTasks = boardTasks;
-    else
+    search = search.toLowerCase().trim();
+    if (search.length > 0){
         filterdTasks = boardTasks.filter(t => t.title.toLowerCase().startsWith(search));
     renderTodos(filterdTasks);
+    }else {
+        filterdTasks = boardTasks;
+    renderTodos(boardTasks);
+        
+    }
 }
 /**
  * Renders every task on board page"!

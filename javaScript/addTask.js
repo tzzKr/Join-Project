@@ -179,7 +179,8 @@ function deleteSubtask(i) {
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    if (categoryInput && !checkCategoryExistence(categoryInput, color)) {
+    let categoryExists = checkCategoryExistence(categoryInput);
+    if (categoryInput > 1 && !categoryExists) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -187,11 +188,12 @@ function createCategory(color) {
         clearNewCategory();
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
-    } else if (categoryInput > 0) {
+    } else if (categoryInput == 0) {
+        initMsgBoxAlert('Enter a Category name!');
+        
+    }else if (categoryExists) {
         initMsgBoxAlert('Category exists!');
         
-    }else {
-        return
     }
 }
 
@@ -201,8 +203,8 @@ function createCategory(color) {
  * @param catColor - The color of the category.
  * @returns A boolean value.
  */
-function checkCategoryExistence(catName, catColor) {
-    return categories.some(c => c.name === catName && c.color === catColor);
+function checkCategoryExistence(catName) {
+    return categories.some(c => c.name === catName);
 }
 
 

@@ -59,16 +59,17 @@ async function createTask() {
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
-        document.getElementById('msgBox').style.backgroundColor = '#2A3647';
-        document.getElementById('msgBox').onclick = function () { goToBoard(); };
     } else {
-        initMsgBox('Something missing!');
-        document.getElementById('msgBox').style.backgroundColor = 'tomato';
-        document.getElementById('msgBox').onclick = function () { };
+        initMsgBoxAlert('Something missing!');
     }
 }
 
 
+/**
+ * If the task has a category, an assignedTo, a priority, and a dueDate, then return true. Otherwise,
+ * return false
+ * @returns a boolean value.
+ */
 function checkForm() {
     if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {
         return true;
@@ -145,7 +146,7 @@ function addDescription() {
 
 /**
  * It deletes a category from the array and then updates the select field.
- * </code>
+ * 
  * @param i - the index of the category in the array
  */
 function deleteCategory(i) {
@@ -178,7 +179,7 @@ function deleteSubtask(i) {
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    if (categoryInput) {
+    if (categoryInput && !checkCategoryExistence(categoryInput, color)) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -186,12 +187,22 @@ function createCategory(color) {
         clearNewCategory();
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
+    } else {
+        initMsgBoxAlert('Category exists!');
     }
 }
 
-function checkIfCategoryExist() {
-
+/**
+ * Check if there is a category with the same name and color as the one passed in.
+ * @param catName - The name of the category to check for.
+ * @param catColor - The color of the category.
+ * @returns A boolean value.
+ */
+function checkCategoryExistence(catName, catColor) {
+    return categories.some(c => c.name === catName && c.color === catColor);
 }
+
+
 
 ////////// ***************************   Render Functions  *******************************  //////////////////
 

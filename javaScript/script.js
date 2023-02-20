@@ -124,6 +124,11 @@ function initMsgBox(msg) {
     openMsgBox();
 }
 
+function initMsgBoxAlert(msg) {
+    document.getElementById('msgBoxAlert').innerHTML = `${msg}`;
+    openMsgBoxAlert();
+}
+
 
 
 /**
@@ -138,6 +143,13 @@ function openMsgBox() {
     setTimeout(closeMsgBox, 3000);
 }
 
+function openMsgBoxAlert() {
+    document.getElementById('msgBoxAlert').classList.remove('animationFadeOut');
+    document.getElementById('msgBoxAlert').classList.add('animationFadeIn');
+    document.getElementById('msgBoxAlert').classList.remove('d-none');
+    setTimeout(closeMsgBoxAlert, 3000);
+}
+
 
 
 /**
@@ -147,6 +159,11 @@ function openMsgBox() {
 function closeMsgBox() {
     document.getElementById('msgBox').classList.remove('animationFadeIn');
     document.getElementById('msgBox').classList.add('animationFadeOut');
+}
+
+function closeMsgBoxAlert() {
+    document.getElementById('msgBoxAlert').classList.remove('animationFadeIn');
+    document.getElementById('msgBoxAlert').classList.add('animationFadeOut');
 }
 
 

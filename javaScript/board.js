@@ -185,7 +185,7 @@ function countCheckedSubtasks(i) {
     } else {
         return (boardTasks[i].progressNumber / numberSubtask) * 100
     }
-
+    
 }
 
 
@@ -222,13 +222,11 @@ function renderAssingedUser(boardIndex, locationIndex) {
  * @param i - the index of the task in the array
  */
 function subtaskCheckedBoard(i) {
-    for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
-        let checkBox = document.getElementById('subtaskCheckboxBoard' + y).checked;
-        if (checkBox) {
-            boardTasks[i].subtasks[y].status = true;
-        } else {
-            boardTasks[i].subtasks[y].status = false;
-        }
-    }
+
+    boardTasks[i].subtasks.forEach(subtask => {
+        let checkBox = document.getElementById('subtaskCheckboxBoard' + subtask.id).checked;
+        subtask.status = checkBox;
+    });
+    
 }
 

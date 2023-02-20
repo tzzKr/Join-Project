@@ -1,5 +1,4 @@
 body {
-
   font-family: 'Inter';
   font-style: normal;
   font-size: 16px;
@@ -22,11 +21,9 @@ h1 {
 }
 
 .boardBg {
-
   height: calc(100vh - (1389px));
   min-width: 10px;
   margin-right: 25px;
-
 }
 
 .boardMobileAddTaskBtn {
@@ -61,13 +58,11 @@ h1 {
   align-items: center;
   column-gap: 10px;
   transition: 100ms ease-in-out;
-
 }
 
 .BoardAddTaskBtn:hover {
   background-color: #29ABE2;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-
 }
 
 .boardSearchParent {
@@ -104,50 +99,6 @@ h1 {
   text-align: left;
 }
 
-/* Task Info */
-
-.SubtasksHeader{
-  margin-top: 70px;
-  
-}
-
-.taskMoreInfoR{
-display: flex;
-flex-direction: column;
-align-items: center;
-
-}
-
-.taskMoreInfo{
-  display: flex;
-  gap: 100px;
-}
-
-.taskMoreInfoL{
-  row-gap: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.InfoCategoryTag {
-  height: fit-content;
-  width: fit-content;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 4px 18px;
-  background-color: #e00110;
-  font-size: 21px;
-  display: flex;
-  justify-content: center;
-  color: white;
-}
-
-.categoryTagInfo{
-  height: 42px !important;
-  font-size: 30px;
-  border-radius: 20px !important;
-}
-
 .taskInfoContainer {
   position: absolute;
   top: 0;
@@ -158,8 +109,6 @@ align-items: center;
   justify-content: center;
   align-items: center;
   height: calc(100vh);
- 
-
 }
 
 .backgroundCloser {
@@ -190,7 +139,6 @@ align-items: center;
 
 .taskInfoBg::-webkit-scrollbar {
   height: 90px;
-
 }
 
 .taskInfoBg::-webkit-scrollbar-thumb {
@@ -207,9 +155,6 @@ align-items: center;
   margin-top: 30px;
 }
 
-.assingedUserInfoContainer {
-  font-size: 21px;
-}
 .assingedUserInfo {
   display: flex;
   row-gap: 10px;
@@ -217,10 +162,11 @@ align-items: center;
   overflow: auto;
   max-height: 165px;
 }
+
 .assignedUserImg {
   height: 45px;
   width: 45px;
-  border-radius:100% ;
+  border-radius: 100%;
   background-color: #1d86ff;
   display: flex;
   justify-content: center;
@@ -228,73 +174,6 @@ align-items: center;
   color: white;
 }
 
-.infoTitle {
-  font-size: 61px;
-  color: #282828;
-  padding: 0;
-}
-
-.infoDesc {
-  font-size: 21px;
-}
-
-.urgencyTagInfo {
-  height: 33px;
-  width: fit-content;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 4px 18px;
-  background-color: #0190E0;
-  font-size: 21px;
-  display: flex;
-  justify-content: center;
-  color: white;
-  column-gap: 10px;
-  align-items: center;
-}
-
-.priorityInfo {
-  display: flex;
-  column-gap: 30px;
-}
-
-
-.editBtn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 30px;
-  margin-right: 30px;
-  width: 60px;
-  height: 60px;
-  border-radius: 20px;
-  background-color: #29ABE2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.editBtnImg {
-  filter: invert(0);
-  height: 48px;
-  width: 48px;
-}
-.deleteTaskBtn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 30px;
-  margin-right: 100px;
-  width: 60px;
-  height: 60px;
-  border-radius: 20px;
-  background-color: #c5000d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Board content  */
 .categoryTag {
   margin-bottom: 15px;
   height: 25px;
@@ -318,14 +197,6 @@ align-items: center;
   column-gap: 25px;
 }
 
-.boardTitels {
-  display: flex;
-  justify-content: space-between;
-  overflow: auto;
-  column-gap: 25px;
-  padding: 0px 5px;
-  padding-right: 10px;
-}
 
 .titelStyle {
   width: 265px;
@@ -342,21 +213,18 @@ align-items: center;
   right: 0;
   z-index: 9;
   background-color: #F5F5F5;
-
 }
 
 .centerLists {
   display: flex;
   flex-direction: column;
   height: fit-content;
-
 }
 
 .singleBoards {
   width: 250px;
   min-height: 55vh;
   height: fit-content;
-
   flex-direction: column;
   border-radius: 50px;
   row-gap: 35px;
@@ -406,8 +274,6 @@ align-items: center;
   z-index: 999;
   border-radius: 30px;
   height: 100%;
-
-
 }
 
 .user_urgency {
@@ -438,17 +304,6 @@ align-items: center;
   color: white;
 }
 
-.previewDraggedTask {
-  height: 250px;
-  width: 100%;
-  border: dashed 5px black;
-  border-radius: 30px;
-
-}
-
-
-/* board scrollbar */
-
 .boardLists::-webkit-scrollbar-thumb {
   border-radius: 100vw !important;
 }
@@ -458,56 +313,34 @@ align-items: center;
   height: 15px !important;
 }
 
-
-/* Priority tags */
-
-.infoPrioHigh {
-  height: 33px;
-  width: fit-content;
-  padding: 4px 18px;
-  background-color: #FF3D00;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  box-sizing: border-box;
-  font-size: 21px;
-  color: white;
-  column-gap: 10px;
-}
-
-.infoPrioHigh img {
-  filter: brightness(200);
-}
-
-/* infoEdit */
-
 .editInfo {
   height: fit-content;
   width: 1240px;
   background-color: white;
   border-radius: 33px;
-  
   z-index: 11;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .create-task-buttons {
   margin-top: 100px !important;
 }
+
 .main-container-addTask-board {
   padding: 50px 0px;
   flex: 1;
 }
+
 .editBg {
- height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-
 }
+
 .moreInfoBg {
   position: absolute;
   top: 0;
@@ -517,11 +350,6 @@ align-items: center;
   z-index: 10;
 }
 
-.assignedUserInfoParent {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 .subtaskInfo {
   display: flex;
   gap: 6px
@@ -533,7 +361,7 @@ align-items: center;
   width: 100%;
 }
 
-.subTaskContainerBoard{
+.subTaskContainerBoard {
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -544,10 +372,12 @@ align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.subTaskParent{
+
+.subTaskParent {
   display: flex;
   justify-content: space-between;
 }
+
 .moreInfoForm {
   display: flex;
   height: 100%;
@@ -559,3 +389,8 @@ align-items: center;
   cursor: pointer;
 }
 
+.assignedUserInfoParent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

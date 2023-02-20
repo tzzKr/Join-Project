@@ -78,7 +78,7 @@ function generateTaskInfoHTML(i) {
                             </div>
                         </div>
                         
-                        <div>
+                        <div class="showOnlyMobile">
                             <div class="mobileBackToBoard">
                                 <button onclick="closeAndSaveInfo()"><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
                             </div>
@@ -262,6 +262,8 @@ function generateEditBoardTask(i) {
                                 <button onclick="closeEditTool()"><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
                             </div>
                             <div class="saveEditMobile">
+                                <button onclick="deleteTask(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px; filter: invert(1);" src="img/delete.svg" alt=""></button>
+
                                 <button onclick="saveEditedTaskBoard(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px;" src="img/addTask-right.svg" alt=""></button>
                             </div>
                     </div>

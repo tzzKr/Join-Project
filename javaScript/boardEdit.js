@@ -48,12 +48,10 @@ function renderSubTasksEdit(i) {
         if (!boardTasks[i].subtasks[y].status) {
             document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`
             <div class="subTaskParent">
-                
                 <div class="subtaskInfo">
                     <input class="subtaskCheckbox" id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
                     <p>${boardTasks[i].subtasks[y].title}</p>
                 </div>
-                
                 <div class="delete-img">
                      <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
                 </div>
@@ -62,12 +60,10 @@ function renderSubTasksEdit(i) {
         } else {
             document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`       
              <div class="subTaskParent">
-                
                 <div class="subtaskInfo">
                     <input checked id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
                     <p>${boardTasks[i].subtasks[y].title}</p>
                 </div>
-                
                 <div class="delete-img">
                      <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
                 </div>

@@ -187,8 +187,11 @@ function createCategory(color) {
         clearNewCategory();
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
-    } else {
+    } else if (categoryInput > 0) {
         initMsgBoxAlert('Category exists!');
+        
+    }else {
+        return
     }
 }
 

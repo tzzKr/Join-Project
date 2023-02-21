@@ -172,14 +172,14 @@ function deleteSubtask(i) {
 
 
 /**
- * It adds a new category to the categories array, then renders the new category, clears the new
- * category input, changes the selected color style, and removes the onclick attribute from the save
- * button.
+ * It creates a new category, saves it to local storage, selects it, renders it, clears the input
+ * field, resets the color, and removes the onclick event from the save button.
  * @param color - the color of the category
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    if (categoryInput && !checkCategoryExistence(categoryInput, color)) {
+    let lowerCaseCatName = categoryInput.toLowerCase(); 
+    if (categoryInput && !checkCategoryExistence(lowerCaseCatName)) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -187,22 +187,33 @@ function createCategory(color) {
         clearNewCategory();
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
-    } else if (categoryInput > 0) {
+    } else {
         initMsgBoxAlert('Category exists!');
-        
-    }else {
-        return
     }
 }
 
 /**
- * Check if there is a category with the same name and color as the one passed in.
+ * It loops through the array of categories and checks if the name of the category matches the name of
+ * the category that was passed in.
+ * 
+ * If it does, it sets the match variable to true.
+ * 
+ * If it doesn't, it does nothing.
+ * 
+ * If the match variable is true, it returns true.
+ * 
+ * If the match variable is false, it returns false.
  * @param catName - The name of the category to check for.
- * @param catColor - The color of the category.
- * @returns A boolean value.
+ * @returns a boolean value.
  */
-function checkCategoryExistence(catName, catColor) {
-    return categories.some(c => c.name === catName && c.color === catColor);
+function checkCategoryExistence(catName) {
+    let match = false;
+    categories.forEach(category => {
+        if (category.name.toLowerCase() === catName) {
+            match = true;
+        }
+    });
+    return match;
 }
 
 

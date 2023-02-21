@@ -178,8 +178,7 @@ function deleteSubtask(i) {
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    let lowerCaseCatName = categoryInput.toLowerCase(); 
-    if (categoryInput && !checkCategoryExistence(lowerCaseCatName)) {
+    if (categoryInput && !checkCategoryExistence(categoryInput, color)) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -188,7 +187,7 @@ function createCategory(color) {
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     } else {
-        initMsgBoxAlert('Category exists!');
+        initMsgBoxAlert('Category exists!');  
     }
 }
 

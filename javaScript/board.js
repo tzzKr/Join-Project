@@ -78,8 +78,7 @@ function filterTasks() {
     renderTodos(filterdTasks);
     }else {
         filterdTasks = boardTasks;
-    renderTodos(boardTasks);
-        
+    renderTodos(boardTasks); 
     }
 }
 /**
@@ -101,9 +100,6 @@ function renderTodos(tasks) {
         checkProgress(boardIndex);
     }
 }
-
-
-
 
 /**
  * When the user starts dragging an element, set the currentDraggedElement variable to the id of the
@@ -132,8 +128,6 @@ function moveTo(boardCategory) {
     renderTodos(boardTasks);
 }
 
-
-
 /**
  * It adds the class 'dragBackground' to the four divs with the id's 'todo', 'inProgress', 'testing',
  * and 'done'.
@@ -144,7 +138,6 @@ function showDragAreas() {
     document.getElementById('testing').classList.add('dragBackground');
     document.getElementById('done').classList.add('dragBackground');
 }
-
 
 /**
  * It removes the class 'dragBackground' from all of the divs with the id's 'todo', 'inProgress',
@@ -185,9 +178,7 @@ function countCheckedSubtasks(i) {
     } else {
         return (boardTasks[i].progressNumber / numberSubtask) * 100
     }
-    
 }
-
 
 /**
  * When the user clicks the search button, the search bar will be emptied.
@@ -196,7 +187,6 @@ function emptySearch() {
     let search = document.getElementById('boardInput');
     search.value = ""
 }
-
 
 function renderAssingedUser(boardIndex, locationIndex) {
     for (let y = 0; y < boardTasks[boardIndex].assignedTo.length; y++) {
@@ -215,18 +205,15 @@ function renderAssingedUser(boardIndex, locationIndex) {
     }
 }
 
-
 /**
  * If the checkbox is checked, set the status of all subtasks to true, otherwise set the status of all
  * subtasks to false.
  * @param i - the index of the task in the array
  */
 function subtaskCheckedBoard(i) {
-
     boardTasks[i].subtasks.forEach(subtask => {
         let checkBox = document.getElementById('subtaskCheckboxBoard' + subtask.id).checked;
         subtask.status = checkBox;
     });
-    
 }
 

@@ -281,10 +281,11 @@ function changeOverlayToNewContact() {
  * 
  */
 function mobileOperator() {
-    if(window.innerWidth <= '760') {
-        document.getElementById('to-contactbook-btn').classList.remove('d-none');
+    if(window.innerWidth <= '1100') {
         document.getElementById('content').classList.add('d-none'); 
-    }  
+    } else {
+        document.getElementById('content').classList.remove('d-none');
+    }
 }
 
 /**
@@ -292,16 +293,18 @@ function mobileOperator() {
  * 
  */
 function mobileSwitchToDetail() {
-    if(window.innerWidth <= '760') {
+    if(window.innerWidth <= '1100') {
         document.getElementById('contact-book').classList.add('d-none');
+        document.getElementById('parentContainer').classList.add('bg-white');
         document.getElementById('new-contact-btn').classList.add('d-none');
         document.getElementById('content').classList.remove('d-none');
     }
 }
 
 function toContactbookBtn() {
-    if(window.innerWidth <= '760') {
+    if(window.innerWidth <= '1100') {
         document.getElementById('content').classList.add('d-none');
+        document.getElementById('parentContainer').classList.add('bg-white');
         document.getElementById('contact-book').classList.remove('d-none');
         document.getElementById('new-contact-btn').classList.remove('d-none');
     }

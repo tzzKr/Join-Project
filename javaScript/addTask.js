@@ -178,7 +178,8 @@ function deleteSubtask(i) {
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    if (categoryInput && !checkCategoryExistence(categoryInput, color)) {
+    categoryInput = categoryInput.toLowerCase();
+    if (categoryInput && !checkCategoryExistence(categoryInput) && checkColorSelected()) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
         selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -186,8 +187,14 @@ function createCategory(color) {
         clearNewCategory();
         resetSelectedColor();
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
+    } else if (checkColorSelected() && !categoryInput) {
+        initMsgBoxAlert('Please enter a category name');
+    } else if (!checkColorSelected() && categoryInput) {
+        initMsgBoxAlert('Please select a color!')
     } else {
-        initMsgBoxAlert('Category exists!');  
+        initMsgBoxAlert('Category exists!');
+        document.getElementById('saveNewCategory').setAttribute('onclick', '');
+        resetSelectedColor();
     }
 }
 
@@ -363,6 +370,17 @@ function selectColor(color, id) {
     setTimeout(() => {
         document.getElementById('saveNewCategory').setAttribute('onclick', `createCategory(${color})`);
     }, 100);
+}
+
+function checkColorSelected() {
+    let colorSelected = false;
+    [1, 2, 3, 4, 5, 6].forEach(i => {
+        let element = 'newCategoryColor-' + i;
+        if (document.getElementById(element).classList.contains('selected')) {
+            colorSelected = true;
+        }
+    });
+    return colorSelected;
 }
 
 /**

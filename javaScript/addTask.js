@@ -665,3 +665,8 @@ function clearInviteNewContact() {
     document.getElementById('listContact').classList.add('d-none');
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
+
+function cancelTask() {
+    window.location.reload();
+
+}

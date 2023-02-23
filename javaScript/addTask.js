@@ -254,7 +254,7 @@ function renderContactsAssigndTo() {
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('listContact').innerHTML += `
         <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
-             <p data-tooltip="${contacts[i].email}" data-flow="left" id='addedUser${i + 1}'>${contacts[i].name}</p>
+             <p data-tooltip="${contacts[i].email}" data-flow="right" id='addedUser${i + 1}'>${contacts[i].name}</p>
              <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
         </div>
 

@@ -309,6 +309,8 @@ textarea {
     font-size: .9em;
     pointer-events: none;
     position: absolute;
+    left: 0;
+
     box-sizing: border-box;
     display: none;
     opacity: 0;

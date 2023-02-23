@@ -151,6 +151,11 @@
     margin-right: 80px;
 }
 
+.contactDetailAnimation {
+    animation: moveToLeft 225ms ease-in-out;
+}
+
+
 .contactHeader {
     display: flex;
     flex-direction: row;
@@ -182,6 +187,11 @@
     justify-content: center;
     gap: 13px;
     margin-top: 18px;
+}
+
+.contactAddTaskBtn:hover {
+    scale: 1.075;
+    transition: all 125ms ease-in-out;
 }
 
 .addTaskBtnText {
@@ -218,6 +228,10 @@
     font-weight: 400;
     font-size: 16px;
     color: #2A3647;
+}
+
+.editContactBtn:hover {
+    filter: invert(65%) sepia(21%) saturate(6259%) hue-rotate(164deg) brightness(97%) contrast(82%);
 }
 
 .contactAdressInformations {
@@ -466,6 +480,7 @@
 
 #to-contactbook-btn {
     display: none;
+    cursor: pointer;
 }
 
 .bg-white {

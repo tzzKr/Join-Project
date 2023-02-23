@@ -200,7 +200,7 @@ async function createContact() {
     let inputName = document.getElementById('input-name').value;
     let inputEmail = document.getElementById('input-email').value;
     let inputPhone = document.getElementById('input-phone').value;
-    let existingContact = contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone);
+    let existingContact = contacts.find( u => u.email == inputEmail);
     if(existingContact) {
         initMsgBox('Contact already exists!');
     } else {
@@ -277,12 +277,13 @@ function changeOverlayToNewContact() {
 }
 
 /**
- * Checks if the window size is equal or less than 760px and than execute code in it.
+ * Checks if the window size is equal or less than 1100px and than execute code in it.
  * 
  */
 function mobileOperator() {
     if(window.innerWidth <= '1100') {
-        document.getElementById('content').classList.add('d-none'); 
+        document.getElementById('content').classList.add('d-none');
+        document.getElementById('parentContainer').classList.add('bg-white'); 
     } else {
         document.getElementById('content').classList.remove('d-none');
     }
@@ -295,7 +296,7 @@ function mobileOperator() {
 function mobileSwitchToDetail() {
     if(window.innerWidth <= '1100') {
         document.getElementById('contact-book').classList.add('d-none');
-        document.getElementById('parentContainer').classList.add('bg-white');
+        document.getElementById('parentContainer').classList.remove('bg-white');
         document.getElementById('new-contact-btn').classList.add('d-none');
         document.getElementById('content').classList.remove('d-none');
     }

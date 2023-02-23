@@ -73,12 +73,12 @@ async function loadTasks() {
 function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase().trim();
-    if (search.length > 0){
+    if (search.length > 0) {
         filterdTasks = boardTasks.filter(t => t.title.toLowerCase().startsWith(search));
-    renderTodos(filterdTasks);
-    }else {
+        renderTodos(filterdTasks);
+    } else {
         filterdTasks = boardTasks;
-    renderTodos(boardTasks); 
+        renderTodos(boardTasks);
     }
 }
 /**
@@ -195,25 +195,24 @@ function renderAssingedUser(boardIndex, locationIndex) {
             document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
             <div class="assignedUser">
                 +${boardTasks[boardIndex].assignedTo.length - 2}
-                    </div>`
+            </div>`;
             break
         }
         document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
             <div class="assignedUser" style="background-color: ${boardTasks[boardIndex].assignedTo[y].color}">
                 ${getInitials(boardTasks[boardIndex].assignedTo[y].name)}
-            </div>`
+            </div>`;
     }
 }
 
+
 /**
- * If the checkbox is checked, set the status of all subtasks to true, otherwise set the status of all
- * subtasks to false.
- * @param i - the index of the task in the array
+ * It takes the index of the task and the index of the subtask and toggles the status of the subtask.
+ * @param i - the index of the task in the boardTasks array
+ * @param y - the index of the subtask in the subtasks array
  */
-function subtaskCheckedBoard(i) {
-    boardTasks[i].subtasks.forEach(subtask => {
-        let checkBox = document.getElementById('subtaskCheckboxBoard' + subtask.id).checked;
-        subtask.status = checkBox;
-    });
-}
+function subtaskCheckedBoard(i, y) {
+    boardTasks[i].subtasks[y].status = !boardTasks[i].subtasks[y].status;
+    }
+
 

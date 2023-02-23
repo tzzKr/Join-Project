@@ -121,7 +121,7 @@ function generateTaskHTML(i, boardIndex) {
         <p>${boardTasks[boardIndex]['progressNumber']}/${boardTasks[boardIndex].subtasks.length} Done</p>
     </div>
     <div class="user_urgency">
-            <div id='assignedUser${i}' class="assignedTo">
+        <div id='assignedUser${i}' class="assignedTo">
             
         </div>
         <div class="urgency">
@@ -280,7 +280,7 @@ function generateEditBoardTask(i) {
 function generateAssignedContacts(i) {
 
     for (let j = 0; j < boardTasks[i].assignedTo.length; j++) {
-        let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.name == boardTasks[i].assignedTo[j].name));
+        let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.email == boardTasks[i].assignedTo[j].email));
         mergedContacts[matchId].status = true;
     }
 
@@ -288,20 +288,20 @@ function generateAssignedContacts(i) {
     for (let y = 0; y < mergedContacts.length; y++) {
         if (mergedContacts[y].status) {
             document.getElementById('listContact').innerHTML += /*html*/ `
-                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
+                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}', ${y}, ${i})">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
-                        onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" checked class="checkbox"
+                        onclick="checkClickEdit('checkboxAssignedTo${y + 1}', ${y}, ${i})" checked class="checkbox"
                         type="checkbox">
                     </div>`;
-            renderAssinedNumberInEdit(true);
+            renderAssignedNumberInEdit(true);
 
         } else {
             document.getElementById('listContact').innerHTML += /*html*/ `
-                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}')">
+                    <div class="options-2" onclick="checkClickEdit('checkboxAssignedTo${y + 1}', ${y}, ${i})">
                     <p id='addedUser${y + 1}'>${mergedContacts[y].name}</p>
                     <input id="checkboxAssignedTo${y + 1}"
-                    onclick="checkClickEdit('checkboxAssignedTo${y + 1}')" class="checkbox"
+                    onclick="checkClickEdit('checkboxAssignedTo${y + 1}', ${y}, ${i})" class="checkbox"
                         type="checkbox">
                     </div>`;
         }
@@ -322,7 +322,7 @@ function generateAssignedContacts(i) {
  * contact assigned".</code>
  * @param addition - true or false
  */
-function renderAssinedNumberInEdit(addition) {
+function renderAssignedNumberInEdit(addition) {
     if (addition) {
         numberAssingendUserEdit += 1;
     } else {
@@ -341,13 +341,14 @@ function renderAssinedNumberInEdit(addition) {
  * checked, do not render the assigned number in the edit form.
  * @param checkboxId - the id of the checkbox
  */
-function checkingIfAssinedTrue(checkboxId) {
-    let checkBox = document.getElementById(checkboxId);
-
+function checkingIfAssignedTrue(checkBoxId, mergedId, boardId) {
+    let checkBox = document.getElementById(checkBoxId);
     if (checkBox.checked == true) {
-        renderAssinedNumberInEdit(true);
+        renderAssignedNumberInEdit(true);
+        addAssignedToBoard(mergedId, boardId);
     } else {
-        renderAssinedNumberInEdit(false);
+        renderAssignedNumberInEdit(false);
+        removeAssignedToBoard(mergedId, boardId);
     }
 
 }

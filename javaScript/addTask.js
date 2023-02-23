@@ -189,8 +189,6 @@ function createCategory(color) {
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     } else if (checkColorSelected() && !categoryInput) {
         initMsgBoxAlert('Please enter a category name');
-    } else if (!checkColorSelected() && categoryInput) {
-        initMsgBoxAlert('Please select a color!');
     } else {
         initMsgBoxAlert('Category exists!');
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
@@ -256,9 +254,11 @@ function renderContactsAssigndTo() {
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('listContact').innerHTML += `
         <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
-            <p id='addedUser${i + 1}'>${contacts[i].name}</p>
-            <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
-        </div>`;
+             <p data-tooltip="${contacts[i].email}" data-flow="left" id='addedUser${i + 1}'>${contacts[i].name}</p>
+             <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
+        </div>
+
+        `;
     }
 }
 
@@ -406,7 +406,8 @@ function resetSelectedColor() {
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
     if (checkBox.checked == true) {
-        task.assignedTo.push({ name: contacts[i].name, color: contacts[i].color });
+        console.log(contacts[i]);
+        task.assignedTo.push(contacts[i]);
         renderContactNumber(true);
     } else {
         task.assignedTo.splice(task.assignedTo.findIndex(u => u.name == contacts[i].name), 1);

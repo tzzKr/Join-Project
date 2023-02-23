@@ -5,9 +5,9 @@ function openTaskInfo(i) {
     document.getElementById('backgroundCloser').classList.remove('d-none');
     renderAssingedUserInfo(i);
     renderSubTasksInfo(i);
-    showSelectedBtn(i)
+    showSelectedBtn(i);
     emptySearch();
-    openMobileInfo()
+    openMobileInfo();
 }
 
 function closeMoreInfo() {
@@ -19,7 +19,6 @@ function closeMoreInfo() {
 }
 
 function closeAndSaveInfo() {
-    
     saveTasks();
     closeMoreInfo();
     renderTodos(boardTasks);

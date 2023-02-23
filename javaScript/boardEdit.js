@@ -206,8 +206,8 @@ function renderContactsAssigndToBoard(i) {
  */
 function mergeContacts(array1, array2, uniqueContacts) {
     for (const element of array1.concat(array2)) {
-        if (!uniqueContacts.has(element.name)) {
-            uniqueContacts.add(element.name);
+        if (!uniqueContacts.has(element.email)) {
+            uniqueContacts.add(element.email);
             mergedContacts.push(element);
         }
     }
@@ -218,17 +218,42 @@ function mergeContacts(array1, array2, uniqueContacts) {
  * checkbox is checked.
  * @param id - the id of the checkbox
  */
-function checkClickEdit(id) {
-    for (let y = 0; y < mergedContacts.length; y++) {
-        let checkbox = document.getElementById(id);
-        if (checkbox) {
-            checkbox.checked = !checkbox.checked;
-        }
-        checkingIfAssinedTrue(id);
+function checkClickEdit(checkBoxId, mergedId, boardId) {
+    let checkbox = document.getElementById(checkBoxId);
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
     }
-
+    checkingIfAssignedTrue(checkBoxId, mergedId, boardId);
 }
 
+/**
+ * It takes a mergedId and a boardId, and then sets the status of the mergedContact with that mergedId
+ * to true, and then pushes that mergedContact into the assignedTo array of the boardTask with that
+ * boardId.
+ * @param mergedId - the id of the merged contact
+ * @param boardId - the id of the board
+ */
+function addAssignedToBoard(mergedId, boardId) {
+    mergedContacts[mergedId].status = true;
+    boardTasks[boardId].assignedTo.push(mergedContacts[mergedId]);
+}
+
+/**
+ * It removes a contact from the assignedTo array of a board.
+ * @param mergedId - the id of the contact in the mergedContacts array
+ * @param boardId - the id of the board
+ */
+function removeAssignedToBoard(mergedId, boardId) {
+    let id = boardTasks[boardId].assignedTo.indexOf(mergedContacts[mergedId]);
+    boardTasks[boardId].assignedTo[id].status = false;
+    boardTasks[boardId].assignedTo.splice(id, 1);
+}
+
+/**
+ * It takes the index of the task to be edited, pushes the edited task to the boardTasks array, closes
+ * the edit tool, renders the todos, and saves the tasks.
+ * @param i - the index of the task in the array
+ */
 function saveEditedTaskBoard(i) {
     pushToBoardTask(i);
     closeEditTool();
@@ -236,6 +261,10 @@ function saveEditedTaskBoard(i) {
     saveTasks();
 }
 
+/**
+ * It takes the values from the input fields and puts them into the array.
+ * @param i - the index of the task in the array
+ */
 function pushToBoardTask(i) {
     boardTasks[i].title = document.getElementById('titleEditBoard').value;
     boardTasks[i].description = document.getElementById('descriptionEditBoard').value;

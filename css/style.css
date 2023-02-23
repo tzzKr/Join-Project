@@ -370,3 +370,9 @@ input {
     background-color: #38383860;
   backdrop-filter: blur(5px);
 }
+
+@media(max-height: 670px) {
+    .parentContainer {
+        margin-left: 0px !important;
+    }
+}

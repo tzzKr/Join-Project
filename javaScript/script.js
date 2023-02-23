@@ -124,6 +124,11 @@ function initMsgBox(msg) {
     openMsgBox();
 }
 
+/**
+ * The function initMsgBoxAlert() takes a string as an argument and sets the innerHTML of the element
+ * with the id of msgBoxAlert to the value of the argument.
+ * @param msg - The message you want to display in the alert box.
+ */
 function initMsgBoxAlert(msg) {
     document.getElementById('msgBoxAlert').innerHTML = `${msg}`;
     openMsgBoxAlert();
@@ -143,6 +148,11 @@ function openMsgBox() {
     setTimeout(closeMsgBox, 3000);
 }
 
+/**
+ * It removes the animationFadeOut class from the element with the id msgBoxAlert, adds the
+ * animationFadeIn class to the element with the id msgBoxAlert, removes the d-none class from the
+ * element with the id msgBoxAlert, and then calls the closeMsgBoxAlert function after 3 seconds.
+ */
 function openMsgBoxAlert() {
     document.getElementById('msgBoxAlert').classList.remove('animationFadeOut');
     document.getElementById('msgBoxAlert').classList.add('animationFadeIn');
@@ -161,6 +171,10 @@ function closeMsgBox() {
     document.getElementById('msgBox').classList.add('animationFadeOut');
 }
 
+/**
+ * It removes the class 'animationFadeIn' from the element with the id 'msgBoxAlert' and adds the class
+ * 'animationFadeOut' to the same element.
+ */
 function closeMsgBoxAlert() {
     document.getElementById('msgBoxAlert').classList.remove('animationFadeIn');
     document.getElementById('msgBoxAlert').classList.add('animationFadeOut');

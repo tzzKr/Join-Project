@@ -190,7 +190,7 @@ function createCategory(color) {
     } else if (checkColorSelected() && !categoryInput) {
         initMsgBoxAlert('Please enter a category name');
     } else if (!checkColorSelected() && categoryInput) {
-        initMsgBoxAlert('Please select a color!')
+        initMsgBoxAlert('Please select a color!');
     } else {
         initMsgBoxAlert('Category exists!');
         document.getElementById('saveNewCategory').setAttribute('onclick', '');

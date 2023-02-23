@@ -97,12 +97,16 @@ function getNextUrgentDueDate() {
     let dates = [];
     tasks.forEach((v) => (v['prio'] === 'urgent' && v['board'] !== 'done' && dates.push(Date.parse(v['dueDate']))));
     dates.sort((date1, date2) => date1 - date2);
-    let upcomingDate = new Date(dates[0]);
-    let month = ["January", "February", "March", "April", "May", "June",
-                 "July", "August", "September", "October", "November", "December"]
-                [upcomingDate.getMonth()];
-    upcomingDate = `${month} ${upcomingDate.getDate()}, ${upcomingDate.getFullYear()}`;
-    return upcomingDate; 
+    if(dates.length > 0) {
+        let upcomingDate = new Date(dates[0]);
+        let month = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"]
+                    [upcomingDate.getMonth()];
+        upcomingDate = `${month} ${upcomingDate.getDate()}, ${upcomingDate.getFullYear()}`;
+        return upcomingDate;
+    } else {
+        return 'No';
+    }
 }
 
 /**
@@ -112,6 +116,9 @@ function getNextUrgentDueDate() {
 function mobileOperator() {
     if(window.innerWidth <= 760) {
         setTimeout(mobileGreetingDisapparator, 2000);
+    } else {
+        document.getElementById('welcome-message').style.width = 'auto';
+        document.getElementById('welcome-message').style.height = 'auto';
     }  
 }
 
@@ -120,5 +127,7 @@ function mobileOperator() {
  * 
  */
 function mobileGreetingDisapparator() {
+    document.getElementById('welcome-message').style.width = '0px';
+    document.getElementById('welcome-message').style.height = '0px';
     document.getElementById('welcome-message').classList.add('d-none');
 }

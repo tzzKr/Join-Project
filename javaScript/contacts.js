@@ -83,6 +83,14 @@ function renderContactDetails(firstIndex, secondIndex) {
             </div>
         </div>`;
         document.getElementById('single-contact-detail-init').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
+        addContactanimation();
+}
+
+function addContactanimation() {
+    document.getElementById('contact-details').classList.add('contactDetailAnimation');
+    setTimeout(() => {
+        document.getElementById('contact-details').classList.remove('contactDetailAnimation');
+    }, 225);  
 }
 
 /**
@@ -215,8 +223,9 @@ async function createContact() {
         await backend.setItem('users', JSON.stringify(users));
         loadContactsFromServer();
         initMsgBox('Contact succesfully created');
+        closeOverlay();
     }
-    closeOverlay();
+    
 }
 /**
  * Load contacts from server

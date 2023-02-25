@@ -25,7 +25,7 @@ let categories = [];
  */
 async function loadTasksFromServer() {
     await downloadFromServer();
-    tasks = JSON.parse(await backend.getItem('tasks')) || [];
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
 }
 
 /**
@@ -55,7 +55,7 @@ async function saveTaskCategories(msg) {
 async function createTask() {
     if (checkForm()) {
         await loadTasksFromServer();
-        tasks = JSON.parse(await backend.getItem('tasks')) || [];
+        // tasks = JSON.parse(await backend.getItem('tasks')) || [];
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');

@@ -175,7 +175,6 @@ h1 {
 }
 
 .categoryTag {
-  margin-bottom: 15px;
   height: 25px;
   border-radius: 10px;
   text-align: center;
@@ -206,12 +205,6 @@ h1 {
   margin-left: -10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 9;
   background-color: #F5F5F5;
 }
 
@@ -222,8 +215,8 @@ h1 {
 
 .singleBoards {
   overflow-x: scroll;
-  width: 250px;
-  height: 61vh;
+  width: 268px;
+  height: 63vh;
   flex-direction: column;
   border-radius: 30px;
   row-gap: 35px;
@@ -257,11 +250,12 @@ h1 {
 }
 
 .progressContainer {
-  margin-top: 23px;
+  margin-top: 14px;
   display: flex;
   align-items: center;
   font-size: 12px;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .progressBar {
@@ -280,7 +274,7 @@ h1 {
 
 .user_urgency {
   display: flex;
-  margin-top: 23px;
+  margin-top: 14px;
   align-items: center;
   justify-content: space-between;
 }

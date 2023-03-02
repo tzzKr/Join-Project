@@ -21,28 +21,7 @@ async function getContactsBoard(i) {
     renderContactsAssigndToBoard(i);
 }
 
-/**
- * Download the data from the server, then parse it and store it in the categoriesBoard variable.
- */
-async function getTaskCatrgories() {
-    await downloadFromServer();
-    categoriesBoard = JSON.parse(backend.getItem('taskCategories')) || [];
-}
 
-/**
- * It saves the boardTasks array to the browser's local storage, then it loads the tasks from the local
- * storage.
- */
-
-
-/**
- * This function saves the taskCategories array to local storage, and then calls the initMsgBox
- * function to display a message to the user.
- */
-async function saveTaskCategories() {
-    await backend.setItem('taskCategories', JSON.stringify(categoriesBoard));
-    initMsgBox('New Category created!');
-}
 
 /**
  * It takes the boardTasks array, converts it to a string, and saves it to the browser's local storage.

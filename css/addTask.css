@@ -295,16 +295,17 @@ textarea {
     transition: all 100ms ease-in-out;
 }
 
-/****---------------------- PopUp Hover Style -----------------------****/
+/****----------------------  ToolTip Style -----------------------****/
 
 
 
 [data-tooltip] {
     position: relative;
     cursor: pointer;
-  }
-  [data-tooltip]:before,
-  [data-tooltip]:after {
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
     line-height: 1;
     font-size: .9em;
     pointer-events: none;
@@ -314,13 +315,15 @@ textarea {
     box-sizing: border-box;
     display: none;
     opacity: 0;
-  }
-  [data-tooltip]:before {
+}
+
+[data-tooltip]:before {
     content: "";
     border: 5px solid transparent;
     z-index: 100;
-  }
-  [data-tooltip]:after {
+}
+
+[data-tooltip]:after {
     content: attr(data-tooltip);
     text-align: center;
     min-width: 3em;
@@ -333,73 +336,88 @@ textarea {
     background: #4D70FF;
     color: #FFFFFF;
     z-index: 99;
-  }
-  [data-tooltip]:hover:before,
-  [data-tooltip]:hover:after {
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
     display: block;
     opacity: 1;
-  }
-  [data-tooltip]:not([data-flow])::before,
-  [data-tooltip][data-flow="top"]::before {
+}
+
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip][data-flow="top"]::before {
     bottom: 100%;
     border-bottom-width: 0;
     border-top-color: #4D70FF;
-  }
-  [data-tooltip]:not([data-flow])::after,
-  [data-tooltip][data-flow="top"]::after {
+}
+
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow="top"]::after {
     bottom: calc(100% + 5px);
-  }
-  [data-tooltip]:not([data-flow])::before, [tooltip]:not([data-flow])::after,
-  [data-tooltip][data-flow="top"]::before,
-  [data-tooltip][data-flow="top"]::after {
+}
+
+[data-tooltip]:not([data-flow])::before,
+[tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow="top"]::before,
+[data-tooltip][data-flow="top"]::after {
     left: 50%;
     -webkit-transform: translate(-50%, -4px);
-            transform: translate(-50%, -4px);
-  }
-  [data-tooltip][data-flow="bottom"]::before {
+    transform: translate(-50%, -4px);
+}
+
+[data-tooltip][data-flow="bottom"]::before {
     top: 100%;
     border-top-width: 0;
     border-bottom-color: #4D70FF;
-  }
-  [data-tooltip][data-flow="bottom"]::after {
+}
+
+[data-tooltip][data-flow="bottom"]::after {
     top: calc(100% + 5px);
-  }
-  [data-tooltip][data-flow="bottom"]::before, [data-tooltip][data-flow="bottom"]::after {
+}
+
+[data-tooltip][data-flow="bottom"]::before,
+[data-tooltip][data-flow="bottom"]::after {
     left: 50%;
     -webkit-transform: translate(-50%, 8px);
-            transform: translate(-50%, 8px);
-  }
-  [data-tooltip][data-flow="left"]::before {
+    transform: translate(-50%, 8px);
+}
+
+[data-tooltip][data-flow="left"]::before {
     top: 50%;
     border-right-width: 0;
     border-left-color: #4D70FF;
     left: calc(0em - 5px);
     -webkit-transform: translate(-8px, -50%);
-            transform: translate(-8px, -50%);
-  }
-  [data-tooltip][data-flow="left"]::after {
+    transform: translate(-8px, -50%);
+}
+
+[data-tooltip][data-flow="left"]::after {
     top: 50%;
     right: calc(100% + 5px);
     -webkit-transform: translate(-8px, -50%);
-            transform: translate(-8px, -50%);
-  }
-  [data-tooltip][data-flow="right"]::before {
+    transform: translate(-8px, -50%);
+}
+
+[data-tooltip][data-flow="right"]::before {
     top: 50%;
     border-left-width: 0;
     border-right-color: #4D70FF;
     right: calc(0em - 5px);
     -webkit-transform: translate(8px, -50%);
-            transform: translate(8px, -50%);
-  }
-  [data-tooltip][data-flow="right"]::after {
+    transform: translate(8px, -50%);
+}
+
+[data-tooltip][data-flow="right"]::after {
     top: 50%;
     left: calc(100% + 5px);
     -webkit-transform: translate(8px, -50%);
-            transform: translate(8px, -50%);
-  }
-  [data-tooltip=""]::after, [data-tooltip=""]::before {
+    transform: translate(8px, -50%);
+}
+
+[data-tooltip=""]::after,
+[data-tooltip=""]::before {
     display: none !important;
-  }
+}
 
 .d-none {
     display: none;
@@ -606,252 +624,3 @@ textarea {
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
-@media(max-width: 1670px) {
-    .middleLine {
-        left: 44%;
-    }
-}
-
-@media(max-width: 1670px) {
-    .middleLine {
-        left: 45%;
-    }
-}
-
-@media(max-width: 1500px) {
-    .middleLine {
-        display: none !important;
-    }
-}
-
-@media(max-width: 1395px) {
-    .main-container-addTask {
-        width: calc(100% - 0px);
-    }
-}
-
-@media(max-width: 1300px) {
-    .create-task-buttons {
-        margin-left: 0%;
-    }
-}
-
-@media(max-width: 1220px) {
-    .main-container-addTask {
-        width: 100%;
-    }
-}
-
-@media(max-width: 1180px) {
-    .prio-btns {
-        width: 107px;
-    }
-
-    .input-addTask {
-        width: 400px;
-    }
-
-    .assigndTo-input {
-        width: auto !important;
-    }
-
-    select {
-        width: 400px;
-    }
-
-    .select-field {
-        width: 400px;
-    }
-
-    textarea {
-        width: 400px;
-    }
-
-    .list {
-        width: 400px;
-    }
-}
-
-@media(max-width: 1080px) {
-    .prio-btns {
-        width: 94px;
-    }
-
-    .input-addTask {
-        width: 360px;
-    }
-
-    .checkbox {
-        width: auto !important;
-    }
-
-    select {
-        width: 360px;
-    }
-
-    .select-field {
-        width: 360px;
-        font-size: 18px;
-    }
-
-    textarea {
-        width: 360px;
-    }
-
-    .list {
-        width: 360px;
-    }
-
-    .prio-buttons button {
-        font-size: 16px;
-    }
-}
-
-@media(max-width: 1000px) {
-    .addTask {
-        flex-direction: column;
-    }
-
-    .parentContainer {
-        margin-left: calc(300px + 20px) !important;
-    }
-
-    .create-task-buttons {
-        position: unset;
-        margin-top: 12%;
-        margin-bottom: 12%;
-    }
-}
-
-@media(max-width: 760px) {
-    .addTask {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 4px;
-        margin-right: 4px;
-    }
-
-    .parentContainer {
-        margin-left: unset !important;
-    }
-
-    .h1AddTask {
-        width: fit-content;
-        margin: auto;
-    }
-
-    .headline-img {
-        display: none !important;
-    }
-
-    .create-task-btn {
-        position: fixed;
-        z-index: 999;
-        top: 12px;
-        right: 12px;
-        height: 50px;
-        width: 140px;
-        font-size: 14px;
-
-    }
-
-    .create-task-btn:hover {
-        transition: none;
-        transform: none;
-        background-color: #29ABE2;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
-    .clear-btn {
-        position: fixed;
-        z-index: 999;
-        top: 12px;
-        right: 160px;
-        width: 120px;
-        height: 50px;
-        font-size: 14px;
-    }
-
-    .clear-btn:hover {
-        transition: all 100ms ease-in-out;
-        transform: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border: 1px solid #29ABE2;
-        color: #29ABE2;
-    }
-
-    .prio-btns:hover {
-        transition: none;
-        transform: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
-}
-
-@media(max-width: 440px) {
-    .clear-btn {
-        top: 14px !important;
-        width: 80px;
-        height: 47px;
-        gap: 0;
-
-    }
-}
-
-@media(max-width: 390px) {
-    .input-addTask {
-        width: 340px;
-    }
-
-    textarea {
-        width: 340px;
-    }
-
-    .select-field {
-        width: 340px;
-    }
-
-    .list {
-        width: 340px;
-    }
-
-    .prio-buttons {
-        flex-direction: column;
-        width: 330px;
-    }
-
-    .prio-btns {
-        width: 320px;
-    }
-}
-
-@media(max-width: 370px) {
-    .input-addTask {
-        width: 320px;
-    }
-
-    textarea {
-        width: 320px;
-    }
-
-    .select-field {
-        width: 320px;
-    }
-
-    .list {
-        width: 320px;
-    }
-
-    .prio-buttons {
-        flex-direction: column;
-        width: 330px;
-    }
-
-    .prio-btns {
-        width: 300px;
-    }
-}

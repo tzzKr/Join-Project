@@ -403,6 +403,18 @@ body {
     }
 }
 
+@media (max-width: 340px) {
+    .mobile-menu {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 300px) {
+    .mobile-menu {
+        font-size: 12px !important;
+    }
+}
+
 
 
 

@@ -26,7 +26,7 @@ function generateTaskInfoHTML(i) {
         
                         
                             </div>
-                            <div class="container mobile-d-none">
+                            <div class="container">
                                 <h3>Assigned to</h3>
         
                                 <div id="assignedUserInfo" class="assingedUserInfo">
@@ -67,8 +67,7 @@ function generateTaskInfoHTML(i) {
                                 <div class="container showOnlyMobile">
                                     <h3>Assigned to</h3>
         
-                                    <div id="assignedUserInfo" class="assingedUserInfo">
-                                </div>
+                                    
                                 </div>
                             
                             </div>

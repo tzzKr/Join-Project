@@ -29,14 +29,16 @@ body {
 }
 
 .logOut-container {
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     /* flex-direction: column; */
-    flex-direction: column;
     padding: 10px;
     width: 110px;
     /* height: 64px; */
+    background-color: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px 0px 25px 25px;
     color: #FFFFFF;
     position: absolute;
     top: 132%;
@@ -44,34 +46,11 @@ body {
     /* gap: 12px; */
 }
 
-.upperlogOut-container {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    width: 110px;
-    background-color: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 25px 0px 0px 0px;
-    
-}
-
-.lowerlogOut-container {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    width: 110px;
-    background-color: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0px 0px 25px 25px;
-}
-
-/* .logOut-container:hover {
+.logOut-container:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-} */
+}
 
 .logout-element {
     display: flex;
@@ -435,7 +414,3 @@ body {
         font-size: 12px !important;
     }
 }
-
-
-
-

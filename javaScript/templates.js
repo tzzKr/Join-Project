@@ -64,11 +64,7 @@ function generateTaskInfoHTML(i) {
                                     <h3>Subtasks</h3>
                                     <div class="subTaskContainer" id="subTaskContainer"> </div>
                                 </div>
-                                <div class="container showOnlyMobile">
-                                    <h3>Assigned to</h3>
-        
-                                    
-                                </div>
+                               
                             
                             </div>
                             <div id="infoBtnsBoard" class="editTask" style="gap: 10px">

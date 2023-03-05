@@ -28,6 +28,10 @@
         
       }
 
+    .subTaskContainerBoard {
+        width: auto;
+    }
+
     .boardSearchParent {
         display: none;
     }

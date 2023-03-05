@@ -272,6 +272,7 @@ function generateEditBoardTask(i) {
                 </form>
             </div>
             <dialog id="msgBox" class="msgBox d-none"></dialog>
+            <dialog id="msgBoxAlert" class="msgBox d-none" style="background-color: tomato;"></dialog>
         
 
         </div>`

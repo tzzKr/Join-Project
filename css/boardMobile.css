@@ -22,6 +22,11 @@
     .boardTask {
         min-width: 48%;
     }
+    .progressBar {
+        
+        width: 99%;
+        
+      }
 
     .boardSearchParent {
         display: none;

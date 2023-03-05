@@ -36,9 +36,13 @@
         z-index: 14 !important;
 
     }
+    .headline {
+        flex-wrap: wrap;
+    }
 
     .titelStyle {
         z-index: 1;
+        width: auto;
     }
 
     .BoardAddTaskBtn {
@@ -145,6 +149,7 @@
         margin-top: 20px;
         display: flex !important;
     }
+    
 
     .headerAndMobileSearch {
         width: 253px;
@@ -166,6 +171,7 @@
     .boardTask {
         min-width: 100%;
     }
+    
 }
 
 @media (max-width: 300px) {
@@ -173,6 +179,10 @@
         max-width: 251px;
         min-width: none;
         width: auto;
+
+    }
+    .boardLists {
+        margin-left: 8px;
     }
 }
 

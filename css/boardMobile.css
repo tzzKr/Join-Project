@@ -160,7 +160,7 @@
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 470px) {
     .boardTask {
         min-width: 100%;
     }

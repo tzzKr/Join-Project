@@ -155,6 +155,12 @@
 
 }
 
+@media (max-width: 400px) {
+    .boardTask {
+        min-width: 100%;
+    }
+}
+
 .showOnlyMobile {
     display: none;
 }

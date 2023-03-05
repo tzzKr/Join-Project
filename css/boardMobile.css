@@ -157,12 +157,22 @@
     .showOnlyMobile {
         display: block !important;
     }
-
+    .boardSearchBar {
+        width: 100%;
+    }
 }
 
 @media (max-width: 470px) {
     .boardTask {
         min-width: 100%;
+    }
+}
+
+@media (max-width: 300px) {
+    .boardSearchMobile {
+        max-width: 251px;
+        min-width: none;
+        width: auto;
     }
 }
 

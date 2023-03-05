@@ -315,6 +315,13 @@ body {
         height: 100px;
         gap: 12px;
     }
+
+    .logOut-container:hover{
+        cursor: unset;
+        background-color: rgb(42, 54, 71);
+        box-shadow: none;
+    }
+
     .legal-notice-element {
         display: flex !important;
         justify-content: center;
@@ -383,6 +390,9 @@ body {
         height: 100px;
         gap: 12px;
     }
+
+
+
     .legal-notice-element {
         display: flex !important;
         justify-content: center;

@@ -189,7 +189,7 @@ function generateEditBoardTask(i) {
     
                             </div>
                         </div>
-                        <div class="container mobile-d-none">
+                        <div class="container">
                             <h3>Assigned to</h3>
                           
                             <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
@@ -237,16 +237,7 @@ function generateEditBoardTask(i) {
 
                         </div>
                         
-                        <div class="container showOnlyMobile">
-                            <h3>Assigned to</h3>
-                          
-                            <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
-                                <p id="contactNumber">Select contacts to assign</p>
-                                <img src="img/arrow.png">
-                            </div>
-    
-                            <div id="listContact" class="list d-none"></div>
-                        </div>
+                    
                         
     
                         <div class="create-task-buttons">

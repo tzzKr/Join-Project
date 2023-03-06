@@ -33,7 +33,6 @@ body {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #000000;
 }
 
@@ -62,7 +61,6 @@ body {
 }
 
 .logo-container {
-    /* position: absolute; */
     left: 80px;
     top: 60px;
     cursor: pointer;
@@ -137,9 +135,7 @@ body {
     gap: 35px;
     width: 700px;
     height: 480px;
-    /* white */
     background: #FFFFFF;
-    /* shadoe backlog box */
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -174,7 +170,6 @@ body {
 
 .input-login {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -183,7 +178,6 @@ body {
     width: 422px;
     height: 51px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
@@ -241,7 +235,6 @@ body {
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #FFFFFF;
     cursor: pointer;
 }
@@ -265,7 +258,6 @@ body {
 
 .guest-button {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -274,14 +266,11 @@ body {
     gap: 10px;
     width: 161px;
     height: 51px;
-    /* Version 2/ main color */
     border: 1px solid #2A3647;
     border-radius: 8px;
     font-weight: 500;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
-    /* Version 2/ main color */
     color: #2A3647;
     cursor: pointer;
 }

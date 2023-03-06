@@ -25,7 +25,6 @@
 
 .input-addTask {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,7 +33,6 @@
     width: 422px;
     height: 51px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-size: 21px;
@@ -42,7 +40,6 @@
 
 textarea {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     padding: 18px 21px;
     gap: 10px;
@@ -50,7 +47,6 @@ textarea {
     width: 422px;
     height: 119px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-size: 16px;
@@ -198,9 +194,6 @@ textarea {
     cursor: pointer;
 }
 
-/* li img {
-    width: 30px;
-} */
 
 .list {
     width: 100%;
@@ -238,7 +231,6 @@ textarea {
 
 .justify-content-center {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     gap: 8px;
 }
@@ -475,9 +467,7 @@ textarea {
     width: 114px;
     height: 16px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    /* white */
     background: #FFFFFF;
-    /* nuevo */
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;

@@ -397,6 +397,6 @@ input {
 
 @media(max-height: 670px) {
     .parentContainer {
-        margin-left: 0px !important;
+        margin-left: 32px;
     }
 }

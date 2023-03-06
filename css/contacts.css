@@ -600,3 +600,9 @@
         margin-left: 0 !important;
     }
 }
+
+@media(max-height: 670px) {
+    .parentContainer {
+        margin-left: 0px !important;
+    }
+}

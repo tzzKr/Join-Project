@@ -105,7 +105,7 @@ function generateTaskHTML(i, boardIndex) {
     <div class="categoryContainer">
         <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
         <div class="MobileMoveBtns showOnlyMobile">
-            <button class="BoardBtn" id="prevBoard"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
+            <button class="BoardBtn" onclick="prevBoard(${boardIndex})" id="prevBoard"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
             <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>
         </div>
     </div>

@@ -23,17 +23,19 @@
 
     <div id="parentContainer" class="parentContainer">
 
-        <button onclick="changeOverlayToNewContact()" id="new-contact-btn" class="newContactBtn">
-            <span>New contact</span>
-            <img src="img/newContact.svg">
-        </button>
+        <div id="new-contact-btn-container">
+            <button onclick="changeOverlayToNewContact()" id="new-contact-btn" class="newContactBtn">
+                <span>New contact</span>
+                <img src="img/newContact.svg">
+            </button>
+        </div>
 
         <div id="contact-book" class="contactBook"></div>
 
 
         <div id="content" class="content">
-            <div class="headline">
-                <img src="img/back.svg" id="to-contactbook-btn" onclick="toContactbookBtn()">
+            <div id="contact-headline" class="headline">
+                <img src="img/back.svg" id="to-contactbook-btn" onclick="mobileSwitchToContactbook()">
                 <h1>Contacts</h1>
                 <div class="hlSeperator"></div>
                 <span class="subheadline">Better with a team</span>

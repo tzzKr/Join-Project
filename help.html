@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/help.css">
     <link rel="stylesheet" href="css/desktop_template.css">
+    <script src="./javaScript/mini_backend.js"></script>
     <script src="javaScript/script.js"></script>
     <script src="./javaScript/navbar.js"></script>
+
 </head>
 
-<body onload="includeHTML()">
+<body onload="checkLoginStatus(), includeHTML()">
     
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 

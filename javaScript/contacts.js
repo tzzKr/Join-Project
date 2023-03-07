@@ -32,13 +32,13 @@ function renderContactbook() {
                     <div class="listSeperator"></div>`
             for(let j = 0; j < orderedContacts[i].length; j++) {
                 document.getElementById('contact-book').innerHTML += /*html*/ `
-                        <div class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
+                        <button class="listContact" onclick="renderContactDetails(${i},${j}), mobileSwitchToDetail()">
                             <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
                             <div class="listContactInfo">
                                 <span class="listContactName">${orderedContacts[i][j].name}</span>
                                 <span class="listContactEmail">${orderedContacts[i][j].email}</span>
                             </div>
-                        </div>`;
+                        </button>`;
                 document.getElementById(`single-contact-init${orderedContacts[i][j].id}`).style.backgroundColor = orderedContacts[i][j].color;
             }
             document.getElementById('contact-book').innerHTML += /*html*/ `</div>`
@@ -169,7 +169,7 @@ async function deleteContact() {
     await backend.setItem('users', JSON.stringify(users));
     loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
-    toContactbookBtn();
+    mobileSwitchToContactbook();
     initMsgBox('Contact succesfully deleted');
     closeOverlay();  
 }
@@ -195,7 +195,7 @@ async function saveContact(firstIndex, secondIndex) {
     await backend.setItem('users', JSON.stringify(users));
     loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
-    toContactbookBtn();
+    mobileSwitchToContactbook();
     initMsgBox('Contact succesfully changed');
     closeOverlay();
 }
@@ -290,11 +290,11 @@ function changeOverlayToNewContact() {
  * 
  */
 function mobileOperator() {
-    if(window.innerWidth <= '1100') {
-        document.getElementById('content').classList.add('d-none');
-        document.getElementById('parentContainer').classList.add('bg-white'); 
+    if(window.innerWidth <= '1100px') {
+        mobileSwitchToContactbook();
     } else {
         document.getElementById('content').classList.remove('d-none');
+        document.getElementById('contact-headline').classList.remove('d-none');
     }
 }
 
@@ -303,19 +303,22 @@ function mobileOperator() {
  * 
  */
 function mobileSwitchToDetail() {
-    if(window.innerWidth <= '1100') {
-        document.getElementById('contact-book').classList.add('d-none');
-        document.getElementById('parentContainer').classList.remove('bg-white');
-        document.getElementById('new-contact-btn').classList.add('d-none');
-        document.getElementById('content').classList.remove('d-none');
+    if(window.innerWidth <= '1100px') {
+        document.getElementById('contact-book').style.display = 'none';
+        document.getElementById('new-contact-btn').style.display = 'none';
+        document.getElementById('content').style.display = 'flex';
     }
 }
 
-function toContactbookBtn() {
-    if(window.innerWidth <= '1100') {
-        document.getElementById('content').classList.add('d-none');
-        document.getElementById('parentContainer').classList.add('bg-white');
-        document.getElementById('contact-book').classList.remove('d-none');
-        document.getElementById('new-contact-btn').classList.remove('d-none');
+function mobileSwitchToContactbook() {
+    if(window.innerWidth <= '1100px') {
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('contact-book').style.display = 'block';
+        document.getElementById('new-contact-btn').style.display = 'flex';
+    } else {
+        document.getElementById('content').style.display = 'flex';
+        document.getElementById('contact-book').style.display = 'block';
+        document.getElementById('new-contact-btn').style.display = 'flex';
+        document.getElementById('contact-details').innerHTML = '';
     }
 }

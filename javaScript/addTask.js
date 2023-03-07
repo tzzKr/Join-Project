@@ -55,10 +55,13 @@ async function saveTaskCategories(msg) {
 async function createTask() {
     if (checkForm()) {
         await loadTasksFromServer();
-        // tasks = JSON.parse(await backend.getItem('tasks')) || [];
+        tasks = JSON.parse(await backend.getItem('tasks')) || [];
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
+        setTimeout(() => {
+            window.location.href = 'board.html'
+        },2100);
     } else {
         initMsgBoxAlert('Something missing!');
     }
@@ -178,7 +181,7 @@ function deleteSubtask(i) {
  */
 function createCategory(color) {
     let categoryInput = document.getElementById('categoryInput').value;
-    categoryInput = categoryInput.toLowerCase();
+    categoryInput = categoryInput.charAt(0).toUpperCase() + categoryInput.slice(1);
     if (categoryInput && !checkCategoryExistence(categoryInput) && checkColorSelected()) {
         categories.push({ name: categoryInput, color: color });
         saveTaskCategories('New Category created!');
@@ -213,7 +216,7 @@ function createCategory(color) {
 function checkCategoryExistence(catName) {
     let match = false;
     categories.forEach(category => {
-        if (category.name.toLowerCase() === catName) {
+        if (category.name.toLowerCase() === catName.toLowerCase()) {
             match = true;
         }
     });

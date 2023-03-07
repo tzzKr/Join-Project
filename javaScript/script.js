@@ -18,7 +18,7 @@ async function addUser() {
     let password = document.getElementById('password');
     let existingUser = users.find(u => u.email == email.value);
     if (existingUser) {
-        initMsgBox('User already existing!');
+        initMsgBoxAlert('User already existing!');
     } else {
         users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
         await backend.setItem('users', JSON.stringify(users));
@@ -145,7 +145,7 @@ function openMsgBox() {
     document.getElementById('msgBox').classList.remove('animationFadeOut');
     document.getElementById('msgBox').classList.add('animationFadeIn');
     document.getElementById('msgBox').classList.remove('d-none');
-    setTimeout(closeMsgBox, 3000);
+    setTimeout(closeMsgBox, 2000);
 }
 
 /**
@@ -157,7 +157,7 @@ function openMsgBoxAlert() {
     document.getElementById('msgBoxAlert').classList.remove('animationFadeOut');
     document.getElementById('msgBoxAlert').classList.add('animationFadeIn');
     document.getElementById('msgBoxAlert').classList.remove('d-none');
-    setTimeout(closeMsgBoxAlert, 3000);
+    setTimeout(closeMsgBoxAlert, 2000);
 }
 
 

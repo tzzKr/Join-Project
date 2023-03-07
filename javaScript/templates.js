@@ -101,19 +101,19 @@ function generateTaskInfoHTML(i) {
 function generateTaskHTML(i, boardIndex) {
 
 
-    return /*html*/ `<div onclick="openTaskInfo(${boardIndex})" draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
+    return /*html*/ `<div draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
     <div class="categoryContainer">
-        <div class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
+        <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
         <div class="MobileMoveBtns showOnlyMobile">
             <button class="BoardBtn" id="prevBoard"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
             <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>
         </div>
     </div>
-    <div>
+    <div onclick="openTaskInfo(${boardIndex})">
         <h3>${boardTasks[boardIndex]['title']}</h3>
         <span class="taskDesc">${boardTasks[boardIndex]['description']}</span>
     </div>
-    <div class="progressContainer" id="progressContainer${boardIndex}">
+    <div onclick="openTaskInfo(${boardIndex})" class="progressContainer" id="progressContainer${boardIndex}">
         <div class="progressBar">
             <div class="progressLine" style="width:${countCheckedSubtasks(boardIndex)}%;">
 
@@ -121,7 +121,7 @@ function generateTaskHTML(i, boardIndex) {
         </div>
         <p>${boardTasks[boardIndex]['progressNumber']}/${boardTasks[boardIndex].subtasks.length} Done</p>
     </div>
-    <div class="user_urgency">
+    <div onclick="openTaskInfo(${boardIndex})" class="user_urgency">
         <div id='assignedUser${i}' class="assignedTo">
             
         </div>

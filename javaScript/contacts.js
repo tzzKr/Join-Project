@@ -290,7 +290,7 @@ function changeOverlayToNewContact() {
  * 
  */
 function mobileOperator() {
-    if(window.innerWidth <= '1100') {
+    if(window.innerWidth <= '1100px') {
         mobileSwitchToContactbook();
     } else {
         document.getElementById('content').classList.remove('d-none');
@@ -303,7 +303,7 @@ function mobileOperator() {
  * 
  */
 function mobileSwitchToDetail() {
-    if(window.innerWidth <= '1100') {
+    if(window.innerWidth <= '1100px') {
         document.getElementById('contact-book').style.display = 'none';
         document.getElementById('new-contact-btn').style.display = 'none';
         document.getElementById('content').style.display = 'flex';
@@ -311,7 +311,7 @@ function mobileSwitchToDetail() {
 }
 
 function mobileSwitchToContactbook() {
-    if(window.innerWidth <= '1100') {
+    if(window.innerWidth <= '1100px') {
         document.getElementById('content').style.display = 'none';
         document.getElementById('contact-book').style.display = 'block';
         document.getElementById('new-contact-btn').style.display = 'flex';

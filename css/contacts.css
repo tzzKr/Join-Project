@@ -546,7 +546,7 @@
     .content {
         margin-left: 20px;
         margin-right: 20px;
-        display: none;
+        display: none !important;
     }
 
     .contactOverlay {

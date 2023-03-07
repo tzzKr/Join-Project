@@ -15,24 +15,23 @@ function closeMobileInfo() {
 }
 
 function nextBoard(i) {
-    let boardBoard = boardTasks[i].board
     
-    switch (boardBoard) {
+    switch (boardTasks[i].board) {
         case "todo":
-            boardBoard = "inProgress"
+            boardTasks[i].board = "inProgress"
             break;
         case "inProgress":
-            boardBoard = "testing"
+            boardTasks[i].board = "testing"
             break;
         case "testing":
-            boardBoard = "done"
+            boardTasks[i].board = "done"
             break;
         case "done":
-            return
-        
+            break;
         default:
             break;
     }
-    console.log('boardBoard :>> ', boardBoard);
+    console.log('boardBoard :>> ', boardTasks[i].board);
+
     renderTodos(boardTasks);
 }

@@ -90,6 +90,15 @@ h1 {
   width: 50px;
   height: 50px;
 }
+.BoardBtn {
+  height: 25px;
+  width: 35px;
+  background-color: #1d86ff;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .taskBtnText {
   font-size: 21px;
@@ -195,7 +204,18 @@ h1 {
   padding: 0px 5px 0 5px;
   column-gap: 25px;
 }
+.categoryContainer {
+  display: flex;
+    justify-content: space-between;
+}
 
+.nextBoard {
+  transform: rotate(180deg);
+    filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
+}
+.prevBoard {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
+}
 
 .titelStyle {
   width: 265px;

@@ -35,3 +35,25 @@ function nextBoard(i) {
 
     renderTodos(boardTasks);
 }
+
+function prevBoard(i) {
+    switch (boardTasks[i].board) {
+        case "todo":
+            break;
+        case "inProgress":
+            boardTasks[i].board = "todo"
+            break;
+        case "testing":
+            boardTasks[i].board = "inProgress"
+            break;
+        case "done":
+            boardTasks[i].board = "testing"
+
+            break;
+        default:
+            break;
+    }
+    console.log('boardBoard :>> ', boardTasks[i].board);
+
+    renderTodos(boardTasks);
+}

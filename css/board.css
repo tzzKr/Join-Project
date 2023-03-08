@@ -29,6 +29,11 @@ h1 {
 .boardMobileAddTaskBtn {
   display: none;
 }
+.parentContainer {
+  margin-left: 252px !important;
+}
+
+
 
 /* Board Head  */
 
@@ -38,6 +43,14 @@ h1 {
   justify-content: space-between;
   padding-top: 80px;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-top: 120px;
+
+}
+
+.headline h1 {
+  margin: 0 !important;
 }
 
 .boardHeadRightSide {
@@ -416,4 +429,10 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .parentContainer {
+    margin-left: 15px !important;
+  }
 }

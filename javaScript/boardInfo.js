@@ -77,7 +77,6 @@ function subtaskCheckedInfo(i) {
         } else {
             boardTasks[i].subtasks[y].status = false;
         }
-        console.log(boardTasks[i].subtasks[y])
     }
 }
 

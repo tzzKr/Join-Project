@@ -112,7 +112,6 @@ function showSelectedBtnEdit(i) {
 function deleteSubtaskBoard(i, y) {
     boardTasks[i].subtasks.splice(y, 1);
     renderSubTasksEdit(i);
-    console.log(boardTasks[i].subtasks);
     initMsgBox('Subtask is deleted!');
 }
 

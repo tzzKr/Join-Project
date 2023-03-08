@@ -31,7 +31,6 @@ function nextBoard(i) {
         default:
             break;
     }
-    console.log('boardBoard :>> ', boardTasks[i].board);
 
     renderTodos(boardTasks);
 }
@@ -53,7 +52,6 @@ function prevBoard(i) {
         default:
             break;
     }
-    console.log('boardBoard :>> ', boardTasks[i].board);
     saveTasks();
     renderTodos(boardTasks);
 }

@@ -392,6 +392,7 @@ body {
 
     .checkbox-container {
         margin-left: 0;
+        height: 20px;
     }
 
     .guest-container {

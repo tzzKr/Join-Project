@@ -153,6 +153,16 @@
     margin-right: 80px;
 }
 
+.headline h1 {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important; 
+}
+
+.headline {
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
 .contactDetailAnimation {
     animation: moveToLeft 225ms ease-in-out;
 }
@@ -534,8 +544,8 @@
 
     .newContactBtn {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        top: 80px;
+        right: 40px;
         z-index: 2;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -644,11 +654,25 @@
     .overlayCancelBtn {
         left: calc(50% + 230px - 184px);
     }
-    .newContactBtn {
-        bottom: 90px;
-    }
     .contactBook {
         height: 100%;
+    }
+    .editContactBtn span{
+        display: none;
+    }
+    .editContactBtn {
+        position: absolute;
+        justify-content: center;
+        right: 30px;
+        bottom: 30px;
+        background-color: #2A3647;
+        border-radius: 5px;
+        width: 50px;
+        height: 50px;
+        
+    }
+    .editContactBtn img {
+        filter: brightness(0) saturate(100%) invert();
     }
 }
 
@@ -697,11 +721,22 @@
         left: calc(50% + 140px - 125px);
         width: 110px;
     }
+    .contactHeader {
+        gap: 70px;
+    }
+    .listContactInitials {
+        height: 30px;
+        min-width: 30px;
+
+    }
 }
 
-@media (max-width: 300px) {
-    .content {
-        scale: 0.9
+@media (max-width: 350px) {
+    .headline h1{
+        font-size: 36px !important;
+    }
+    .contactName {
+        font-size: 30px;
     }
 }
 

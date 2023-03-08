@@ -75,6 +75,7 @@ function renderTodos(tasks) {
         let task = boardTasks.find(t => t.id == filterdTasks[i].id);
         let boardIndex = boardTasks.indexOf(task);
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i, boardIndex);
+        checkBoardPosition(i, tasks)
         renderAssingedUser(boardIndex, i);
         checkProgress(boardIndex);
     }

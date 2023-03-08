@@ -54,6 +54,16 @@ function prevBoard(i) {
             break;
     }
     console.log('boardBoard :>> ', boardTasks[i].board);
-
+    saveTasks();
     renderTodos(boardTasks);
+}
+
+
+function checkBoardPosition(i, tasks) {
+    if (tasks[i].board == 'todo') {
+        document.getElementById('prevBoard'+i).classList.add('d-none')
+    }
+    if (tasks[i].board == 'done') {
+        document.getElementById('nxtBoard'+i).classList.add('d-none')
+    }
 }

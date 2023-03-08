@@ -154,6 +154,9 @@
         display: flex !important;
     }
     
+    .MobileMoveBtns{
+        gap: 7px;
+    }
 
     .headerAndMobileSearch {
         width: 253px;
@@ -165,6 +168,9 @@
 
     .showOnlyMobile {
         display: block !important;
+    }
+    .showOnlyMobileFlex{
+        display: flex !important;
     }
     .boardSearchBar {
         width: 100%;
@@ -191,6 +197,9 @@
 }
 
 .showOnlyMobile {
+    display: none;
+}
+.showOnlyMobileFlex{
     display: none;
 }
 

@@ -344,10 +344,10 @@ function changeOverlayToNewContact() {
 function mobileSwitchToDetail() {
     if(window.innerWidth <= '1100') {
         document.getElementById('contact-book').style.display = 'none';
-        document.getElementById('contact-book').style.zIndex = 0;
+        document.getElementById('contact-book').style.zIndex = -1;
         document.getElementById('new-contact-btn').style.display = 'none';
         document.getElementById('content').style.display = 'flex';
-        document.getElementById('content').style.zIndex = 1;
+        document.getElementById('content').style.zIndex = 0;
     } 
     else {
         resetMobile();
@@ -361,10 +361,10 @@ function mobileSwitchToDetail() {
  */
 function mobileSwitchToContactbook() {
     if(window.innerWidth <= '1100') {
-        document.getElementById('content').style.zIndex = 0;
+        document.getElementById('content').style.zIndex = -1;
         document.getElementById('content').style.display = 'none';
         document.getElementById('contact-book').style.display = 'block';
-        document.getElementById('contact-book').style.zIndex = 1;
+        document.getElementById('contact-book').style.zIndex = 0;
         document.getElementById('new-contact-btn').style.display = 'flex';
     } 
     else {

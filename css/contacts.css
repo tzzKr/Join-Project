@@ -538,7 +538,7 @@
         left: 0;
         right: 0;
         width: 100%;
-        z-index: 1;
+        z-index: 0;
         box-shadow: none;
     }
 
@@ -546,7 +546,7 @@
         position: fixed;
         top: 80px;
         right: 40px;
-        z-index: 2;
+        z-index: 1;
         margin-top: 20px;
         margin-bottom: 20px;
         width: 140px;
@@ -562,7 +562,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        z-index: 0;
+        z-index: -1;
         background-color: #F5F5F5;
         margin-left: 20px;
         margin-right: 20px;

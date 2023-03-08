@@ -1,0 +1,316 @@
+/******************  addTask Responsive ********************/
+
+@media(max-width: 1670px) {
+    .middleLine {
+        left: 44%;
+    }
+}
+
+@media(max-width: 1670px) {
+    .middleLine {
+        left: 45%;
+    }
+}
+
+@media(max-width: 1500px) {
+    .middleLine {
+        display: none !important;
+    }
+}
+
+@media(max-width: 1395px) {
+    .main-container-addTask {
+        width: calc(100% - 0px);
+    }
+}
+
+@media(max-width: 1300px) {
+    .create-task-buttons {
+        margin-left: 0%;
+    }
+}
+
+@media(max-width: 1220px) {
+    .main-container-addTask {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1180px) {
+    .prio-btns {
+        width: 107px;
+    }
+
+    .input-addTask {
+        width: 400px;
+    }
+
+    .assigndTo-input {
+        width: auto !important;
+    }
+
+    select {
+        width: 400px;
+    }
+
+    .select-field {
+        width: 400px;
+    }
+
+    textarea {
+        width: 400px;
+    }
+
+    .list {
+        width: 400px;
+    }
+}
+
+@media(max-width: 1080px) {
+    .prio-btns {
+        width: 94px;
+    }
+
+    .input-addTask {
+        width: 360px;
+    }
+
+    .checkbox {
+        width: auto !important;
+    }
+
+    select {
+        width: 360px;
+    }
+
+    .select-field {
+        width: 360px;
+        font-size: 18px;
+    }
+
+    textarea {
+        width: 360px;
+    }
+
+    .list {
+        width: 360px;
+    }
+
+    .prio-buttons button {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1000px) {
+   
+    .create-task-buttons {
+        position: unset;
+        margin-top: 12%;
+        margin-bottom: 12%;
+    }
+}
+
+@media(max-width: 760px) {
+    .addTask {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .parentContainer {
+        margin-left: unset !important;
+    }
+
+    .h1AddTask {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .create-task-btn {
+        position: fixed;
+        z-index: 999;
+        top: 10px;
+        right: 12px;
+        height: 58px;
+        width: 140px;
+        font-size: 14px;
+
+    }
+
+    .create-task-btn:hover {
+        transition: none;
+        transform: none;
+        background-color: #29ABE2;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .clear-btn {
+        display: none;
+    }
+
+
+    .prio-btns:hover {
+        transition: none;
+        transform: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+}
+
+@media(max-width: 440px) {
+    .clear-btn {
+        top: 14px !important;
+        width: 80px;
+        height: 47px;
+        gap: 0;
+
+    }
+}
+
+@media(max-width: 390px) {
+    .input-addTask {
+        width: 340px;
+    }
+
+    textarea {
+        width: 340px;
+    }
+
+    .select-field {
+        width: 340px;
+    }
+
+    .list {
+        width: 340px;
+    }
+
+    .prio-buttons {
+        flex-direction: column;
+        width: 330px;
+    }
+
+    .prio-btns {
+        width: 320px;
+    }
+}
+
+@media(max-width: 370px) {
+    .input-addTask {
+        width: 320px;
+    }
+
+    textarea {
+        width: 320px;
+    }
+
+    .select-field {
+        width: 320px;
+    }
+
+    .list {
+        width: 320px;
+    }
+
+    .prio-buttons {
+        flex-direction: column;
+        width: 330px;
+    }
+
+    .prio-btns {
+        width: 300px;
+    }
+}
+
+@media(max-width: 350px) {
+    .subtask-container {
+        width: 276px;
+    }
+
+    .columnRight {
+        align-items: center;
+    }
+    .input-addTask {
+        width: 300px;
+        font-size: 18px;
+    }
+
+    textarea {
+        width: 300px;
+    }
+
+    .select-field {
+        width: 300px;
+        font-size: 16px;
+    }
+
+    .list {
+        width: 300px;
+        font-size: 16px;
+    }
+
+    .prio-buttons {
+        width: 300px;
+    }
+
+    .prio-btns {
+        width: 290px;
+    }
+}
+
+@media(max-width: 330px) {
+
+    .input-addTask {
+        width: 280px;
+    }
+
+    textarea {
+        width: 280px;
+    }
+
+    .select-field {
+        width: 280px;
+    }
+
+    .list {
+        width: 280px;
+    }
+
+    .prio-buttons {
+        width: 280px;
+    }
+
+    .prio-btns {
+        width: 270px;
+    }
+}
+
+@media(max-width: 300px) {
+
+    .input-addTask {
+        width: 260px;
+    }
+
+    textarea {
+        width: 260px;
+    }
+
+    .select-field {
+        width: 260px;
+    }
+
+    .list {
+        width: 260px;
+    }
+
+    .prio-buttons {
+        width: 260px;
+    }
+
+    .prio-btns {
+        width: 250px;
+    }
+}

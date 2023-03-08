@@ -202,6 +202,10 @@ body {
     margin-left: 40px;
 }
 
+.checkbox-login {
+    cursor: pointer;
+}
+
 .blue {
     color: #29ABE2;
     cursor: pointer;

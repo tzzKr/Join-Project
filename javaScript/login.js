@@ -14,7 +14,7 @@ async function login() {
         sessionStorage.setItem('sessionUser', actualUser);
         window.location.href = 'summary.html';
     } else {
-        initMsgBox('Password or E-Mail is wrong!');
+        initMsgBoxAlert('Password or E-Mail is wrong!');
     }
  }
 

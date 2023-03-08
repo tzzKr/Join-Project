@@ -1,15 +1,3 @@
-/**
-    * @description      : 
-    * @author           : Yannik
-    * @group            : 
-    * @created          : 14/11/2022 - 20:08:08
-    * 
-    * MODIFICATION LOG
-    * - Version         : 1.0.0
-    * - Date            : 14/11/2022
-    * - Author          : hosny
-    * - Modification    : 
-**/
 let tasks;
 
 /**
@@ -67,7 +55,7 @@ async function loadTasksFromServer() {
 function renderSummaryInformations() {
     document.getElementById('tasksInBoard').innerHTML = tasks.length;
     document.getElementById('tasksInProgress').innerHTML = getOccurrence('board', 'inProgress');
-    document.getElementById('awaitingFeedback').innerHTML = getOccurrence('boad', 'testing');
+    document.getElementById('awaitingFeedback').innerHTML = getOccurrence('board', 'testing');
     document.getElementById('tasksUrgent').innerHTML = getOccurrence('prio', 'urgent');
     document.getElementById('upcomingDate').innerHTML = getNextUrgentDueDate();
     document.getElementById('tasksInToDo').innerHTML = getOccurrence('board', 'todo');

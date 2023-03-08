@@ -104,9 +104,9 @@ function generateTaskHTML(i, boardIndex) {
     return /*html*/ `<div draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
     <div class="categoryContainer">
         <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
-        <div class="MobileMoveBtns showOnlyMobile">
-            <button class="BoardBtn" onclick="prevBoard(${boardIndex})" id="prevBoard"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
-            <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>
+        <div class="MobileMoveBtns showOnlyMobileFlex">
+            <button class="BoardBtn" onclick="prevBoard(${boardIndex})" id="prevBoard${i}"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
+            <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard${i}"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>
         </div>
     </div>
     <div onclick="openTaskInfo(${boardIndex})">

@@ -290,12 +290,7 @@ function changeOverlayToNewContact() {
  * 
  */
 function mobileOperator() {
-    if(window.innerWidth <= '1100px') {
-        mobileSwitchToContactbook();
-    } else {
-        document.getElementById('content').classList.remove('d-none');
-        document.getElementById('contact-headline').classList.remove('d-none');
-    }
+    mobileSwitchToContactbook();
 }
 
 /**
@@ -303,19 +298,29 @@ function mobileOperator() {
  * 
  */
 function mobileSwitchToDetail() {
-    if(window.innerWidth <= '1100px') {
+    if(window.innerWidth <= '1100') {
         document.getElementById('contact-book').style.display = 'none';
+        document.getElementById('contact-book').style.zIndex = 0;
         document.getElementById('new-contact-btn').style.display = 'none';
         document.getElementById('content').style.display = 'flex';
+        document.getElementById('content').style.zIndex = 1;
+    } 
+    else {
+        document.getElementById('content').style.display = 'flex';
+        document.getElementById('contact-book').style.display = 'block';
+        document.getElementById('new-contact-btn').style.display = 'flex';
     }
 }
 
 function mobileSwitchToContactbook() {
-    if(window.innerWidth <= '1100px') {
+    if(window.innerWidth <= '1100') {
+        document.getElementById('content').style.zIndex = 0;
         document.getElementById('content').style.display = 'none';
         document.getElementById('contact-book').style.display = 'block';
+        document.getElementById('contact-book').style.zIndex = 1;
         document.getElementById('new-contact-btn').style.display = 'flex';
-    } else {
+    } 
+    else {
         document.getElementById('content').style.display = 'flex';
         document.getElementById('contact-book').style.display = 'block';
         document.getElementById('new-contact-btn').style.display = 'flex';

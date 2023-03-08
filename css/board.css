@@ -91,13 +91,14 @@ h1 {
   height: 50px;
 }
 .BoardBtn {
-  height: 25px;
+  height: 35px;
   width: 35px;
-  background-color: #1d86ff;
-  border-radius: 7px;
+  background-color: #e9e9e9;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: #0000003e dotted 1px;
 }
 
 .taskBtnText {
@@ -214,6 +215,7 @@ h1 {
     filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
 }
 .prevBoard {
+  padding-bottom: 4px;
     filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
 }
 

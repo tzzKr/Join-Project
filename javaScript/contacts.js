@@ -97,11 +97,11 @@ function renderContactDetails(firstIndex, secondIndex) {
         <div class="contactAdressInformations">
             <div class="contactAdressSegment">
                 <span class="contactAdressTitle">Email</span>
-                <a href="mailto: abc@example.com" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].email}</a>
+                <a href="mailto: ${orderedContacts[firstIndex][secondIndex].email}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].email}</a>
             </div>
             <div class="contactAdressSegment">
                 <span class="contactAdressTitle">Phone</span>
-                <a href="tel: 0123456789" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
+                <a href="tel: ${orderedContacts[firstIndex][secondIndex].phone}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
             </div>
         </div>`;
         document.getElementById('single-contact-detail-init').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;

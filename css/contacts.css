@@ -666,7 +666,7 @@
         right: 30px;
         bottom: 30px;
         background-color: #2A3647;
-        border-radius: 5px;
+        border-radius: 15px;
         width: 50px;
         height: 50px;
         
@@ -696,7 +696,7 @@
         font-size: 14px;
     }
     .contactAdressLink {
-        min-width: 300px;
+        min-width: 250px;
         word-break: break-all;
         overflow: hidden;
         text-overflow: ellipsis;

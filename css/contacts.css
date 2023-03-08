@@ -4,7 +4,6 @@
     margin-top: 0 !important;
 }
 
-
 /* Contact Book */
 
 .contactBook {
@@ -142,7 +141,6 @@
     background-position: center 2px;
     background-image: url("../img/arrowDown.svg");
 }
-
 
 /* Contact Infos */
 
@@ -301,6 +299,7 @@
 
 
 /* Contact Overlay */
+
 .pageMask {
     display: flex;
     justify-content: center;
@@ -415,7 +414,6 @@
 
 .overlayInput {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -424,7 +422,6 @@
     width: 369px;
     height: 51px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-size: 16px;
@@ -495,6 +492,8 @@
 .bg-white {
     background-color: #FFFFFF !important;
 }
+
+/* Mediaquery */
 
 @media (max-width: 1820px) {
     .content {

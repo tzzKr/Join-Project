@@ -375,6 +375,12 @@ function selectColor(color, id) {
     }, 100);
 }
 
+/**
+ * It loops through the elements with the id's newCategoryColor-1, newCategoryColor-2,
+ * newCategoryColor-3, newCategoryColor-4, newCategoryColor-5, and newCategoryColor-6, and if any of
+ * them have the class 'selected', it returns true.
+ * @returns A boolean value.
+ */
 function checkColorSelected() {
     let colorSelected = false;
     [1, 2, 3, 4, 5, 6].forEach(i => {
@@ -670,7 +676,9 @@ function clearInviteNewContact() {
     document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
 }
 
+/**
+ * If the user clicks the cancel button, the page will reload.
+ */
 function cancelTask() {
     window.location.reload();
-
 }

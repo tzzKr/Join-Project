@@ -60,7 +60,7 @@ async function createTask() {
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
         setTimeout(() => {
-            window.location.href = 'board.html'
+            window.location.href = 'board.html';
         },2100);
     } else {
         initMsgBoxAlert('Something missing!');
@@ -106,14 +106,13 @@ function selectCategory(name, color) {
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
         saveNewCategoryInObject(name, color);
-        categoryList.innerHTML = `
-        <p id="categoryName" class="textBox"></p>
-        <div id="categoryColor" class="listContactInitials contactScale left"></div>
-        `;
+        categoryList.innerHTML = categoryListItemHTML(name  ,color);
         document.getElementById('categoryName').innerHTML = name;
         document.getElementById('categoryColor').style.backgroundColor = color;
     }
 }
+
+
 
 /**
  * This function takes two arguments, a name and a color, and assigns them to the task object's

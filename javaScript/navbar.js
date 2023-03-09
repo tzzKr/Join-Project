@@ -44,35 +44,35 @@ function goToLegal() {
 }
 
 function addBgrToContactNav() {
-    document.getElementById('hover-active4').setAttribute('onClick', '');
-    document.getElementById('hover-active8').setAttribute('onClick', '');
+    document.getElementById('hover-active4').setAttribute('onclick', '');
+    document.getElementById('hover-active8').setAttribute('onclick', '');
     document.getElementById('hover-active4').classList.add('navbar-active');
     document.getElementById('hover-active8').classList.add('navbar-active');
 }
 
 function addBgrToAddTaskNav() {
-    document.getElementById('hover-active3').setAttribute('onClick', '');
-    document.getElementById('hover-active7').setAttribute('onClick', '');
+    document.getElementById('hover-active3').setAttribute('onclick', '');
+    document.getElementById('hover-active7').setAttribute('onclick', '');
     document.getElementById('hover-active3').classList.add('navbar-active');
     document.getElementById('hover-active7').classList.add('navbar-active');
 }
 
 function addBgrToBoardNav() {
-    document.getElementById('hover-active2').setAttribute('onClick', '');
-    document.getElementById('hover-active6').setAttribute('onClick', '');
+    document.getElementById('hover-active2').setAttribute('onclick', '');
+    document.getElementById('hover-active6').setAttribute('onclick', '');
     document.getElementById('hover-active2').classList.add('navbar-active');
     document.getElementById('hover-active6').classList.add('navbar-active');
 }
 
 function addBgrToSummaryNav() {
-    document.getElementById('hover-active1').setAttribute('onClick', '');
-    document.getElementById('hover-active5').setAttribute('onClick', '');
+    document.getElementById('hover-active1').setAttribute('onclick', '');
+    document.getElementById('hover-active5').setAttribute('onclick', '');
     document.getElementById('hover-active1').classList.add('navbar-active');
     document.getElementById('hover-active5').classList.add('navbar-active');
 }
 
 function addBgrToLegalNav() {
-    document.getElementById('hover-active9').setAttribute('onClick', '');
+    document.getElementById('hover-active9').setAttribute('onclick', '');
     document.getElementById('hover-active9').classList.add('navbar-active');
 }
 

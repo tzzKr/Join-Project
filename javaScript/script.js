@@ -83,8 +83,13 @@ function getProfileInit() {
         document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
     } else {
         let fullname = sessionStorage.getItem('sessionUser').split(" ");
-        let init = `${fullname[0].slice(1, 2)}${fullname[fullname.length - 1].slice(0, 1)}`;
-        document.getElementById('profile-init').innerHTML = `${init}`;
+        let initials;
+        if (fullname.length > 1) {
+            initials = `${fullname[0].slice(1, 2)}${fullname[fullname.length - 1].slice(0, 1)}`;
+        } else {
+            initials = `${fullname[0].slice(1, 2)}`;
+        }
+        document.getElementById('profile-init').innerHTML = `${initials}`;
         document.getElementById('openLogOutContainer').style.backgroundColor = '#29ABE2';
     }
 }

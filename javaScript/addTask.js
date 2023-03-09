@@ -415,7 +415,6 @@ function resetSelectedColor() {
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
     if (checkBox.checked == true) {
-        console.log(contacts[i]);
         task.assignedTo.push(contacts[i]);
         renderContactNumber(true);
     } else {

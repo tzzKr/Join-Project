@@ -2,6 +2,12 @@ setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
 
 let guest = [];
 
+let defaultContacts = [
+    {name: 'Max Mustermann', email: 'max@mustermann.com', phone: '01234567989', color: '#FF7A00', initials: 'MM', id: '0'},
+    {name: 'Hosny Fahim', email: 'hosny@test.com', phone: '01234567989', color: '#9327FF', initials: 'HF', id: '1'},
+    {name: 'Gerhard Baliet', email: 'gerhard@test.com', phone: '01234567989', color: '#29ABE2', initials: 'GB', id: '2'},
+    {name: 'Yannik Morjan', email: 'yannik@test.com', phone: '01234567989', color: '#FC71FF', initials: 'YM', id: '3'},
+];
 
 
 
@@ -20,7 +26,7 @@ async function addUser() {
     if (existingUser) {
         initMsgBoxAlert('User already existing!');
     } else {
-        users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
+        users.push({ name: name.value, email: email.value, password: password.value, contacts: defaultContacts });
         await backend.setItem('users', JSON.stringify(users));
         window.location.href = 'index.html?msg=Successful registration';
     }

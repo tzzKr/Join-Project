@@ -82,15 +82,15 @@ function addBgrToLegalNav() {
  */
 function checkCurrentPage() {
     const pathname = window.location.pathname;
-    if(pathname == '/contacts.html') {
+    if(pathname == '/join/contacts.html') {
         addBgrToContactNav();
-    }else if(pathname == '/addTask.html') {
+    }else if(pathname == '/join/addTask.html') {
         addBgrToAddTaskNav();
-    }else if(pathname == '/board.html') {
+    }else if(pathname == '/join/board.html') {
         addBgrToBoardNav();
-    }else if(pathname == '/summary.html') {
+    }else if(pathname == '/join/summary.html') {
         addBgrToSummaryNav();
-    }else if(pathname == '/legal.html') {
+    }else if(pathname == '/join/legal.html') {
         addBgrToLegalNav();
     }
 }

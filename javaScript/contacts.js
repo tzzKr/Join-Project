@@ -157,13 +157,13 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" type="text" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-Z]*" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
                     <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-phone" placeholder="Phone" type="tel" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
+                    <input id="input-phone" placeholder="Phone" type="tel" minlength="6" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
                 </div>
                 <button id="overlay-save-btn" type="submit" class="overlayActionBtn">Save</button>
                 </form>
@@ -316,13 +316,13 @@ function changeOverlayToNewContact() {
             </div>
             <form class="overlayInputForm" onsubmit="createContact(); return false;">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" type="text" maxlength="30" class="overlayInput" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-Z]*" maxlength="30" class="overlayInput" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
                     <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" required><img src="img/Email.svg">
                 </div>
                 <div class="overlayInputSection">
-                    <input id="input-phone" placeholder="Phone" type="tel" maxlength="30" class="overlayInput" required><img src="img/phone.svg">
+                    <input id="input-phone" placeholder="Phone" type="tel" minlength="6" maxlength="30" class="overlayInput" required><img src="img/phone.svg">
                 </div>
                 <button id="overlay-create-btn" typ="submit" class="overlayActionBtn">
                     <span>Create contact</span>

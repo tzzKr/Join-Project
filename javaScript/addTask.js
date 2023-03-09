@@ -74,7 +74,7 @@ async function createTask() {
  * @returns a boolean value.
  */
 function checkForm() {
-    if (task.category && task.assignedTo.length > 0 && task.prio && task.dueDate) {
+    if (task.category && task.assignedTo.length == 0 && task.prio && task.dueDate) {
         return true;
     } else {
         return false;

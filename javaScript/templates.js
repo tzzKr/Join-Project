@@ -30,6 +30,7 @@ function generateTaskInfoHTML(i) {
                                 <h3>Assigned to</h3>
         
                                 <div id="assignedUserInfo" class="assingedUserInfo">
+                                    <p>Keine Kontakte ausgewählt!</p>
                                 </div>
                             </div>
                         </div>

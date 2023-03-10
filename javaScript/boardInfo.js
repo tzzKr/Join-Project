@@ -27,23 +27,27 @@ function closeAndSaveInfo() {
 function renderAssingedUserInfo(i) {
     document.getElementById('assignedUserInfo').innerHTML = '';
 
-    for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
+    if (!boardTasks[i].assignedTo.length) {
+        document.getElementById('assignedUserInfo').innerHTML = 'No contacts assigned.';
+    } else {
+        for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
 
-        document.getElementById('assignedUserInfo').innerHTML += /*html*/`
-        <div class="assignedUserInfoParent">
-            <div class="assignedUserImg" style="background-color: ${boardTasks[i].assignedTo[y].color}" data-tooltip="${boardTasks[i].assignedTo[y].email}" data-flow="right">
-              ${getInitials(boardTasks[i].assignedTo[y].name)}
-            </div>
-            <p>${boardTasks[i].assignedTo[y].name}</p>
-    </div>
-        
-        `
+            document.getElementById('assignedUserInfo').innerHTML += /*html*/`
+            <div class="assignedUserInfoParent">
+                <div class="assignedUserImg" style="background-color: ${boardTasks[i].assignedTo[y].color}" data-tooltip="${boardTasks[i].assignedTo[y].email}" data-flow="right">
+                  ${getInitials(boardTasks[i].assignedTo[y].name)}
+                </div>
+                <p>${boardTasks[i].assignedTo[y].name}</p>
+        </div>
+            
+            `
+        }
     }
+
+    
 }
 
 function renderSubTasksInfo(i) {
-
-
 
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
 

@@ -643,6 +643,13 @@
         --height: 100%;
         top: 0;
         left: 0;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding-bottom: 80px;
+        border-radius: 0;
+    }
+    .overlayLeft {
+        border-radius: 0;
     }
     .overlayClose {
         top: -55%;
@@ -704,7 +711,13 @@
         -webkit-line-clamp: 2;
         line-clamp: 2;
         -webkit-box-orient: vertical;
-    }    
+    } 
+    .overlayHealine {
+        font-size: 32px;
+    }   
+    .overlayClose {
+        top: -45%;
+    }
 }
 
 @media (max-width: 450px) {

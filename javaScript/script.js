@@ -2,6 +2,12 @@ setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
 
 let guest = [];
 
+let defaultContacts = [
+    {name: 'Max Mustermann', email: 'max@mustermann.com', phone: '01234567989', color: '#FF7A00', initials: 'MM', id: '0'},
+    {name: 'Hosny Fahim', email: 'hosny@test.com', phone: '01234567989', color: '#9327FF', initials: 'HF', id: '1'},
+    {name: 'Gerhard Baliet', email: 'gerhard@test.com', phone: '01234567989', color: '#29ABE2', initials: 'GB', id: '2'},
+    {name: 'Yannik Morjan', email: 'yannik@test.com', phone: '01234567989', color: '#FC71FF', initials: 'YM', id: '3'},
+];
 
 
 
@@ -20,7 +26,7 @@ async function addUser() {
     if (existingUser) {
         initMsgBoxAlert('User already existing!');
     } else {
-        users.push({ name: name.value, email: email.value, password: password.value, contacts: new Array() });
+        users.push({ name: name.value, email: email.value, password: password.value, contacts: defaultContacts });
         await backend.setItem('users', JSON.stringify(users));
         window.location.href = 'index.html?msg=Successful registration';
     }
@@ -77,8 +83,13 @@ function getProfileInit() {
         document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
     } else {
         let fullname = sessionStorage.getItem('sessionUser').split(" ");
-        let init = `${fullname[0].slice(1, 2)}${fullname[fullname.length - 1].slice(0, 1)}`;
-        document.getElementById('profile-init').innerHTML = `${init}`;
+        let initials;
+        if (fullname.length > 1) {
+            initials = `${fullname[0].slice(1, 2)}${fullname[fullname.length - 1].slice(0, 1)}`;
+        } else {
+            initials = `${fullname[0].slice(1, 2)}`;
+        }
+        document.getElementById('profile-init').innerHTML = `${initials}`;
         document.getElementById('openLogOutContainer').style.backgroundColor = '#29ABE2';
     }
 }

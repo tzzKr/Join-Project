@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    margin-top: 200px;
 }
 
 .logo-container {
@@ -214,8 +214,11 @@ body {
     .back-img-container {
         display: flex;
         position: absolute;
-        bottom: -407%;
+        bottom: -386%;
         right: 45%;
+    }
+    .main-container-login {
+        margin-top: 170px;
     }
 }
 
@@ -228,13 +231,6 @@ body {
     }
     .checkbox-container {
         margin-left: 0;
-    }
-    .guest-container {
-        left: 31%;
-        top: 87%;
-        display: flex;
-        align-items: center;
-        position: absolute;
     }
     .login-btn {
         margin-left: 0;
@@ -249,6 +245,9 @@ body {
     .logo-container {
         left: 26px;
         top: 26px;
+    }
+    .main-container-login {
+        margin-top: 146px;
     }
 
 }
@@ -289,11 +288,7 @@ body {
         width: 340px;
     }
 }
-@media (max-width: 400px) {
-    .guest-container {
-        left: 27%;
-    }
-}
+
 @media (max-width: 384px) {
     .form-container {
         width: 350px;
@@ -309,9 +304,6 @@ body {
     }
 }
 @media (max-width: 360px) {
-    .guest-container{
-        left: 26%;
-    }
     .form-container {
         width: 320px;
     }
@@ -321,17 +313,13 @@ body {
 }
 
 @media (max-width: 350px) {
-    .guest-container {
-        left: 24.5%;
-    }
+
     .checkbox-container {
         font-size: 14px;
     }
 }
 @media (max-width: 340px) {
-    .guest-container {
-        left: 23.5%;
-    }
+
     .form-container {
         width: 300px;
     }
@@ -340,21 +328,14 @@ body {
     }
 }
 @media (max-width: 330px) {
-    .guest-container {
-        left: 22.5%;
-    }
     .login-header {
         width: auto;
     }
 }
-@media (max-width: 320px) {
-    .guest-container {
-        left: 21.5%;
-    }
-}
+
 @media (max-width: 300px) {
     .form-container {
-        width: 280px;
+        width: 280px !important;
     }
     .input-login {
         width: 240px;

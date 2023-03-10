@@ -83,9 +83,13 @@ function deleteTask(i) {
     closeEditTool()
     filterdTasks = boardTasks
     emptySearch()
-    renderTodos(boardTasks)
+    distributeIDs()
     saveTasks();
+    renderTodos(boardTasks);
+    
 }
+
+
 
 /**
  * It showes the current selected priority of the Task

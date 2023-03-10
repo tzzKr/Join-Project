@@ -36,12 +36,17 @@ async function saveTasks() {
 async function loadTasks() {
     await downloadFromServer();
     boardTasks = JSON.parse(backend.getItem('tasks')) || [];
-    for (let i = 0; i < boardTasks.length; i++) {
-        boardTasks[i]['id'] = i;
-    }
+    distributeIDs()
     filterdTasks = boardTasks;
     renderTodos(boardTasks);
 }
+
+function distributeIDs() {
+    for (let i = 0; i < boardTasks.length; i++) {
+        boardTasks[i]['id'] = i;
+    };
+}
+
 
 // HALLO
 

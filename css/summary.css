@@ -5,7 +5,7 @@
     padding-top: 25px;
     padding-bottom: 25px;
     align-items: center;
-    gap: 15px;
+    gap: 125px;
     margin-bottom: 80px;
 }
 
@@ -23,7 +23,6 @@
     justify-content: center;
     align-items: center;
     gap: 35px;
-
     /* width: 580px; */
     height: 540px;
 }
@@ -70,7 +69,7 @@
 
 .cardDescription {
     font-weight: 400;
-    font-size: 21px;
+    font-size: 16px;
     text-align: center;
 }
 
@@ -79,7 +78,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 24px 56px;
+    padding: 24px 68px;
     gap: 60px;
 
     background: #FFFFFF;
@@ -189,6 +188,9 @@
 @media (max-width: 1100px) {
     .cardContainerRow {
         width: 500px;
+    }
+    .content {
+        gap: 15px;
     }
 }
 

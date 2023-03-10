@@ -726,6 +726,10 @@
     }
     .overlayActionBtn {
         width: 130px;
+        font-size: 16px
+    }
+    .overlayCancelBtn {
+        font-size: 16px;
     }
     .overlayInputForm {
         left: calc(50% - 125px);
@@ -740,7 +744,6 @@
     .listContactInitials {
         height: 30px;
         min-width: 30px;
-
     }
 }
 

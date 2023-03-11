@@ -58,6 +58,7 @@ async function createTask() {
         tasks = JSON.parse(await backend.getItem('tasks')) || [];
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
+        taskBtnDisabled();
         initMsgBox('New Task added to Board!');
         setTimeout(() => {
             window.location.href = 'board.html';
@@ -79,6 +80,13 @@ function checkForm() {
     } else {
         return false;
     }
+}
+
+/**
+ * If the user has not entered any text into the textarea, then the button will be disabled.
+ */
+function taskBtnDisabled() {
+    document.getElementById('creatTaskBtn').disabled = true;
 }
 
 /**
@@ -256,7 +264,7 @@ function renderContactsAssigndTo() {
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById('listContact').innerHTML += `
         <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
-             <p data-tooltip="${contacts[i].email}" data-flow="right" id='addedUser${i + 1}'>${contacts[i].name}</p>
+             <p data-tooltip="${contacts[i].email}" data-flow="top right" id='addedUser${i + 1}'>${contacts[i].name}</p>
              <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
         </div>
 
@@ -551,6 +559,11 @@ function addDate() {
     date.toString(date);
     task.dueDate = date;
 }
+
+
+function setDate() {
+    document.getElementById("date").valueAsDate = new Date();
+  }
 
 
 ////////// ***************************   Selection Functions  *******************************  //////////////////

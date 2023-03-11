@@ -1,3 +1,8 @@
+/**
+ * It opens a modal with information about a task.
+ * </code>
+ * @param i - the index of the task in the array of tasks
+ */
 function openTaskInfo(i) {
     let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.remove('d-none');
@@ -10,6 +15,9 @@ function openTaskInfo(i) {
     openMobileInfo();
 }
 
+/**
+ * It closes the task info container and the background closer.
+ */
 function closeMoreInfo() {
     let infoContainer = document.getElementById('taskInfoContainer');
     infoContainer.classList.add('d-none');
@@ -18,12 +26,19 @@ function closeMoreInfo() {
     closeMobileInfo();
 }
 
+/**
+ * It saves the tasks, closes the more info window, and renders the todos.
+ */
 function closeAndSaveInfo() {
     saveTasks();
     closeMoreInfo();
     renderTodos(boardTasks);
 }
 
+/**
+ * It renders the assigned users to the task.
+ * @param i - the index of the task in the boardTasks array
+ */
 function renderAssingedUserInfo(i) {
     document.getElementById('assignedUserInfo').innerHTML = '';
 
@@ -47,6 +62,10 @@ function renderAssingedUserInfo(i) {
     
 }
 
+/**
+ * It renders the subtasks of a task in the task info modal.
+ * @param i - the index of the task in the array
+ */
 function renderSubTasksInfo(i) {
 
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
@@ -70,6 +89,13 @@ function renderSubTasksInfo(i) {
     }
 }
 
+/**
+ * It's a function that takes in a number, and then loops through an array of objects, and then loops
+ * through an array of objects inside of the first array of objects, and then checks if a checkbox is
+ * checked, and then changes the status of the object inside of the array inside of the array of
+ * objects.
+ * @param i - the index of the task in the boardTasks array
+ */
 function subtaskCheckedInfo(i) {
 
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
@@ -84,6 +110,10 @@ function subtaskCheckedInfo(i) {
     }
 }
 
+/**
+ * It changes the background color of the button and the image filter of the image inside the button.
+ * @param i - the index of the task in the array
+ */
 function showSelectedBtn(i) {
 
 

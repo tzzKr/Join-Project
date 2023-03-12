@@ -37,12 +37,16 @@ function nextBoard(i) {
             break;
         case "testing":
             boardTasks[i].board = "done"
+            boardSection = 'done';
+            allowPush(i);
+
             break;
         case "done":
             break;
         default:
             break;
     }
+    saveTasks();
 
     renderTodos(boardTasks);
 }

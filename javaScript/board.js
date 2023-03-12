@@ -7,6 +7,7 @@ let currentDraggedElement;
 let categoriesBoard = [];
 let contactsBoard;
 let colors = [];
+let boardSection;
 
 /**
  * Get the contacts assigned to the board with the index i and render them.
@@ -83,6 +84,7 @@ function renderTodos(tasks) {
         checkBoardPosition(i, tasks)
         renderAssingedUser(boardIndex, i);
         checkProgress(boardIndex);
+        checkIfTaskFinished(boardIndex);
     }
 }
 
@@ -109,6 +111,8 @@ function allowDrop(ev) {
  */
 function moveTo(boardCategory) {
     boardTasks[currentDraggedElement]['board'] = boardCategory;
+    boardSection = boardCategory;
+    allowPush(currentDraggedElement);
     saveTasks();
     renderTodos(boardTasks);
 }
@@ -141,7 +145,7 @@ function removeDragAreas() {
  * @param i - the index of the task in the array
  */
 function checkProgress(i) {
-    if (boardTasks[i].board == 'todo' || boardTasks[i].board == 'done') {
+    if (boardTasks[i].board == 'done') {
         document.getElementById('progressContainer' + i).classList.add('d-none');
     }
     if (boardTasks[i].subtasks.length == 0) {
@@ -152,7 +156,7 @@ function checkProgress(i) {
 
 function countCheckedSubtasks(i) {
     let numberSubtask = boardTasks[i].subtasks.length;
-    boardTasks[i].progressNumber = 0
+    boardTasks[i].progressNumber = 0;
     for (let j = 0; j < numberSubtask; j++) {
         if (boardTasks[i].subtasks[j].status) {
             boardTasks[i].progressNumber++
@@ -163,6 +167,7 @@ function countCheckedSubtasks(i) {
     } else {
         return (boardTasks[i].progressNumber / numberSubtask) * 100
     }
+
 }
 
 /**
@@ -201,3 +206,18 @@ function subtaskCheckedBoard(i, y) {
     }
 
 
+function checkIfTaskFinished(i) {
+    if (countCheckedSubtasks(i) == 100 || boardTasks[i].subtasks.length == 0) {
+        boardTasks[i].progress = true;
+    }
+}
+
+function allowPush(i) {
+
+    if (boardTasks[i].progress == true && boardSection == 'done') {
+        boardTasks[i].board = "done";
+    } else {
+        boardTasks[i].board = "testing";
+        // initMsgBoxAlert('Subtasks not finished!');
+    }
+}

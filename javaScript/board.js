@@ -42,6 +42,10 @@ async function loadTasks() {
     renderTodos(boardTasks);
 }
 
+/**
+ * For each element in the boardTasks array, add a new property called 'id' and set it equal to the
+ * index of the element in the array.
+ */
 function distributeIDs() {
     for (let i = 0; i < boardTasks.length; i++) {
         boardTasks[i]['id'] = i;
@@ -154,6 +158,12 @@ function checkProgress(i) {
     countCheckedSubtasks(i);
 }
 
+/**
+ * It takes the index of a task in the boardTasks array, counts the number of subtasks, counts the
+ * number of checked subtasks, and returns the percentage of checked subtasks.
+ * @param i - the index of the task in the boardTasks array
+ * @returns the percentage of subtasks that are checked.
+ */
 function countCheckedSubtasks(i) {
     let numberSubtask = boardTasks[i].subtasks.length;
     boardTasks[i].progressNumber = 0;
@@ -178,6 +188,12 @@ function emptySearch() {
     search.value = ""
 }
 
+/**
+ * It takes the boardIndex and locationIndex and then loops through the assignedTo array and if the
+ * length of the array is greater than 3 it will display a +2 or whatever the number is.
+ * @param boardIndex - the index of the board in the boardTasks array
+ * @param locationIndex - The index of the task in the boardTasks array
+ */
 function renderAssingedUser(boardIndex, locationIndex) {
     for (let y = 0; y < boardTasks[boardIndex].assignedTo.length; y++) {
 
@@ -206,12 +222,21 @@ function subtaskCheckedBoard(i, y) {
     }
 
 
+/**
+ * If the number of checked subtasks is 100 or the number of subtasks is 0, then the task is finished.
+ * @param i - the index of the task in the boardTasks array
+ */
 function checkIfTaskFinished(i) {
     if (countCheckedSubtasks(i) == 100 || boardTasks[i].subtasks.length == 0) {
         boardTasks[i].progress = true;
     }
 }
 
+/**
+ * If the boardSection is 'done', then if the task's progress is true, then the task's board is 'done',
+ * otherwise the task's board is 'testing' and a message box is displayed.
+ * @param i - the index of the task in the array
+ */
 function allowPush(i) {
     
     if (boardSection == 'done') {

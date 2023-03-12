@@ -213,11 +213,16 @@ function checkIfTaskFinished(i) {
 }
 
 function allowPush(i) {
-
-    if (boardTasks[i].progress == true && boardSection == 'done') {
-        boardTasks[i].board = "done";
-    } else {
-        boardTasks[i].board = "testing";
-        // initMsgBoxAlert('Subtasks not finished!');
+    
+    if (boardSection == 'done') {
+        if (boardTasks[i].progress == true) {
+            boardTasks[i].board = "done";
+        } else {
+            boardTasks[i].board = "testing";
+            initMsgBoxAlert('Subtasks not finished!');
+        }
     }
+
+
+    
 }

@@ -245,7 +245,6 @@ h1 {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 9;
   background-color: #F5F5F5;
 }
 
@@ -431,6 +430,8 @@ h1 {
   align-items: center;
   gap: 10px;
 }
+
+
 
 @media (max-width: 760px) {
   .parentContainer {

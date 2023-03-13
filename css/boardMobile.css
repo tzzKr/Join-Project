@@ -45,7 +45,7 @@
     }
 
     .titelStyle {
-        z-index: 1;
+        z-index: none;
         width: auto;
     }
 

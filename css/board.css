@@ -431,7 +431,9 @@ h1 {
   gap: 10px;
 }
 
-
+.msgBox {
+  z-index: 15;
+}
 
 @media (max-width: 760px) {
   .parentContainer {

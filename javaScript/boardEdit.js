@@ -262,6 +262,7 @@ function saveEditedTaskBoard(i) {
     closeEditTool();
     renderTodos(boardTasks);
     saveTasks();
+    initMsgBox('Task edited!');
 }
 
 /**
@@ -276,3 +277,4 @@ function pushToBoardTask(i) {
     boardTasks[i].dueDate = document.getElementById('EditDate').value
     boardTasks[i].prio = currentPrio.replace('Board', '');
 }
+

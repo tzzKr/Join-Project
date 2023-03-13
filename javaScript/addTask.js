@@ -82,7 +82,25 @@ function showMissing() {
     }
     if (!task.dueDate) {
         document.getElementById('date').style.border = `1px solid red`;
+    }
+}
+
+/**
+ * If the user has selected a category, priority, and due date, then the border of the select field,
+ * the priority radio buttons, and the date field will be reset to their default state.
+ */
+function resetBorder() {
+    if (task.category) {
+        document.getElementById('selectField').style.border = ``;
+    }
+    if (task.prio) {
+        document.getElementById('urgent').style.border = ``;
+        document.getElementById('medium').style.border = ``;
+        document.getElementById('low').style.border = ``;
         
+    }
+    if (task.dueDate) {
+        document.getElementById('date').style.border = ``;
     }
 }
 
@@ -97,7 +115,6 @@ function checkForm() {
     } else {
         return false;
     }
-    
 }
 
 /**
@@ -136,6 +153,7 @@ function selectCategory(name, color) {
         document.getElementById('categoryName').innerHTML = name;
         document.getElementById('categoryColor').style.backgroundColor = color;
     }
+    resetBorder();
 }
 
 
@@ -464,88 +482,61 @@ function addSubtask() {
 }
 
 
+
 /**
- * If the button's id is urgent, call the changeColorUrgent function, else if the button's id is
- * medium, call the changeColorMedium function, else if the button's id is low, call the changeColorLow
- * function.
+ * It changes the background color of the button that was clicked and changes the filter of the image
+ * inside the button.
  * @param button - the button that was clicked
  */
 function changePriority(button) {
-    if (button.id == 'urgent') {
-        changeColorUrgent(button);
-    } else if (button.id == 'medium') {
-        changeColorMedium(button);
-    } else if (button.id == 'low') {
-        changeColorLow(button);
+    switch (button.id) {
+        case "urgent":
+            document.getElementById("urgent").style.backgroundColor = "#FF3D00";
+            document.getElementById('urgent-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            task.prio = 'urgent';
+            break;
+        case "medium":
+            document.getElementById("medium").style.backgroundColor = "#FFA800";
+            document.getElementById('medium-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            task.prio = 'medium'
+            break;
+        case "low":
+            document.getElementById("low").style.backgroundColor = "#8BE644";
+            document.getElementById('low-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            task.prio = 'low'
+            break;
+        default:
+            break;
     }
-    task.prio = button.id;
+    
 }
 
 
 /**
- * It changes the background color of the button to red, resets the filter of the image, changes the
- * filter of the image, and changes the onclick attribute of the other buttons.
- * @param button - the button that was clicked
+ * Reset the color for all buttons, then set the color for the selected button.
+ * @param button - The button that was clicked
  */
-function changeColorUrgent(button) {
-    button.style.backgroundColor = '#FF3D00';
-    resetFilterImgPriority();
-    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    document.getElementById('urgent').setAttribute('onclick', `resetColorPriority(this)`);
-    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-    document.getElementById('low').style.backgroundColor = '#FFFFFF';
-}
-
-
-/**
- * When the user clicks on the button with the id of 'medium', the background color of the button will
- * change to orange, the filter of the image with the id of 'medium-img' will change to a sepia filter,
- * and the onclick attribute of the button with the id of 'medium' will change to a function that
- * resets the color of the button to white, while the onclick attribute of the buttons with the id of
- * 'urgent' and 'low' will change to a function that changes the color of the button to orange.
- * @param button - the button that was clicked
- */
-function changeColorMedium(button) {
-    button.style.backgroundColor = '#FFA800';
-    resetFilterImgPriority();
-    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    document.getElementById('medium').setAttribute('onclick', `resetColorPriority(this)`);
-    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('low').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    document.getElementById('low').style.backgroundColor = '#FFFFFF';
+function toggleColorPriority(button) {
+    // Reset the color for all buttons
+    resetColorPriority();
+    // Set the color for the selected button
+    changePriority(button);
+    resetBorder();
 }
 
 /**
- * When the user clicks on the 'low' button, the button's background color changes to green, and the
- * other buttons' background colors change to white.
- * @param button - the button that was clicked
+ * This function resets the background color of the three priority buttons to white and removes the
+ * grayscale filter from the three priority images.
  */
-function changeColorLow(button) {
-    button.style.backgroundColor = '#8BE644';
-    resetFilterImgPriority();
-    document.getElementById(button.id + `-img`).style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    document.getElementById('low').setAttribute('onclick', `resetColorPriority(this)`);
-    document.getElementById('urgent').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('medium').setAttribute('onclick', `changePriority(this)`);
-    document.getElementById('urgent').style.backgroundColor = '#FFFFFF';
-    document.getElementById('medium').style.backgroundColor = '#FFFFFF';
-}
-
-
-/**
- * When the user clicks on a button, the button's background color changes to white, and the button's
- * onclick attribute is changed to call the changePriority() function.
- * @param button - the button that was clicked
- */
-function resetColorPriority(button) {
-    button.style.backgroundColor = '#FFFFFF';
-    setTimeout(() => {
-    }, 200);
-    document.getElementById(button.id).setAttribute('onclick', `changePriority(this)`);
-    resetFilterImgPriority();
+function resetColorPriority() {
+    
+        document.getElementById("urgent").style.backgroundColor = "#FFFFFF";
+        document.getElementById("medium").style.backgroundColor = "#FFFFFF";
+        document.getElementById("low").style.backgroundColor = "#FFFFFF";
+        document.getElementById('urgent-img').style.filter = 'none';
+        document.getElementById('medium-img').style.filter = 'none';
+        document.getElementById('low-img').style.filter = 'none';
+    
 }
 
 /**
@@ -576,9 +567,13 @@ function addDate() {
     date = date.getFullYear() + '-' + ('00' + dateMonth).slice(-2) + '-' + ('000' + dateDay).slice(-2);
     date.toString(date);
     task.dueDate = date;
+    resetBorder();
 }
 
 
+/**
+ * The function sets the value of the date input to the current date.
+ */
 function setDate() {
     document.getElementById("date").valueAsDate = new Date();
   }

@@ -19,13 +19,9 @@
 </head>
 
 <body onload="checkLoginStatus(), includeHTML(), getTaskCatrgories(), getContacts(), setDate()">
-    <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
-    <div class="parentContainer" id="bigContainer">
-        <div class="headline h1AddTask">
-            <h1>Add Task</h1>
-        </div>
-        <div id="main-container-addTask" class="main-container-addTask">
-            <form onsubmit="createTask()" class="addTask" id="add-new-task" method="dialog">
+    <div class="bigContainerPopUp" id="bigContainer">
+        <div id="main-container-addTask" class="mainContainerTaskPopUp">
+            <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
                 <div class="columnLeft">
                     <div class="container">
                         <h3>Title</h3>

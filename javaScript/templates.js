@@ -158,22 +158,22 @@ function generateEditBoardTask(i) {
                             </div>
                             <div id="colorSelection" class="select-color d-none">
                                 <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')"
-                                    class="listContactInitial bgVi" id="newCategoryColor-1">
+                                    class="selectCategoryColor bgVi" id="newCategoryColor-1">
                                 </div>
                                 <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')"
-                                    class="listContactInitial bgRd" id="newCategoryColor-2">
+                                    class="selectCategoryColor bgRd" id="newCategoryColor-2">
                                 </div>
                                 <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')"
-                                    class="listContactInitial bgLg" id="newCategoryColor-3">
+                                    class="selectCategoryColor bgLg" id="newCategoryColor-3">
                                 </div>
                                 <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')"
-                                    class="listContactInitial bgOg" id="newCategoryColor-4">
+                                    class="selectCategoryColor bgOg" id="newCategoryColor-4">
                                 </div>
                                 <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')"
-                                    class="listContactInitial bgRo" id="newCategoryColor-5">
+                                    class="selectCategoryColor bgRo" id="newCategoryColor-5">
                                 </div>
                                 <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')"
-                                    class="listContactInitial bgBu" id="newCategoryColor-6">
+                                    class="selectCategoryColor bgBu" id="newCategoryColor-6">
                                 </div>
                             </div>
                             <div onclick="openSelection()" class="select-field" id="selectField">
@@ -350,7 +350,7 @@ function checkingIfAssignedTrue(checkBoxId, mergedId, boardId) {
 function categoryListItemHTML(name  ,color) {
     return `
         <p id="categoryName" class="textBox">${name}</p>
-        <div id="categoryColor" style="background-color: ${color}" class="listContactInitials contactScale left"></div>
+        <div id="categoryColor" style="background-color: ${color}" class="selectCategoryColor contactScale left"></div>
         `
 }
 

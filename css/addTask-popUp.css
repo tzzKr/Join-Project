@@ -1,0 +1,30 @@
+.addTaskPopUp {
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: white;
+    width: 520px;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+
+.displayFlex {
+    display: flex;
+}
+
+.popUpBackgroundContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}

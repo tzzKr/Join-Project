@@ -11,22 +11,26 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/contacts.css">
     <link rel="stylesheet" href="css/desktop_template.css">
+    <link rel="stylesheet" href="css/addTask-popUp.css">
     <script src="javaScript/mini_backend.js"></script>
     <script src="javaScript/script.js"></script>
     <script src="javaScript/contacts.js"></script>
     <script src="./javaScript/navbar.js"></script>
+    <script src="./javaScript/taskPopup.js"></script>
+    <script src="./javaScript/addTask.js"></script>
 </head>
 
 <body onload="checkLoginStatus(), includeHTML(), loadContactsFromServer()">
 
     <div style="height: 80px;" w3-include-html="templates/desktop_template.html"></div>
 
+
     <div id="parentContainer" class="parentContainer">
- 
+
         <button onclick="changeOverlayToNewContact()" id="new-contact-btn" class="newContactBtn">
             <span>New contact</span>
             <img src="img/newContact.svg">
-        </button>        
+        </button>
 
         <div id="contact-book" class="contactBook"></div>
 
@@ -41,12 +45,16 @@
             <div id="contact-details" class="contactDetails"></div>
         </div>
     </div>
-    
+
     <div id="page-mask" class="pageMask d-none" onclick="closeOverlay()"></div>
     <div id="contact-overlay" class="contactOverlay d-none"></div>
 
     <dialog id="msgBox" class="msgBox d-none"></dialog>
-    
+
+    <div onclick=" closeTaskPopUp()" class="popUpBackgroundContainer d-none" id="task-bgr-popUp">
+        <div class="addTaskPopUp d-none" id="task-popUp" w3-include-html="templates/addTask_template.html"></div>
+    </div>
+
 </body>
 
 </html>

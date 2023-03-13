@@ -119,7 +119,7 @@ textarea {
     height: 30px;
 }
 
-.listContactInitials {
+.categoryColorCircle {
     width: 20px;
     height: 20px;
     color: #FFFFFF;
@@ -128,7 +128,7 @@ textarea {
     border: 2px solid #FFFFFF;
 }
 
-.listContactInitial {
+.selectCategoryColor {
     width: 20px;
     height: 20px;
     color: #FFFFFF;

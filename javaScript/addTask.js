@@ -245,7 +245,7 @@ function renderNewCategory() {
         <div  class="options">
             <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
               <p>${categories[i].name}</p>
-              <div id="categoryColorDiv${i}" class="listContactInitials contactScale left"></div>
+              <div id="categoryColorDiv${i}" class="selectCategoryColor contactScale left"></div>
             </div>
             <div class="delete-img">
               <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">

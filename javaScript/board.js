@@ -63,13 +63,21 @@ function filterTasks() {
     let search = document.getElementById('boardInput').value;
     search = search.toLowerCase().trim();
     if (search.length > 0) {
-        filterdTasks = boardTasks.filter(t => t.title.toLowerCase().startsWith(search));
+        filterdTasks = boardTasks.filter(t => includesSearch(t, search));
         renderTodos(filterdTasks);
     } else {
         filterdTasks = boardTasks;
         renderTodos(boardTasks);
     }
 }
+
+function includesSearch(t, search) {
+    return  t.title.toLowerCase().startsWith(search) || 
+            t.description.toLowerCase().startsWith(search) ||
+            t.category.toLowerCase().startsWith(search)
+}
+
+
 /**
  * Renders every task on board page"!
  * 

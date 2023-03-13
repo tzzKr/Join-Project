@@ -65,9 +65,26 @@ async function createTask() {
         },2100);
     } else {
         initMsgBoxAlert('Something missing!');
+        showMissing();
     }
 }
 
+function showMissing() {
+
+    if (!task.category) {
+        document.getElementById('selectField').style.border = `1px solid red`;
+    }
+    if (!task.prio) {
+        document.getElementById('urgent').style.border = `1px solid red`;
+        document.getElementById('medium').style.border = `1px solid red`;
+        document.getElementById('low').style.border = `1px solid red`;
+        
+    }
+    if (!task.dueDate) {
+        document.getElementById('date').style.border = `1px solid red`;
+        
+    }
+}
 
 /**
  * If the task has a category, an assignedTo, a priority, and a dueDate, then return true. Otherwise,
@@ -80,6 +97,7 @@ function checkForm() {
     } else {
         return false;
     }
+    
 }
 
 /**

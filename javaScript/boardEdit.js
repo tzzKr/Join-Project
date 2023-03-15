@@ -86,6 +86,7 @@ function deleteTask(i) {
     distributeIDs()
     saveTasks();
     renderTodos(boardTasks);
+    initMsgBox('Succesful deleted')
     
 }
 

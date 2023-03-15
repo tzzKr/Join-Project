@@ -184,6 +184,7 @@ h1 {
   flex-direction: column;
   overflow: auto;
   max-height: 165px;
+  min-width: 260px;
 }
 
 .assignedUserImg {

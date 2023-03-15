@@ -54,11 +54,11 @@ async function saveTaskCategories(msg) {
  */
 async function createTask() {
     if (checkForm()) {
+        taskBtnDisabled();
         await loadTasksFromServer();
         tasks = JSON.parse(await backend.getItem('tasks')) || [];
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
-        taskBtnDisabled();
         initMsgBox('New Task added to Board!');
         setTimeout(() => {
             window.location.href = 'board.html';
@@ -569,14 +569,6 @@ function addDate() {
     task.dueDate = date;
     resetBorder();
 }
-
-
-/**
- * The function sets the value of the date input to the current date.
- */
-function setDate() {
-    document.getElementById("date").valueAsDate = new Date();
-  }
 
 
 ////////// ***************************   Selection Functions  *******************************  //////////////////

@@ -14,123 +14,118 @@
     <script src="./javaScript/templates.js"></script>
     <script src="./javaScript/addTask.js"></script>
     <script src="./javaScript/navbar.js"></script>
-    <title>Join-AddTask</title>
+    <title>Join-AddTask-popUp</title>
 
 </head>
 
-<body onload="checkLoginStatus(), includeHTML(), getTaskCatrgories(), getContacts(), setDate()">
+<body style="overflow: auto;" onload="checkLoginStatus(), includeHTML(), getTaskCatrgories(), getContacts(), setDate()">
     <div class="bigContainerPopUp" id="bigContainer">
-        <div id="main-container-addTask" class="mainContainerTaskPopUp">
-            <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
-                <div class="columnLeft">
-                    <div class="container">
-                        <h3>Title</h3>
-                        <input class="input-addTask" required placeholder="Add Title" id="title" onchange="addTitle()">
-                    </div>
-                    <div class="container">
-                        <h3>Description</h3>
-                        <textarea required placeholder="Enter a description" id="description" method="dialog"
-                            onchange="addDescription()"></textarea>
-                    </div>
-                    <div class="container">
-                        <h3>Category</h3>
-                        <div id="newCategory" class="new-category d-none">
-                            <input id="categoryInput" class="input-addTask" placeholder="New category name" type="text" maxlength="20">
-                            <img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
-                            <div class="line"></div>
-                            <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
-                        </div>
-                        <div id="colorSelection" class="select-color d-none">
-                            <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')"
-                                class="selectCategoryColor bgVi" id="newCategoryColor-1">
-                            </div>
-                            <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')"
-                                class="selectCategoryColor bgRd" id="newCategoryColor-2">
-                            </div>
-                            <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')"
-                                class="selectCategoryColor bgLg" id="newCategoryColor-3">
-                            </div>
-                            <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')"
-                                class="selectCategoryColor bgOg" id="newCategoryColor-4">
-                            </div>
-                            <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')"
-                                class="selectCategoryColor bgRo" id="newCategoryColor-5">
-                            </div>
-                            <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')"
-                                class="selectCategoryColor bgBu" id="newCategoryColor-6">
-                            </div>
-                        </div>
-                        <div onclick="openSelection()" class="select-field" id="selectField">
-                            <p class="textBox">Select task category</p>
-                            <img src="img/arrow.png">
-                        </div>
+        <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
 
-                        <div id="list" class="list d-none">
-                            <div onclick="newCategory()" class="options">
-                                <p id="selectText">New category</p>
-                            </div>
-                            <div id="mainCategories"></div>
-
-                        </div>
+            <div class="container">
+                <h3>Title</h3>
+                <input class="input-addTask" required placeholder="Add Title" id="title" onchange="addTitle()">
+            </div>
+            <div class="container">
+                <h3>Description</h3>
+                <textarea required placeholder="Enter a description" id="description" method="dialog"
+                    onchange="addDescription()"></textarea>
+            </div>
+            <div class="container">
+                <h3>Category</h3>
+                <div id="newCategory" class="new-category d-none">
+                    <input id="categoryInput" class="input-addTask" placeholder="New category name" type="text"
+                        maxlength="20">
+                    <img class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
+                    <div class="line"></div>
+                    <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
+                </div>
+                <div id="colorSelection" class="select-color d-none">
+                    <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')" class="selectCategoryColor bgVi"
+                        id="newCategoryColor-1">
                     </div>
-                    <div class="container">
-                        <h3>Assigned to</h3>
-                        <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
-                            <p id="contactNumber">Select contacts to assign</p>
-                            <img src="img/arrow.png">
-                        </div>
-
-                        <div id="listContact" class="list d-none"></div>
-                        <div id="contactInfoContainer" class="contact-info-container"></div>
+                    <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')" class="selectCategoryColor bgRd"
+                        id="newCategoryColor-2">
+                    </div>
+                    <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')" class="selectCategoryColor bgLg"
+                        id="newCategoryColor-3">
+                    </div>
+                    <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')" class="selectCategoryColor bgOg"
+                        id="newCategoryColor-4">
+                    </div>
+                    <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')" class="selectCategoryColor bgRo"
+                        id="newCategoryColor-5">
+                    </div>
+                    <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')" class="selectCategoryColor bgBu"
+                        id="newCategoryColor-6">
                     </div>
                 </div>
-
-                <div class="middleLine"></div>
-
-                <div class="columnRight">
-                    <div class="container">
-                        <h3>Due date</h3>
-                        <input onchange="addDate()"  class="input-addTask" type="date" id="date">
-                    </div>
-                    <div class="prio">
-                        <h3>Prio</h3>
-                        <div class="prio-buttons">
-                            <div class="prio-btns" onclick="changePriority(this)" id="urgent">
-                                Urgent
-                                <img id="urgent-img" src="img/prio_urgent.svg">
-                            </div>
-                            <div class="prio-btns" onclick="changePriority(this)" id="medium">
-                                Medium
-                                <img id="medium-img" src="img/prio_medium.svg">
-                            </div>
-                            <div class="prio-btns" onclick="changePriority(this)" id="low">
-                                Low
-                                <img id="low-img" src="img/prio_low.svg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-
-                        <h3>Subtasks</h3>
-                        <div class="subtasks">
-                            <input id="inputSubtask" class="input-addTask" placeholder="Add new subtask" type="">
-                            <img onclick="addSubtask()" src="img/plus.svg">
-                        </div>
-                    </div>
-                    <div id="addSubtaskContainer" class="subtask-container"></div>
-
-                    <div class="create-task-buttons">
-                        <button type="reset" onclick="cancelTask()" class="clear-btn">Clear <img src="img/clear.svg">
-                        </button>
-                        <button type="submit" class="create-task-btn" id="creatTaskBtn">Create Task <img src="img/addTask-right.svg">
-                        </button>
-                    </div>
+                <div onclick="openSelection()" class="select-field" id="selectField">
+                    <p class="textBox">Select task category</p>
+                    <img src="img/arrow.png">
                 </div>
 
+                <div id="list" class="list d-none">
+                    <div onclick="newCategory()" class="options">
+                        <p id="selectText">New category</p>
+                    </div>
+                    <div id="mainCategories"></div>
 
-            </form>
-        </div>
-        <dialog id="msgBox" class="msgBox d-none" onclick=""></dialog>
+                </div>
+            </div>
+            <div class="container">
+                <h3>Assigned to</h3>
+                <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
+                    <p id="contactNumber">Select contacts to assign</p>
+                    <img src="img/arrow.png">
+                </div>
+
+                <div id="listContact" class="list d-none"></div>
+                <div id="contactInfoContainer" class="contact-info-container"></div>
+            </div>
+
+
+            <div class="container">
+                <h3>Due date</h3>
+                <input onchange="addDate()" class="input-addTask" type="date" id="date">
+            </div>
+            <div class="prio">
+                <h3>Prio</h3>
+                <div class="prio-buttons">
+                    <div class="prio-btns" onclick="changePriority(this)" id="urgent">
+                        Urgent
+                        <img id="urgent-img" src="img/prio_urgent.svg">
+                    </div>
+                    <div class="prio-btns" onclick="changePriority(this)" id="medium">
+                        Medium
+                        <img id="medium-img" src="img/prio_medium.svg">
+                    </div>
+                    <div class="prio-btns" onclick="changePriority(this)" id="low">
+                        Low
+                        <img id="low-img" src="img/prio_low.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <h3>Subtasks</h3>
+                <div class="subtasks">
+                    <input id="inputSubtask" class="input-addTask" placeholder="Add new subtask" type="">
+                    <img onclick="addSubtask()" src="img/plus.svg">
+                </div>
+            </div>
+            <div id="addSubtaskContainer" class="subtask-container"></div>
+
+            <div class="create-task-button-popUp">
+                <button type="submit" class="create-task-btn" id="creatTaskBtn">Create Task <img
+                        src="img/addTask-right.svg">
+                </button>
+            </div>
+
+
+
+        </form>
+        <dialog id="msgBox" class="msgBox d-none"></dialog>
         <dialog id="msgBoxAlert" class="msgBox d-none" style="background-color: tomato;"></dialog>
     </div>
 </body>

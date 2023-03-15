@@ -9,12 +9,11 @@
     align-items: center;
     justify-content: center;
     overflow-y: auto;
+    z-index: 3;
+    padding-bottom: 40px;
 }
 
 
-.displayFlex {
-    display: flex;
-}
 
 .popUpBackgroundContainer {
     position: absolute;
@@ -26,5 +25,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 2;
+}
+
+.bigContainerPopUp {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: 60px;
+}
+
+.create-task-button-popUp {
+    position: fixed;
+    top: 20px;
+    right: 48px;
 }

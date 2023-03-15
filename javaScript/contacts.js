@@ -1,7 +1,7 @@
 let sessionUser = getSessionUser();
-let contacts = [];
+// let contacts = [];
 let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
-let colorRange = ['#FF7A00','#9327FF','#29ABE2','#FC71FF','#02CF2F','#AF1616','#462F8A'];
+let colorRangeContacts = ['#FF7A00','#9327FF','#29ABE2','#FC71FF','#02CF2F','#AF1616','#462F8A'];
 /**
  * Sorts contacts by alphabetical order into orderedContacts and then executes renderCpntacts()
  * 
@@ -81,7 +81,7 @@ function renderContactDetails(firstIndex, secondIndex) {
             <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
             <div class="contactInfo">
                 <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
-                <a onclick="openTaskPopUp()" class="contactAddTaskBtn">
+                <a onclick="openTaskPopUp(), setDate()" class="contactAddTaskBtn">
                     <img class="addTaskBtnImg" src="img/plus.svg">
                     <span class="addTaskBtnText">Add Task</span>
                 </a>
@@ -157,7 +157,7 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
             </div>
             <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-Z ]*" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-ZÄäÜüÖöß ]*" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
                     <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
@@ -274,7 +274,7 @@ async function pushNewContactToServer(inputName, inputEmail, inputPhone) {
     let user = users.find( u => u.name == JSON.parse(username));
     let index = users.indexOf(user);
     let serverContacts = users[index].contacts;
-    serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRange[Math.floor(Math.random() * colorRange.length)], initials: getInitials(inputName)});
+    serverContacts.push({name: inputName, email: inputEmail, phone: inputPhone, color: colorRangeContacts[Math.floor(Math.random() * colorRangeContacts.length)], initials: getInitials(inputName)});
     users[index].contacts = serverContacts;
     await backend.setItem('users', JSON.stringify(users));
 }
@@ -316,7 +316,7 @@ function changeOverlayToNewContact() {
             </div>
             <form class="overlayInputForm" onsubmit="createContact(); return false;">
                 <div class="overlayInputSection">
-                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-Z ]*" maxlength="30" class="overlayInput" required><img src="img/user.svg">
+                    <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-ZäÄöÖüÜß ]*" maxlength="30" class="overlayInput" required><img src="img/user.svg">
                 </div>
                 <div class="overlayInputSection">
                     <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" required><img src="img/Email.svg">

@@ -349,7 +349,7 @@ function checkingIfAssignedTrue(checkBoxId, mergedId, boardId) {
 function categoryListItemHTML(name  ,color) {
     return `
         <p id="categoryName" class="textBox">${name}</p>
-        <div id="categoryColor" style="background-color: ${color}" class="selectCategoryColor contactScale left"></div>
+        <div id="categoryColor" style="background-color: ${color}" class="selectCategoryColor left"></div>
         `
 }
 

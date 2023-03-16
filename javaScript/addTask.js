@@ -145,7 +145,7 @@ async function getContacts() {
  * @param color - #FF0000
  */
 function selectCategory(name, color) {
-    closeSelection();
+    toggleSelection();
     let categoryList = document.getElementById('selectField');
     if (categoryList) {
         saveNewCategoryInObject(name, color);
@@ -203,7 +203,7 @@ function deleteCategory(i) {
     document.getElementById('selectField').innerHTML = `
       <p class="textBox">Select task category</p>
       <img src="img/arrow.png">`;
-    closeSelection();
+    toggleSelection();
 }
 
 /**
@@ -582,65 +582,43 @@ function setDate() {
 
 ////////// ***************************   Selection Functions  *******************************  //////////////////
 
+
 /**
- * It removes the class 'd-none' from the list, renders a new category, adds the class 'growIn' to the
- * list, removes the class 'growIn' from the list after 200ms, and changes the onclick attribute of the
- * selectField to closeSelection().
+ * It toggles the class 'd-none' on the element with the id 'list' which hides the element. Then it
+ * calls the function renderNewCategory() which is defined below. Then it toggles the class 'growIn' on
+ * the element with the id 'list' which makes the element grow in size. Then it sets a timeout for 200
+ * milliseconds and then toggles the class 'growIn' on the element with the id 'list' which makes the
+ * element shrink in size.
  */
-function openSelection() {
-    document.getElementById('list').classList.remove('d-none');
+function toggleSelection() {
+    document.getElementById('list').classList.toggle('d-none');
     renderNewCategory();
-    document.getElementById('list').classList.add('growIn');
+    document.getElementById('list').classList.toggle('growIn');
     setTimeout(() => {
-        document.getElementById('list').classList.remove('growIn');
+        document.getElementById('list').classList.toggle('growIn');
     }, 200);
-    document.getElementById('selectField').setAttribute('onclick', `closeSelection()`);
 }
 
 
-/**
- * It adds a class to the list element, then after 100ms, it adds a class to hide the list element and
- * removes the class that was added to make it grow out.
- */
-function closeSelection() {
-    document.getElementById('list').classList.add('growOut');
-    setTimeout(() => {
-        document.getElementById('list').classList.add('d-none');
-        document.getElementById('list').classList.remove('growOut');
-    }, 100);
-    document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
-}
 
 ///**      ContactSelection Functions       **///
 
+
 /**
- * It removes the class 'd-none' from the element with the id 'listContact' and adds the class 'growIn'
- * to the same element. Then it removes the class 'growIn' from the same element after 200
- * milliseconds. Then it sets the attribute 'onclick' of the element with the id 'selectioContactField'
- * to the function 'closeContactSelection()'.
+ * It toggles the class 'd-none' on the element with the id 'listContact' and then toggles the class
+ * 'growIn' on the same element.
+ * 
+ * Then it sets a timeout to toggle the class 'growIn' off the same element after 200 milliseconds.
  */
-function openContactSelection() {
-    document.getElementById('listContact').classList.remove('d-none');
-    document.getElementById('listContact').classList.add('growIn');
+function toggleContactSelection() {
+    document.getElementById('listContact').classList.toggle('d-none');
+    document.getElementById('listContact').classList.toggle('growIn');
     setTimeout(() => {
-        document.getElementById('listContact').classList.remove('growIn');
+        document.getElementById('listContact').classList.toggle('growIn');
     }, 200);
-    document.getElementById('selectioContactField').setAttribute('onclick', `closeContactSelection()`);
 }
 
 
-/**
- * It adds a class to an element, then after 200ms, it adds another class to the same element and
- * removes the first class.
- */
-function closeContactSelection() {
-    document.getElementById('listContact').classList.add('growOut');
-    setTimeout(() => {
-        document.getElementById('listContact').classList.add('d-none');
-        document.getElementById('listContact').classList.remove('growOut');
-    }, 200);
-    document.getElementById('selectioContactField').setAttribute('onclick', `openContactSelection()`);
-}
 
 ///**      Select Option Functions       **///
 
@@ -657,10 +635,11 @@ function newCategory() {
 }
 
 
+
 /**
  * It removes the class 'd-none' from the select field, clears the value of the input field, adds the
- * class 'd-none' to the input field, adds the class 'd-none' to the color selection, and sets the
- * onclick attribute of the select field to openSelection().
+ * class 'd-none' to the input field, adds the class 'd-none' to the color selection div, resets the
+ * selected color, and sets the onclick attribute of the select field to toggleSelection().
  */
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
@@ -668,7 +647,7 @@ function clearNewCategory() {
     document.getElementById('newCategory').classList.add('d-none');
     document.getElementById('colorSelection').classList.add('d-none');
     resetSelectedColor();
-    document.getElementById('selectField').setAttribute('onclick', `openSelection()`);
+    document.getElementById('selectField').setAttribute('onclick', `toggleSelection()`);
 }
 
 /**

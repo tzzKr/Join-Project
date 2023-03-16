@@ -269,6 +269,7 @@ input {
     left: calc(50% - (var(--width)));
     right: calc(50% - (var(--width)));
     cursor: pointer;
+    z-index: 999;
 }
 
 .animationFadeIn {

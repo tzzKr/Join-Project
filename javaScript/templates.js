@@ -353,3 +353,8 @@ function categoryListItemHTML(name  ,color) {
         `
 }
 
+function generateSelectCategoryHTML() {
+    return `
+    <p class="textBox">Select task category</p>
+    <img src="img/arrow.png">`
+}

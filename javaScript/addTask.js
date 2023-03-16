@@ -200,9 +200,7 @@ function deleteCategory(i) {
     saveTaskCategories('Category is deleted!');
     task.category = '';
     task.categoryColor = '';
-    document.getElementById('selectField').innerHTML = `
-      <p class="textBox">Select task category</p>
-      <img src="img/arrow.png">`;
+    document.getElementById('selectField').innerHTML = generateSelectCategoryHTML();
     toggleSelection();
 }
 
@@ -227,11 +225,7 @@ function createCategory(color) {
     categoryInput = categoryInput.charAt(0).toUpperCase() + categoryInput.slice(1);
     if (categoryInput && !checkCategoryExistence(categoryInput) && checkColorSelected()) {
         categories.push({ name: categoryInput, color: color });
-        saveTaskCategories('New Category created!');
-        selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
-        renderNewCategory();
-        clearNewCategory();
-        resetSelectedColor();
+        clusterFunktion(color);
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
     } else if (checkColorSelected() && !categoryInput) {
         initMsgBoxAlert('Please enter a category name');
@@ -240,6 +234,15 @@ function createCategory(color) {
         document.getElementById('saveNewCategory').setAttribute('onclick', '');
         resetSelectedColor();
     }
+}
+
+function clusterFunktion(color) {
+    saveTaskCategories('New Category created!');
+    selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
+    renderNewCategory();
+    clearNewCategory();
+    resetSelectedColor();
+    toggleSelection();
 }
 
 /**

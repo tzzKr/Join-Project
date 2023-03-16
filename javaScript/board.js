@@ -237,6 +237,8 @@ function subtaskCheckedBoard(i, y) {
 function checkIfTaskFinished(i) {
     if (countCheckedSubtasks(i) == 100 || boardTasks[i].subtasks.length == 0) {
         boardTasks[i].progress = true;
+    } else {
+        boardTasks[i].progress = false;
     }
 }
 

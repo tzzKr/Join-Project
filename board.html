@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/boardMobile.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/addTask-media.css">
+    <link rel="stylesheet" href="./css/addTask-popUp.css">
     <link rel="stylesheet" href="./css/boardEditMedia.css">
     <script src="./javaScript/mini_backend.js"></script>
     <script src="./javaScript/script.js"></script>
@@ -20,12 +22,13 @@
     <script src="./javaScript/boardEdit.js"></script>
     <script src="./javaScript/mobileBoard.js"></script>
     <script src="./javaScript/addTask.js"></script>
+    <script src="./javaScript/taskPopup.js"></script>
 
     <script src="./javaScript/navbar.js"></script>
     <script src="./javaScript/templates.js"></script>
 </head>
 
-<body onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories()">
+<body onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories(), getContacts()">
     <header w3-include-html="templates/desktop_template.html"></header>
 
 
@@ -48,7 +51,7 @@
             <div class="headline boardHead">
                 <div class="headerAndMobileSearch">
                     <h1>Board</h1>
-                    
+
                 </div>
 
 
@@ -60,42 +63,36 @@
                             <button onclick="filterTasks()" class="searchBtn"><img src="img/search.svg" alt=""></button>
                         </div>
 
-                        <button onclick="goToAddTask()" class="BoardAddTaskBtn">
+                        <button onclick="openTaskPopUp()" class="BoardAddTaskBtn">
                             <p class="taskBtnText">Add task </p>
                             <img src="img/AddSymbol.svg" alt="">
                         </button>
 
-                        
-                        <button onclick="goToAddTask()" class="boardMobileAddTaskBtn">
+
+                        <button onclick="openTaskPopUp()" class="boardMobileAddTaskBtn">
                             <img src="img/addtaskmobile.svg" alt="">
                         </button>
-                        
+
                     </div>
                 </div>
 
 
             </div>
 
-                <div class="boardSearchMobile">
-                    <input id="boardInput" class="boardSearchBar" type="text" onkeyup="filterTasks()">
-                    <button onclick="filterTasks()" class="searchBtn"><img src="img/search.svg" alt=""></button>
-                </div>
-               
+            <div class="boardSearchMobile">
+                <input id="boardInput" class="boardSearchBar" type="text" onkeyup="filterTasks()">
+                <button onclick="filterTasks()" class="searchBtn"><img src="img/search.svg" alt=""></button>
+            </div>
+
 
 
             <div class="boardLists">
-
-
-
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>To do</h2>
                     </div>
                     <div class="singleBoards" ondragstart="showDragAreas()" ondrop="moveTo('todo'), removeDragAreas()"
                         ondragover="allowDrop(event)" id="todo">
-
-
-
                     </div>
                 </div>
                 <div class="centerLists">
@@ -122,19 +119,16 @@
                         ondragover="allowDrop(event)" id="done">
                     </div>
                 </div>
-
             </div>
 
 
         </div>
-
         <div id="editContainer" class="editBg">
-
         </div>
 
-
-
     </div>
+    <div onclick=" closeTaskPopUp()" class="popUpBackgroundContainer d-none" id="task-bgr-popUp"> </div>
+    <div class="addTaskPopUp d-none" id="task-popUp" w3-include-html="templates/addTask_template.html"></div>
     <div id="moreInfoBg" onclick="closeEditTool()" class="moreInfoBg backgroundBlur d-none"></div>
     <dialog id="msgBoxAlert" class="msgBox d-none" style="background-color: tomato;"></dialog>
     <dialog id="msgBox" class="msgBox d-none" onclick=""></dialog>

@@ -196,6 +196,12 @@ function mergeContacts(array1, array2, uniqueContacts) {
 }
 
 
+/**
+ * If the checkbox exists, toggle it and update the assigned status.
+ * @param checkBoxId - the id of the checkbox that was clicked
+ * @param mergedId - The id of the merged issue
+ * @param boardId - the id of the board
+ */
 function toggleCheckbox(checkBoxId, mergedId, boardId) {
     let checkbox = document.getElementById(checkBoxId);
     if (checkbox) {
@@ -204,6 +210,12 @@ function toggleCheckbox(checkBoxId, mergedId, boardId) {
     }
 }
 
+/**
+ * It updates the assigned counter and the board task assignment.
+ * @param checkBoxId - the id of the checkbox that was clicked
+ * @param mergedId - The id of the task in the database
+ * @param boardId - the id of the board
+ */
 function updateAssignedStatus(checkBoxId, mergedId, boardId) {
     let checkBox = document.getElementById(checkBoxId);
     let isChecked = checkBox.checked;
@@ -211,34 +223,70 @@ function updateAssignedStatus(checkBoxId, mergedId, boardId) {
     updateBoardTaskAssignment(mergedId, boardId, isChecked);
 }
 
+/**
+ * Updates the counter for the number of assigned contacts based on the given addition parameter
+ * and updates the display on the user interface.
+ * 
+ * @param {boolean} addition - If true, increases the counter by 1; if false, decreases the counter by 1.
+ */
 function updateAssignedCounter(addition) {
+    // Updates the counter for the number of assigned contacts based on the addition parameter.
     numberAssingendUserEdit += addition ? 1 : -1;
+
+    // Sets the default text for the case when no contacts are assigned.
     let text = `Select contacts to assign`;
+
+    // If at least one contact is assigned, updates the text according to the number of assigned contacts.
     if (numberAssingendUserEdit > 0) {
         text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
     }
+
+    // Updates the user interface with the updated text.
     document.getElementById('contactNumber').innerHTML = text;
 }
 
+
+/**
+ * Updates the assigned contacts of a board task by adding or removing the specified contact.
+ *
+ * @param {number} mergedId - The index of the contact within the mergedContacts list.
+ * @param {number} boardId - The index of the board task within the boardTasks list.
+ * @param {boolean} addition - If true, adds the contact to the assigned contacts; if false, removes the contact.
+ */
 function updateBoardTaskAssignment(mergedId, boardId, addition) {
+    // Update the status of the contact in mergedContacts.
     mergedContacts[mergedId].status = addition;
+
+    // If addition is true, add the contact to the assigned contacts of the board task.
     if (addition) {
         boardTasks[boardId].assignedTo.push(mergedContacts[mergedId]);
     } else {
+        // If addition is false, remove the contact from the assigned contacts of the board task.
         boardTasks[boardId].assignedTo = boardTasks[boardId].assignedTo.filter(contact => contact !== mergedContacts[mergedId]);
     }
 }
 
+
+/**
+ * Generates the list of assigned contacts for a specific task and updates the user interface.
+ *
+ * @param {number} i - The index of the current task within the boardTasks list.
+ */
 function generateAssignedContacts(i) {
+    // Resets the counter for the number of assigned contacts.
     numberAssingendUserEdit = 0;
+
+    // Iterates through all assigned contacts of the current task.
     boardTasks[i].assignedTo.forEach(assigned => {
         let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.email == assigned.email));
         mergedContacts[matchId].status = true;
         numberAssingendUserEdit++;
     });
 
-    updateAssignedCounter(); // Aktualisiert den Zähler basierend auf der aktuellen Anzahl der zugewiesenen Benutzer.
+    // Updates the counter based on the current number of assigned users.
+    updateAssignedCounter();
 
+    // Generates the HTML for the list of assigned contacts and updates the user interface.
     document.getElementById('listContact').innerHTML = mergedContacts.map((contact, y) => {
         return /*html*/ `
                 <div class="options-2" onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})">
@@ -252,12 +300,27 @@ function generateAssignedContacts(i) {
 
 
 
+
+/**
+ * Updates the counter for the number of assigned contacts and updates the display on the user interface.
+ * 
+ * @param {number} [addition=0] - The incremental value to increase or decrease the counter.
+ *                                 Positive values increase the counter, negative values decrease it.
+ *                                 If no value is provided, the counter remains unchanged.
+ */
 function updateAssignedCounter(addition = 0) {
+    // Updates the counter for the number of assigned contacts based on the incremental value.
     numberAssingendUserEdit += addition;
+
+    // Sets the default text for the case when no contacts are assigned.
     let text = `Select contacts to assign`;
+
+    // If at least one contact is assigned, updates the text according to the number of assigned contacts.
     if (numberAssingendUserEdit > 0) {
         text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
     }
+
+    // Updates the user interface with the updated text.
     document.getElementById('contactNumber').innerHTML = text;
 }
 

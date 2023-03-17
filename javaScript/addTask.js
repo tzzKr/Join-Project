@@ -323,14 +323,12 @@ function renderSubtask() {
 
 }
 
+
 /**
- * If the addition parameter is true, then add 1 to the numberAssingendUser variable, otherwise
- * subtract 1 from the numberAssingendUser variable. Then, set the innerHTML of the contactNumber
- * element to the numberAssingendUser variable, and if the numberAssingendUser variable is equal to 0,
- * then set the innerHTML of the contactNumber element to the string 'Select contacts to assign'.
- * @param addition - true or false, depending on whether the user is adding or removing a contact
+ * Updates the text of the 'contactNumber' element based on the number 
+ * of contacts assigned to a task.
  */
-function renderContactNumber(addition) {
+function renderContactNumber() {
     let contactNumber = document.getElementById('contactNumber');
     switch (numberAssingendUser) {
         case 0:
@@ -355,7 +353,6 @@ function renderContactNumber(addition) {
 function checkClick(id, i) {
     let checkbox = document.getElementById(id);
     checkbox.checked = !checkbox.checked;
-    console.log('Hallo');
     checkboxAssignedTo(id, i);
 }
 
@@ -423,29 +420,25 @@ function resetSelectedColor() {
 }
 
 
+
 /**
- * If the checkbox is checked, add the contact to the task.assignedTo array, and render the contact
- * number. If the checkbox is unchecked, remove the contact from the task.assignedTo array, and render
- * the contact number.
+ * If the checkbox is checked, add the user to the task.assignedTo array. If the checkbox is unchecked,
+ * remove the user from the task.assignedTo array.
  * @param checkboxId - the id of the checkbox that was clicked
  * @param i - the index of the contact in the contacts array
  */
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
     let userIndex = task.assignedTo.findIndex(u => u.name == contacts[i].name);
-
     if (checkBox.checked) {
         if (userIndex === -1) {
             task.assignedTo.push(contacts[i]);
             numberAssingendUser++;
         }
-    } else {
-        if (userIndex !== -1) {
+    } else if (userIndex !== -1) {
             task.assignedTo.splice(userIndex, 1);
             numberAssingendUser--;
         }
-    }
-
     renderContactNumber();
 }
 

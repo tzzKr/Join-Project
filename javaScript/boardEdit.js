@@ -35,42 +35,20 @@ function closeEditTool() {
 }
 
 
+
+
 /**
- * It renders the subtasks in the edit window
- * @param i - the index of the task in the array
+ * It takes the index of the task that is being edited, and then loops through the subtasks of that
+ * task, and then generates the HTML for each subtask
+ * @param i - the index of the task in the boardTasks array
  */
 function renderSubTasksEdit(i) {
-
-    document.getElementById('subTaskContainerEdit').innerHTML = '';
+    const subTaskContainerEdit = document.getElementById('subTaskContainerEdit');
+    subTaskContainerEdit.innerHTML = '';
 
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
-
-        if (!boardTasks[i].subtasks[y].status) {
-            document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`
-            <div class="subTaskParent">
-                <div class="subtaskInfo">
-                    <input class="subtaskCheckbox" id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
-                    <p>${boardTasks[i].subtasks[y].title}</p>
-                </div>
-                <div class="delete-img">
-                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
-                </div>
-            </div>
-            `
-        } else {
-            document.getElementById('subTaskContainerEdit').innerHTML += /*html*/`       
-             <div class="subTaskParent">
-                <div class="subtaskInfo">
-                    <input checked id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
-                    <p>${boardTasks[i].subtasks[y].title}</p>
-                </div>
-                <div class="delete-img">
-                     <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
-                </div>
-            </div>
-            `
-
-        }
+        const subtaskHTML = generateSubtaskBoard(i, y, boardTasks[i].subtasks[y]);
+        subTaskContainerEdit.innerHTML += subtaskHTML;
     }
 }
 

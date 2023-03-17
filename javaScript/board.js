@@ -94,7 +94,7 @@ function renderTodos(tasks) {
         let boardIndex = boardTasks.indexOf(task);
         document.getElementById(tasks[i]['board']).innerHTML += generateTaskHTML(i, boardIndex);
         checkBoardPosition(i, tasks)
-        renderAssingedUser(boardIndex, i);
+        renderAssignedUser(boardIndex, i);
         checkProgress(boardIndex);
         checkIfTaskFinished(boardIndex);
     }
@@ -129,27 +129,17 @@ function moveTo(boardCategory) {
     renderTodos(boardTasks);
 }
 
-/**
- * It adds the class 'dragBackground' to the four divs with the id's 'todo', 'inProgress', 'testing',
- * and 'done'.
- */
-function showDragAreas() {
-    document.getElementById('todo').classList.add('dragBackground');
-    document.getElementById('inProgress').classList.add('dragBackground');
-    document.getElementById('testing').classList.add('dragBackground');
-    document.getElementById('done').classList.add('dragBackground');
-}
 
 /**
- * It removes the class 'dragBackground' from all of the divs with the id's 'todo', 'inProgress',
- * 'testing', and 'done'.
+ * When the user clicks the button, toggle the class 'dragBackground' on the four divs.
  */
-function removeDragAreas() {
-    document.getElementById('todo').classList.remove('dragBackground');
-    document.getElementById('inProgress').classList.remove('dragBackground');
-    document.getElementById('testing').classList.remove('dragBackground');
-    document.getElementById('done').classList.remove('dragBackground');
+function toggleDragAreas() {
+    document.getElementById('todo').classList.toggle('dragBackground');
+    document.getElementById('inProgress').classList.toggle('dragBackground');
+    document.getElementById('testing').classList.toggle('dragBackground');
+    document.getElementById('done').classList.toggle('dragBackground');
 }
+
 
 /**
  * If the task is in the todo or done board, hide the progress bar. If the task has no subtasks, hide
@@ -196,28 +186,29 @@ function emptySearch() {
     search.value = ""
 }
 
-/**
- * It takes the boardIndex and locationIndex and then loops through the assignedTo array and if the
- * length of the array is greater than 3 it will display a +2 or whatever the number is.
- * @param boardIndex - the index of the board in the boardTasks array
- * @param locationIndex - The index of the task in the boardTasks array
- */
-function renderAssingedUser(boardIndex, locationIndex) {
-    for (let y = 0; y < boardTasks[boardIndex].assignedTo.length; y++) {
 
-        if (y == 2 && boardTasks[boardIndex].assignedTo.length > 3) {
-            document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
-            <div class="assignedUser">
-                +${boardTasks[boardIndex].assignedTo.length - 2}
-            </div>`;
-            break
-        }
-        document.getElementById('assignedUser' + locationIndex).innerHTML += /*html*/`
-            <div class="assignedUser" style="background-color: ${boardTasks[boardIndex].assignedTo[y].color}">
-                ${getInitials(boardTasks[boardIndex].assignedTo[y].name)}
-            </div>`;
+
+/**
+ * It takes in a boardIndex and a locationIndex, and then it renders the assigned users for the board
+ * at the boardIndex, and then it renders the assigned users for the location at the locationIndex.
+ * @param boardIndex - The index of the board in the boardTasks array.
+ * @param locationIndex - The index of the task in the boardTasks array.
+ */
+function renderAssignedUser(boardIndex, locationIndex) {
+    const assignedUsers = boardTasks[boardIndex].assignedTo;
+    const assignedUsersLength = assignedUsers.length;
+    const maxUsersToDisplay = 2;
+    const element = document.getElementById('assignedUser' + locationIndex);
+
+    for (let y = 0; y < assignedUsersLength && y < maxUsersToDisplay; y++) {
+        element.innerHTML += generateDisplayedCardUsers(y, assignedUsers);
+    }
+
+    if (assignedUsersLength > maxUsersToDisplay) {
+        element.innerHTML += generateNotDisplayedCardUsers(assignedUsersLength, maxUsersToDisplay);
     }
 }
+
 
 
 /**

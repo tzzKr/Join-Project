@@ -236,6 +236,12 @@ function createCategory(color) {
     }
 }
 
+/**
+ * When the user clicks the 'Add Category' button, a new category is created and added to the
+ * categories array, the new category is selected, the new category is rendered, the new category is
+ * cleared, the selected color is reset, and the selection is toggled.
+ * @param color - the color of the new category
+ */
 function clusterFunktion(color) {
     saveTaskCategories('New Category created!');
     selectCategory(categories[categories.length - 1].name, categories[categories.length - 1].color);
@@ -280,16 +286,7 @@ function checkCategoryExistence(catName) {
 function renderNewCategory() {
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
-        document.getElementById('mainCategories').innerHTML += `
-        <div  class="options">
-            <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
-              <p>${categories[i].name}</p>
-              <div id="categoryColorDiv${i}" class="selectCategoryColor left"></div>
-            </div>
-            <div class="delete-img">
-              <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">
-            </div>  
-        </div>`;
+        document.getElementById('mainCategories').innerHTML += generateNewCategoryHTML(i);
         document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;    //// ======>  TO fixed
     }
 }
@@ -301,13 +298,7 @@ function renderNewCategory() {
 function renderContactsAssigndTo() {
     document.getElementById('listContact').innerHTML = ``;
     for (let i = 0; i < contacts.length; i++) {
-        document.getElementById('listContact').innerHTML += `
-        <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
-             <p data-tooltip="${contacts[i].email}" data-flow="top right" id='addedUser${i + 1}'>${contacts[i].name}</p>
-             <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
-        </div>
-
-        `;
+        document.getElementById('listContact').innerHTML += genarateContactAssignedTo(i);
     }
 }
 
@@ -322,28 +313,10 @@ function renderSubtask() {
     document.getElementById('addSubtaskContainer').innerHTML = ``;
     for (let i = 0; i < task.subtasks.length; i++) {
         if (!task.subtasks[i].status) {
-            document.getElementById('addSubtaskContainer').innerHTML += `
-            <div class="subtask-element">
-                <div class="justify-content-center">
-                  <input onclick="subtaskChecked(${i})" id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
-                  <span>${task.subtasks[i].title}</span>
-                </div>
-                <div class="delete-img">
-                  <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
-                </div>
-            </div>`;
+            document.getElementById('addSubtaskContainer').innerHTML += generateNotCheckedSubtask(i);
         }
         else {
-            document.getElementById('addSubtaskContainer').innerHTML += `
-            <div class="subtask-element">
-                <div class="justify-content-center">
-                  <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
-                  <span>${task.subtasks[i].title}</span>
-                </div>
-                <div class="delete-img">
-                  <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
-                </div>
-            </div>`;
+            document.getElementById('addSubtaskContainer').innerHTML += generateCheckedSubtask(i);
         }
 
     }

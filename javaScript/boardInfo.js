@@ -47,15 +47,7 @@ function renderAssingedUserInfo(i) {
     } else {
         for (let y = 0; y < boardTasks[i].assignedTo.length; y++) {
 
-            document.getElementById('assignedUserInfo').innerHTML += /*html*/`
-            <div class="assignedUserInfoParent">
-                <div class="assignedUserImg" style="background-color: ${boardTasks[i].assignedTo[y].color}" data-tooltip="${boardTasks[i].assignedTo[y].email}" data-flow="right">
-                  ${getInitials(boardTasks[i].assignedTo[y].name)}
-                </div>
-                <p>${boardTasks[i].assignedTo[y].name}</p>
-        </div>
-            
-            `
+            document.getElementById('assignedUserInfo').innerHTML += generateAssignedUserInfoBoard(i, y);
         }
     }
 
@@ -67,25 +59,13 @@ function renderAssingedUserInfo(i) {
  * @param i - the index of the task in the array
  */
 function renderSubTasksInfo(i) {
+    const subTaskContainer = document.getElementById('subTaskContainer');
 
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
+        const isChecked = boardTasks[i].subtasks[y].status;
+        const checkedAttribute = isChecked ? 'checked' : '';
 
-        if (!boardTasks[i].subtasks[y].status) {
-            document.getElementById('subTaskContainer').innerHTML += /*html*/`
-            <div class="subtaskInfo">
-                <input class="subtaskCheckbox" onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" type="checkbox">
-                <p>${boardTasks[i].subtasks[y].title}</p>
-            </div>
-            `
-        } else {
-            document.getElementById('subTaskContainer').innerHTML += /*html*/`
-        
-            <div class="subtaskInfo">
-                <input onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" checked type="checkbox">
-                <p>${boardTasks[i].subtasks[y].title}</p>
-            </div>
-            `
-        }
+        subTaskContainer.innerHTML += generateSubtaskInfoBoard(i, y, checkedAttribute);
     }
 }
 

@@ -176,7 +176,7 @@ function generateEditBoardTask(i) {
                                     class="selectCategoryColor bgBu" id="newCategoryColor-6">
                                 </div>
                             </div>
-                            <div onclick="openSelection()" class="select-field" id="selectField">
+                            <div onclick="toggleSelection()" class="select-field" id="selectField">
 
                                 <p class="textBox">Select task category</p>
                                 <img src="img/arrow.png">
@@ -194,7 +194,7 @@ function generateEditBoardTask(i) {
                         <div class="container">
                             <h3>Assigned to</h3>
                           
-                            <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
+                            <div onclick="toggleContactSelection()" class="select-field" id="selectioContactField">
                                 <p id="contactNumber">Select contacts to assign</p>
                                 <img src="img/arrow.png">
                             </div>
@@ -357,4 +357,104 @@ function generateSelectCategoryHTML() {
     return `
     <p class="textBox">Select task category</p>
     <img src="img/arrow.png">`
+}
+
+function generateNewCategoryHTML(i) {
+    return `
+    <div  class="options">
+        <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
+          <p>${categories[i].name}</p>
+          <div id="categoryColorDiv${i}" class="selectCategoryColor left"></div>
+        </div>
+        <div class="delete-img">
+          <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">
+        </div>  
+    </div>`
+}
+
+function genarateContactAssignedTo(i) {
+    return `
+    <div onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" class="options-2">
+         <p data-tooltip="${contacts[i].email}" data-flow="top right" id='addedUser${i + 1}'>${contacts[i].name}</p>
+         <input id="checkboxAssignedTo${i + 1}" onclick="checkClick('checkboxAssignedTo${i + 1}', ${i})" type="checkbox" class="assigndTo-input">
+    </div>
+
+    `;
+}
+
+function generateNotCheckedSubtask(i) {
+   return `
+            <div class="subtask-element">
+                <div class="justify-content-center">
+                  <input onclick="subtaskChecked(${i})" id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+                  <span>${task.subtasks[i].title}</span>
+                </div>
+                <div class="delete-img">
+                  <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+                </div>
+            </div>`
+}
+
+function generateCheckedSubtask(i) {
+    return `
+    <div class="subtask-element">
+        <div class="justify-content-center">
+          <input onclick="subtaskChecked(${i})" checked id="checkbox-subtask${i}" class="p-absolute" type="checkbox"></input>
+          <span>${task.subtasks[i].title}</span>
+        </div>
+        <div class="delete-img">
+          <img onclick="deleteSubtask(${i})" class="delete-subtask-trash" src="img/trash.png">
+        </div>
+    </div>`
+}
+
+
+
+function generateSubtaskBoard(i, y, subtask) {
+    return /*html*/ `
+    <div class="subTaskParent">
+        <div class="subtaskInfo">
+            <input ${subtask.status ? 'checked' : ''} class="subtaskCheckbox" id="subtaskCheckboxBoard${y}" onclick="subtaskCheckedBoard(${i}, ${y})" type="checkbox">
+            <p>${subtask.title}</p>
+        </div>
+        <div class="delete-img">
+             <img src="img/trash.png" class="delete-subtask-trash" onclick="deleteSubtaskBoard(${i}, ${y})">
+        </div>
+    </div>
+    `;
+}
+
+function generateAssignedUserInfoBoard(i, y) {
+        return /*html*/`
+            <div class="assignedUserInfoParent">
+                <div class="assignedUserImg" style="background-color: ${boardTasks[i].assignedTo[y].color}" data-tooltip="${boardTasks[i].assignedTo[y].email}" data-flow="right">
+                  ${getInitials(boardTasks[i].assignedTo[y].name)}
+                </div>
+                <p>${boardTasks[i].assignedTo[y].name}</p>
+        </div>
+            
+            `
+}
+
+function generateSubtaskInfoBoard(i, y, checkedAttribute) {
+    return /*html*/`
+    <div class="subtaskInfo">
+        <input class="subtaskCheckbox" onclick="subtaskCheckedInfo(${i})" id="subtaskCheckboxInfo${y}" type="checkbox" ${checkedAttribute}>
+        <p>${boardTasks[i].subtasks[y].title}</p>
+    </div>
+    `
+}
+
+function generateDisplayedCardUsers(y, assignedUsers) {
+        return    /*html*/`
+            <div class="assignedUser" style="background-color: ${assignedUsers[y].color}">
+                ${getInitials(assignedUsers[y].name)}
+            </div>`
+}
+
+function generateNotDisplayedCardUsers(assignedUsersLength, maxUsersToDisplay) {
+        return /*html*/`
+            <div class="assignedUser">
+                +${assignedUsersLength - maxUsersToDisplay}
+            </div>`
 }

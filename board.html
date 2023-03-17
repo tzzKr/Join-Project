@@ -91,7 +91,7 @@
                     <div class="titelStyle">
                         <h2>To do</h2>
                     </div>
-                    <div class="singleBoards" ondragstart="showDragAreas()" ondrop="moveTo('todo'), removeDragAreas()"
+                    <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('todo'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="todo">
                     </div>
                 </div>
@@ -99,23 +99,23 @@
                     <div class="titelStyle">
                         <h2>In Progress</h2>
                     </div>
-                    <div class="singleBoards" ondragstart="showDragAreas()"
-                        ondrop="moveTo('inProgress'), removeDragAreas()" ondragover="allowDrop(event)" id="inProgress">
+                    <div class="singleBoards" ondragstart="toggleDragAreas()"
+                        ondrop="moveTo('inProgress'), toggleDragAreas()" ondragover="allowDrop(event)" id="inProgress">
                     </div>
                 </div>
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>Testing</h2>
                     </div>
-                    <div class="singleBoards" ondragstart="showDragAreas()"
-                        ondrop="moveTo('testing'), removeDragAreas()" ondragover="allowDrop(event)" id="testing">
+                    <div class="singleBoards" ondragstart="toggleDragAreas()"
+                        ondrop="moveTo('testing'), toggleDragAreas()" ondragover="allowDrop(event)" id="testing">
                     </div>
                 </div>
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>Done</h2>
                     </div>
-                    <div class="singleBoards" ondragstart="showDragAreas()" ondrop="moveTo('done'), removeDragAreas()"
+                    <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('done'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="done">
                     </div>
                 </div>

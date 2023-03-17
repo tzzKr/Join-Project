@@ -4,7 +4,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: white;
+    background: #F5F5F5;
     width: 520px;
     align-items: center;
     justify-content: center;
@@ -32,11 +32,57 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    margin-top: 60px;
+}
+
+.TaskFormPopUp {
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .create-task-button-popUp {
     position: fixed;
     top: 20px;
     right: 48px;
+}
+
+.task-popUp-back-container {
+    margin-top: 32px;
+    margin-left: 10px;
+    cursor: pointer;
+    width: 26px;
+}
+
+
+
+
+
+@media(max-width: 760px) {
+    .addTaskPopUp {
+        width: 100%;
+    }
+
+    .TaskFormPopUp {
+        padding-bottom: 84px;
+    }
+
+    textarea {
+        margin: auto;
+    }
+
+    .input-addTask {
+        margin: auto;
+    }
+
+    .select-field {
+        margin: auto;
+    }
+
+    .list {
+        margin: auto;
+    }
+
+    .prio-buttons {
+        margin: auto;
+    }
+
 }

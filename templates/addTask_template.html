@@ -20,6 +20,9 @@
 
 <body style="overflow: auto;" onload="getTaskCatrgories(), getContacts(), setDate()">
     <div class="bigContainerPopUp" id="bigContainer">
+        <div onclick="closeTaskPopUp()" class="task-popUp-back-container">
+            <img src="img/back.svg">
+        </div>
         <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
 
             <div class="container">
@@ -60,7 +63,7 @@
                         id="newCategoryColor-6">
                     </div>
                 </div>
-                <div onclick="openSelection()" class="select-field" id="selectField">
+                <div onclick="toggleSelection()" class="select-field" id="selectField">
                     <p class="textBox">Select task category</p>
                     <img src="img/arrow.png">
                 </div>
@@ -75,7 +78,7 @@
             </div>
             <div class="container">
                 <h3>Assigned to</h3>
-                <div onclick="openContactSelection()" class="select-field" id="selectioContactField">
+                <div onclick="toggleContactSelection()" class="select-field" id="selectioContactField">
                     <p id="contactNumber">Select contacts to assign</p>
                     <img src="img/arrow.png">
                 </div>

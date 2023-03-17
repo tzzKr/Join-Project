@@ -36,10 +36,6 @@
         display: none;
     }
 
-    .header-line {
-        z-index: 14 !important;
-
-    }
     .headline {
         flex-wrap: wrap;
     }

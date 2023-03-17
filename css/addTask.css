@@ -415,16 +415,6 @@ textarea {
     display: none;
 }
 
-.growIn {
-    animation: grow-in 225ms ease-in-out;
-    transform-origin: bottom;
-}
-
-.growOut {
-    animation: grow-out 225ms ease-in-out;
-    transform-origin: bottom;
-}
-
 
 .middleLine {
     width: 0px;

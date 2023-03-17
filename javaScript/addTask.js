@@ -331,16 +331,16 @@ function renderSubtask() {
  * @param addition - true or false, depending on whether the user is adding or removing a contact
  */
 function renderContactNumber(addition) {
-    if (addition) {
-        numberAssingendUser += 1;
-    } else {
-        numberAssingendUser -= 1;
-    }
-    document.getElementById('contactNumber').innerHTML = `${numberAssingendUser} contacts assigned`;
-    if (numberAssingendUser == 0) {
-        document.getElementById('contactNumber').innerHTML = `Select contacts to assign`;
-    } else if (numberAssingendUser == 1) {
-        document.getElementById('contactNumber').innerHTML = `${numberAssingendUser} contact assigned`;
+    let contactNumber = document.getElementById('contactNumber');
+    switch (numberAssingendUser) {
+        case 0:
+            contactNumber.innerHTML = `Select contacts to assign`;
+            break;
+        case 1:
+            contactNumber.innerHTML = `${numberAssingendUser} contact assigned`;
+            break;
+        default:
+            contactNumber.innerHTML = `${numberAssingendUser} contacts assigned`;
     }
 
 }
@@ -354,9 +354,8 @@ function renderContactNumber(addition) {
  */
 function checkClick(id, i) {
     let checkbox = document.getElementById(id);
-    if (checkbox) {
-        checkbox.checked = !checkbox.checked;
-    }
+    checkbox.checked = !checkbox.checked;
+    console.log('Hallo');
     checkboxAssignedTo(id, i);
 }
 
@@ -433,13 +432,21 @@ function resetSelectedColor() {
  */
 function checkboxAssignedTo(checkboxId, i) {
     let checkBox = document.getElementById(checkboxId);
-    if (checkBox.checked == true) {
-        task.assignedTo.push(contacts[i]);
-        renderContactNumber(true);
+    let userIndex = task.assignedTo.findIndex(u => u.name == contacts[i].name);
+
+    if (checkBox.checked) {
+        if (userIndex === -1) {
+            task.assignedTo.push(contacts[i]);
+            numberAssingendUser++;
+        }
     } else {
-        task.assignedTo.splice(task.assignedTo.findIndex(u => u.name == contacts[i].name), 1);
-        renderContactNumber(false);
+        if (userIndex !== -1) {
+            task.assignedTo.splice(userIndex, 1);
+            numberAssingendUser--;
+        }
     }
+
+    renderContactNumber();
 }
 
 

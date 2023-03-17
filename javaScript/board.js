@@ -247,8 +247,5 @@ function allowPush(i) {
             boardTasks[i].board = "testing";
             initMsgBoxAlert('Subtasks not finished!');
         }
-    }
-
-
-    
+    }  
 }

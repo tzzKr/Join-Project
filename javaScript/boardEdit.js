@@ -195,41 +195,75 @@ function mergeContacts(array1, array2, uniqueContacts) {
     }
 }
 
-/**
- * If the checkbox is checked, then the checkbox is unchecked. If the checkbox is unchecked, then the
- * checkbox is checked.
- * @param id - the id of the checkbox
- */
-function checkClickEdit(checkBoxId, mergedId, boardId) {
+
+function toggleCheckbox(checkBoxId, mergedId, boardId) {
     let checkbox = document.getElementById(checkBoxId);
     if (checkbox) {
         checkbox.checked = !checkbox.checked;
+        updateAssignedStatus(checkBoxId, mergedId, boardId);
     }
-    checkingIfAssignedTrue(checkBoxId, mergedId, boardId);
 }
 
-/**
- * It takes a mergedId and a boardId, and then sets the status of the mergedContact with that mergedId
- * to true, and then pushes that mergedContact into the assignedTo array of the boardTask with that
- * boardId.
- * @param mergedId - the id of the merged contact
- * @param boardId - the id of the board
- */
-function addAssignedToBoard(mergedId, boardId) {
-    mergedContacts[mergedId].status = true;
-    boardTasks[boardId].assignedTo.push(mergedContacts[mergedId]);
+function updateAssignedStatus(checkBoxId, mergedId, boardId) {
+    let checkBox = document.getElementById(checkBoxId);
+    let isChecked = checkBox.checked;
+    updateAssignedCounter(isChecked ? 1 : -1);
+    updateBoardTaskAssignment(mergedId, boardId, isChecked);
 }
 
-/**
- * It removes a contact from the assignedTo array of a board.
- * @param mergedId - the id of the contact in the mergedContacts array
- * @param boardId - the id of the board
- */
-function removeAssignedToBoard(mergedId, boardId) {
-    let id = boardTasks[boardId].assignedTo.indexOf(mergedContacts[mergedId]);
-    boardTasks[boardId].assignedTo[id].status = false;
-    boardTasks[boardId].assignedTo.splice(id, 1);
+function updateAssignedCounter(addition) {
+    numberAssingendUserEdit += addition ? 1 : -1;
+    let text = `Select contacts to assign`;
+    if (numberAssingendUserEdit > 0) {
+        text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
+    }
+    document.getElementById('contactNumber').innerHTML = text;
 }
+
+function updateBoardTaskAssignment(mergedId, boardId, addition) {
+    mergedContacts[mergedId].status = addition;
+    if (addition) {
+        boardTasks[boardId].assignedTo.push(mergedContacts[mergedId]);
+    } else {
+        boardTasks[boardId].assignedTo = boardTasks[boardId].assignedTo.filter(contact => contact !== mergedContacts[mergedId]);
+    }
+}
+
+function generateAssignedContacts(i) {
+    numberAssingendUserEdit = 0;
+    boardTasks[i].assignedTo.forEach(assigned => {
+        let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.email == assigned.email));
+        mergedContacts[matchId].status = true;
+        numberAssingendUserEdit++;
+    });
+
+    updateAssignedCounter(); // Aktualisiert den Zähler basierend auf der aktuellen Anzahl der zugewiesenen Benutzer.
+
+    document.getElementById('listContact').innerHTML = mergedContacts.map((contact, y) => {
+        return /*html*/ `
+                <div class="options-2" onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})">
+                <p id='addedUser${y + 1}'>${contact.name}</p>
+                <input id="checkboxAssignedTo${y + 1}"
+                    onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})"
+                    class="checkbox" type="checkbox" ${contact.status ? 'checked' : ''}>
+                </div>`;
+    }).join('');
+}
+
+
+
+function updateAssignedCounter(addition = 0) {
+    numberAssingendUserEdit += addition;
+    let text = `Select contacts to assign`;
+    if (numberAssingendUserEdit > 0) {
+        text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
+    }
+    document.getElementById('contactNumber').innerHTML = text;
+}
+
+
+
+
 
 /**
  * It takes the index of the task to be edited, pushes the edited task to the boardTasks array, closes

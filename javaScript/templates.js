@@ -396,3 +396,119 @@ function generateNotDisplayedCardUsers(assignedUsersLength, maxUsersToDisplay) {
                 +${assignedUsersLength - maxUsersToDisplay}
             </div>`
 }
+
+function returnContactLetterSeperator(i) {
+    return /*html*/ `
+        <div class="contactList">
+            <div class="listLetter">${String.fromCharCode(97 + i).toUpperCase()}</div>
+            <div class="listSeperator">
+        </div>`
+}
+
+function returnContactElement(i,j) {
+    return /*html*/ `
+        <button class="listContact" onclick="mobileSwitchToDetail(), renderContactDetails(${i},${j})">
+            <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
+            <div class="listContactInfo">
+                <span class="listContactName">${orderedContacts[i][j].name}</span>
+                <span class="listContactEmail">${orderedContacts[i][j].email}</span>
+            </div>
+        </button>`;
+}
+
+function generateRenderContactDetails(firstIndex, secondIndex) {
+    return /*html*/ `
+    <div class="contactHeader">
+        <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
+        <div class="contactInfo">
+            <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
+            <a onclick="resetTask(), openTaskPopUp(), getSelectedContact(${firstIndex}, ${secondIndex})" class="contactAddTaskBtn">
+                <img class="addTaskBtnImg" src="img/plus.svg">
+                <span class="addTaskBtnText">Add Task</span>
+            </a>
+        </div>
+    </div>
+    <div class="contactInformationHead">
+        <span class="contactInformationTitle">Contact Information</span>
+        <button class="editContactBtn" onclick="changeOverlayToEditContact(${firstIndex},${secondIndex})">
+            <img src="img/pencil_wo_bg.svg">
+            <span>Edit Contact</span>
+        </button>
+    </div>
+    <div class="contactAdressInformations">
+        <div class="contactAdressSegment">
+            <span class="contactAdressTitle">Email</span>
+            <a href="mailto: ${orderedContacts[firstIndex][secondIndex].email}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].email}</a>
+        </div>
+        <div class="contactAdressSegment">
+            <span class="contactAdressTitle">Phone</span>
+            <a href="tel: ${orderedContacts[firstIndex][secondIndex].phone}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
+        </div>
+    </div>`;
+}
+
+function generateChangeOverlayToEditContact(firstIndex, secondIndex) {
+    return /*html*/ `
+    <div class="overlayLeft">
+        <img src="img/logo-white.svg">
+        <span id="overlay-headline" class="overlayHealine">Edit contact</span>
+        <div class="overlaySperator"></div>
+    </div>
+    <div class="overlayRight">
+        <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
+        <div class="userContainer">
+            <span id="overlay-user-img" class="overlayUserImg">${orderedContacts[firstIndex][secondIndex].initials}</span>
+        </div>
+        <form class="overlayInputForm" onsubmit="saveContact(${firstIndex}, ${secondIndex}); return false">
+            <div class="overlayInputSection">
+                <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-ZÄäÜüÖöß ]*" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].name}" required><img src="img/user.svg">
+            </div>
+            <div class="overlayInputSection">
+                <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].email}" required><img src="img/Email.svg">
+            </div>
+            <div class="overlayInputSection">
+                <input id="input-phone" placeholder="Phone" type="tel" pattern="[0-9+/ ]*" minlength="6" maxlength="30" class="overlayInput" value="${orderedContacts[firstIndex][secondIndex].phone}" required><img src="img/phone.svg">
+            </div>
+            <button id="overlay-save-btn" type="submit" class="overlayActionBtn">Save</button>
+            </form>
+            <button onclick="deleteContact()" id="overlay-cancel-btn" class="overlayCancelBtn">
+                <span>Delete</span>
+                <img src="img/trash.png">
+            </button>
+    </div>`;
+}
+
+function generateChangeOverlayToNewContact() {
+    return /*html*/ `
+    <div class="overlayLeft">
+        <img src="img/logo-white.svg">
+        <span id="overlay-headline" class="overlayHealine">Add contact</span>
+        <span id="overlay-subheadline" class="overlaySubheadline">Tasks are better with a team!</span>
+        <div class="overlaySperator"></div>
+    </div>
+    <div class="overlayRight">
+        <img onclick="closeOverlay()" class="overlayClose" src="img/closeCross.svg">
+        <div class="userContainer">
+            <img id="overlay-default-user-img" class="overlayDefaultUserImg" src="img/defaultUser.svg">
+        </div>
+        <form class="overlayInputForm" onsubmit="createContact(); return false;">
+            <div class="overlayInputSection">
+                <input id="input-name" placeholder="Name" type="text" pattern="[a-zA-ZäÄöÖüÜß ]*" maxlength="30" class="overlayInput" required><img src="img/user.svg">
+            </div>
+            <div class="overlayInputSection">
+                <input id="input-email" placeholder="Email" type="email" maxlength="40" class="overlayInput" required><img src="img/Email.svg">
+            </div>
+            <div class="overlayInputSection">
+                <input id="input-phone" placeholder="Phone" type="tel" pattern="[0-9+/ ]*" minlength="6" maxlength="30" class="overlayInput" required><img src="img/phone.svg">
+            </div>
+            <button id="overlay-create-btn" typ="submit" class="overlayActionBtn">
+                <span>Create contact</span>
+                <img src="img/simpleCheck.svg">
+            </button>
+        </form>
+        <button onclick="closeOverlay()" id="overlay-cancel-btn" class="overlayCancelBtn">
+            <span>Cancel</span>
+            <img src="img/closeCross.svg">
+        </button>        
+    </div>`;
+}

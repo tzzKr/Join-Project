@@ -274,10 +274,10 @@ function generateAssignedContactsHTML(i) {
     document.getElementById('listContact').innerHTML = mergedContacts.map((contact, y) => {
         return /*html*/ `
                 <div class="options-2" onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})">
-                <p id='addedUser${y + 1}'>${contact.name}</p>
-                <input id="checkboxAssignedTo${y + 1}"
-                    onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})"
-                    class="checkbox" type="checkbox" ${contact.status ? 'checked' : ''}>
+                    <p id='addedUser${y + 1}'>${contact.name}</p>
+                    <input id="checkboxAssignedTo${y + 1}"
+                        class="checkbox" type="checkbox" ${contact.status ? 'checked' : ''}
+                        style="pointer-events: none;"> 
                 </div>`;
     }).join('');
 }

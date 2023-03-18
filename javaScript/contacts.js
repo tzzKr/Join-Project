@@ -81,7 +81,7 @@ function renderContactDetails(firstIndex, secondIndex) {
             <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
             <div class="contactInfo">
                 <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
-                <a onclick="resetTask(), openTaskPopUp(), getSelectedContact(${firstIndex}, ${secondIndex})" class="contactAddTaskBtn">
+                <a onclick="openTaskPopUp(), setDate(), getSelectedContact(${firstIndex}, ${secondIndex})" class="contactAddTaskBtn">
                     <img class="addTaskBtnImg" src="img/plus.svg">
                     <span class="addTaskBtnText">Add Task</span>
                 </a>

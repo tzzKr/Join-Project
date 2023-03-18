@@ -20,7 +20,7 @@
 
 <body style="overflow: auto;" onload="getTaskCatrgories(), getContacts(), setDate()">
     <div class="bigContainerPopUp" id="bigContainer">
-        <div onclick="closeTaskPopUp()" class="task-popUp-back-container">
+        <div onclick="resetFormTaskPopUp(), closeTaskPopUp()" class="task-popUp-back-container">
             <img src="img/back.svg">
         </div>
         <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">

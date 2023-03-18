@@ -97,7 +97,6 @@ function resetBorder() {
         document.getElementById('urgent').style.border = ``;
         document.getElementById('medium').style.border = ``;
         document.getElementById('low').style.border = ``;
-        
     }
     if (task.dueDate) {
         document.getElementById('date').style.border = ``;
@@ -660,5 +659,22 @@ function clearInviteNewContact() {
  * If the user clicks the cancel button, the page will reload.
  */
 function cancelTask() {
-    window.location.reload();
+    task = {
+        id: "",
+        board: "todo",
+        category: "",
+        categoryColor: "",
+        title: "",
+        description: "",
+        progress: 0,
+        progressNumber: 0,
+        assignedTo: new Array,
+        prio: "",
+        subtasks: new Array
+    }
+    resetColorPriority();
+    setDate();
+    document.getElementById('contactNumber').innerHTML = `Select contacts to assign`;
+    document.getElementById('selectField').innerHTML = generateSelectCategoryHTML();
+    renderSubtask();
 }

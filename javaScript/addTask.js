@@ -656,9 +656,9 @@ function clearInviteNewContact() {
 }
 
 /**
- * If the user clicks the cancel button, the page will reload.
+ * It resets the task object to its default values.
  */
-function cancelTask() {
+function resetTask() {
     task = {
         id: "",
         board: "todo",
@@ -670,11 +670,19 @@ function cancelTask() {
         progressNumber: 0,
         assignedTo: new Array,
         prio: "",
+        dueDate: "",
         subtasks: new Array
     }
+}
+
+/**
+ * If the user clicks the cancel button, the page will reload.
+ */
+function cancelTask() {
+    resetTask();
     resetColorPriority();
-    setDate();
     document.getElementById('contactNumber').innerHTML = `Select contacts to assign`;
     document.getElementById('selectField').innerHTML = generateSelectCategoryHTML();
     renderSubtask();
+    numberAssingendUser = 0;
 }

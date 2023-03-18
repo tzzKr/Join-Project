@@ -1,15 +1,32 @@
+/**
+ * It removes the class 'd-none' from the element with the id 'task-popUp' and the element with the id
+ * 'task-bgr-popUp' and adds the class 'animationFadeInLeft' to the element with the id 'task-popUp'
+ * and the element with the id 'task-bgr-popUp'.
+ */
 function openTaskPopUp() {
     document.getElementById('task-popUp').classList.remove('d-none');
     document.getElementById('task-bgr-popUp').classList.remove('d-none');
-    document.getElementById('task-popUp').classList.add('animationFadeInLeft');
-    document.getElementById('task-bgr-popUp').classList.add('animationFadeInLeft');
+    document.getElementById('boardBg').classList.add('noScroll');
+
 }
 
+
+/**
+ * It adds the class 'd-none' to the element with the id 'task-popUp' and the element with the id
+ * 'task-bgr-popUp' and then calls the function 'cancelTask()'.
+ */
 function closeTaskPopUp() {
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
+    document.getElementById('boardBg').classList.remove('noScroll');
+    cancelTask();
 }
 
+/**
+ * If the checkbox is not checked, check it.
+ * @param i - the index of the row in the table
+ * @param j - the index of the contact in the orderedContacts array
+ */
 function getSelectedContact(i,j) {
     let email = orderedContacts[i][j].email;
     let index = contacts.indexOf(contacts.find( u => u.email == email));
@@ -17,20 +34,9 @@ function getSelectedContact(i,j) {
         checkClick('checkboxAssignedTo'+ (index + 1), index);
 }
 
-function resetTask() {
-    task = {
-        id: "",
-        board: "todo",
-        category: "",
-        categoryColor: "",
-        title: "",
-        description: "",
-        progress: 0,
-        progressNumber: 0,
-        assignedTo: new Array,
-        prio: "",
-        dueDate: "",
-        subtasks: new Array
-    }
-    setDate();
+/**
+ * When the user clicks the 'Add Task' button, the form will be reset.
+ */
+function resetFormTaskPopUp() {
+    document.getElementById('add-new-task').reset();
 }

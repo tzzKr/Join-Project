@@ -48,38 +48,7 @@ function renderContactbook() {
  */
 function renderContactDetails(firstIndex, secondIndex) {
     document.getElementById('contact-details').innerHTML = '';
-<<<<<<< HEAD
     document.getElementById('contact-details').innerHTML += generateRenderContactDetails(firstIndex, secondIndex);
-=======
-    document.getElementById('contact-details').innerHTML += /*html*/ `
-        <div class="contactHeader">
-            <span id="single-contact-detail-init" class="listContactInitials contactScale">${orderedContacts[firstIndex][secondIndex].initials}</span>
-            <div class="contactInfo">
-                <span class="contactName">${orderedContacts[firstIndex][secondIndex].name}</span>
-                <a onclick="openTaskPopUp(), setDate(), getSelectedContact(${firstIndex}, ${secondIndex})" class="contactAddTaskBtn">
-                    <img class="addTaskBtnImg" src="img/plus.svg">
-                    <span class="addTaskBtnText">Add Task</span>
-                </a>
-            </div>
-        </div>
-        <div class="contactInformationHead">
-            <span class="contactInformationTitle">Contact Information</span>
-            <button class="editContactBtn" onclick="changeOverlayToEditContact(${firstIndex},${secondIndex})">
-                <img src="img/pencil_wo_bg.svg">
-                <span>Edit Contact</span>
-            </button>
-        </div>
-        <div class="contactAdressInformations">
-            <div class="contactAdressSegment">
-                <span class="contactAdressTitle">Email</span>
-                <a href="mailto: ${orderedContacts[firstIndex][secondIndex].email}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].email}</a>
-            </div>
-            <div class="contactAdressSegment">
-                <span class="contactAdressTitle">Phone</span>
-                <a href="tel: ${orderedContacts[firstIndex][secondIndex].phone}" class="contactAdressLink">${orderedContacts[firstIndex][secondIndex].phone}</a>
-            </div>
-        </div>`;
->>>>>>> 4773213f052a1567b201475f06df63637a263496
         document.getElementById('single-contact-detail-init').style.backgroundColor = orderedContacts[firstIndex][secondIndex].color;
         addContactanimation();
 }

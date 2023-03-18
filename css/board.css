@@ -353,7 +353,7 @@ h1 {
 .editInfo {
   height: fit-content;
   width: 1240px;
-  background-color: white;
+  background-color: #F5F5F5;
   border-radius: 33px;
   z-index: 11;
   display: flex;

@@ -54,7 +54,27 @@
     width: 26px;
 }
 
+.animationFadeInRight {
+    animation: fadeInright 0.5s ease 0s 1 normal forwards;
+}
 
+@keyframes fadeInright {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
 
 
 

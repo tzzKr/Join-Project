@@ -28,7 +28,7 @@
     <script src="./javaScript/templates.js"></script>
 </head>
 
-<body onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories(), getContacts()">
+<body  id="boardBg" onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories(), getContacts()">
     <header w3-include-html="templates/desktop_template.html"></header>
 
 
@@ -44,7 +44,7 @@
     <div id="boardParent" class="parentContainer">
 
 
-        <div class="boardBg" id="boardBg">
+        <div class="boardBg">
 
 
 
@@ -132,7 +132,7 @@
     <dialog id="msgBoxAlert" class="msgBox d-none" style="background-color: tomato;"></dialog>
     <dialog id="msgBox" class="msgBox d-none" onclick=""></dialog>
     <div onclick=" closeTaskPopUp()" class="popUpBackgroundContainer d-none" id="task-bgr-popUp"> </div>
-    <div class="addTaskPopUp d-none" id="task-popUp" w3-include-html="templates/addTask_template.html"></div>
+    <div class="addTaskPopUp d-none animationFadeInRight" id="task-popUp" w3-include-html="templates/addTask_template.html"></div>
 </body>
 
 </html>

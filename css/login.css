@@ -315,22 +315,8 @@ body {
 
 /** MediaQuery Responsive **/
 
-@media (max-width: 1600px) {
-    .login-content {
-        left: 28%;
-    }
-}
-
-@media (max-width: 1330px) {
-    .login-content {
-        left: 26%;
-    }
-}
-
 @media (max-width: 1200px) {
-    .login-content {
-        left: 23%;
-    }
+  
 
     .logo-container img {
         width: 70px;
@@ -338,25 +324,7 @@ body {
     }
 }
 
-@media (max-width: 1120px) {
-    .login-content {
-        left: 21%;
-    }
-}
 
-@media (max-width: 1050px) {
-    .login-content {
-        left: 0%;
-        right: 0%;
-    }
-}
-
-@media (max-width: 900px) {
-    .login-content {
-        left: 0%;
-        right: 0%;
-    }
-}
 
 @media (max-width: 700px) {
     .log-in-headline {

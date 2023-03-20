@@ -191,6 +191,31 @@
     }
 }
 
+
+
+
+@media (max-height: 670px) {
+    .taskInfoContainer {
+        align-items: unset;
+    }
+    .parentContainer {
+        margin-left: 32px !important;
+    }
+    .showOnlyMobileFlex{
+        display: flex !important;
+    }
+
+    .backgroundCloser {
+        display: none;
+    }
+
+    .editInfo {
+        padding-bottom: 100px;
+        width: 100vw;
+        border-radius: 0;
+    }
+    }
+
 .showOnlyMobile {
     display: none;
 }

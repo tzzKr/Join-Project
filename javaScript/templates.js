@@ -89,16 +89,6 @@ function generateTaskInfoHTML(i) {
 
 }
 
-
-/**
- * Generates HTML script
- * @param {object} element all task informations
- * @returns board task HTML elements
- * 
- */
-
-
-
 function generateTaskHTML(i, boardIndex) {
 
 
@@ -194,12 +184,12 @@ function generateEditBoardTask(i) {
                         <div class="container">
                             <h3>Assigned to</h3>
                           
-                            <div onclick="toggleContactSelection()" class="select-field" id="selectioContactField">
+                            <div onclick="toggleContactSelectionBoard()" class="select-field" id="selectioContactField">
                                 <p id="contactNumber">Select contacts to assign</p>
                                 <img src="img/arrow.png">
                             </div>
     
-                            <div id="listContact" class="list d-none"></div>
+                            <div id="listContactBoard" class="list d-none"></div>
                         </div>
                     </div>
     
@@ -271,7 +261,7 @@ function generateEditBoardTask(i) {
 }
 
 function generateAssignedContactsHTML(i) {
-    document.getElementById('listContact').innerHTML = mergedContacts.map((contact, y) => {
+    document.getElementById('listContactBoard').innerHTML = mergedContacts.map((contact, y) => {
         return /*html*/ `
                 <div class="options-2" onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})">
                     <p id='addedUser${y + 1}'>${contact.name}</p>
@@ -407,7 +397,7 @@ function returnContactLetterSeperator(i) {
 
 function returnContactElement(i,j) {
     return /*html*/ `
-        <button class="listContact" onclick="mobileSwitchToDetail(), renderContactDetails(${i},${j})">
+        <button class="listContactBoard" onclick="mobileSwitchToDetail(), renderContactDetails(${i},${j})">
             <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
             <div class="listContactInfo">
                 <span class="listContactName">${orderedContacts[i][j].name}</span>

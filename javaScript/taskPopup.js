@@ -4,6 +4,7 @@
  * and the element with the id 'task-bgr-popUp'.
  */
 function openTaskPopUp() {
+    
     document.getElementById('task-popUp').classList.remove('d-none');
     document.getElementById('task-bgr-popUp').classList.remove('d-none');
     document.getElementById('boardBg').classList.add('noScroll');

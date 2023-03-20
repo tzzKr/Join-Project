@@ -331,6 +331,7 @@ function saveEditedTaskBoard(i) {
     renderTodos(boardTasks);
     saveTasks();
     initMsgBox('Task edited!');
+    
 }
 
 /**

@@ -100,6 +100,14 @@ function renderTodos(tasks) {
     }
 }
 
+function toggleContactSelectionBoard() {
+    document.getElementById('listContactBoard').classList.toggle('d-none');
+    document.getElementById('listContactBoard').classList.toggle('growIn');
+    setTimeout(() => {
+        document.getElementById('listContactBoard').classList.toggle('growIn');
+    }, 200);
+}
+
 /**
  * When the user starts dragging an element, set the currentDraggedElement variable to the id of the
  * element being dragged.

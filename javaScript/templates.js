@@ -397,7 +397,7 @@ function returnContactLetterSeperator(i) {
 
 function returnContactElement(i,j) {
     return /*html*/ `
-        <button class="listContactBoard" onclick="mobileSwitchToDetail(), renderContactDetails(${i},${j})">
+        <button class="listContact" onclick="mobileSwitchToDetail(), renderContactDetails(${i},${j})">
             <div id="single-contact-init${orderedContacts[i][j].id}" class="listContactInitials">${orderedContacts[i][j].initials}</div>
             <div class="listContactInfo">
                 <span class="listContactName">${orderedContacts[i][j].name}</span>

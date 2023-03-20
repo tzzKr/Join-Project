@@ -16,7 +16,8 @@ function openEditTool(i) {
     selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
     getContactsBoard(i);
     showSelectedBtnEdit(i);
-    renderSubTasksEdit(i)
+    renderSubTasksEdit(i);
+    toggleSelection();
 }
 
 

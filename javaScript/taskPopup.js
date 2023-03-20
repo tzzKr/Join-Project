@@ -4,11 +4,13 @@
  * and the element with the id 'task-bgr-popUp'.
  */
 function openTaskPopUp() {
+    let board = document.getElementById('boardBg');
     
     document.getElementById('task-popUp').classList.remove('d-none');
     document.getElementById('task-bgr-popUp').classList.remove('d-none');
+    if (board) {
     document.getElementById('boardBg').classList.add('noScroll');
-
+    }
 }
 
 
@@ -17,9 +19,15 @@ function openTaskPopUp() {
  * 'task-bgr-popUp' and then calls the function 'cancelTask()'.
  */
 function closeTaskPopUp() {
+    let board = document.getElementById('boardBg');
+
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
-    document.getElementById('boardBg').classList.remove('noScroll');
+
+    if (board) {
+        document.getElementById('boardBg').classList.remove('noScroll');
+    }
+    
     cancelTask();
 }
 

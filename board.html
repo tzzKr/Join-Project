@@ -21,8 +21,8 @@
     <script src="./javaScript/boardInfo.js"></script>
     <script src="./javaScript/boardEdit.js"></script>
     <script src="./javaScript/mobileBoard.js"></script>
-    <script src="./javaScript/addTask.js"></script>
     <script src="./javaScript/taskPopup.js"></script>
+    <script src="./javaScript/addTask.js"></script>
 
     <script src="./javaScript/navbar.js"></script>
     <script src="./javaScript/templates.js"></script>
@@ -131,7 +131,7 @@
     <div id="moreInfoBg" onclick="closeEditTool()" class="moreInfoBg backgroundBlur d-none"></div>
     <dialog id="msgBoxAlert" class="msgBox d-none" style="background-color: tomato;"></dialog>
     <dialog id="msgBox" class="msgBox d-none" onclick=""></dialog>
-    <div onclick=" closeTaskPopUp()" class="popUpBackgroundContainer d-none" id="task-bgr-popUp"> </div>
+    <div onclick="resetFormTaskPopUp(), closeTaskPopUp()" class="popUpBackgroundContainer d-none" id="task-bgr-popUp"> </div>
     <div class="addTaskPopUp d-none animationFadeInRight" id="task-popUp" w3-include-html="templates/addTask_template.html"></div>
 </body>
 

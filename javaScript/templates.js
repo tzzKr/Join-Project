@@ -166,18 +166,18 @@ function generateEditBoardTask(i) {
                                     class="selectCategoryColor bgBu" id="newCategoryColor-6">
                                 </div>
                             </div>
-                            <div onclick="toggleSelection()" class="select-field" id="selectField">
+                            <div onclick="toggleSelectionBoard()" class="select-field" id="selectFieldBoard">
 
                                 <p class="textBox">Select task category</p>
                                 <img src="img/arrow.png">
 
                             </div>
     
-                            <div id="list" class="list d-none">
+                            <div id="listBoard" class="list d-none">
                                 <div onclick="newCategory()" class="options">
                                     <p id="selectText">New category</p>
                                 </div>
-                                <div id="mainCategories"></div>
+                                <div id="mainCategoriesBoard"></div>
     
                             </div>
                         </div>
@@ -185,7 +185,7 @@ function generateEditBoardTask(i) {
                             <h3>Assigned to</h3>
                           
                             <div onclick="toggleContactSelectionBoard()" class="select-field" id="selectioContactField">
-                                <p id="contactNumber">Select contacts to assign</p>
+                                <p id="contactNumberBoard">Select contacts to assign</p>
                                 <img src="img/arrow.png">
                             </div>
     
@@ -263,9 +263,9 @@ function generateEditBoardTask(i) {
 function generateAssignedContactsHTML(i) {
     document.getElementById('listContactBoard').innerHTML = mergedContacts.map((contact, y) => {
         return /*html*/ `
-                <div class="options-2" onclick="toggleCheckbox('checkboxAssignedTo${y + 1}', ${y}, ${i})">
+                <div class="options-2" onclick="toggleCheckbox('checkboxAssignedToBoard${y + 1}', ${y}, ${i})">
                     <p id='addedUser${y + 1}'>${contact.name}</p>
-                    <input id="checkboxAssignedTo${y + 1}"
+                    <input id="checkboxAssignedToBoard${y + 1}"
                         class="checkbox" type="checkbox" ${contact.status ? 'checked' : ''}
                         style="pointer-events: none;"> 
                 </div>`;
@@ -292,13 +292,14 @@ function generateNewCategoryHTML(i) {
     <div  class="options">
         <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
           <p>${categories[i].name}</p>
-          <div id="categoryColorDiv${i}" class="selectCategoryColor left"></div>
+          <div id="" style="background-color: ${categories[i].color}" class="selectCategoryColor left"></div>
         </div>
         <div class="delete-img">
           <img class="delete-category" onclick="deleteCategory(${i})" src="img/trash.png">
         </div>  
     </div>`
 }
+
 
 function genarateContactAssignedTo(i) {
     return `

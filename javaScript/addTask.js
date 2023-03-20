@@ -137,22 +137,31 @@ async function getContacts() {
 }
 
 
-/**
- * It takes two parameters, a name and a color, and then it saves the name and color in an object, and
- * then it displays the name and color in the HTML.
- * @param name - the name of the category
- * @param color - #FF0000
- */
+
 function selectCategory(name, color) {
     toggleSelection();
     let categoryList = document.getElementById('selectField');
+    let categoryListBoard = document.getElementById('selectFieldBoard');
+
     if (categoryList) {
         saveNewCategoryInObject(name, color);
         categoryList.innerHTML = categoryListItemHTML(name  ,color);
         document.getElementById('categoryName').innerHTML = name;
         document.getElementById('categoryColor').style.backgroundColor = color;
     }
+
+    if (categoryListBoard) {
+        saveNewCategoryInObject(name, color);
+        categoryListBoard.innerHTML = categoryListItemHTML(name  ,color);
+        document.getElementById('categoryName').innerHTML = name;
+        document.getElementById('categoryColor').style.backgroundColor = color;
+    }
+
+
     resetBorder();
+    if (document.getElementById('boardBg')) {
+    toggleSelectionBoard()
+    }
 }
 
 
@@ -286,7 +295,7 @@ function renderNewCategory() {
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
         document.getElementById('mainCategories').innerHTML += generateNewCategoryHTML(i);
-        document.getElementById(`categoryColorDiv${i}`).style.backgroundColor = categories[i].color;    //// ======>  TO fixed
+        
     }
 }
 

@@ -208,6 +208,7 @@ function toggleCheckbox(checkBoxId, mergedId, boardId) {
     if (checkbox) {
         checkbox.checked = !checkbox.checked;
         updateAssignedStatus(checkBoxId, mergedId, boardId);
+        
     }
 }
 
@@ -243,7 +244,7 @@ function updateAssignedCounter(addition) {
     }
 
     // Updates the user interface with the updated text.
-    document.getElementById('contactNumber').innerHTML = text;
+    document.getElementById('contactNumberBoard').innerHTML = text;
 }
 
 
@@ -314,7 +315,7 @@ function updateAssignedCounter(addition = 0) {
     }
 
     // Updates the user interface with the updated text.
-    document.getElementById('contactNumber').innerHTML = text;
+    document.getElementById('contactNumberBoard').innerHTML = text;
 }
 
 

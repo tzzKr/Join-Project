@@ -108,6 +108,23 @@ function toggleContactSelectionBoard() {
     }, 200);
 }
 
+function renderNewCategoryBoard() {
+    document.getElementById('mainCategoriesBoard').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategoriesBoard').innerHTML += generateNewCategoryHTML(i);
+    }
+}
+
+function toggleSelectionBoard() {
+    document.getElementById('listBoard').classList.toggle('d-none');
+    renderNewCategoryBoard();
+    document.getElementById('listBoard').classList.toggle('growIn');
+    setTimeout(() => {
+        document.getElementById('listBoard').classList.toggle('growIn');
+    }, 200);
+    
+}
+
 /**
  * When the user starts dragging an element, set the currentDraggedElement variable to the id of the
  * element being dragged.

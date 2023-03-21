@@ -23,7 +23,8 @@
         <div onclick="resetFormTaskPopUp(), closeTaskPopUp()" class="task-popUp-back-container">
             <img src="img/back.svg">
         </div>
-        <form onsubmit="createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
+        <form onsubmit="event.preventDefault(); createTask()" class="TaskFormPopUp" id="add-new-task" method="dialog">
+
 
             <div class="container">
                 <h3>Title</h3>
@@ -120,9 +121,8 @@
             <div id="addSubtaskContainer" class="subtask-container"></div>
 
             <div class="create-task-button-popUp">
-                <button type="submit" class="create-task-btn" id="creatTaskBtn">Create Task <img
-                        src="img/addTask-right.svg">
-                </button>
+                <button type="button" class="create-task-btn" id="creatTaskBtn" onclick="createTask()">Create Task <img src="img/addTask-right.svg"></button>
+
             </div>
 
 

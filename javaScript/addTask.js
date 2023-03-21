@@ -60,14 +60,37 @@ async function createTask() {
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
-        setTimeout(() => {
-            window.location.href = 'board.html';
-        },2100);
+        if (document.getElementById('main-container-addTask')) {
+            setTimeout(() => {
+                window.location.reload()
+            },2100);
+        }
+        if (document.getElementById('boardBg')) {
+
+             closeTaskPopUp();
+
+        }
+        
     } else {
         initMsgBoxAlert('Something missing!');
         showMissing();
     }
 }
+
+function closeTaskPopUp() {
+    let board = document.getElementById('boardBg');
+
+    document.getElementById('task-popUp').classList.add('d-none');
+    document.getElementById('task-bgr-popUp').classList.add('d-none');
+
+    if (board) {
+        document.getElementById('boardBg').classList.remove('noScroll');
+    }
+    
+    cancelTask();
+    document.getElementById('add-new-task').reset();
+}
+
 
 function showMissing() {
 

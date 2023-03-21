@@ -90,6 +90,7 @@
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>To do</h2>
+                        <img  onclick="openTaskPopUp(), setDate(),changeBoard('todo')" src="img/plusbuttonv1.svg" alt="">
                     </div>
                     <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('todo'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="todo">
@@ -98,6 +99,8 @@
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>In Progress</h2>
+                        <img onclick="openTaskPopUp(), setDate(),changeBoard('inProgress')" src="img/plusbuttonv1.svg" alt="">
+
                     </div>
                     <div class="singleBoards" ondragstart="toggleDragAreas()"
                         ondrop="moveTo('inProgress'), toggleDragAreas()" ondragover="allowDrop(event)" id="inProgress">
@@ -106,6 +109,8 @@
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>Testing</h2>
+                        <img onclick="openTaskPopUp(), setDate(),changeBoard('testing')" src="img/plusbuttonv1.svg" alt="">
+
                     </div>
                     <div class="singleBoards" ondragstart="toggleDragAreas()"
                         ondrop="moveTo('testing'), toggleDragAreas()" ondragover="allowDrop(event)" id="testing">
@@ -114,6 +119,8 @@
                 <div class="centerLists">
                     <div class="titelStyle">
                         <h2>Done</h2>
+                        <img onclick="openTaskPopUp(), setDate(),changeBoard('done')" src="img/plusbuttonv1.svg" alt="">
+
                     </div>
                     <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('done'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="done">

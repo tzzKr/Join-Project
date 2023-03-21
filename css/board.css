@@ -236,12 +236,13 @@ h1 {
 .titelStyle {
   width: 265px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-bottom: 24px;
   margin-left: -10px;
   padding-left: 10px;
   padding-bottom: 10px;
   position: sticky;
+  box-sizing: border-box;
   top: 0;
   left: 0;
   bottom: 0;

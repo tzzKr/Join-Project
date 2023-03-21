@@ -135,6 +135,14 @@ function initMsgBox(msg) {
     openMsgBox();
 }
 
+function ToBoard() {
+    if (document.getElementById('msgBox').innerHTML == 'New Task added to Board!') {
+        goToBoard();
+    } else {
+        return
+    }
+}
+
 /**
  * The function initMsgBoxAlert() takes a string as an argument and sets the innerHTML of the element
  * with the id of msgBoxAlert to the value of the argument.

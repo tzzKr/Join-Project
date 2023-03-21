@@ -134,6 +134,10 @@ function startDragging(id) {
     currentDraggedElement = id;
 }
 
+function changeBoard(board) {
+    task.board = board;
+}
+
 /**
  * It prevents the default action of the event from happening.
  * @param ev - The event object.

@@ -159,8 +159,8 @@ function selectCategory(name, color) {
 
 
     resetBorder();
-    if (document.getElementById('boardBg')) {
-    toggleSelectionBoard()
+    if (categoryListBoard) {
+    toggleSelectionBoard();
     }
 }
 

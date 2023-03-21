@@ -17,7 +17,7 @@ function openEditTool(i) {
     getContactsBoard(i);
     showSelectedBtnEdit(i);
     renderSubTasksEdit(i);
-    toggleSelection();
+    toggleSelectionBoard();
 }
 
 

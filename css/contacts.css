@@ -669,12 +669,12 @@
     }
     .editContactBtn span{
         display: none;
-    }
+    } 
     .editContactBtn {
-        position: absolute;
+        position: fixed;
         justify-content: center;
-        right: 30px;
-        bottom: 30px;
+        right: 50px;
+        bottom: 130px;
         background-color: #2A3647;
         border-radius: 15px;
         width: 50px;
@@ -747,6 +747,7 @@
     .listContactInitials {
         height: 30px;
         min-width: 30px;
+        padding: 5px;
     }
 }
 
@@ -762,6 +763,12 @@
 @media(max-height: 670px) {
     .parentContainer {
         margin-left: 0px !important;
+    }
+
+    .content {
+        margin: 0;
+        padding-left: 20px;
+        overflow-y: scroll;
     }
 }
 

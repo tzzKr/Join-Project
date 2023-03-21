@@ -106,16 +106,13 @@
         flex-direction: column;
     }
 
-    .parentContainer {
-        margin-left: calc(300px + 20px) !important;
-    }
-
     .create-task-buttons {
         position: unset;
         margin-top: 12%;
         margin-bottom: 12%;
     }
 }
+
 
 @media(max-width: 760px) {
     .addTask {

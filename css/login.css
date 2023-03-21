@@ -340,6 +340,14 @@ body {
         height: 60px;
     }
 
+    .login-container{
+        width: fit-content;
+        padding-left: 20px;
+        padding-right: 20px;
+
+    
+    }
+
     .logo-container img {
         left: 30px;
     }
@@ -360,6 +368,9 @@ body {
     .checkbox-container {
         margin-left: 0;
         height: 20px;
+    }
+    .login-container {
+        padding: 20px 0 20px 0;
     }
 
     .guest-container {

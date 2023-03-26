@@ -13,12 +13,30 @@ function openEditTool(i) {
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
     currentPrio = boardTasks[i].prio;
-    selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
+    selectCategoryBoard(boardTasks[i].category, boardTasks[i].categoryColor);
     getContactsBoard(i);
     showSelectedBtnEdit(i);
     renderSubTasksEdit(i);
+    renderColorBoard()
     toggleSelectionBoard();
 }
+
+function toggleContactSelectionBoard() {
+    document.getElementById('listContactBoard').classList.toggle('d-none');
+    document.getElementById('listContactBoard').classList.toggle('growIn');
+    setTimeout(() => {
+        document.getElementById('listContactBoard').classList.toggle('growIn');
+    }, 200);
+}
+
+function renderNewCategoryBoard() {
+    document.getElementById('mainCategoriesBoard').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategoriesBoard').innerHTML += generateNewCategoryHTML(i);
+    }
+}
+
+
 
 
 /**

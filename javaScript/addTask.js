@@ -60,25 +60,30 @@ async function createTask() {
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
-        if (document.getElementById('main-container-addTask')) {
-            setTimeout(() => {
-                window.location.reload()
-            },2100);
-        }
-        if (document.getElementById('boardBg')) {
 
-             closeTaskPopUp();
+        if (window.location.pathname == '/addTask.html') {
+            goToBoard();
+        }
+
+        if (window.location.pathname == '/board.html') {
+
+            boardTasks = tasks;
+            distributeIDs()
+            filterdTasks = boardTasks;
+            closeTaskPopUp();
+            renderTodos(boardTasks);
 
         }
-        
+
     } else {
         initMsgBoxAlert('Something missing!');
         showMissing();
     }
+    taskBtnEnabled()
 }
 
 function closeTaskPopUp() {
-    let board = document.getElementById('boardBg');
+    let board = window.location.pathname == '/board.html';
 
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
@@ -86,7 +91,7 @@ function closeTaskPopUp() {
     if (board) {
         document.getElementById('boardBg').classList.remove('noScroll');
     }
-    
+
     cancelTask();
     document.getElementById('add-new-task').reset();
 }
@@ -101,7 +106,7 @@ function showMissing() {
         document.getElementById('urgent').style.border = `1px solid red`;
         document.getElementById('medium').style.border = `1px solid red`;
         document.getElementById('low').style.border = `1px solid red`;
-        
+
     }
     if (!task.dueDate) {
         document.getElementById('date').style.border = `1px solid red`;
@@ -146,6 +151,10 @@ function taskBtnDisabled() {
     document.getElementById('creatTaskBtn').disabled = true;
 }
 
+function taskBtnEnabled() {
+    document.getElementById('creatTaskBtn').disabled = false;
+}
+
 /**
  * Get the contacts for the current user from the server.
  * @returns An array of contacts.
@@ -161,33 +170,19 @@ async function getContacts() {
 
 
 
+
+
+
+
 function selectCategory(name, color) {
-    toggleSelection();
     let categoryList = document.getElementById('selectField');
-    let categoryListBoard = document.getElementById('selectFieldBoard');
-
-    if (categoryList) {
-        saveNewCategoryInObject(name, color);
-        categoryList.innerHTML = categoryListItemHTML(name  ,color);
-        document.getElementById('categoryName').innerHTML = name;
-        document.getElementById('categoryColor').style.backgroundColor = color;
-    }
-
-    if (categoryListBoard) {
-        saveNewCategoryInObject(name, color);
-        categoryListBoard.innerHTML = categoryListItemHTML(name  ,color);
-        document.getElementById('categoryName').innerHTML = name;
-        document.getElementById('categoryColor').style.backgroundColor = color;
-    }
-
-
+    toggleSelection();
+    saveNewCategoryInObject(name, color);
+    categoryList.innerHTML = categoryListItemHTML(name, color);
+    document.getElementById('categoryName').innerHTML = name;
+    document.getElementById('categoryColor').style.backgroundColor = color;
     resetBorder();
-    if (categoryListBoard) {
-    toggleSelectionBoard();
-    }
 }
-
-
 
 /**
  * This function takes two arguments, a name and a color, and assigns them to the task object's
@@ -315,10 +310,11 @@ function checkCategoryExistence(catName) {
  * It renders the categories in the HTML.
  */
 function renderNewCategory() {
+    Board = '';
     document.getElementById('mainCategories').innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
-        document.getElementById('mainCategories').innerHTML += generateNewCategoryHTML(i);
-        
+        document.getElementById('mainCategories').innerHTML += generateNewCategoryHTML(i, Board);
+
     }
 }
 
@@ -467,9 +463,9 @@ function checkboxAssignedTo(checkboxId, i) {
             numberAssingendUser++;
         }
     } else if (userIndex !== -1) {
-            task.assignedTo.splice(userIndex, 1);
-            numberAssingendUser--;
-        }
+        task.assignedTo.splice(userIndex, 1);
+        numberAssingendUser--;
+    }
     renderContactNumber();
 }
 
@@ -515,7 +511,7 @@ function changePriority(button) {
         default:
             break;
     }
-    
+
 }
 
 
@@ -536,14 +532,14 @@ function toggleColorPriority(button) {
  * grayscale filter from the three priority images.
  */
 function resetColorPriority() {
-    
-        document.getElementById("urgent").style.backgroundColor = "#FFFFFF";
-        document.getElementById("medium").style.backgroundColor = "#FFFFFF";
-        document.getElementById("low").style.backgroundColor = "#FFFFFF";
-        document.getElementById('urgent-img').style.filter = 'none';
-        document.getElementById('medium-img').style.filter = 'none';
-        document.getElementById('low-img').style.filter = 'none';
-    
+
+    document.getElementById("urgent").style.backgroundColor = "#FFFFFF";
+    document.getElementById("medium").style.backgroundColor = "#FFFFFF";
+    document.getElementById("low").style.backgroundColor = "#FFFFFF";
+    document.getElementById('urgent-img').style.filter = 'none';
+    document.getElementById('medium-img').style.filter = 'none';
+    document.getElementById('low-img').style.filter = 'none';
+
 }
 
 /**
@@ -584,7 +580,7 @@ function addDate() {
 function setDate() {
     document.getElementById("date").valueAsDate = new Date();
     task.dueDate = document.getElementById('date').value;
-  }
+}
 
 
 ////////// ***************************   Selection Functions  *******************************  //////////////////

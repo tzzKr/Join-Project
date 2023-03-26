@@ -60,26 +60,33 @@ async function createTask() {
         tasks.push(task);
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
-
-        if (window.location.pathname == '/addTask.html') {
-            goToBoard();
-        }
-
-        if (window.location.pathname == '/board.html') {
-
-            boardTasks = tasks;
-            distributeIDs()
-            filterdTasks = boardTasks;
-            closeTaskPopUp();
-            renderTodos(boardTasks);
-
-        }
+        CheckPage();
 
     } else {
         initMsgBoxAlert('Something missing!');
         showMissing();
     }
     taskBtnEnabled()
+}
+
+function CheckPage() {
+    if (window.location.pathname == '/addTask.html') {
+
+        setTimeout(() => {
+            goToBoard()
+        }, 1000);
+        
+    }
+
+    if (window.location.pathname == '/board.html') {
+
+        boardTasks = tasks;
+        distributeIDs()
+        filterdTasks = boardTasks;
+        closeTaskPopUp();
+        renderTodos(boardTasks);
+
+    }
 }
 
 function closeTaskPopUp() {

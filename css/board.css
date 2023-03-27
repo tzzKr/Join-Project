@@ -250,6 +250,15 @@ h1 {
   background-color: #F5F5F5;
 }
 
+.addTaskPlusImg {
+  cursor: pointer;
+}
+
+.addTaskPlusImg:hover {
+  transition: 100ms ease-in-out;
+  filter: invert(65%) sepia(21%) saturate(6259%) hue-rotate(164deg) brightness(120%) contrast(100%);
+}
+
 .centerLists {
   display: flex;
   flex-direction: column;

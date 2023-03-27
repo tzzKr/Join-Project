@@ -176,11 +176,11 @@ async function getContacts() {
 }
 
 
-
-
-
-
-
+/**
+ * It takes a name and a color, and then it does a bunch of stuff with the DOM.
+ * @param name - the name of the category
+ * @param color - the color of the category
+ */
 function selectCategory(name, color) {
     let categoryList = document.getElementById('selectField');
     toggleSelection();
@@ -539,7 +539,6 @@ function toggleColorPriority(button) {
  * grayscale filter from the three priority images.
  */
 function resetColorPriority() {
-
     document.getElementById("urgent").style.backgroundColor = "#FFFFFF";
     document.getElementById("medium").style.backgroundColor = "#FFFFFF";
     document.getElementById("low").style.backgroundColor = "#FFFFFF";
@@ -570,7 +569,7 @@ function resetFilterImgPriority() {
 function addDate() {
     let date = document.getElementById('date').value;
     date = new Date(date);
-    dateMonth = (date.getMonth() + 1)
+    dateMonth = (date.getMonth() + 1);
     dateDay = date.getDate();
     dateMonth.toString();
     dateDay.toString();
@@ -653,7 +652,7 @@ function newCategory() {
  */
 function clearNewCategory() {
     document.getElementById('selectField').classList.remove('d-none');
-    document.getElementById('categoryInput').value = ''
+    document.getElementById('categoryInput').value = '';
     document.getElementById('newCategory').classList.add('d-none');
     document.getElementById('colorSelection').classList.add('d-none');
     resetSelectedColor();

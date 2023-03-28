@@ -63,7 +63,6 @@ async function createTask() {
         await backend.setItem('tasks', JSON.stringify(tasks));
         initMsgBox('New Task added to Board!');
         CheckPage();
-
     } else {
         initMsgBoxAlert(currentAlert);
         showMissing();
@@ -73,73 +72,89 @@ async function createTask() {
 
 }
 
+/**
+ * If the date is empty, return 'empty'. If the date is not a number, return 'NaN'. Otherwise, return
+ * 'valid'
+ * @returns A string.
+ */
 function isValidDate() {
     let date = task.dueDate;
     if (!date || date.trim() === '') {
-      return 'empty';
+        return 'empty';
     }
-  
     const parsedDate = Date.parse(date);
     if (isNaN(parsedDate)) {
-      return 'NaN';
+        return 'NaN';
     }
-  
     return 'valid';
-  }
+}
 
-  function DateValidation() {
+/**
+ * If the date is empty, return false and set the currentAlert to 'Date is empty'. If the date is not a
+ * number, return false and set the currentAlert to 'Date is invalid'. If the date is valid, return
+ * true.
+ * @returns The return value of the switch statement is the return value of the function isValidDate().
+ */
+function DateValidation() {
     switch (isValidDate()) {
         case "empty":
             currentAlert = 'Date is empty';
-            return false;   
+            return false;
         case 'NaN':
             currentAlert = 'Date is invalid';
-            return false;  
+            return false;
         case 'valid':
             return true;
         default:
             break;
     }
-  }
-  
+}
 
+
+/**
+ * If the user is on the addTask.html page, wait 1 second and then go to the board.html page. If the
+ * user is on the board.html page, then do the following:
+ * 1. Set the boardTasks variable to the tasks variable.
+ * 2. Distribute IDs to the tasks.
+ * 3. Set the filterdTasks variable to the boardTasks variable.
+ * 4. Close the task pop up.
+ * 5. Render the tasks.
+ */
 function CheckPage() {
     if (window.location.pathname == '/addTask.html') {
-
         setTimeout(() => {
             goToBoard()
         }, 1000);
-        
     }
-
     if (window.location.pathname == '/board.html') {
-
         boardTasks = tasks;
         distributeIDs()
         filterdTasks = boardTasks;
         closeTaskPopUp();
         renderTodos(boardTasks);
-
     }
 }
 
+/**
+ * It closes the task pop up window and resets the form.
+ */
 function closeTaskPopUp() {
     let board = window.location.pathname == '/board.html';
-
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
-
     if (board) {
         document.getElementById('boardBg').classList.remove('noScroll');
     }
-
     cancelTask();
     document.getElementById('add-new-task').reset();
 }
 
 
+/**
+ * If the task object doesn't have a category, priority, or due date, then the corresponding input
+ * field will be highlighted in red
+ */
 function showMissing() {
-
     if (!task.category) {
         document.getElementById('selectField').style.border = `1px solid red`;
     }
@@ -147,7 +162,6 @@ function showMissing() {
         document.getElementById('urgent').style.border = `1px solid red`;
         document.getElementById('medium').style.border = `1px solid red`;
         document.getElementById('low').style.border = `1px solid red`;
-
     }
     if (!task.dueDate) {
         document.getElementById('date').style.border = `1px solid red`;
@@ -192,6 +206,9 @@ function taskBtnDisabled() {
     document.getElementById('creatTaskBtn').disabled = true;
 }
 
+/**
+ * If the user has entered a task name, then enable the 'Create Task' button.
+ */
 function taskBtnEnabled() {
     document.getElementById('creatTaskBtn').disabled = false;
 }

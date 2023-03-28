@@ -13,12 +13,30 @@ function openEditTool(i) {
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
     currentPrio = boardTasks[i].prio;
-    selectCategory(boardTasks[i].category, boardTasks[i].categoryColor);
+    selectCategoryBoard(boardTasks[i].category, boardTasks[i].categoryColor);
     getContactsBoard(i);
     showSelectedBtnEdit(i);
     renderSubTasksEdit(i);
+    renderColorBoard()
     toggleSelectionBoard();
 }
+
+function toggleContactSelectionBoard() {
+    document.getElementById('listContactBoard').classList.toggle('d-none');
+    document.getElementById('listContactBoard').classList.toggle('growIn');
+    setTimeout(() => {
+        document.getElementById('listContactBoard').classList.toggle('growIn');
+    }, 200);
+}
+
+function renderNewCategoryBoard() {
+    document.getElementById('mainCategoriesBoard').innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        document.getElementById('mainCategoriesBoard').innerHTML += generateNewCategoryHTML(i);
+    }
+}
+
+
 
 
 /**
@@ -328,13 +346,60 @@ function updateAssignedCounter(addition = 0) {
  * @param i - the index of the task in the array
  */
 function saveEditedTaskBoard(i) {
-    pushToBoardTask(i);
-    closeEditTool();
-    renderTodos(boardTasks);
-    saveTasks();
-    initMsgBox('Task edited!');
+
+    if (checkEditedForm(i)) {
+        pushToBoardTask(i);
+        closeEditTool();
+        renderTodos(boardTasks);
+        saveTasks();
+        initMsgBox('Task edited!');
+    } else {
+        initMsgBoxAlert(currentAlert);
+
+    }
+    
+    currentAlert = 'Something is missing!';
     
 }
+
+function checkEditedForm(i) {
+    let task = boardTasks[i];
+    if (task.category && task.prio && task.dueDate && DateValidationEdit()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function isValidDateEdit() {
+    
+    let date = document.getElementById('EditDate').value;
+    if (!date || date.trim() === '') {
+      return 'empty';
+    }
+  
+    const parsedDate = Date.parse(date);
+    if (isNaN(parsedDate)) {
+      return 'NaN';
+    }
+  
+    return 'valid';
+  }
+
+  function DateValidationEdit() {
+    switch (isValidDateEdit()) {
+        case "empty":
+            currentAlert = 'Date is empty';
+            return false;   
+        case 'NaN':
+            currentAlert = 'Date is invalid';
+            return false;  
+        case 'valid':
+            return true;
+        default:
+            break;
+    }
+  }
+  
 
 /**
  * It takes the values from the input fields and puts them into the array.

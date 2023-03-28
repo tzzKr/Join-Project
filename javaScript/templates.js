@@ -92,9 +92,9 @@ function generateTaskInfoHTML(i) {
 function generateTaskHTML(i, boardIndex) {
 
 
-    return /*html*/ `<div draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
+    return /*html*/ `<div draggable="true" onclick="openTaskInfo(${boardIndex})" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
     <div class="categoryContainer">
-        <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
+        <div  class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
         <div class="MobileMoveBtns showOnlyMobileFlex">
             <button class="BoardBtn" onclick="prevBoard(${boardIndex})" id="prevBoard${i}"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
             <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard${i}"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>
@@ -140,31 +140,14 @@ function generateEditBoardTask(i) {
                         </div>
                         <div class="container">
                             <h3>Category</h3>
-                            <div id="newCategory" class="new-category d-none">
-                                <input id="categoryInput" class="input-addTask" placeholder="New category name" type=""><img
-                                    class="clear-img" onclick="clearNewCategory()" src="img/clear.svg">
+                            <div id="newCategoryBoard" class="new-category d-none">
+                                <input id="categoryInputBoard" class="input-addTask" placeholder="New category name" type=""><img
+                                    class="clear-img" onclick="clearNewCategoryBoard()" src="img/clear.svg">
                                 <div class="line"></div>
-                                <img id="saveNewCategory" class="right-img" onclick="" src="img/addTask-right.svg">
+                                <img id="saveNewCategoryBoard" class="right-img" onclick="createCategoryBoard()" src="img/addTask-right.svg">
                             </div>
-                            <div id="colorSelection" class="select-color d-none">
-                                <div onclick="selectColor('colorRange[0]', 'newCategoryColor-1')"
-                                    class="selectCategoryColor bgVi" id="newCategoryColor-1">
-                                </div>
-                                <div onclick="selectColor('colorRange[1]', 'newCategoryColor-2')"
-                                    class="selectCategoryColor bgRd" id="newCategoryColor-2">
-                                </div>
-                                <div onclick="selectColor('colorRange[2]', 'newCategoryColor-3')"
-                                    class="selectCategoryColor bgLg" id="newCategoryColor-3">
-                                </div>
-                                <div onclick="selectColor('colorRange[3]', 'newCategoryColor-4')"
-                                    class="selectCategoryColor bgOg" id="newCategoryColor-4">
-                                </div>
-                                <div onclick="selectColor('colorRange[4]', 'newCategoryColor-5')"
-                                    class="selectCategoryColor bgRo" id="newCategoryColor-5">
-                                </div>
-                                <div onclick="selectColor('colorRange[5]', 'newCategoryColor-6')"
-                                    class="selectCategoryColor bgBu" id="newCategoryColor-6">
-                                </div>
+                            <div id="colorSelectionBoard" class="select-color d-none">
+                                
                             </div>
                             <div onclick="toggleSelectionBoard()" class="select-field" id="selectFieldBoard">
 
@@ -174,7 +157,7 @@ function generateEditBoardTask(i) {
                             </div>
     
                             <div id="listBoard" class="list d-none">
-                                <div onclick="newCategory()" class="options">
+                                <div onclick="newCategoryBoard()" class="options">
                                     <p id="selectText">New category</p>
                                 </div>
                                 <div id="mainCategoriesBoard"></div>
@@ -197,50 +180,50 @@ function generateEditBoardTask(i) {
     
                     <div class="columnRight">
                         <div>
-                        <div class="container">
-                            <h3>Due date</h3>
-                            <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="EditDate">
-                        </div>
-                        <div class="prio">
-                            <h3>Prio</h3>
-                            <div class="prio-buttons">
-                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="urgentBoard">
-                                    Urgent
-                                    <img id="urgentBoard-img" src="img/prio_urgent.svg">
-                                </div>
-                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="mediumBoard">
-                                    Medium
-                                    <img id="mediumBoard-img" src="img/prio_medium.svg">
-                                </div>
-                                <div class="prio-btns" onclick="toggleColorPrio(this)" id="lowBoard">
-                                    Low
-                                    <img id="lowBoard-img" src="img/prio_low.svg">
+                            <div class="container">
+                                <h3>Due date</h3>
+                                <input value="${boardTasks[i]['dueDate']}" class="input-addTask" type="date" id="EditDate">
+                            </div>
+                            <div class="prio">
+                                <h3>Prio</h3>
+                                <div class="prio-buttons">
+                                    <div class="prio-btns" onclick="toggleColorPrio(this)" id="urgentBoard">
+                                        Urgent
+                                        <img id="urgentBoard-img" src="img/prio_urgent.svg">
+                                    </div>
+                                    <div class="prio-btns" onclick="toggleColorPrio(this)" id="mediumBoard">
+                                        Medium
+                                        <img id="mediumBoard-img" src="img/prio_medium.svg">
+                                    </div>
+                                    <div class="prio-btns" onclick="toggleColorPrio(this)" id="lowBoard">
+                                        Low
+                                        <img id="lowBoard-img" src="img/prio_low.svg">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container">
+                            <div class="container">
     
-                            <h3>Subtasks</h3>
-                            <div class="subtasks">
-                                <input id="inputSubtaskBoard" class="input-addTask" placeholder="Add new subtask" type=""><img
+                                <h3>Subtasks</h3>
+                                <div class="subtasks">
+                                    <input id="inputSubtaskBoard" class="input-addTask" placeholder="Add new subtask" type=""><img
                                     onclick="addSubtaskBoard(${i})" src="img/plus.svg">
-                            </div>
-                             <div class="subTaskContainerBoard" id="subTaskContainerEdit"> </div>
+                                </div>
+                                <div class="subTaskContainerBoard" id="subTaskContainerEdit"> </div>
 
-                        </div>
+                            </div>
                         
                     
                         
     
-                        <div class="create-task-buttons">
-                            <button type="reset" onclick="deleteTask(${i})" class="clear-btn">Delete<img
+                            <div class="create-task-buttons">
+                                <button type="reset" onclick="deleteTask(${i})" class="clear-btn">Delete<img
                                     src="img/trash.png"></button>
-                            <button onclick="saveEditedTaskBoard(${i})" type="submit" class="create-task-btn">Edit<img
+                                <button onclick="saveEditedTaskBoard(${i})" type="submit" class="create-task-btn">Edit<img
                                     src="img/addTask-right.svg"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
+                        <div>
                             <div class="mobileBackToBoard">
                                 <button onclick="closeEditTool()"><img style="height: 48px; width: 48px;" src="img/backToBoard.svg"></button>
                             </div>
@@ -249,8 +232,8 @@ function generateEditBoardTask(i) {
 
                                 <button onclick="saveEditedTaskBoard(${i})" type="submit" class="centerButtonElements"><img style="height: 40px; width: 40px;" src="img/addTask-right.svg" alt=""></button>
                             </div>
+                        </div>
                     </div>
-    
     
                 </form>
             </div>
@@ -287,10 +270,10 @@ function generateSelectCategoryHTML() {
     <img src="img/arrow.png">`
 }
 
-function generateNewCategoryHTML(i) {
+function generateNewCategoryHTML(i, Board) {
     return `
     <div  class="options">
-        <div class="category-element" onclick="selectCategory('${categories[i].name}', '${categories[i].color}')">
+        <div class="category-element" onclick="selectCategory${Board}('${categories[i].name}', '${categories[i].color}')">
           <p>${categories[i].name}</p>
           <div id="" style="background-color: ${categories[i].color}" class="selectCategoryColor left"></div>
         </div>

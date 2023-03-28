@@ -18,6 +18,8 @@ let task = {
     subtasks: new Array
 }
 
+let currentAlert = 'Something is missing!';
+
 let categories = [];
 
 /**
@@ -63,11 +65,43 @@ async function createTask() {
         CheckPage();
 
     } else {
-        initMsgBoxAlert('Something missing!');
+        initMsgBoxAlert(currentAlert);
         showMissing();
     }
     taskBtnEnabled()
+    currentAlert = 'Something is missing!';
+
 }
+
+function isValidDate() {
+    let date = task.dueDate;
+    if (!date || date.trim() === '') {
+      return 'empty';
+    }
+  
+    const parsedDate = Date.parse(date);
+    if (isNaN(parsedDate)) {
+      return 'NaN';
+    }
+  
+    return 'valid';
+  }
+
+  function DateValidation() {
+    switch (isValidDate()) {
+        case "empty":
+            currentAlert = 'Date is empty';
+            return false;   
+        case 'NaN':
+            currentAlert = 'Date is invalid';
+            return false;  
+        case 'valid':
+            return true;
+        default:
+            break;
+    }
+  }
+  
 
 function CheckPage() {
     if (window.location.pathname == '/addTask.html') {
@@ -144,7 +178,7 @@ function resetBorder() {
  * @returns a boolean value.
  */
 function checkForm() {
-    if (task.category && task.prio && task.dueDate) {
+    if (task.category && task.prio && task.dueDate && DateValidation()) {
         return true;
     } else {
         return false;

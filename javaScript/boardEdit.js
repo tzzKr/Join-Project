@@ -364,12 +364,27 @@ function saveEditedTaskBoard(i) {
 
 function checkEditedForm(i) {
     let task = boardTasks[i];
-    if (task.category && task.prio && task.dueDate && DateValidationEdit()) {
+    if (task.category && task.prio && DateValidationEdit() && isTitleAndDescValid(i)) {
         return true;
     } else {
         return false;
     }
 }
+
+function isTitleAndDescValid(i) {
+    let title = document.getElementById('titleEditBoard').value;
+    let desc = document.getElementById('descriptionEditBoard').value;
+    if (!title || title.trim() === '' || !desc || desc.trim() === '') {
+        title = boardTasks[i].title
+        title = boardTasks[i].description
+
+        currentAlert = 'Title or Description is empty';
+
+        return false;
+      }
+      return true;
+}
+
 function isValidDateEdit() {
     
     let date = document.getElementById('EditDate').value;

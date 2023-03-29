@@ -178,7 +178,7 @@ function resetBorder() {
  * @returns a boolean value.
  */
 function checkForm() {
-    if (task.category && task.prio && task.dueDate && DateValidation()) {
+    if (task.category && task.prio && task.dueDate && DateValidation() && task.title && task.description) {
         return true;
     } else {
         return false;

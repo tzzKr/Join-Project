@@ -92,9 +92,9 @@ function generateTaskInfoHTML(i) {
 function generateTaskHTML(i, boardIndex) {
 
 
-    return /*html*/ `<div draggable="true" onclick="openTaskInfo(${boardIndex})" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
+    return /*html*/ `<div draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
     <div class="categoryContainer">
-        <div  class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
+        <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
         <div class="MobileMoveBtns showOnlyMobileFlex">
             <button class="BoardBtn" onclick="prevBoard(${boardIndex})" id="prevBoard${i}"><img class="prevBoard" src="img/moveArrow.svg" alt=""></button>
             <button class="BoardBtn" onclick="nextBoard(${boardIndex})" id="nxtBoard${i}"><img class="nextBoard" src="img/moveArrow.svg" alt=""></button>

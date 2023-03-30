@@ -105,10 +105,11 @@ async function deleteContact() {
     let index = contacts.indexOf(contacts.find( u => u.name == inputName && u.email == inputEmail && u.phone == inputPhone));
     contacts.splice(index,1);
     await deletContactFromServer();
-    loadContactsFromServer();
+    await loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
     mobileSwitchToContactbook();
     initMsgBox('Contact succesfully deleted');
+    renderContactsAssigndTo();
     closeOverlay();  
 }
 
@@ -138,10 +139,11 @@ async function saveContact(firstIndex, secondIndex) {
     contacts[id].phone = document.getElementById('input-phone').value;
     contacts[id].initials = getInitials(document.getElementById('input-name').value);
     await pushEditedContactToServer();
-    loadContactsFromServer();
+    await loadContactsFromServer();
     document.getElementById('contact-details').innerHTML = '';
     mobileSwitchToContactbook();
     initMsgBox('Contact succesfully changed');
+    renderContactsAssigndTo();
     closeOverlay();
 }
 
@@ -172,8 +174,9 @@ async function createContact() {
         initMsgBox('Contact already exists!');
     } else {
         await pushNewContactToServer(inputName, inputEmail, inputPhone);
-        loadContactsFromServer();
+        await loadContactsFromServer();
         initMsgBox('Contact succesfully created');
+        renderContactsAssigndTo();
         closeOverlay();
     }
 }

@@ -223,7 +223,10 @@ async function getContacts() {
     let userName = sessionStorage.getItem('sessionUser');
     let user = users.find(u => u.name == JSON.parse(userName));
     contacts = user.contacts;
+    setTimeout(() => {
     renderContactsAssigndTo();
+    }, 2000);
+    
 }
 
 

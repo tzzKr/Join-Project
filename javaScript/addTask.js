@@ -121,12 +121,12 @@ function DateValidation() {
  * 5. Render the tasks.
  */
 function CheckPage() {
-    if (window.location.pathname == '/addTask.html') {
+    if (window.location.pathname == '/join/addTask.html') {
         setTimeout(() => {
             goToBoard()
         }, 1000);
     }
-    if (window.location.pathname == '/board.html') {
+    if (window.location.pathname == '/join/board.html') {
         boardTasks = tasks;
         distributeIDs()
         filterdTasks = boardTasks;

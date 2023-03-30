@@ -43,6 +43,10 @@ function goToLegal() {
     window.location.href = 'legal.html';
 }
 
+/**
+ * When the user clicks on the 'Contact' link in the navbar, add the 'navbar-active' class to the
+ * 'Contact' link and the 'Contact' link in the dropdown menu.
+ */
 function addBgrToContactNav() {
     document.getElementById('hover-active4').setAttribute('onclick', '');
     document.getElementById('hover-active8').setAttribute('onclick', '');
@@ -50,6 +54,10 @@ function addBgrToContactNav() {
     document.getElementById('hover-active8').classList.add('navbar-active');
 }
 
+/**
+ * When the user clicks on the 'Add Task' button, the 'Add Task' button and the 'Add Task' dropdown
+ * menu will have a background color.
+ */
 function addBgrToAddTaskNav() {
     document.getElementById('hover-active3').setAttribute('onclick', '');
     document.getElementById('hover-active7').setAttribute('onclick', '');
@@ -57,6 +65,10 @@ function addBgrToAddTaskNav() {
     document.getElementById('hover-active7').classList.add('navbar-active');
 }
 
+/**
+ * When the user clicks on the 'Board' tab, add the 'navbar-active' class to the 'Board' tab and the
+ * 'Board' dropdown menu.
+ */
 function addBgrToBoardNav() {
     document.getElementById('hover-active2').setAttribute('onclick', '');
     document.getElementById('hover-active6').setAttribute('onclick', '');
@@ -64,6 +76,9 @@ function addBgrToBoardNav() {
     document.getElementById('hover-active6').classList.add('navbar-active');
 }
 
+/**
+ * It adds a class to two elements when the page loads.
+ */
 function addBgrToSummaryNav() {
     document.getElementById('hover-active1').setAttribute('onclick', '');
     document.getElementById('hover-active5').setAttribute('onclick', '');
@@ -71,6 +86,9 @@ function addBgrToSummaryNav() {
     document.getElementById('hover-active5').classList.add('navbar-active');
 }
 
+/**
+ * When the user clicks on the 'Legal' link, add the 'navbar-active' class to the 'Legal' link.
+ */
 function addBgrToLegalNav() {
     document.getElementById('hover-active9').setAttribute('onclick', '');
     document.getElementById('hover-active9').classList.add('navbar-active');

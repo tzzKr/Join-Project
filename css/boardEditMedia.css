@@ -158,6 +158,12 @@
         -webkit-box-shadow: none;
         box-shadow: none;
     }
+    .editInfo {
+        justify-content: unset;
+        max-height: unset;
+        height: fit-content;
+        margin-top: 0;
+    }
 
 }
 
@@ -312,5 +318,14 @@
 
     .prio-btns {
         width: 250px;
+    }
+}
+
+@media(max-height: 760px) {
+    .editInfo {
+        justify-content: unset;
+        max-height: unset;
+        height: fit-content;
+        margin-top: 0;
     }
 }

@@ -43,55 +43,55 @@ function goToLegal() {
     window.location.href = 'legal.html';
 }
 
+
 /**
- * When the user clicks on the 'Contact' link in the navbar, add the 'navbar-active' class to the
- * 'Contact' link and the 'Contact' link in the dropdown menu.
+ * It adds the class 'navbar-active' to the elements with the IDs 'el1' and 'el2'.
+ * @param el1 - The first element to add the class to.
+ * @param el2 - The element that you want to add the background to.
+ */
+function addBgrToNav(el1, el2) {
+    document.getElementById(el1).setAttribute('onclick', '');
+    document.getElementById(el2).setAttribute('onclick', '');
+    document.getElementById(el1).classList.add('navbar-active');
+    document.getElementById(el2).classList.add('navbar-active');
+}
+
+/**
+ * When the user hovers over the contact link, add a background color to the contact link and the home
+ * link.
  */
 function addBgrToContactNav() {
-    document.getElementById('hover-active4').setAttribute('onclick', '');
-    document.getElementById('hover-active8').setAttribute('onclick', '');
-    document.getElementById('hover-active4').classList.add('navbar-active');
-    document.getElementById('hover-active8').classList.add('navbar-active');
+  addBgrToNav('hover-active4', 'hover-active8');
 }
 
 /**
- * When the user clicks on the 'Add Task' button, the 'Add Task' button and the 'Add Task' dropdown
- * menu will have a background color.
+ * It adds a background color to the navigation bar when the user hovers over the "Add Task" button.
  */
 function addBgrToAddTaskNav() {
-    document.getElementById('hover-active3').setAttribute('onclick', '');
-    document.getElementById('hover-active7').setAttribute('onclick', '');
-    document.getElementById('hover-active3').classList.add('navbar-active');
-    document.getElementById('hover-active7').classList.add('navbar-active');
+  addBgrToNav('hover-active3', 'hover-active7');
 }
 
 /**
- * When the user clicks on the 'Board' tab, add the 'navbar-active' class to the 'Board' tab and the
- * 'Board' dropdown menu.
+ * It adds a background color to the navigation bar when the user hovers over it.
  */
 function addBgrToBoardNav() {
-    document.getElementById('hover-active2').setAttribute('onclick', '');
-    document.getElementById('hover-active6').setAttribute('onclick', '');
-    document.getElementById('hover-active2').classList.add('navbar-active');
-    document.getElementById('hover-active6').classList.add('navbar-active');
+  addBgrToNav('hover-active2', 'hover-active6');
 }
 
 /**
- * It adds a class to two elements when the page loads.
+ * It adds a background color to the navigation bar when the mouse hovers over it.
  */
 function addBgrToSummaryNav() {
-    document.getElementById('hover-active1').setAttribute('onclick', '');
-    document.getElementById('hover-active5').setAttribute('onclick', '');
-    document.getElementById('hover-active1').classList.add('navbar-active');
-    document.getElementById('hover-active5').classList.add('navbar-active');
+  addBgrToNav('hover-active1', 'hover-active5');
 }
 
 /**
- * When the user clicks on the 'Legal' link, add the 'navbar-active' class to the 'Legal' link.
+ * When the user clicks on the 'Legal' link in the navbar, add the class 'navbar-active' to the 'Legal'
+ * link.
  */
 function addBgrToLegalNav() {
-    document.getElementById('hover-active9').setAttribute('onclick', '');
-    document.getElementById('hover-active9').classList.add('navbar-active');
+  document.getElementById('hover-active9').setAttribute('onclick', '');
+  document.getElementById('hover-active9').classList.add('navbar-active');
 }
 
 /**

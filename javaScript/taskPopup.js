@@ -4,7 +4,7 @@
  * and the element with the id 'task-bgr-popUp'.
  */
 function openTaskPopUp() {
-    let board = document.getElementById('boardBg');
+    let board = window.location.pathname == '/board.html';
     
     document.getElementById('task-popUp').classList.remove('d-none');
     document.getElementById('task-bgr-popUp').classList.remove('d-none');

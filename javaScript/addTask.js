@@ -121,12 +121,12 @@ function DateValidation() {
  * 5. Render the tasks.
  */
 function CheckPage() {
-    if (window.location.pathname == '/addTask.html') {
+    if (window.location.pathname == '/join/addTask.html') {
         setTimeout(() => {
             goToBoard()
         }, 1000);
     }
-    if (window.location.pathname == '/board.html') {
+    if (window.location.pathname == '/join/board.html') {
         boardTasks = tasks;
         distributeIDs()
         filterdTasks = boardTasks;
@@ -192,7 +192,7 @@ function resetBorder() {
  * @returns a boolean value.
  */
 function checkForm() {
-    if (task.category && task.prio && task.dueDate && DateValidation()) {
+    if (task.category && task.prio && task.dueDate && DateValidation() && task.title && task.description) {
         return true;
     } else {
         return false;
@@ -223,7 +223,10 @@ async function getContacts() {
     let userName = sessionStorage.getItem('sessionUser');
     let user = users.find(u => u.name == JSON.parse(userName));
     contacts = user.contacts;
+    setTimeout(() => {
     renderContactsAssigndTo();
+    }, 2000);
+    
 }
 
 

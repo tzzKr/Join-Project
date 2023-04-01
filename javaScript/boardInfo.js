@@ -51,7 +51,7 @@ function renderAssingedUserInfo(i) {
         }
     }
 
-    
+
 }
 
 /**
@@ -93,14 +93,23 @@ function subtaskCheckedInfo(i) {
  * @param i - the index of the task in the array
  */
 function showSelectedBtn(i) {
-    if (boardTasks[i].prio == 'urgent') {
-        document.getElementById("urgentBoardInfo").style.backgroundColor = "#FF3D00";
-        document.getElementById('urgentBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    } else if (boardTasks[i].prio == 'medium') {
-        document.getElementById("mediumBoardInfo").style.backgroundColor = "#FFA800";
-        document.getElementById('mediumBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    } else if (boardTasks[i].prio == 'low') {
-        document.getElementById("lowBoardInfo").style.backgroundColor = "#8BE644";
-        document.getElementById('lowBoardInfo-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    const filterStyle = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+
+    switch (boardTasks[i].prio) {
+        case 'urgent':
+            document.getElementById("urgentBoardInfo").style.backgroundColor = "#FF3D00";
+            document.getElementById('urgentBoardInfo-img').style.filter = filterStyle;
+            break;
+        case 'medium':
+            document.getElementById("mediumBoardInfo").style.backgroundColor = "#FFA800";
+            document.getElementById('mediumBoardInfo-img').style.filter = filterStyle;
+            break;
+        case 'low':
+            document.getElementById("lowBoardInfo").style.backgroundColor = "#8BE644";
+            document.getElementById('lowBoardInfo-img').style.filter = filterStyle;
+            break;
+        default:
+            break;
     }
+
 }

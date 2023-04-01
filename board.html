@@ -28,7 +28,7 @@
     <script src="./javaScript/templates.js"></script>
 </head>
 
-<body  id="boardBg" onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories(), getContacts()">
+<body  id="boardBg" onload="checkLoginStatus(), includeHTML(), loadTasks(), getTaskCatrgories()">
     <header w3-include-html="templates/desktop_template.html"></header>
 
 
@@ -63,7 +63,7 @@
                             <button onclick="filterTasks()" class="searchBtn"><img src="img/search.svg" alt=""></button>
                         </div>
 
-                        <button onclick="openTaskPopUp(), setDate()" class="BoardAddTaskBtn">
+                        <button onclick="openTaskPopUp(), setDate(), getContacts()" class="BoardAddTaskBtn">
                             <p class="taskBtnText">Add task </p>
                             <img src="img/AddSymbol.svg" alt="">
                         </button>

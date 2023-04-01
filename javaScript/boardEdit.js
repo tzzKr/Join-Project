@@ -163,20 +163,21 @@ function resetColorButton() {
  * @param button - the button that was clicked
  */
 function setColorbutton(button) {
+    let white = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
     switch (button.id) {
         case "urgentBoard":
             document.getElementById("urgentBoard").style.backgroundColor = "#FF3D00";
-            document.getElementById('urgentBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            document.getElementById('urgentBoard-img').style.filter = white;
             currentPrio = 'urgentBoard';
             break;
         case "mediumBoard":
             document.getElementById("mediumBoard").style.backgroundColor = "#FFA800";
-            document.getElementById('mediumBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            document.getElementById('mediumBoard-img').style.filter = white;
             currentPrio = 'mediumBoard';
             break;
         case "lowBoard":
             document.getElementById("lowBoard").style.backgroundColor = "#8BE644";
-            document.getElementById('lowBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+            document.getElementById('lowBoard-img').style.filter = white;
             currentPrio = 'lowBoard';
             break;
         default:
@@ -364,12 +365,27 @@ function saveEditedTaskBoard(i) {
 
 function checkEditedForm(i) {
     let task = boardTasks[i];
-    if (task.category && task.prio && task.dueDate && DateValidationEdit()) {
+    if (task.category && task.prio && DateValidationEdit() && isTitleAndDescValid(i)) {
         return true;
     } else {
         return false;
     }
 }
+
+function isTitleAndDescValid(i) {
+    let title = document.getElementById('titleEditBoard').value;
+    let desc = document.getElementById('descriptionEditBoard').value;
+    if (!title || title.trim() === '' || !desc || desc.trim() === '') {
+        title = boardTasks[i].title
+        title = boardTasks[i].description
+
+        currentAlert = 'Title or Description is empty';
+
+        return false;
+      }
+      return true;
+}
+
 function isValidDateEdit() {
     
     let date = document.getElementById('EditDate').value;

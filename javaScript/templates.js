@@ -247,7 +247,7 @@ function generateAssignedContactsHTML(i) {
     document.getElementById('listContactBoard').innerHTML = mergedContacts.map((contact, y) => {
         return /*html*/ `
                 <div class="options-2" onclick="toggleCheckbox('checkboxAssignedToBoard${y + 1}', ${y}, ${i})">
-                    <p id='addedUser${y + 1}'>${contact.name}</p>
+                    <p data-tooltip="${contact.email}" data-flow="top right" id='addedUser${y + 1}'>${contact.name}</p>
                     <input id="checkboxAssignedToBoard${y + 1}"
                         class="checkbox" type="checkbox" ${contact.status ? 'checked' : ''}
                         style="pointer-events: none;"> 

@@ -1,14 +1,11 @@
 let mergedContacts = [];
 let currentPrio;
 
-
 /**
  * It opens a modal window with a form to edit a task.
  * @param i - the index of the task in the filtered array
  */
 function openEditTool(i) {
-    // let task = boardTasks.find(t => t.id == filterdTasks[i].id);
-    // let index = boardTasks.indexOf(task);
     document.getElementById('taskInfoContainer').innerHTML = generateEditBoardTask(i);
     document.getElementById('moreInfoBg').classList.remove('d-none')
     document.getElementById('backgroundCloser').classList.add('d-none')
@@ -36,9 +33,6 @@ function renderNewCategoryBoard() {
     }
 }
 
-
-
-
 /**
  * It adds the class 'd-none' to the elements with the IDs 'moreInfoBg' and 'editInfo' and then calls
  * the function renderTodos(boardTasks) and sets the variable numberAssingendUserEdit to 0.
@@ -53,9 +47,6 @@ function closeEditTool() {
     numberAssingendUserEdit = 0;
 }
 
-
-
-
 /**
  * It takes the index of the task that is being edited, and then loops through the subtasks of that
  * task, and then generates the HTML for each subtask
@@ -64,7 +55,6 @@ function closeEditTool() {
 function renderSubTasksEdit(i) {
     const subTaskContainerEdit = document.getElementById('subTaskContainerEdit');
     subTaskContainerEdit.innerHTML = '';
-
     for (let y = 0; y < boardTasks[i].subtasks.length; y++) {
         const subtaskHTML = generateSubtaskBoard(i, y, boardTasks[i].subtasks[y]);
         subTaskContainerEdit.innerHTML += subtaskHTML;
@@ -83,27 +73,38 @@ function deleteTask(i) {
     distributeIDs()
     saveTasks();
     renderTodos(boardTasks);
-    initMsgBox('successfully deleted')
-    
+    initMsgBox('successfully deleted') 
 }
 
-
-
 /**
- * It showes the current selected priority of the Task
+ * Depending on the prio it calls a function to change the style of a button element.
  * @param i - the index of the task in the array
  */
 function showSelectedBtnEdit(i) {
-    if (boardTasks[i].prio == 'urgent') {
-        document.getElementById("urgentBoard").style.backgroundColor = "#FF3D00";
-        document.getElementById('urgentBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    } else if (boardTasks[i].prio == 'medium') {
-        document.getElementById("mediumBoard").style.backgroundColor = "#FFA800";
-        document.getElementById('mediumBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
-    } else if (boardTasks[i].prio == 'low') {
-        document.getElementById("lowBoard").style.backgroundColor = "#8BE644";
-        document.getElementById('lowBoard-img').style.filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    switch (boardTasks[i].prio) {
+        case 'urgent':
+            changeUrgencyBtnEditStyle(boardTasks[i].prio, '#FF3D00')
+            break;
+        case 'medium':
+            changeUrgencyBtnEditStyle(boardTasks[i].prio, '#FFA800')
+            break;
+        case 'low':
+            changeUrgencyBtnEditStyle(boardTasks[i].prio, '#8BE644')
+            break;
+        default:
+            break;
     }
+}
+
+/**
+ * It changes the background color of the element and the image filter of the image inside the element.
+ * @param {string} urgency - starting string of the id
+ * @param {string} color - string for the background color
+ */
+function changeUrgencyBtnEditStyle(urgency, color) {
+    const filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById(urgency + 'Board').style.backgroundColor = color;
+    document.getElementById(urgency + 'Board-img').style.filter = filter;
 }
 
 /**
@@ -163,26 +164,26 @@ function resetColorButton() {
  * @param button - the button that was clicked
  */
 function setColorbutton(button) {
-    let white = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
     switch (button.id) {
         case "urgentBoard":
-            document.getElementById("urgentBoard").style.backgroundColor = "#FF3D00";
-            document.getElementById('urgentBoard-img').style.filter = white;
-            currentPrio = 'urgentBoard';
+            setColorBtnStyle(button.id,'#FF3D00');
             break;
         case "mediumBoard":
-            document.getElementById("mediumBoard").style.backgroundColor = "#FFA800";
-            document.getElementById('mediumBoard-img').style.filter = white;
-            currentPrio = 'mediumBoard';
+            setColorBtnStyle(button.id,'#FFA800');
             break;
         case "lowBoard":
-            document.getElementById("lowBoard").style.backgroundColor = "#8BE644";
-            document.getElementById('lowBoard-img').style.filter = white;
-            currentPrio = 'lowBoard';
+            setColorBtnStyle(button.id,'#8BE644');
             break;
         default:
             break;
     }
+}
+
+function setColorBtnStyle(id,color) {
+    let filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
+    document.getElementById(id).style.backgroundColor = color;
+    document.getElementById(id + '-img').style.filter = filter;
+    currentPrio = id;
 }
 
 /**
@@ -215,7 +216,6 @@ function mergeContacts(array1, array2, uniqueContacts) {
     }
 }
 
-
 /**
  * If the checkbox exists, toggle it and update the assigned status.
  * @param checkBoxId - the id of the checkbox that was clicked
@@ -227,7 +227,6 @@ function toggleCheckbox(checkBoxId, mergedId, boardId) {
     if (checkbox) {
         checkbox.checked = !checkbox.checked;
         updateAssignedStatus(checkBoxId, mergedId, boardId);
-        
     }
 }
 
@@ -247,46 +246,31 @@ function updateAssignedStatus(checkBoxId, mergedId, boardId) {
 /**
  * Updates the counter for the number of assigned contacts based on the given addition parameter
  * and updates the display on the user interface.
- * 
  * @param {boolean} addition - If true, increases the counter by 1; if false, decreases the counter by 1.
  */
 function updateAssignedCounter(addition) {
-    // Updates the counter for the number of assigned contacts based on the addition parameter.
     numberAssingendUserEdit += addition ? 1 : -1;
-
-    // Sets the default text for the case when no contacts are assigned.
     let text = `Select contacts to assign`;
-
-    // If at least one contact is assigned, updates the text according to the number of assigned contacts.
     if (numberAssingendUserEdit > 0) {
         text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
     }
-
-    // Updates the user interface with the updated text.
     document.getElementById('contactNumberBoard').innerHTML = text;
 }
 
-
 /**
  * Updates the assigned contacts of a board task by adding or removing the specified contact.
- *
  * @param {number} mergedId - The index of the contact within the mergedContacts list.
  * @param {number} boardId - The index of the board task within the boardTasks list.
  * @param {boolean} addition - If true, adds the contact to the assigned contacts; if false, removes the contact.
  */
 function updateBoardTaskAssignment(mergedId, boardId, addition) {
-    // Update the status of the contact in mergedContacts.
     mergedContacts[mergedId].status = addition;
-
-    // If addition is true, add the contact to the assigned contacts of the board task.
     if (addition) {
         boardTasks[boardId].assignedTo.push(mergedContacts[mergedId]);
     } else {
-        // If addition is false, remove the contact from the assigned contacts of the board task.
         boardTasks[boardId].assignedTo = boardTasks[boardId].assignedTo.filter(contact => contact !== mergedContacts[mergedId]);
     }
 }
-
 
 /**
  * Generates the list of assigned contacts for a specific task and updates the user interface.
@@ -294,25 +278,17 @@ function updateBoardTaskAssignment(mergedId, boardId, addition) {
  * @param {number} i - The index of the current task within the boardTasks list.
  */
 function generateAssignedContacts(i) {
-    // Resets the counter for the number of assigned contacts.
     numberAssingendUserEdit = 0;
-
-    // Iterates through all assigned contacts of the current task.
     boardTasks[i].assignedTo.forEach(assigned => {
         let matchId = mergedContacts.indexOf(mergedContacts.find(u => u.email == assigned.email));
         mergedContacts[matchId].status = true;
         numberAssingendUserEdit++;
     });
-
     // Updates the counter based on the current number of assigned users.
     updateAssignedCounter();
-
     // Generates the HTML for the list of assigned contacts and updates the user interface.
     generateAssignedContactsHTML(i)
 }
-
-
-
 
 /**
  * Updates the counter for the number of assigned contacts and updates the display on the user interface.
@@ -322,24 +298,13 @@ function generateAssignedContacts(i) {
  *                                 If no value is provided, the counter remains unchanged.
  */
 function updateAssignedCounter(addition = 0) {
-    // Updates the counter for the number of assigned contacts based on the incremental value.
     numberAssingendUserEdit += addition;
-
-    // Sets the default text for the case when no contacts are assigned.
     let text = `Select contacts to assign`;
-
-    // If at least one contact is assigned, updates the text according to the number of assigned contacts.
     if (numberAssingendUserEdit > 0) {
         text = `${numberAssingendUserEdit} contact${numberAssingendUserEdit > 1 ? 's' : ''} assigned`;
     }
-
-    // Updates the user interface with the updated text.
     document.getElementById('contactNumberBoard').innerHTML = text;
 }
-
-
-
-
 
 /**
  * It takes the index of the task to be edited, pushes the edited task to the boardTasks array, closes
@@ -347,7 +312,6 @@ function updateAssignedCounter(addition = 0) {
  * @param i - the index of the task in the array
  */
 function saveEditedTaskBoard(i) {
-
     if (checkEditedForm(i)) {
         pushToBoardTask(i);
         closeEditTool();
@@ -356,11 +320,8 @@ function saveEditedTaskBoard(i) {
         initMsgBox('Task edited!');
     } else {
         initMsgBoxAlert(currentAlert);
-
-    }
-    
-    currentAlert = 'Something is missing!';
-    
+    }  
+    currentAlert = 'Something is missing!'; 
 }
 
 function checkEditedForm(i) {
@@ -378,26 +339,21 @@ function isTitleAndDescValid(i) {
     if (!title || title.trim() === '' || !desc || desc.trim() === '') {
         title = boardTasks[i].title
         title = boardTasks[i].description
-
         currentAlert = 'Title or Description is empty';
-
         return false;
       }
       return true;
 }
 
 function isValidDateEdit() {
-    
     let date = document.getElementById('EditDate').value;
     if (!date || date.trim() === '') {
       return 'empty';
     }
-  
     const parsedDate = Date.parse(date);
     if (isNaN(parsedDate)) {
       return 'NaN';
     }
-  
     return 'valid';
   }
 
@@ -414,9 +370,8 @@ function isValidDateEdit() {
         default:
             break;
     }
-  }
+}
   
-
 /**
  * It takes the values from the input fields and puts them into the array.
  * @param i - the index of the task in the array
@@ -429,4 +384,3 @@ function pushToBoardTask(i) {
     boardTasks[i].dueDate = document.getElementById('EditDate').value
     boardTasks[i].prio = currentPrio.replace('Board', '');
 }
-

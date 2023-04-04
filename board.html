@@ -23,6 +23,7 @@
     <script src="./javaScript/mobileBoard.js"></script>
     <script src="./javaScript/taskPopup.js"></script>
     <script src="./javaScript/addTask.js"></script>
+    <script src="./javaScript/createTask.js"></script>
     <script src="./javaScript/editCategoryBoard.js"></script>
     <script src="./javaScript/navbar.js"></script>
     <script src="./javaScript/templates.js"></script>
@@ -92,7 +93,7 @@
                         <h2>To do</h2>
                         <img  onclick="openTaskPopUp(), setDate(),changeBoard('todo')" src="img/plusbuttonv1.svg" class="addTaskPlusImg">
                     </div>
-                    <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('todo'), toggleDragAreas()"
+                    <div class="singleBoards" ondrop="moveTo('todo'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="todo">
                     </div>
                 </div>
@@ -102,7 +103,7 @@
                         <img onclick="openTaskPopUp(), setDate(),changeBoard('inProgress')" src="img/plusbuttonv1.svg" class="addTaskPlusImg">
 
                     </div>
-                    <div class="singleBoards" ondragstart="toggleDragAreas()"
+                    <div class="singleBoards"
                         ondrop="moveTo('inProgress'), toggleDragAreas()" ondragover="allowDrop(event)" id="inProgress">
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                         <img onclick="openTaskPopUp(), setDate(),changeBoard('testing')" src="img/plusbuttonv1.svg" class="addTaskPlusImg">
 
                     </div>
-                    <div class="singleBoards" ondragstart="toggleDragAreas()"
+                    <div class="singleBoards"
                         ondrop="moveTo('testing'), toggleDragAreas()" ondragover="allowDrop(event)" id="testing">
                     </div>
                 </div>
@@ -122,7 +123,7 @@
                         <img onclick="openTaskPopUp(), setDate(),changeBoard('done')" src="img/plusbuttonv1.svg" class="addTaskPlusImg">
 
                     </div>
-                    <div class="singleBoards" ondragstart="toggleDragAreas()" ondrop="moveTo('done'), toggleDragAreas()"
+                    <div class="singleBoards" ondrop="moveTo('done'), toggleDragAreas()"
                         ondragover="allowDrop(event)" id="done">
                     </div>
                 </div>

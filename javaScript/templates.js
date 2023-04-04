@@ -90,9 +90,7 @@ function generateTaskInfoHTML(i) {
 }
 
 function generateTaskHTML(i, boardIndex) {
-
-
-    return /*html*/ `<div draggable="true" ondragstart="startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
+    return /*html*/ `<div draggable="true" ondragstart=" toggleDragAreas(), startDragging(${boardTasks[boardIndex]['id']})" class="boardTask">
     <div class="categoryContainer">
         <div onclick="openTaskInfo(${boardIndex})" class="categoryTag" style="background-color: ${boardTasks[boardIndex]['categoryColor']}"> ${boardTasks[boardIndex]['category']} </div>
         <div class="MobileMoveBtns showOnlyMobileFlex">

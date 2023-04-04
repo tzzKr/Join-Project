@@ -5,7 +5,6 @@
  */
 function openTaskPopUp() {
     let board = window.location.pathname == '/board.html';
-    
     document.getElementById('task-popUp').classList.remove('d-none');
     document.getElementById('task-bgr-popUp').classList.remove('d-none');
     if (board) {
@@ -13,21 +12,15 @@ function openTaskPopUp() {
     }
 }
 
-
 /**
  * It adds the class 'd-none' to the element with the id 'task-popUp' and the element with the id
  * 'task-bgr-popUp' and then calls the function 'cancelTask()'.
  */
 function closeTaskPopUp() {
     let board = document.getElementById('boardBg');
-
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
-
-    if (board) {
-        document.getElementById('boardBg').classList.remove('noScroll');
-    }
-    
+    if (board) document.getElementById('boardBg').classList.remove('noScroll');
     cancelTask();
 }
 

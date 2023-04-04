@@ -1,3 +1,9 @@
+@media (max-width: 1385px) {
+    .boardLists {
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 760px) {
 
     .boardLists {

@@ -18,7 +18,6 @@ async function login() {
     }
  }
 
-
 /**
  * When the user clicks the button, the function will set the sessionStorage item 'sessionUser' to the
  * string 'Guest' and then redirect the user to the summary.html page.

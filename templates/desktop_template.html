@@ -17,8 +17,8 @@
 <body>
 
     <div class="header-line">
-        <div class="logo-img" onclick="goToAddTask()">
-            <a href="#"><img src="img/logo-black.svg"></a>
+        <div class="logo-img" onclick="goTo('summary.html')">
+            <a><img src="img/logo-black.svg"></a>
         </div>
         <span class="kanban-text">Kanban Project Managment Tool</span>
 
@@ -28,11 +28,11 @@
                 <span id="profile-init"></span>
             </div>
             <div class="logOut-container d-none" id="logOutContainer">
-                <div onclick="deleteSessionUser(), goToLogIn()" class="logout-element">
+                <div onclick="deleteSessionUser(), goTo('index.html')" class="logout-element">
                     Log out
                 </div>
                 <div class="horizon-line display-none"></div>
-                <div onclick="goToLegal()" class="legal-notice-element display-none">
+                <div onclick="goTo('legal.html')" class="legal-notice-element display-none">
                     Legal notice
                 </div>
                 
@@ -43,23 +43,23 @@
 
         <div class="headerTop">
 
-            <a href="#"><img class="headerTop-img" src="img/Capa 1.svg"></a>
+            <a onclick="goTo('summary.html')"><img class="headerTop-img" src="img/Capa 1.svg"></a>
 
             <div class="navbar">
 
-                <div onclick="goToSummary()" id="hover-active1">
+                <div onclick="goTo('summary.html')" id="hover-active1">
                     <img src="img/summary.svg">
                     <span>Summary</span>
                 </div>
-                <div onclick="goToBoard()" id="hover-active2">
+                <div onclick="goTo('board.html')" id="hover-active2">
                     <img src="img/board.svg">
                     <span>Board</span>
                 </div>
-                <div onclick="goToAddTask()" id="hover-active3">
+                <div onclick="goTo('addTask.html')" id="hover-active3">
                     <img src="img/addTask.svg">
                     <span>Add Task</span>
                 </div>
-                <div onclick="goToContacts()" id="hover-active4">
+                <div onclick="goTo('contacts.html')" id="hover-active4">
                     <img src="img/contacts.svg">
                     <span>Contacts</span>
                 </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="navbar">
-            <div onclick="goToLegal()" id="hover-active9">
+            <div onclick="goTo('legal.html')" id="hover-active9">
                 <img src="img/exclamationMark.svg">
                 <span>Legal notice</span>
             </div>
@@ -76,19 +76,19 @@
     </div>
 
     <div class="mobile-menu-container display-none">
-        <div onclick="goToSummary()" id="hover-active5" class="mobile-menu">
+        <div onclick="goTo('summary.html')" id="hover-active5" class="mobile-menu">
             <img src="img/summary.svg">
             <span>Summary</span>
         </div>
-        <div onclick="goToBoard()" id="hover-active6" class="mobile-menu">
+        <div onclick="goTo('board.html')" id="hover-active6" class="mobile-menu">
             <img src="img/board.svg">
             <span>Board</span>
         </div>
-        <div onclick="goToAddTask()" id="hover-active7" class="mobile-menu">
+        <div onclick="goTo('addTask.html')" id="hover-active7" class="mobile-menu">
             <img src="img/addTask.svg">
             <span>Add Task</span>
         </div>
-        <div onclick="goToContacts()" id="hover-active8" class="mobile-menu">
+        <div onclick="goTo('contacts.html')" id="hover-active8" class="mobile-menu">
             <img src="img/contacts.svg">
             <span>Contacts</span>
         </div>

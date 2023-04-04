@@ -1,6 +1,5 @@
 let x = window.matchMedia("(max-width: 760px)")
 
-
 /**
  * If the screen is less than 768px wide, hide the boardParent div.
  * @returns Nothing.
@@ -27,7 +26,6 @@ function closeMobileInfo() {
  * @param i - the index of the task in the array
  */
 function nextBoard(i) {
-    
     switch (boardTasks[i].board) {
         case "todo":
             boardTasks[i].board = "inProgress"
@@ -39,7 +37,6 @@ function nextBoard(i) {
             boardTasks[i].board = "done"
             boardSection = 'done';
             allowPush(i);
-
             break;
         case "done":
             break;
@@ -47,7 +44,6 @@ function nextBoard(i) {
             break;
     }
     saveTasks();
-
     renderTodos(boardTasks);
 }
 
@@ -68,7 +64,6 @@ function prevBoard(i) {
             break;
         case "done":
             boardTasks[i].board = "testing"
-
             break;
         default:
             break;
@@ -77,7 +72,6 @@ function prevBoard(i) {
     renderTodos(boardTasks);
 }
 
-
 /**
  * If the board is todo, hide the previous board button. If the board is done, hide the next board
  * button.
@@ -85,10 +79,8 @@ function prevBoard(i) {
  * @param tasks - the array of objects
  */
 function checkBoardPosition(i, tasks) {
-    if (tasks[i].board == 'todo') {
+    if (tasks[i].board == 'todo') 
         document.getElementById('prevBoard'+i).classList.add('d-none')
-    }
-    if (tasks[i].board == 'done') {
+    if (tasks[i].board == 'done') 
         document.getElementById('nxtBoard'+i).classList.add('d-none')
-    }
 }

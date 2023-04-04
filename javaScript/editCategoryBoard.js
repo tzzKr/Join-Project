@@ -27,7 +27,6 @@ function toggleSelectionBoard() {
     setTimeout(() => {
         document.getElementById('listBoard').classList.toggle('growIn');
     }, 200);
-
 }
 
 /**
@@ -39,7 +38,6 @@ function newCategoryBoard() {
     document.getElementById('colorSelectionBoard').classList.remove('d-none');
     document.getElementById('selectFieldBoard').classList.add('d-none');
     document.getElementById('listBoard').classList.add('d-none');
-
 }
 
 /**
@@ -67,9 +65,7 @@ function createCategoryBoard() {
     categoryInput = categoryInput.charAt(0).toUpperCase() + categoryInput.slice(1);
     if (categoryInput && !checkCategoryExistence(categoryInput) && checkColorSelectedBoard()) {
         categories.push({ name: categoryInput, color: pickedColor });
-
         collectFunktion(pickedColor);
-
     } else if (checkColorSelected() && !categoryInput) {
         initMsgBoxAlert('Please enter a category name');
     } else {
@@ -107,7 +103,6 @@ function collectFunktion(color) {
     resetSelectedColorBoard();
     toggleSelectionBoard();
 }
-
 
 /**
  * It takes a name and color, saves it in an object, and then displays it in the DOM.

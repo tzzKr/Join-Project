@@ -2,7 +2,6 @@ let tasks;
 
 /**
  * Renders an individual greeting message to the user or guest
- * 
  */
 function renderGreetingMessage() {
     let sessionUser = getSessionUser();
@@ -19,27 +18,21 @@ function renderGreetingMessage() {
 
 /**
  * Checks what time in the day it is to return a fitting message.
- * 
  * @returns A string depending on what time in the day it is (Good morning/afternoon/evening)
  */
 function getGreeting() {
     let time = new Date();
     time = time.getHours();
-    
-    if(time >= 5 && time < 12) {
+    if(time >= 5 && time < 12)
         return 'Good morning';
-    }
-    if(time >= 12 && time < 18) {
+    if(time >= 12 && time < 18)
         return 'Good afternoon';
-    }
-    if((time >= 18 && time < 24) || (time >= 0 && time < 5)) {
+    if((time >= 18 && time < 24) || (time >= 0 && time < 5))
         return 'Good evening';
-    }
 }
 
 /**
  * Loading task array from server
- *  
  */
 async function loadTasksFromServer() {
     await downloadFromServer();
@@ -47,10 +40,8 @@ async function loadTasksFromServer() {
     renderSummaryInformations();
 }
 
-
 /**
  * Rendering task informations in the summary boards
- * 
  */
 function renderSummaryInformations() {
     document.getElementById('tasksInBoard').innerHTML = tasks.length;
@@ -64,7 +55,6 @@ function renderSummaryInformations() {
 
 /**
  * Gets you the number how often a value is counted in tasks[i].subelement
- * 
  * @param {string} subelement - subelement thats stored inside the task object in the tasks array 
  * @param {string} value - value that you wanne search for
  * @returns the count number 
@@ -78,7 +68,6 @@ function getOccurrence(subelement, value) {
 /**
  * After filtering the tasks that are not done yet thru the priority urgent, 
  * it comperse the due dates and return the upcoming date 
- * 
  * @returns The next due date a task has thats in the board and not done yet
  */
 function getNextUrgentDueDate() {
@@ -99,7 +88,6 @@ function getNextUrgentDueDate() {
 
 /**
  * Checks if the window size is equal or less than 760px and than execute code in it.
- * 
  */
 function mobileOperator() {
     if(window.innerWidth <= 760) {
@@ -112,7 +100,6 @@ function mobileOperator() {
 
 /**
  * Disabled the welcome message element
- * 
  */
 function mobileGreetingDisapparator() {
     document.getElementById('welcome-message').style.width = '0px';

@@ -214,7 +214,7 @@ h1 {
 .boardLists {
   display: flex;
   justify-content: space-between;
-  overflow-x: auto;
+  
   height: calc(100vh - 250px);
   padding: 0px 5px 0 5px;
   column-gap: 25px;
@@ -241,12 +241,9 @@ h1 {
   margin-left: -10px;
   padding-left: 10px;
   padding-bottom: 10px;
-  position: sticky;
+  
   box-sizing: border-box;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  
   background-color: #F5F5F5;
 }
 

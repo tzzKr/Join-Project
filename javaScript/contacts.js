@@ -1,10 +1,8 @@
 let sessionUser = getSessionUser();
-// let contacts = [];
 let orderedContacts = new Array([],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]);
 let colorRangeContacts = ['#FF7A00','#9327FF','#29ABE2','#FC71FF','#02CF2F','#AF1616','#462F8A'];
 /**
  * Sorts contacts by alphabetical order into orderedContacts and then executes renderCpntacts()
- * 
  */
 function orderContacts() {
     for(let i = 0; i < contacts.length; i++) {
@@ -20,7 +18,6 @@ function orderContacts() {
 
 /**
  * Using orderedContacts, contact elements are rendered on the HTML Page
- * 
  */
 function renderContactbook() {
     document.getElementById('contact-book').innerHTML = '';
@@ -36,13 +33,8 @@ function renderContactbook() {
     }
 }
 
-
-
-
-
 /**
  * Using orderedContacts, detailed contact elements are rendered on the HTML Page
- * 
  * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
  * @param {number} secondIndex - position inside the upper letter array
  */
@@ -65,7 +57,6 @@ function addContactanimation() {
 
 /**
  * Opens the Edit/Create Overlay
- * 
  */
 function openOverlay() {
     document.getElementById('page-mask').classList.remove('d-none');
@@ -74,7 +65,6 @@ function openOverlay() {
 
 /**
  * Close the Edit/Create Overlay
- * 
  */
 function closeOverlay() {
     document.getElementById('page-mask').classList.add('d-none');
@@ -83,7 +73,6 @@ function closeOverlay() {
 
 /**
  * Change the overlay content for editing a contact
- * 
  * @param {number} firstIndex - indicates with wich letter the contact name begins (0=a...25=z; ä,ü,ö -> ae,ue,oe)
  * @param {number} secondIndex - position inside the upper letter array
  */
@@ -96,7 +85,6 @@ function changeOverlayToEditContact(firstIndex, secondIndex) {
 
 /**
  * Delete a Contact from the Array
- * 
  */
 async function deleteContact() {
     let inputName = document.getElementById('input-name').value;
@@ -115,7 +103,6 @@ async function deleteContact() {
 
 /**
  * Overrides the users object from the server with the chenged one.
- * 
  */
 async function deletContactFromServer() {
     let users = JSON.parse(backend.getItem('users')) || [];
@@ -202,7 +189,6 @@ async function pushNewContactToServer(inputName, inputEmail, inputPhone) {
 
 /**
  * Load contacts from server
- * 
  */
 async function loadContactsFromServer() {
     await downloadFromServer();
@@ -219,7 +205,6 @@ async function loadContactsFromServer() {
 
 /**
  * Change the overlay content for creating a new contact
- * 
  */
 function changeOverlayToNewContact() {
     document.getElementById('contact-overlay').innerHTML = '';
@@ -265,7 +250,6 @@ function mobileSwitchToContactbook() {
 
 /**
  * Resets the Mobile Version to Desktop Version
- * 
  */
 function resetMobile() {
     document.getElementById('content').style.display = 'flex';

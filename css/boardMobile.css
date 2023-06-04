@@ -47,6 +47,7 @@
 
     .titelStyle {
         width: auto;
+        margin-right: 20px;
     }
 
     .BoardAddTaskBtn {

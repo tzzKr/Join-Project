@@ -18,6 +18,12 @@ let task = {
 }
 let currentAlert = 'Something is missing!';
 let categories = [];
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //Januar ist 0!
+let yyyy = today.getFullYear();
+
+
 
 /**
  * Load the tasks from the server, and if there are none, set the tasks to an empty array.
@@ -222,6 +228,7 @@ function changePriority(button) {
 function changePrioBtnStyle(id, color) {
     let filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
     document.getElementById(id).style.backgroundColor = color;
+    document.getElementById(id).style.color = '#FFFFFF';
     document.getElementById(id + '-img').style.filter = filter;
     task.prio = id;
 }
@@ -244,6 +251,9 @@ function resetColorPriority() {
     document.getElementById("urgent").style.backgroundColor = "#FFFFFF";
     document.getElementById("medium").style.backgroundColor = "#FFFFFF";
     document.getElementById("low").style.backgroundColor = "#FFFFFF";
+    document.getElementById("urgent").style.color = "#000000";
+    document.getElementById("medium").style.color = "#000000";
+    document.getElementById("low").style.color = "#000000";
     resetFilterImgPriority();
 }
 
@@ -275,6 +285,8 @@ function addDate() {
     date.toString(date);
     task.dueDate = date;
     resetBorder();
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("date").setAttribute("min", today);
 }
 
 /**

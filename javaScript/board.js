@@ -6,6 +6,11 @@ let categoriesBoard = [];
 let contactsBoard;
 let colors = [];
 let boardSection;
+let todayBoard = new Date();
+let ddBoard = String(todayBoard.getDate()).padStart(2, '0');
+let mmBoard = String(todayBoard.getMonth() + 1).padStart(2, '0'); //Januar ist 0!
+let yyyyBoard = todayBoard.getFullYear();
+
 
 /**
  * Get the contacts assigned to the board with the index i and render them.

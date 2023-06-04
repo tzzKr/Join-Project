@@ -461,12 +461,13 @@
     font-weight: 400;
     font-size: 21px;
     color: #2A3647;
+    background-color: rgb(210, 113, 113);
 }
 
 .overlayCancelBtn:hover {
-    color: #29ABE2;
-    border-color: #29ABE2;
+    color: #ffd8d8;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
 }
 
 .overlayCancelBtn img {
@@ -475,7 +476,7 @@
 }
 
 .overlayCancelBtn:hover img {
-    filter: brightness(0) saturate(100%) invert(73%) sepia(69%) saturate(3444%) hue-rotate(166deg) brightness(90%) contrast(97%);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(69%) saturate(3444%) hue-rotate(166deg) brightness(900%) contrast(97%);
 }
 
 .overlayActionBtn {
@@ -663,6 +664,7 @@
     }
     .overlayCancelBtn {
         left: calc(50% + 230px - 184px);
+        height: 56px;
     }
     .contactBook {
         height: 100%;
@@ -698,6 +700,7 @@
     }
     .contactName {
         font-size: 30px;
+        word-break: unset;
     }
     .contactInformationTitle {
         font-size: 18px;

@@ -60,12 +60,12 @@ function DateValidation() {
  * If the user is on the board.html page, close the Popup and rerender the board Taks.
  */
 function CheckPage() {
-    if (window.location.pathname == '/join/addTask.html') {
+    if (window.location.pathname == '/addTask.html') {
         setTimeout(() => {
             goTo('board.html')
         }, 1000);
     }
-    if (window.location.pathname == '/join/board.html') {
+    if (window.location.pathname == '/board.html') {
         boardTasks = tasks;
         distributeIDs()
         filterdTasks = boardTasks;

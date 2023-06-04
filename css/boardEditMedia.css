@@ -129,6 +129,7 @@
     }
 
     .create-task-btn {
+        margin-right: 80px;
         position: fixed;
         z-index: 999;
         top: 10px;

@@ -294,29 +294,3 @@
         scale: 0.45;
     }
 }
-
-/* @media (max-height: 760px) and (min-width: 1000px) {
-    .cardContainer {
-        scale: 0.7;
-    }
-    .content {
-        height: 400px;
-        gap: 0px;
-    }
-    .headline h1 {
-        margin-top: 10px;
-    }
-}
-
-@media (max-height: 760px) and (min-width: 900px) {
-    .cardContainer {
-        scale: 0.5;
-    }
-    .content {
-        height: 400px;
-        gap: 0px;
-    }
-    .headline h1 {
-        margin-top: 10px;
-    } 
-}*/

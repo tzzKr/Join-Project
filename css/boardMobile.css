@@ -16,7 +16,7 @@
 
     .singleBoards {
         min-height: 250px;
-        width: 100%;
+        width: calc(100vw - 50px);
         flex-direction: row;
         overflow: auto;
         border-radius: 20px;

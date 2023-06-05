@@ -125,7 +125,7 @@ function initMsgBox(msg) {
 
 function ToBoard() {
     if (document.getElementById('msgBox').innerHTML == 'New Task added to Board!') {
-        goToBoard();
+        goTo('board.html');
     } else {
         return
     }

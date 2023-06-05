@@ -110,5 +110,7 @@ function showSelectedBtn(i) {
 function changeUrgencyBtnInfoStyle(urgency, color) {
     const filter = 'invert(100%) sepia(5%) saturate(0%) hue-rotate(352deg) brightness(1000%) contrast(105%)';
     document.getElementById(urgency + 'BoardInfo').style.backgroundColor = color;
+    document.getElementById(urgency + 'BoardInfo').style.color = 'white';
     document.getElementById(urgency + 'BoardInfo-img').style.filter = filter;
+
 }

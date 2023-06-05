@@ -60,12 +60,12 @@ function DateValidation() {
  * If the user is on the board.html page, close the Popup and rerender the board Taks.
  */
 function CheckPage() {
-    if (window.location.pathname == '/addTask.html') {
+    if (window.location.pathname == '/Programming/Projekte/modul_10/Join-Project/addTask.html') {
         setTimeout(() => {
             goTo('board.html')
         }, 1000);
     }
-    if (window.location.pathname == '/board.html') {
+    if (window.location.pathname == '/Programming/Projekte/modul_10/Join-Project/board.html') {
         boardTasks = tasks;
         distributeIDs()
         filterdTasks = boardTasks;
@@ -78,7 +78,7 @@ function CheckPage() {
  * It closes the task pop up window and resets the form.
  */
 function closeTaskPopUp() {
-    let board = window.location.pathname == '/board.html';
+    let board = window.location.pathname == '/Programming/Projekte/modul_10/Join-Project/board.html';
     document.getElementById('task-popUp').classList.add('d-none');
     document.getElementById('task-bgr-popUp').classList.add('d-none');
     if (board) {

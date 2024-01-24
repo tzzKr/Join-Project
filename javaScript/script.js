@@ -1,4 +1,4 @@
-setURL('https://gerhard-baliet.developerakademie.net/Programming/Projekte/modul_10/smallest_backend_ever');
+setURL('https://gerhardbaliet.de/smallest_backend_ever');
 
 
 let guest = [];

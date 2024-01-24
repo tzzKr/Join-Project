@@ -29,6 +29,7 @@ h1 {
 .boardMobileAddTaskBtn {
   display: none;
 }
+
 .parentContainer {
   margin-left: 252px !important;
 }
@@ -104,6 +105,7 @@ h1 {
   width: 50px;
   height: 50px;
 }
+
 .BoardBtn {
   height: 35px;
   width: 35px;
@@ -218,19 +220,22 @@ h1 {
   height: calc(100vh - 250px);
   padding: 0px 5px 0 5px;
   column-gap: 25px;
+  overflow-x: scroll;
 }
+
 .categoryContainer {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .nextBoard {
   transform: rotate(180deg);
-    filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
+  filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
 }
+
 .prevBoard {
   padding-bottom: 4px;
-    filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
+  filter: brightness(0) saturate(100%) invert(0%) sepia(1%) saturate(2061%) hue-rotate(87deg) brightness(103%) contrast(98%);
 }
 
 .titelStyle {
@@ -260,10 +265,10 @@ h1 {
 }
 
 .singleBoards {
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   width: 250px;
   height: 100%;
-  
+
   flex-direction: column;
   border-radius: 25px;
   row-gap: 35px;

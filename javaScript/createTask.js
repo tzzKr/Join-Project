@@ -18,6 +18,7 @@ async function createTask() {
     }
     taskBtnEnabled()
     currentAlert = 'Something is missing!';
+    location.reload();
 }
 
 /**

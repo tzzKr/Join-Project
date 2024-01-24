@@ -70,9 +70,9 @@ function filterTasks() {
 }
 
 function includesSearch(t, search) {
-    return  t.title.toLowerCase().startsWith(search) || 
-            t.description.toLowerCase().startsWith(search) ||
-            t.category.toLowerCase().startsWith(search)
+    return  t.title.toLowerCase().includes(search) || 
+            t.description.toLowerCase().includes(search) ||
+            t.category.toLowerCase().includes(search)
 }
 
 /**
